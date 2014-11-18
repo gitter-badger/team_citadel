@@ -47,12 +47,11 @@
 				    		<span class="caret"></span>
 			    		</button>
 						<ul class="dropdown-menu">
-			    			<li>{{ link_to('logout', 'Log Out' )}}</li>
+			    			<li>{{ link_to('logout', 'Logout' )}}</li>
 			    		</ul>
 		        	@else
 		        		<strong>
-			        		{{ link_to('login', 'Sign In') }}
-			        		{{ link_to('register', 'New User')}}
+			        		{{ link_to('login', 'Login') }}
 		        		</strong>
 		        	@endif
 		        </div>

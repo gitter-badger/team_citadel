@@ -30,7 +30,16 @@ class UsersController extends BaseController {
 		$mobile_phone = Input::get('mobile_phone');
 		$home_telephone = Input::get('home_telephone');
 
-		$newUser = User::create(['username' => $username, 'first_name' => $first_name, 'last_name' => $last_name, 'email_address' => $email_address, 'password' => $password, 'mobile_phone' => $mobile_phone, 'home_telephone' => $home_telephone]);
+		$newUser = User::create([
+			'username' => $username, 
+			'first_name' => $first_name, 
+			'last_name' => $last_name, 
+			'email_address' => $email_address, 
+			'password' => $password, 
+			'mobile_phone' => $mobile_phone, 
+			'home_telephone' => $home_telephone
+		]);
+
 		if($newUser){
 			Auth::login($newUser);
 			return Redirect::to('/');

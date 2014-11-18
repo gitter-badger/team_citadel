@@ -28,18 +28,18 @@ Route::post('register', array(
 	'uses' => 'UsersController@store'
 )); 
 
-// Routes that requires authentication before becoming viewable
-Route::group(['before' => 'auth'], function(){
-// Has Auth Filter 
-Route::get('logout', function() {
-Auth::logout();
-return Redirect::to('/')
-->with('message', 'You have logged out');
-});
-});
-
 Route::get('login', function() {
     return View::make('login');
+});
+
+Route::post('login', function() {
+    if(Auth::attempt(Input::only('username', 'password'))) {
+        return Redirect::intended('/');
+    } else {
+        return Redirect::back()
+            ->withInput()
+            ->with('error', "Invalid credentials");
+    }
 });
 
 // Routes that requires authentication before becoming viewable
@@ -50,6 +50,4 @@ Route::group(['before' => 'auth'], function(){
         return Redirect::to('/')
             ->with('message', 'You have logged out');
     });
-});
-	return View::make('login');
 });
