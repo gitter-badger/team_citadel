@@ -15,3 +15,8 @@ Route::get('/', function()
 {
 	return View::make('master');
 });
+
+Route::get('/market', [
+    'as' => 'market',
+    'uses' => 'MarketController@index'
+]);
