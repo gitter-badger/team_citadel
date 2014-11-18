@@ -9,7 +9,7 @@ class ListingController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		// get all of the currently live listings
 	}
 
 
@@ -20,7 +20,7 @@ class ListingController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		// show form to add a new listing
 	}
 
 
@@ -31,7 +31,7 @@ class ListingController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		// save the new listing
 	}
 
 
@@ -43,7 +43,7 @@ class ListingController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		// show an individual listing
 	}
 
 
@@ -55,7 +55,7 @@ class ListingController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		// show form to edit a listing
 	}
 
 
@@ -67,7 +67,7 @@ class ListingController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		// save changes to the listing
 	}
 
 
@@ -79,7 +79,7 @@ class ListingController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		// delete the listing
 	}
 
 
