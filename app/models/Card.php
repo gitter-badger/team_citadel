@@ -11,4 +11,9 @@ class Card extends Eloquent
     {
         return $this->belongsTo('Series');
     }
+
+    public function attributes()
+    {
+        return $this->belongsToMany('Attributes');
+    }
 }

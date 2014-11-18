@@ -11,4 +11,9 @@ class Game extends Eloquent
     {
         return $this->hasMany('Series');
     }
+
+    public function cards()
+    {
+        return $this->hasManyThrough('Series', 'Card');
+    }
 }
