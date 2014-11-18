@@ -16,15 +16,29 @@ Route::get('/', function()
 	return View::make('master');
 });
 
-<<<<<<< HEAD
-Route::get('user/create', array(
+Route::resource('user', 'UsersController'); 
+
+Route::get('register', array(
 	'as' => 'registration',
 	'uses' => 'UsersController@registration'
 ));
 
+Route::post('register', array(
+	'as' => 'registered',
+	'uses' => 'UsersController@store'
+)); 
 
-=======
+// Routes that requires authentication before becoming viewable
+Route::group(['before' => 'auth'], function(){
+// Has Auth Filter 
+Route::get('logout', function() {
+Auth::logout();
+return Redirect::to('/')
+->with('message', 'You have logged out');
+});
+});
+
 Route::get('login', function() {
 	return View::make('login');
 });
->>>>>>> 5e0668950a7a58a8e08b27e9a21beec30b86b9fd
+
