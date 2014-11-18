@@ -11,8 +11,8 @@ class User extends Eloquent
     protected $table = 'address';
     protected $guard = 'id';
 
-    public function user()
+    public function users()
     {
-        return $this->belongsTo('Address');
+        return $this->belongsTo('User');
     }
 }

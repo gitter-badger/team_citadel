@@ -5,5 +5,5 @@ namespace model\series;
 class Listing extends Eloquent
 {
     protected $table = 'listings';
-    protected $guard = 'id';
+    protected $guard = ['id', 'user_id'];
 }
