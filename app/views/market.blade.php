@@ -41,6 +41,8 @@
             </div>
             <div class="panel-body">
                 <!-- put listing details in here (using blade foreach) -->
+                
+
             </div>
         </div>
     </div>

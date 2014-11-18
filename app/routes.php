@@ -13,7 +13,7 @@
 
 Route::get('/', function()
 {
-	return View::make('master');
+    return View::make('master');
 });
 
 Route::get('/market', [
