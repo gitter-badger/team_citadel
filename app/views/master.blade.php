@@ -52,6 +52,7 @@
 		        	@else
 		        		<strong>
 			        		{{ link_to('login', 'Sign In') }}
+			        		{{ link_to('register', 'New User')}}
 		        		</strong>
 		        	@endif
 		        </div>

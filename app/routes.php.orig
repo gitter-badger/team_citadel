@@ -39,6 +39,7 @@ return Redirect::to('/')
 });
 
 Route::get('login', function() {
+<<<<<<< HEAD
     return View::make('login');
 });
 
@@ -51,5 +52,8 @@ Route::group(['before' => 'auth'], function(){
             ->with('message', 'You have logged out');
     });
 });
+=======
 	return View::make('login');
 });
+
+>>>>>>> 9c0cb4b1cc0646cd0dea9e4cf5f33095b4da575a
