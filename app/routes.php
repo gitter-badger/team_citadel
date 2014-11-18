@@ -15,3 +15,7 @@ Route::get('/', function()
 {
 	return View::make('master');
 });
+
+Route::get('login', function() {
+	return View::make('login');
+});
