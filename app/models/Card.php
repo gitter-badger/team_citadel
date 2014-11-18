@@ -1,7 +1,5 @@
 <?php
 
-namespace model\cards;
-
 class Card extends Eloquent
 {
     protected $table = 'cards';

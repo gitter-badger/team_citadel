@@ -1,7 +1,5 @@
 <?php
 
-namespace model\series;
-
 class Series extends Eloquent
 {
     protected $table = 'series';

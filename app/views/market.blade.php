@@ -14,6 +14,11 @@
             <div class="panel-body">
                 <div class="checkBox"> 
                     <!-- series selection is here (using blade foreach) -->
+                    @foreach ($series as $aSeries)
+                        <input type="checkbox" name="chosen_series" value="{{$aSeries->id}}">
+                            {{ $aSeries->name }}
+                        <br>
+                    @endforeach
                 </div>
                 <div class="pull-left">
                     <select class="sort" onChange="sortBy(this.value)">
