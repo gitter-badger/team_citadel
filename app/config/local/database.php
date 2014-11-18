@@ -23,7 +23,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'deck_citadel',
+			'database'  => 'team_citadel',
 			'username'  => 'root',
 			'password'  => '',
 			'charset'   => 'utf8',
