@@ -30,7 +30,7 @@ class UpdateUserTable extends Migration {
 	public function down()
 	{
 		// Drop title, first name, last name, home telephone from users table
-		Schema::table('user', function($table) {
+		Schema::table('users', function($table) {
 			$table->dropColumn('title');
 			$table->dropColumn('first_name');
 			$table->dropColumn('last_name');

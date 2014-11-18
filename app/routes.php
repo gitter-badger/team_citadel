@@ -13,9 +13,19 @@
 
 Route::get('/', function()
 {
-	return View::make('master');
+    return View::make('master');
 });
 
 Route::get('login', function() {
-	return View::make('login');
+    return View::make('login');
+});
+
+// Routes that requires authentication before becoming viewable
+Route::group(['before' => 'auth'], function(){
+    // Has Auth Filter 
+    Route::get('logout', function() {
+        Auth::logout();
+        return Redirect::to('/')
+            ->with('message', 'You have logged out');
+    });
 });
