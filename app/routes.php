@@ -13,5 +13,12 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	return View::make('master');
 });
+
+Route::get('user/create', array(
+	'as' => 'registration',
+	'uses' => 'UsersController@registration'
+));
+
+
