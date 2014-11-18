@@ -16,9 +16,15 @@ Route::get('/', function()
 	return View::make('master');
 });
 
+<<<<<<< HEAD
 Route::get('user/create', array(
 	'as' => 'registration',
 	'uses' => 'UsersController@registration'
 ));
 
 
+=======
+Route::get('login', function() {
+	return View::make('login');
+});
+>>>>>>> 5e0668950a7a58a8e08b27e9a21beec30b86b9fd
