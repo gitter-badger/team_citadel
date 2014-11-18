@@ -15,7 +15,3 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
-
-Route::get('testdb', function(){
-		return View::make('testfiles.test_db_conection');
-});
