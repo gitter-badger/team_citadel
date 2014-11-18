@@ -13,7 +13,7 @@ class UpdateUserTable extends Migration {
 	public function up()
 	{
 		// Add title, first name, last name, home telephone to users table
-		Schema::table('users', function() {
+		Schema::table('users', function($table) {
 			$table->string('title');
 			$table->string('first_name');
 			$table->string('last_name');
@@ -30,7 +30,7 @@ class UpdateUserTable extends Migration {
 	public function down()
 	{
 		// Drop title, first name, last name, home telephone from users table
-		Schema::table('user', function() {
+		Schema::table('user', function($table) {
 			$table->dropColumn('title');
 			$table->dropColumn('first_name');
 			$table->dropColumn('last_name');
