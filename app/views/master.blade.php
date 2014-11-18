@@ -25,6 +25,7 @@
 		        <div class="form-group">
 		        	<input type="text" id="search-bar" class="form-control dropdown" name="query" placeholder="Search" autocomplete='off'>
 		        	<div class="dropdown">
+			        	<ul class="dropdown-menu search-drπopdown-menu">
 			        	<ul class="dropdown-menu search-dropdown-menu">
 				    	</ul>
 		        	</div>
