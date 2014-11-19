@@ -15,7 +15,7 @@
                 <div class="checkBox"> 
                     <!-- series selection is here (using blade foreach) -->
                     @foreach ($series as $aSeries)
-                        <input type="checkbox" name="chosen_series" value="{{$aSeries->id}}">
+                        <input type="checkbox" name="chosen_series" value="{{ $aSeries->id }}">
                             {{ $aSeries->name }}
                         <br>
                     @endforeach
@@ -41,8 +41,24 @@
             </div>
             <div class="panel-body">
                 <!-- put listing details in here (using blade foreach) -->
-                
+                @foreach($cards as $card)
+                    <div class="row">
+                        <div class="col-xs-5 col-sm-4 col-md-4 col-lg-2">
+                            <!-- TODO: card image goes here -->
+                            <a class="market-link" href="{{asset('market/' . $card->id .'')}}">
+                                <img class="market-img  image-responsive center-block" src="{{ asset('images/cards/test-image.jpg') }}" width="100%">
+                            </a>
+                        </div>
+                        <div class="col-xs-6 col-sm-8 col-md-8 col-lg-10">
+                            <!-- Card name, serial number -->
+                            <h5><a href="{{ asset('market/' . $card->id .'') }}">{{ $card->name . ' - ' }} {{ $card->serial_number }}</a></h5>
 
+                            <!-- price -->
+                            <button class="btn btn-pimary btn-success more-detail-btn market-button" onClick="location.href='{{ asset('market/' . $card->id . '') }}'"> See cards for sale </button>
+                        </div>
+                    </div>
+                    <br>
+                @endforeach
             </div>
         </div>
     </div>
@@ -52,6 +68,7 @@
         <div class="well well-sm">
             <nav>
                 <!-- pagination links go here -->
+                {{ $cards->links() }}
             </nav>
         </div>
     </div>
