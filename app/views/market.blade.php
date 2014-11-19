@@ -47,7 +47,7 @@
                             <!-- price goes here -->
                             <p class="price"><span class="smaller">£</span>{{ $card->listings()->min('listing_cost') }}</p>
 
-                            <button class="btn btn-pimary btn-success more-detail-btn market-button" onClick="location.href='{{ asset('market/' . $card->id . '') }}'"> See cards for sale </button>
+                            <button class="btn btn-pimary btn-success more-detail-btn market-button" onClick="location.href='{{ asset('market/' . $card->id . '') }}'"> More Information </button>
                         </div>
                     </div>
                     <br>
