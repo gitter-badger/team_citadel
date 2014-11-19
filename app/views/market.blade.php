@@ -44,7 +44,7 @@
                 @foreach($cards as $card)
                     <div class="row">
                         <div class="col-xs-5 col-sm-4 col-md-4 col-lg-2">
-                            <!-- TODO: card image goes here -->
+                            <!-- card image goes here -->
                             <a class="market-link" href="{{asset('market/' . $card->id .'')}}">
                                 <img class="market-img  image-responsive center-block" src="{{ asset('images/cards/'. $card->id . '.jpeg') }}" width="100%">
                             </a>
@@ -53,7 +53,7 @@
                             <!-- Card name, serial number -->
                             <h5><a href="{{ asset('market/' . $card->id .'') }}">{{ $card->name }}</a></h5>
 
-                            <!-- price -->
+                            <!-- price goes here -->
 
                             <button class="btn btn-pimary btn-success more-detail-btn market-button" onClick="location.href='{{ asset('market/' . $card->id . '') }}'"> See cards for sale </button>
                         </div>
