@@ -16,7 +16,9 @@ Route::get('/', function()
     return View::make('master');
 });
 
-Route::resource('user', 'UsersController'); 
+Route::resource('user', 'UsersController');
+
+Route::resource('market/{id}','MarketController@show'); 
 
 Route::get('register', array(
 	'as' => 'registration',
