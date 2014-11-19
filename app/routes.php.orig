@@ -28,18 +28,19 @@ Route::post('register', array(
 	'uses' => 'UsersController@store'
 )); 
 
-Route::get('login', function() {
-    return View::make('login');
+// Routes that requires authentication before becoming viewable
+Route::group(['before' => 'auth'], function(){
+// Has Auth Filter 
+Route::get('logout', function() {
+Auth::logout();
+return Redirect::to('/')
+->with('message', 'You have logged out');
+});
 });
 
-Route::post('login', function() {
-    if(Auth::attempt(Input::only('username', 'password'))) {
-        return Redirect::intended('/');
-    } else {
-        return Redirect::back()
-            ->withInput()
-            ->with('error', "Invalid credentials");
-    }
+Route::get('login', function() {
+<<<<<<< HEAD
+    return View::make('login');
 });
 
 // Routes that requires authentication before becoming viewable
@@ -51,8 +52,8 @@ Route::group(['before' => 'auth'], function(){
             ->with('message', 'You have logged out');
     });
 });
+=======
+	return View::make('login');
+});
 
-Route::get('/market', [
-    'as' => 'market',
-    'uses' => 'MarketController@index'
-]);
+>>>>>>> 9c0cb4b1cc0646cd0dea9e4cf5f33095b4da575a
