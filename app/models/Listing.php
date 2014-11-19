@@ -15,16 +15,15 @@ class Listing extends Eloquent
         'listing_cost',
     ];
 
-<<<<<<< HEAD
     function items() {
         return $this->hasMany('Item');
-=======
+    }
+
     public function card() {
         return $this->belongsTo('Card');
     }
 
     public function getMinPriceAttribute() {
         return $this->orderBy('listing_cost', 'asc')->first();
->>>>>>> ea76de248bf9f93f1c86307a16a7d9428c5653e4
     }
 }
