@@ -8,39 +8,12 @@
             </div>
             <div class="col-md-8">
             <!--  -->
-            <?php $cheapest = $card->listings()->orderBy('listing_cost', 'asc')->first() ?>
-
-                <h3>{{ $card->name }} - {{ $card->series->serial_number.$card->serial_number }}</h3>
-                <table class="table table-striped">
-                    <tr>
-                        <td>Price</td>
-                        <td>£{{ $cheapest->listing_cost }}</td>
-                    </tr>
-                    <tr>
-                        <td>Item Condition</td>
-                        <td>{{ $cheapest->condition }}</td>
-                    </tr>
-                    <tr>
-                        <td>Postage</td>
-                        @if( $cheapest->postage_cost == 0 )
-                            <td><strong>Free</strong></td>
-                        @else
-                            <td>£{{ $cheapest->postage_cost }}</td>
-                        @endif
-                    </tr>
-                    <tr>
-                        <td>Item Location</td>
-                        <td>{{ $cheapest->post_from }}</td>
-                    </tr>
-                    <tr>
-                        <td>Returns</td>
-                        @if( $card->returns )
-                            <td>Returns accepted</td>
-                        @else
-                            <td>Returns not accepted</td>
-                        @endif
-                    </tr>
-                </table>
+                @if($cheapest = $card->listings()->orderBy('listing_cost', 'asc')->first())
+                    @include('widgets.item-available')
+                @else
+                    @include('widgets.item-unavailable')
+                @endif
+                
             </div>
         </div>
     </div>
