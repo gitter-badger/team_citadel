@@ -21,6 +21,10 @@ class ListingController extends \BaseController {
     public function create()
     {
         // show form to add a new listing
+        $listing = new Lisitng;
+        $method = 'post';
+
+        return View::make('createlisting', compact('listing', 'method'));
         // return View::make(route, compact(stuff-required-for-this-view));
     }
 
@@ -77,6 +81,9 @@ class ListingController extends \BaseController {
     public function edit($id)
     {
         // show form to edit a listing
+        $listing = Listing::find($id);
+        $method = 'put';
+        return View::make('createlisting', compact('listing', 'method'));
         // return View::make(route, compact(stuff-required-for-this-view));
 
     }
@@ -122,7 +129,9 @@ class ListingController extends \BaseController {
     {
         // // delete the listing
         // $Listing = Listing::destroy($id);
-
+        $listing = Listing::find($id);
+        $method = 'delete';
+        return View::make('createlisting', compact('listing', 'method'));
         // return $id;
     }
 
