@@ -44,16 +44,18 @@
                 @foreach($cards as $card)
                     <div class="row">
                         <div class="col-xs-5 col-sm-4 col-md-4 col-lg-2">
-                            <!-- TODO: card image goes here -->
+                            <!-- card image goes here -->
                             <a class="market-link" href="{{asset('market/' . $card->id .'')}}">
-                                <img class="market-img  image-responsive center-block" src="{{ asset('images/cards/test-image.jpg') }}" width="100%">
+                                <img class="market-img  image-responsive center-block" src="{{ asset('images/cards/'. $card->id . '.jpeg') }}" width="100%">
                             </a>
                         </div>
                         <div class="col-xs-6 col-sm-8 col-md-8 col-lg-10">
                             <!-- Card name, serial number -->
-                            <h5><a href="{{ asset('market/' . $card->id .'') }}">{{ $card->name . ' - ' }} {{ $card->serial_number }}</a></h5>
+                            <h5><a href="{{ asset('market/' . $card->id .'') }}">{{ $card->name }}</a></h5>
 
-                            <!-- price -->
+                            <!-- price goes here -->
+                            <p class="price"><span class="smaller">£</span>{{ $card->listings()->min('listing_cost') }}</p>
+
                             <button class="btn btn-pimary btn-success more-detail-btn market-button" onClick="location.href='{{ asset('market/' . $card->id . '') }}'"> See cards for sale </button>
                         </div>
                     </div>
@@ -68,7 +70,7 @@
         <div class="well well-sm">
             <nav>
                 <!-- pagination links go here -->
-                {{ $cards->links() }}
+                {{-- $cards->links() --}}
             </nav>
         </div>
     </div>

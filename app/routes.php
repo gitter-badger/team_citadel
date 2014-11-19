@@ -18,6 +18,7 @@ Route::get('/', function()
 
 Route::resource('user', 'UsersController'); 
 Route::resource('listing', 'ListingController');
+Route::resource('market', 'MarketController'); 
 
 Route::get('register', array(
 	'as' => 'registration',
@@ -77,3 +78,4 @@ Route::delete('listing/{id}', function($id) {
     return Redirect::to('master')
         ->with('message', 'Successfully deleted listing');
 });
+
