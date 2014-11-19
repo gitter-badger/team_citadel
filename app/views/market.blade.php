@@ -20,15 +20,6 @@
                         <br>
                     @endforeach
                 </div>
-                <div class="pull-left">
-                    <select class="sort" onChange="sortBy(this.value)">
-                        <option>Sort by Relevance</option>
-                        <option id="lowest"  value="lowest">Sort by Price - Lowest</option>
-                        <option id="highest" value="highest">Sort by Price - Highest</option>
-                        <option id="newest" value="newest">Sort by Condition - New First</option>
-                        <option id="used" value="used">Sort by Condition - Used First</option>
-                    </select>
-                </div>
             </div>
         </div>
     </div>
@@ -70,7 +61,7 @@
         <div class="well well-sm">
             <nav>
                 <!-- pagination links go here -->
-                {{-- $cards->links() --}}
+                {{ $cards->links() }}
             </nav>
         </div>
     </div>
@@ -78,25 +69,5 @@
 
 @section('scripts')
 <script type="text/javascript" src="{{ URL::asset('js/sort.js') }}"></script>
-<script type="text/javascript">
-    $(function(){
-        var type = '{{-- $sortType --}}';
-        if (type) {
-            switch(type) {
-                case 'highest':
-                    $('#highest').prop('selected', true);
-                    break;
-                case 'lowest':
-                    $('#lowest').prop('selected', true);
-                    break;
-                case 'newest':
-                    $('#newest').prop('selected', true);
-                    break;
-                case 'used':
-                    $('#used').prop('selected', true);
-                    break;
-            }
-        }
-    });
-</script>
+
 @stop

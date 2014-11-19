@@ -4,42 +4,37 @@
     <div class="col-md-8 border">
         <div class="row">
             <div class="col-md-4">
-                <img class="card-single-image responsive-image center-block" src="/images/cards/{{$post->id}}.jpeg" width="100%">
+                <img class="card-single-image responsive-image center-block" src="/images/cards/{{$card->id}}.jpeg" width="100%">
             </div>
             <div class="col-md-8">
-                <h3>{{ $post->name }} - {{ $post->series->serial_number.$post->serial_number }}</h3>
+            <!--  -->
+            <?php $cheapest = $card->listings()->orderBy('listing_cost', 'asc')->first() ?>
+
+                <h3>{{ $card->name }} - {{ $card->series->serial_number.$card->serial_number }}</h3>
                 <table class="table table-striped">
                     <tr>
                         <td>Price</td>
-                        <td>{{ $post->item_condition }}</td>
+                        <td>£{{ $cheapest->listing_cost }}</td>
                     </tr>
                     <tr>
                         <td>Item Condition</td>
-                        <td>{{ $post->item_condition }}</td>
+                        <td>{{ $cheapest->condition }}</td>
                     </tr>
                     <tr>
                         <td>Postage</td>
-                        @if( $post->free_postage )
+                        @if( $cheapest->postage_cost == 0 )
                             <td><strong>Free</strong></td>
                         @else
-                            <td>{{ $post->postage_cost }}</td>
+                            <td>£{{ $cheapest->postage_cost }}</td>
                         @endif
                     </tr>
                     <tr>
                         <td>Item Location</td>
-                        <td>{{ $post->item_location }}</td>
-                    </tr>
-                    <tr>
-                        <td>Posts to</td>
-                        <td>{{ $post->post_to }}</td>
-                    </tr>
-                    <tr>
-                        <td>Dispatch Time</td>
-                        <td>{{ $post->dispatch_time }}</td>
+                        <td>{{ $cheapest->post_from }}</td>
                     </tr>
                     <tr>
                         <td>Returns</td>
-                        @if( $post->returns )
+                        @if( $card->returns )
                             <td>Returns accepted</td>
                         @else
                             <td>Returns not accepted</td>

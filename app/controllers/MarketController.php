@@ -48,8 +48,8 @@ class MarketController extends \BaseController {
     public function show($id)
     {
         //
-        $post = Card::find($id);
-        return View::make('post', compact('post'));
+        $card = Card::find($id);
+        return View::make('post', compact('card'));
     }
 
 

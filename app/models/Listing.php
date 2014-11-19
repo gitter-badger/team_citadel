@@ -19,7 +19,7 @@ class Listing extends Eloquent
         return $this->belongsTo('Card');
     }
 
-    public function getMinPriceAttribute() {
-        return $this->orderBy('listing_cost', 'asc')->first();
+    public function getCheapest() {
+        return $Listing->orderBy('listing_cost', 'asc')->first();
     }
 }
