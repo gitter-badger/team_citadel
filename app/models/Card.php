@@ -14,4 +14,8 @@ class Card extends Eloquent
     {
         return $this->belongsToMany('Attributes');
     }
+
+    public function Items() {
+        return $this->hasMany('Items');
+    }
 }

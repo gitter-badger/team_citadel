@@ -10,7 +10,11 @@ class Item extends Eloquent
         'condition'
     ];
 
-    function items() {
+    public function listing() {
         return $this->belongsTo('Listing');
+    }
+
+    public function card() {
+        return $this->belongsTo('Card');
     }
 }

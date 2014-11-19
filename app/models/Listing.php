@@ -14,4 +14,8 @@ class Listing extends Eloquent
         'quantity',
         'condition'
     ];
+
+    public function Items() {
+        return $this->hasMany('Items');
+    }
 }
