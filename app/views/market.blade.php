@@ -54,6 +54,7 @@
                             <h5><a href="{{ asset('market/' . $card->id .'') }}">{{ $card->name }}</a></h5>
 
                             <!-- price goes here -->
+                            <p class="price"><span class="smaller">£</span>{{ $card->listings()->min('listing_cost') }}</p>
 
                             <button class="btn btn-pimary btn-success more-detail-btn market-button" onClick="location.href='{{ asset('market/' . $card->id . '') }}'"> See cards for sale </button>
                         </div>
@@ -69,7 +70,7 @@
         <div class="well well-sm">
             <nav>
                 <!-- pagination links go here -->
-                {{ $cards->links() }}
+                {{-- $cards->links() --}}
             </nav>
         </div>
     </div>

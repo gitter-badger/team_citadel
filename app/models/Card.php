@@ -12,10 +12,10 @@ class Card extends Eloquent
 
     public function attributes()
     {
-        return $this->belongsToMany('Attributes');
+        return $this->belongsToMany('Attribute');
     }
 
-    public function Items() {
-        return $this->hasMany('Items');
+    public function listings() {
+        return $this->hasMany('Listing');
     }
 }

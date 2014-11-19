@@ -1,6 +1,6 @@
 <?php
 
-class Attributes extends Eloquent
+class Attribute extends Eloquent
 {
     protected $table = 'attributes';
     protected $guard = 'id';

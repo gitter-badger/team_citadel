@@ -15,7 +15,11 @@ class Listing extends Eloquent
         'condition'
     ];
 
-    public function Items() {
-        return $this->hasMany('Items');
+    public function card() {
+        return $this->belongsTo('Card');
+    }
+
+    public function getMinPriceAttribute() {
+        return $this->orderBy('listing_cost', 'asc')->first();
     }
 }
