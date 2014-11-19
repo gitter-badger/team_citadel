@@ -18,7 +18,7 @@ Route::get('/', function()
 
 Route::resource('user', 'UsersController');
 
-Route::resource('market/{id}','MarketController@show'); 
+Route::resource('market','MarketController'); 
 
 Route::get('register', array(
 	'as' => 'registration',
@@ -53,8 +53,3 @@ Route::group(['before' => 'auth'], function(){
             ->with('message', 'You have logged out');
     });
 });
-
-Route::get('/market', [
-    'as' => 'market',
-    'uses' => 'MarketController@index'
-]);
