@@ -7,5 +7,10 @@
 			<li><a href="">Pokemon</a></li>
 		</ul>
 	</li>
-	<li><a href="">Market</a></li>
+	<li>
+        <a href="" class="dropdown-toggle" data-toggle="dropdown">Market</a>
+        <ul class="dropdown-menu">
+            <li><a href="{{url('listing/create')}}">Sell</a></li>
+        </ul>
+    </li>
 </ul>
