@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
 class BaseSeeder extends seeder
 {
     protected $table;
@@ -14,7 +17,7 @@ class BaseSeeder extends seeder
     }
 
     //method for processing data from the csv file
-    public function seedFromCSV($fileName, $deliminator = ",")
+    public function seedFromCSV($filename, $deliminator = ",")
     {
         //check file exists and is readable
         if (!file_exists($filename) || !is_readable($filename)) {
@@ -24,7 +27,7 @@ class BaseSeeder extends seeder
         $header = null;
         $data = [];
 
-        
+
         if (($handle = fopen($filename, 'r')) !== false) {
             while (($row = fgetcsv($handle, 1000, $deliminator)) !== false) {
                 if (!$header) {

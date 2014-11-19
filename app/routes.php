@@ -14,6 +14,7 @@
 Route::get('/', function()
 {
     return View::make('master');
+<<<<<<< HEAD
 });
 
 Route::resource('user', 'UsersController'); 
@@ -50,4 +51,6 @@ Route::group(['before' => 'auth'], function(){
         return Redirect::to('/')
             ->with('message', 'You have logged out');
     });
+=======
+>>>>>>> cards can be seeded to the database
 });
