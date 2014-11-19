@@ -18,7 +18,7 @@
           </button>
           <a class="navbar-brand" href="#">Deck Citadel</a>
         </div>
-
+        @include('widgets.nav')
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <form class="hidden-xs navbar-form navbar-left" role="search" method="get" action="{{url('search/cards/')}}">
