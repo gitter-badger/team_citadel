@@ -18,7 +18,7 @@ Route::get('/', function()
 
 Route::resource('user', 'UsersController');
 
-Route::resource('market', 'MarketController'); 
+Route::resource('market/{id}','MarketController@show'); 
 
 Route::get('register', array(
 	'as' => 'registration',
