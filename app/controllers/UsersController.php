@@ -27,8 +27,6 @@ class UsersController extends BaseController {
 		$last_name = Input::get('last_name');
 		$email_address = Input::get('email_address');
 		$password = Hash::make((Input::get('password')));
-		$mobile_phone = Input::get('mobile_phone');
-		$home_telephone = Input::get('home_telephone');
 
 		$newUser = User::create([
 			'username' => $username, 
@@ -36,8 +34,6 @@ class UsersController extends BaseController {
 			'last_name' => $last_name, 
 			'email_address' => $email_address, 
 			'password' => $password, 
-			'mobile_phone' => $mobile_phone, 
-			'home_telephone' => $home_telephone
 		]);
 
 		if($newUser){

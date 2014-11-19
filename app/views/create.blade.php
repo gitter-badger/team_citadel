@@ -16,7 +16,7 @@
                     {{ Form::text( 'username', $value = null, array('class' => 'form-control username-input', 'placeholder' => 'Username', 'id' => 'reg-username')) }}
                 </div>
                 <div class="form-group has-feedback">
-                    {{ Form::text( 'email_address', $value = null,  array('class' => 'form-control', 'placeholder' => 'Email', 'id' => 'signup-email', 'id' => 'reg-email')) }}
+                    {{ Form::text( 'email_address', $value = null,  array('class' => 'form-control', 'placeholder' => 'Email', 'id' => 'signup-email')) }}
                 </div>
                 <div class="form-group has-feedback">
                     {{ Form::password( 'password',  array('class' => 'form-control', 'placeholder' => 'Password', 'id' => 'reg-password')) }}
