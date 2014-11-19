@@ -10,11 +10,11 @@ class MarketController extends \BaseController {
     public function index()
     {
         // get all the listings
-        // $listing = Listing::all();
+        $listings = Listing::all();
         // get all the series
         $series = Series::all();
 
-        return View::make('market', compact('series'));
+        return View::make('market', compact('series', 'listings'));
     }
 
 
