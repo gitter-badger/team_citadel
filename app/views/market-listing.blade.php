@@ -14,24 +14,6 @@
                 @else
                     @include('widgets.item-unavailable')
                 @endif
-                @if(Auth::check())
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                    <input type="hidden" name="cmd" value="_xclick">
-                    <input type="hidden" name="business" value="{{ $cheapest->seller->paypal_email_address }}">
-                    <input type="hidden" name="lc" value="US">
-                    <input type="hidden" name="item_name" value="{{ $cheapest->condition . ' ' . htmlentities($card->name) }}">
-                    <input type="hidden" name="item_number" value="{{ $cheapest->id }}">
-                    <input type="hidden" name="amount" value="{{ $cheapest->listing_cost }}">
-                    <input type="hidden" name="currency_code" value="GBP">
-                    <input type="hidden" name="button_subtype" value="services">
-                    <input type="hidden" name="no_note" value="0">
-                    <input type="hidden" name="shipping" value="{{ $cheapest->postage_cost }}">
-                    <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest">
-                    <button class="btn btn-primary btn-block btn-success" name="submit" alt="PayPal - The safer, easier way to pay online!">Buy it now (Paypal)</button>
-                    </form><br>
-                @else
-                    <strong> You must be signed in to buy the card </strong>
-                @endif
             </div>
         </div>
     </div>
@@ -48,12 +30,33 @@
                         <th>Name</th>
                         <th>Seller</th>
                         <th>Price</th>
+                        @if(Auth::check())
+                            <th>PayPal</th>
+                        @endif
                     </tr>
                     @foreach( $listings as $listing )
                         <tr>
                             <td>{{ $listing->card->name }}</td>
                             <td>{{ $listing->seller->username }}</td>
-                            <td>£{{ $listing->listing_cost }}</td>
+                            <td><strong> £{{ $listing->listing_cost }} </strong> +  <small>£{{ $listing->postage_cost }} postage</small></td>
+                            @if(Auth::check())
+                                <td>
+                                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                    <input type="hidden" name="cmd" value="_xclick">
+                                    <input type="hidden" name="business" value="{{ $listing->seller->paypal_email_address }}">
+                                    <input type="hidden" name="lc" value="US">
+                                    <input type="hidden" name="item_name" value="{{ $listing->condition . ' ' . htmlentities($card->name) }}">
+                                    <input type="hidden" name="item_number" value="{{ $listing->id }}">
+                                    <input type="hidden" name="amount" value="{{ $listing->listing_cost }}">
+                                    <input type="hidden" name="currency_code" value="GBP">
+                                    <input type="hidden" name="button_subtype" value="services">
+                                    <input type="hidden" name="no_note" value="0">
+                                    <input type="hidden" name="shipping" value="{{ $listing->postage_cost }}">
+                                    <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest">
+                                    <button class="btn btn-sm btn-primary btn-block btn-success small" name="submit" alt="PayPal - The safer, easier way to pay online!">Buy now</button>
+                                    </form><br>
+                                </td>
+                            @endif
                         </tr>
                     @endforeach
                 </table>
