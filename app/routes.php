@@ -11,6 +11,11 @@
 |
 */
 
+Route::get('tinker', function () {
+    return Listing::first()->seller;
+    return DB::getQueryLog();
+});
+
 Route::get('/', function()
 {
     return View::make('master');
@@ -62,7 +67,7 @@ Route::get('/market', [
 
 Route::post('listings', function() {
     $listing = Listing::create(Input::all());
-    return Redirect::to('listing/' . $listing->id)
+    return Redirect::to('market/' . $listing->card->id)
         ->with('message', 'Successfully created listing');
 });
 
