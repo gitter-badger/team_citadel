@@ -61,6 +61,12 @@
     </div><!-- /.container-fluid -->
 </nav>
 <div class="container">
+
+    <div class="page-header">
+        @yield('header')
+    </div>
+
+    </div>
     @if( Session::has('message') )
         <div class='alert alert-success'>
             {{ Session::get('message') }}
@@ -72,12 +78,14 @@
         </div>
     @endif
     @yield('content')
-    @yield('comments')
     <!-- <button id='button'>Go!</button> -->
 </div>
 </body>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="{{asset('js/bootstrap.min.js')}}"></script>
+
+@section('scripts')
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
+@stop
 </html>
