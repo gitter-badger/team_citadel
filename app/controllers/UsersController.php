@@ -42,5 +42,11 @@ class UsersController extends BaseController {
 		}
 		return Redirect::route('create')->withInput();
 	}
+
+	public function show($id)
+	{
+		$user = User::find($id);
+        return View::make('profile', compact('user'));
+	}
 }	
 
