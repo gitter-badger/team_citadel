@@ -49,7 +49,8 @@ class MarketController extends \BaseController {
     {
         //
         $card = Card::find($id);
-        return View::make('post', compact('card'));
+        $listings = Listing::where('card_id', $id)->orderBy('listing_cost', 'asc')->paginate(5);
+        return View::make('market-listing', compact('card', 'listings'));
     }
 
 

@@ -8,9 +8,6 @@
 		</ul>
 	</li>
 	<li>
-        <a href="" class="dropdown-toggle" data-toggle="dropdown">Market</a>
-        <ul class="dropdown-menu">
-            <li><a href="{{url('listing/create')}}">Sell</a></li>
-        </ul>
+        <a href="{{url('market')}}">Market</a>
     </li>
 </ul>

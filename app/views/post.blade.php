@@ -44,7 +44,7 @@
             @endif
 
             <h4>Seller Information</h4>
-            <strong> Username: </strong>{{ $cheapest->user->username }} <br>
+            <strong> Username: </strong> {{ $cheapest->user->username }} <br>
             <strong> Email: </strong> {{ $cheapest->user->email_address }} <br>
         @endif
     </div>
