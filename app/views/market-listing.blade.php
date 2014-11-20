@@ -13,7 +13,6 @@
                 @else
                     @include('widgets.item-unavailable')
                 @endif
-                
             </div>
         </div>
     </div>
