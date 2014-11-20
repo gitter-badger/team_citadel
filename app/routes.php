@@ -11,32 +11,28 @@
 |
 */
 
-Route::get('/', function()
-{
+Route::get('/', function () {
     return View::make('master');
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 });
 
-Route::resource('user', 'UsersController'); 
+Route::resource('user', 'UsersController');
 
 Route::get('register', array(
-	'as' => 'registration',
-	'uses' => 'UsersController@registration'
+    'as' => 'registration',
+    'uses' => 'UsersController@registration'
 ));
 
 Route::post('register', array(
-	'as' => 'registered',
-	'uses' => 'UsersController@store'
-)); 
+    'as' => 'registered',
+    'uses' => 'UsersController@store'
+));
 
-Route::get('login', function() {
+Route::get('login', function () {
     return View::make('login');
 });
 
-Route::post('login', function() {
-    if(Auth::attempt(Input::only('username', 'password'))) {
+Route::post('login', function () {
+    if (Auth::attempt(Input::only('username', 'password'))) {
         return Redirect::intended('/');
     } else {
         return Redirect::back()
@@ -46,14 +42,11 @@ Route::post('login', function() {
 });
 
 // Routes that requires authentication before becoming viewable
-Route::group(['before' => 'auth'], function(){
-    // Has Auth Filter 
-    Route::get('logout', function() {
+Route::group(['before' => 'auth'], function () {
+    // Has Auth Filter
+    Route::get('logout', function () {
         Auth::logout();
         return Redirect::to('/')
             ->with('message', 'You have logged out');
     });
-=======
->>>>>>> cards can be seeded to the database
->>>>>>> 6183fc3
 });
