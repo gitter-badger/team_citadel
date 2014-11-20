@@ -29,10 +29,11 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    Item Location {{ Form::text('post_from', $value = null,  array('placeholder' => 'Item Location', 'class' => 'form-control')) }}
+                    <label>Item Location</label>
+                    {{ Form::text('post_from', $value = null,  array('placeholder' => 'Item Location', 'class' => 'form-control')) }}
                 </div>
                 <div class="form-group">
-                    <label>Card Name</label>
+                    <label>Returns</label>
                     {{ Form::select('returns', array('1' => 'Returns Accepted', '0' => 'Returns Not Accepted'), null ,array('class' => 'form-control'))}}
                 </div>
                  <div class="form-group">

@@ -22,6 +22,10 @@ class Listing extends Eloquent
         return $this->hasMany('Item');
     }
 
+    public function user() {
+        return $this->belongsTo('User');
+    }
+
     public function card() {
         return $this->belongsTo('Card');
     }
