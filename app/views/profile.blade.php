@@ -8,7 +8,7 @@
             </div>
             <div class="col-md-8">
                 <h3> {{ $user->username }} </h3>
-                <table class="table table-striped">
+                <table class="table table-hover">
                     <tr>
                         <td>Title</td>
                         <td>{{ $user->title }}</td>
