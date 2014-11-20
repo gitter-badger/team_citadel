@@ -4,7 +4,7 @@
     <div class="col-md-8 border">
         <div class="row">
             <div class="col-md-4">
-                <img class="card-single-image responsive-image center-block" src="/Users\Adam Jama\Pictures\1jpg" width="100%">
+                <img class="card-single-image responsive-image center-block" src="/images/users/{{$user->id}}.jpg" width="100%">
             </div>
             <div class="col-md-8">
                 <h3> {{ $user->username }} </h3>
