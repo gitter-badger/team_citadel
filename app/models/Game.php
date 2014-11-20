@@ -1,7 +1,5 @@
 <?php
 
-namespace model\series;
-
 class Game extends Eloquent
 {
     protected $table = 'games';

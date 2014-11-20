@@ -1,13 +1,11 @@
 <?php
 
-namespace model\series;
-
 class Series extends Eloquent
 {
     protected $table = 'series';
     protected $guard = 'id';
 
-    public function games()
+    public function game()
     {
         return $this->belongsTo('Game');
     }

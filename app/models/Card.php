@@ -1,7 +1,5 @@
 <?php
 
-namespace model\cards;
-
 class Card extends Eloquent
 {
     protected $table = 'cards';
@@ -14,6 +12,10 @@ class Card extends Eloquent
 
     public function attributes()
     {
-        return $this->belongsToMany('Attributes');
+        return $this->belongsToMany('Attribute');
+    }
+
+    public function listings() {
+        return $this->hasMany('Listing');
     }
 }

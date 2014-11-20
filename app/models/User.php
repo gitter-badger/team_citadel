@@ -35,6 +35,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         'location',
         'title'
     ];
+
     public function address()
     {
         return $this->hasMany('Address');

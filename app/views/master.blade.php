@@ -18,10 +18,11 @@
           </button>
           <a class="navbar-brand" href="#">Deck Citadel</a>
         </div>
-
+        @include('widgets.nav')
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <form class="hidden-xs navbar-form navbar-left" role="search" method="get" action="{{url('search/cards/')}}">
+
+            <form class="hidden-xs navbar-form navbar-left" role="search" method="get" action="{{ url('search/cards/') }}">
                 <div class="form-group">
                     <input type="text" id="search-bar" class="form-control dropdown" name="query" placeholder="Search" autocomplete='off'>
                     <div class="dropdown">

@@ -16,6 +16,9 @@ Route::get('/', function () {
 });
 
 Route::resource('user', 'UsersController');
+Route::resource('listing', 'ListingController');
+Route::resource('market', 'MarketController');
+
 
 Route::get('register', array(
     'as' => 'registration',
@@ -49,4 +52,29 @@ Route::group(['before' => 'auth'], function () {
         return Redirect::to('/')
             ->with('message', 'You have logged out');
     });
+});
+
+Route::get('/market', [
+    'as' => 'market',
+    'uses' => 'MarketController@index'
+]);
+
+Route::post('listings', function() {
+    $listing = Listing::create(Input::all());
+    return Redirect::to('listing/' . $listing->id)
+        ->with('message', 'Successfully created listing');
+});
+
+Route::put('listing/{id}', function($id) {
+    $listing = Listing::find($id);
+    $listing->update(Input::all());
+    return Redirect::to('lisitng/' . $lisitng->id)
+        ->with('message', 'Successfully updated listing');
+});
+
+Route::delete('listing/{id}', function($id) {
+    $listing = Listing::find($id);
+    $listing->delete();
+    return Redirect::to('master')
+        ->with('message', 'Successfully deleted listing');
 });
