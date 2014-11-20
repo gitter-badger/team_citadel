@@ -20,10 +20,12 @@ Route::resource('user', 'UsersController');
 Route::resource('listing', 'ListingController');
 Route::resource('market', 'MarketController'); 
 
-Route::get('user/{id}', array(
+
+Route::get('user/profile', array(
     'as' => 'profile',
     'uses' => 'UsersController@show'
-    ));
+   
+));
 
 Route::get('register', array(
 	'as' => 'registration',
