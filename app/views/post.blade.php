@@ -7,13 +7,11 @@
                 <img class="card-single-image responsive-image center-block" src="/images/cards/{{$card->id}}.jpeg" width="100%">
             </div>
             <div class="col-md-8">
-            <!--  -->
                 @if($cheapest = $card->listings()->orderBy('listing_cost', 'asc')->first())
                     @include('widgets.item-available')
                 @else
                     @include('widgets.item-unavailable')
                 @endif
-                
             </div>
         </div>
     </div>

@@ -5,10 +5,20 @@
 @stop
 
 @section('content')
-    <div class="row">
-        <div class="col-xs-12">
+    <div class="col-md-12">
+        <table class="table table-bordered">
+            <tr>
+                <th with=10%>#</th>
+                <th width=80%>item</th>
+                <th width=10%>cost</th>
+            </tr>
 
-        </div>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
     </div>
 @stop
 

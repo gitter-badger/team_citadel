@@ -60,26 +60,31 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-<div class="container">
-
-    <div class="page-header">
-        @yield('header')
-    </div>
-
-    </div>
-    @if( Session::has('message') )
-        <div class='alert alert-success'>
-            {{ Session::get('message') }}
+<div class="container-fluid">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="row">
+            <div class="page-header">
+                @yield('header')
+            </div>
         </div>
-    @endif
-    @if(Session::has('error'))
-        <div class='alert alert-warning'>
-            {{ Session::get('error') }}
+
+        <div class="row">
+            </div>
+                @if( Session::has('message') )
+                    <div class='alert alert-success'>
+                        {{ Session::get('message') }}
+                    </div>
+                @endif
+                @if(Session::has('error'))
+                    <div class='alert alert-warning'>
+                        {{ Session::get('error') }}
+                    </div>
+                @endif
+                @yield('content')
+                <!-- <button id='button'>Go!</button> -->
+            </div>
         </div>
-    @endif
-    @yield('content')
-    <!-- <button id='button'>Go!</button> -->
-</div>
+    </div>
 </body>
 
 @section('scripts')
