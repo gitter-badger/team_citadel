@@ -1,12 +1,12 @@
 @extends( 'master' )
 @section( 'content' )
 <div class="row">
-    <div class="col-md-8 border">
+    <div class="col-md-8 col-md-offset-2">
         <div class="row">
-            <div class="col-md-4">
-                <img class="card-single-image responsive-image center-block" src="/images/users/{{$user->id}}.jpg" width="100%">
+            <div class="col-md-6">
+                <img class="responsive-image center-block" src="/images/users/{{$user->id}}.jpeg" width="70%">
             </div>
-            <div class="col-md-8">
+            <div class="col-md-6">
                 <h3> {{ $user->username }} </h3>
                 <table class="table table-striped">
                     <tr>
