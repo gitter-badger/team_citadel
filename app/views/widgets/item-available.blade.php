@@ -32,7 +32,11 @@
 
 <!-- PAY-PAL -->
 @if(Auth::check())
-    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+    <!-- TODO: add action -->
+    <form action="">
+        <button class="btn btn-primary btn-block btn-success small" name="submit" alt="add to cart">Add to cart</button>
+    </form>
+    <!-- <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
     <input type="hidden" name="cmd" value="_xclick">
     <input type="hidden" name="business" value="{{ $cheapest->seller->paypal_email_address }}">
     <input type="hidden" name="lc" value="US">
@@ -45,7 +49,7 @@
     <input type="hidden" name="shipping" value="{{ $cheapest->postage_cost }}">
     <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest">
     <button class="btn btn-primary btn-block btn-success" name="submit" alt="PayPal - The safer, easier way to pay online!">Buy it now (Paypal)</button>
-    </form><br>
+    </form><br> -->
 @else
     <strong> You must be signed in to buy the card </strong>
 @endif
