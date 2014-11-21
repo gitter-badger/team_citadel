@@ -7,11 +7,11 @@
                 <img class="card-single-image responsive-image center-block" src="/images/cards/{{$card->id}}.jpeg" width="100%">
             </div>
             <div class="col-md-8">
-            <!--  -->
                 @if($cheapest = $card->listings()->orderBy('listing_cost', 'asc')->first())
+                    <!-- Get the cheapest listing of this card -->
                     @include('widgets.item-available')
-
                 @else
+                    <!-- If there are no listings show order page -->
                     @include('widgets.item-unavailable')
                 @endif
             </div>
@@ -31,15 +31,18 @@
                         <th>Seller</th>
                         <th>Price</th>
                         @if(Auth::check())
+                            <!-- Check if the user is logged in before showing the paypal column -->
                             <th>PayPal</th>
                         @endif
                     </tr>
-                    @foreach( $listings as $listing )
+                    <!-- Lists all listings with this card id -->
+                    @foreach($listings as $listing)
                         <tr>
                             <td>{{ $listing->card->name }}</td>
                             <td>{{ $listing->seller->username }}</td>
                             <td><strong> £{{ $listing->listing_cost }} </strong> +  <small>£{{ $listing->postage_cost }} postage</small></td>
                             @if(Auth::check())
+                                <!-- If user is logged in show link to purchase listing -->
                                 <td>
                                     <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                                     <input type="hidden" name="cmd" value="_xclick">
