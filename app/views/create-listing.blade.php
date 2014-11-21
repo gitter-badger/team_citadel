@@ -2,12 +2,12 @@
 @section('content')
 <section id="create-listing">
     <div class="col-md-8 col-md-offset-2">
-        @if( $method )
+        @if($method)
             {{ Form::open(array('url' => 'listings', 'method' => 'post')) }}
                 <div class="form-group">
                     <label>Card Name</label>
                     <select name="card_id" type="text" class="form-control">
-                        @foreach( $cards as $card )
+                        @foreach($cards as $card)
                             <option value="{{ $card->id }}">{{ $card->name }}</option>
                         @endforeach
                     </select> 
