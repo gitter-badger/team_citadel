@@ -45,7 +45,7 @@
                             <h5><a href="{{ asset('market/' . $card->id .'') }}">{{ $card->name }}</a></h5>
 
                             <!-- price goes here -->
-                            <p class="price"><span class="smaller">£</span>{{ $card->listings()->min('listing_cost') }}</p>
+                            <p class="price"><span class="smaller">£</span>{{ $card->listings()->where('sales_status', 'listed')->min('listing_cost') }}</p>
 
                             <button class="btn btn-pimary btn-success more-detail-btn market-button" onClick="location.href='{{ asset('market/' . $card->id . '') }}'"> More Information </button>
                         </div>

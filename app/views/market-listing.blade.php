@@ -7,7 +7,7 @@
                 <img class="card-single-image responsive-image center-block" src="/images/cards/{{$card->id}}.jpeg" width="100%">
             </div>
             <div class="col-md-8">
-                @if($cheapest = $card->listings()->orderBy('listing_cost', 'asc')->first())
+                @if($cheapest = $card->listings()->orderBy('listing_cost', 'asc')->where('sales_status', 'listed')->first())
                     <!-- Get the cheapest listing of this card -->
                     @include('widgets.item-available')
                 @else
@@ -37,34 +37,36 @@
                     </tr>
                     <!-- Lists all listings with this card id -->
                     @foreach($listings as $listing)
-                        <tr>
-                            <td>{{ $listing->card->name }}</td>
-                            <td>{{ $listing->seller->username }}</td>
-                            <td><strong> £{{ $listing->listing_cost }} </strong> +  <small>£{{ $listing->postage_cost }} postage</small></td>
-                            @if(Auth::check())
-                                <!-- If user is logged in show link to purchase listing -->
-                                <td>
-                                    <!-- TODO: add action -->
-                                    <form action="">
-                                        <button class="btn btn-sm btn-primary btn-block btn-success small" name="submit" alt="add to cart">Add to cart</button>
-                                    </form>
-                                    <!-- <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                                    <input type="hidden" name="cmd" value="_xclick">
-                                    <input type="hidden" name="business" value="{{ $listing->seller->paypal_email_address }}">
-                                    <input type="hidden" name="lc" value="US">
-                                    <input type="hidden" name="item_name" value="{{ $listing->condition . ' ' . htmlentities($card->name) }}">
-                                    <input type="hidden" name="item_number" value="{{ $listing->id }}">
-                                    <input type="hidden" name="amount" value="{{ $listing->listing_cost }}">
-                                    <input type="hidden" name="currency_code" value="GBP">
-                                    <input type="hidden" name="button_subtype" value="services">
-                                    <input type="hidden" name="no_note" value="0">
-                                    <input type="hidden" name="shipping" value="{{ $listing->postage_cost }}">
-                                    <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest">
-                                    <button class="btn btn-sm btn-primary btn-block btn-success small" name="submit" alt="PayPal - The safer, easier way to pay online!">Buy now</button> -->
-                                    </form><br>
-                                </td>
-                            @endif
-                        </tr>
+                        @if($listing->sales_status == 'listed' && !($listing->id == $cheapest->id))
+                            <tr>
+                                <td>{{ $listing->card->name }}</td>
+                                <td>{{ $listing->seller->username }}</td>
+                                <td><strong> £{{ $listing->listing_cost }} </strong> +  <small>£{{ $listing->postage_cost }} postage</small></td>
+                                @if(Auth::check())
+                                    <!-- If user is logged in show link to purchase listing -->
+                                    <td>
+                                        <!-- TODO: add action -->
+                                        <form action="">
+                                            <button class="btn btn-sm btn-primary btn-block btn-success small" name="submit" alt="add to cart">Add to cart</button>
+                                        </form>
+                                        <!-- <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                        <input type="hidden" name="cmd" value="_xclick">
+                                        <input type="hidden" name="business" value="{{ $listing->seller->paypal_email_address }}">
+                                        <input type="hidden" name="lc" value="US">
+                                        <input type="hidden" name="item_name" value="{{ $listing->condition . ' ' . htmlentities($card->name) }}">
+                                        <input type="hidden" name="item_number" value="{{ $listing->id }}">
+                                        <input type="hidden" name="amount" value="{{ $listing->listing_cost }}">
+                                        <input type="hidden" name="currency_code" value="GBP">
+                                        <input type="hidden" name="button_subtype" value="services">
+                                        <input type="hidden" name="no_note" value="0">
+                                        <input type="hidden" name="shipping" value="{{ $listing->postage_cost }}">
+                                        <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest">
+                                        <button class="btn btn-sm btn-primary btn-block btn-success small" name="submit" alt="PayPal - The safer, easier way to pay online!">Buy now</button> 
+                                        </form><br>-->
+                                    </td>
+                                @endif
+                            </tr>
+                        @endif
                     @endforeach
                 </table>
             </div>
