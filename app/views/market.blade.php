@@ -36,9 +36,9 @@
                     <!-- put listing details in here (using blade foreach) -->
                     <table class="table table-hover">
                         <tr>
-                            <td colspan='2' class="text-left"><label>NAME</label></td>
-                            <td class="text-center"><label>QUANTITY</label></td>
-                            <td class="text-center"><label>PRICE</label></td>
+                            <th colspan='2' class="text-left">Name</th>
+                            <th class="text-center">Quantity</th>
+                            <th class="text-center">Price</th>
                         </tr>
                         @foreach($cards as $card)
                             <tr class="clickableRow" href="{{URL('market/' . $card->id .'')}}">
@@ -46,7 +46,7 @@
                                     <img class="market-img image-responsive center-block hidden-xs" src="{{ asset('images/cards/'. $card->id . '.jpeg') }}">
                                 </td>
                                 <td>
-                                    <h4 class="text-left">{{ $card->name . ' ' . $card->serial_number . ' - ' . $card->serial_number }}</h4>
+                                    <h5 class="text-left">{{ $card->name . ' ' . $card->serial_number . ' - ' . $card->serial_number }}</h5>
                                     <h5>{{ $card->series->game->name }}</h5>
                                 </td>
                                 <td>
