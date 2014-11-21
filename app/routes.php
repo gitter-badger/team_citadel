@@ -63,12 +63,17 @@ Route::group(['before' => 'auth'], function () {
         return Redirect::to('/')
             ->with('message', 'You have logged out');
     });
-});
 
-Route::get('basket', [
-    'uses' => 'BasketController@showBasket',
-    'as' => 'basket'
-]);
+    Route::get('basket', [
+        'uses' => 'BasketController@showBasket',
+        'as' => 'basket'
+    ]);
+
+    Route::post('addToBasket', [
+        'uses' => 'BasketController@addToBasket',
+        'as' => 'addToBasket'
+    ]);
+});
 
 Route::get('/market', [
     'as' => 'market',

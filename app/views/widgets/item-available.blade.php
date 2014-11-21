@@ -33,9 +33,10 @@
 <!-- PAY-PAL -->
 @if(Auth::check())
     <!-- TODO: add action -->
-    <form action="">
+    {{ Form::open(['route' => 'addToBasket']) }}
         <button class="btn btn-primary btn-block btn-success small" name="submit" alt="add to cart">Add to cart</button>
-    </form>
+        {{ Form::hidden('listing_id', $cheapest->id) }}
+    {{ Form::close() }}
     <!-- <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
     <input type="hidden" name="cmd" value="_xclick">
     <input type="hidden" name="business" value="{{ $cheapest->seller->paypal_email_address }}">

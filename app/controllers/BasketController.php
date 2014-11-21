@@ -20,6 +20,18 @@ class BasketController extends \BaseController {
         return View::make('basket', compact('basketItems', 'itemNumberInBasket', 'basketTotal', 'postageTotal'));
     }
 
+    public function addToBasket()
+    {
+        $listing_id = Input::get('listing_id');
+        $listing = Listing::find($listing_id);
+
+        $listing->buyer_id = Auth::user()->id;
+        $listing->sales_status = 'staged';
+        $listing->save();
+
+        return View::make('basket');
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -75,7 +87,7 @@ class BasketController extends \BaseController {
      */
     public function update($id)
     {
-        // 
+        //
     }
 
 
@@ -89,6 +101,4 @@ class BasketController extends \BaseController {
     {
         //
     }
-
-
 }
