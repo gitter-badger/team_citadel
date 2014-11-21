@@ -33,14 +33,36 @@ Route::get('user/profile', array(
 ));
 
 Route::get('search/cards/', array(
-    'as' => 'listedSearch',
-    function() {
+    'as' => 'listedSearch',function() 
+    {
     $query = Input::get('query');
     $cards = Card::where('cards.name', 'LIKE', '%'.$query.'%')->paginate(10);
     return View::make('result')
         ->with('cards', $cards)
         ->with('query', $query);
 }));
+
+Route::get('password/reset', array(
+  'as' => 'password.remind',
+  'uses' => 'PasswordController@remind',
+));
+
+Route::post('password/reset', array(
+    'as' => 'password.request',
+    'uses' => 'PasswordController@request'
+  
+));
+
+Route::get('password/reset/{token}', array(
+  'uses' => 'PasswordController@reset',
+  'as' => 'password.reset'
+));
+
+Route::post('password/reset/{token}', array(
+  'uses' => 'PasswordController@update',
+  'as' => 'password.update'
+));
+
 
 Route::get('register', array(
 	'as' => 'registration',
