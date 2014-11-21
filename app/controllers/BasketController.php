@@ -9,7 +9,15 @@ class BasketController extends \BaseController {
      */
     public function showBasket()
     {
-        return View::make('basket');
+        $basketItems = Listing::where('buyer_id', Auth::user()->id)
+            ->where('sales_status', 'staged')->get();
+
+        $basketTotal = $basketItems->sum('listing_cost');
+        $postageTotal = $basketItems->sum('postage_cost');
+        // The basket item number
+        $itemNumberInBasket = 0;
+
+        return View::make('basket', compact('basketItems', 'itemNumberInBasket', 'basketTotal', 'postageTotal'));
     }
 
 
