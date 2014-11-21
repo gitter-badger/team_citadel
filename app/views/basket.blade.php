@@ -19,7 +19,7 @@
                 <td></td>
             </tr>
         </table>
-        
+
         <div class="col-md-2 pull-right">
             <table>
                 <tr>
