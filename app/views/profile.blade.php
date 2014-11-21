@@ -23,23 +23,23 @@
                     </tr> 
                     <tr>
                         <td>Email</td>
-                        <td>{{$user->email_address}}
+                        <td>{{ $user->email }}</td>
                     </tr> 
                     <tr>
                         <td>DOB</td>
-                        <td>{{$user->date_of_birth}}
+                        <td>{{ $user->date_of_birth }}</td>
                     </tr>
                     <tr>
                         <td>Location</td>
-                        <td>{{$user->location}}</td>
+                        <td>{{ $user->location }}</td>
                     </tr>  
                     <tr>
                         <td>Mobile Number</td>
-                        <td>{{$user->mobile_phone}}
+                        <td>{{ $user->mobile_phone }}</td>
                     </tr>
                     <tr>
                         <td>Home Number</td>
-                        <td>{{$user->home_telephone}}
+                        <td>{{$user->home_telephone }}</td>
                     </tr>    
             </div>
         </div>
