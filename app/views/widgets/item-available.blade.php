@@ -17,6 +17,10 @@
         @endif
     </tr>
     <tr>
+        <td><strong>Seller</strong></td>
+        <td>{{ $cheapest->seller->username }}</td>
+    </tr>
+    <tr>
         <td><strong>Item Location</strong></td>
         <td>{{ $cheapest->post_from }}</td>
     </tr>
