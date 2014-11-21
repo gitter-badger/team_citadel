@@ -15,6 +15,8 @@ class UpdateListingsWithStatus extends Migration {
         Schema::table('listings', function ($table) {
             $table->enum('sales_status', ['listed', 'staged', 'sold'])->default('listed');
         });
+
+        Shema::drop('baskets');
     }
 
     /**
@@ -25,7 +27,13 @@ class UpdateListingsWithStatus extends Migration {
     public function down()
     {
         Schema::table('listings', function ($table) {
-            $table->dropColumn('enum');
+            $table->dropColumn('sales_status');
+        });
+
+        Schema::create('baskets', function ($table) {
+            $table->bigincrements('id')->unsigned();
+            $table->integer('user_id');
+            $table->integer('listing_id');
         });
     }
 }
