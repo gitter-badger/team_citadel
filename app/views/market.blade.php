@@ -50,14 +50,14 @@
                                     <h5>{{ $card->series->game->name }}</h5>
                                 </td>
                                 <td>
-                                    @if($card->listings->count() > 1)
+                                    @if($card->listings->count() > 0)
                                         <h5 class="text-center market-text-available">{{ $card->listings->count() }}</h5>
                                     @else
                                         <h5 class="text-center market-text-unavailable">{{ $card->listings->count() }}</h5>
                                     @endif
                                 </td>
                                 <td>
-                                    @if($card->listings->count() > 1)
+                                    @if($card->listings->count() > 0)
                                         <h5 class="text-center market-text-available">£{{ $card->listings()->min('listing_cost') }}</h5>
                                     @else
                                         <h5 class="text-center market-text-unavailable">Unavailable</h5>
