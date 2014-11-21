@@ -11,6 +11,11 @@
 |
 */
 
+Route::get('tinker', function () {
+    return Listing::first()->seller;
+    return DB::getQueryLog();
+});
+
 Route::get('/', function () {
     return View::make('master');
 });
@@ -19,6 +24,12 @@ Route::resource('user', 'UsersController');
 Route::resource('listing', 'ListingController');
 Route::resource('market', 'MarketController');
 
+
+Route::get('user/profile', array(
+    'as' => 'profile',
+    'uses' => 'UsersController@show'
+
+));
 
 Route::get('register', array(
     'as' => 'registration',
@@ -66,7 +77,7 @@ Route::get('/market', [
 
 Route::post('listings', function () {
     $listing = Listing::create(Input::all());
-    return Redirect::to('listing/' . $listing->id)
+    return Redirect::to('market/' . $listing->card->id)
         ->with('message', 'Successfully created listing');
 });
 

@@ -5,6 +5,8 @@ class Listing extends Eloquent
     protected $table = 'listings';
     protected $guard = ['id', 'user_id'];
     protected $fillable = [
+        'seller_id',
+        'card_id',
         'game_id',
         'buyer_id',
         'postage_cost',
@@ -13,14 +15,23 @@ class Listing extends Eloquent
         'dispatch_date',
         'returns',
         'listing_cost',
+        'condition'
     ];
 
     function items() {
         return $this->hasMany('Item');
     }
 
+    public function user() {
+        return $this->belongsTo('User');
+    }
+
     public function card() {
         return $this->belongsTo('Card');
+    }
+
+    public function seller() {
+        return $this->belongsTo('User');
     }
 
     public function getCheapest() {

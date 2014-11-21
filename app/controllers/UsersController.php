@@ -42,5 +42,15 @@ class UsersController extends BaseController {
 		}
 		return Redirect::route('create')->withInput();
 	}
+
+	public function show($id){
+		$user = User::find($id);
+		if (Auth::user()->id != $id) {
+			return 'this is not your profile dont be nosey';
+		}
+		else{
+			return View::make('profile', compact('user'));
+		}
+	}
 }	
 
