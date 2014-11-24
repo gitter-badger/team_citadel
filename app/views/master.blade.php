@@ -83,13 +83,13 @@
             </div>
         </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="{{asset('js/bootstrap.min.js')}}"></script>
-    <script type="text/javascript" src="{{URL::asset('js/navsearch.js')}}"></script>
 </body>
 
 @section('scripts')
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-@stop
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
+    <script type="text/javascript" src="{{URL::asset('js/navsearch.js')}}"></script>
+@show
 </html>
