@@ -55,7 +55,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'team_citadel',
+			'database'  => 'ebdb',
 			'username'  => 'teamcitadel',
 			'password'  => 'SuperChar',
 			'charset'   => 'utf8',
