@@ -88,3 +88,10 @@ Route::filter('csrf', function()
         throw new Illuminate\Session\TokenMismatchException;
     }
 });
+
+Route::filter('env', function () {
+    if (!App::environment('local-luke', 'local')) {
+        return Redirect::to('/')
+            ->with('message', 'This feature is comming soon');
+    }
+});

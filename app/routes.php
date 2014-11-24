@@ -66,7 +66,7 @@ Route::group(['before' => 'auth'], function () {
 });
 
 // if it is a feature not ready place it here plx
-Route::group(['domain' => 'localhost'], function () {
+Route::group(['before' => 'env'], function () {
 
     Route::group(['before' => 'auth'], function () {
         Route::get('basket', [
