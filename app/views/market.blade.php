@@ -68,6 +68,7 @@
 @stop
 
 @section('scripts')
-<script type="text/javascript" src="{{ URL::asset('js/sort.js') }}"></script>
+@parent
+    <script type="text/javascript" src="{{ URL::asset('js/sort.js') }}"></script>
 
 @stop

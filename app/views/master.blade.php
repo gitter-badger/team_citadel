@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Deck Citadel</title>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css' )}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/styles.css' )}}">
 </head>
 <body>
 <nav class="navbar navbar-default" role="navigation">
@@ -29,7 +30,7 @@
                         </ul>
                     </div>
                 </div>
-                <button type="submit" id="search-button" class="btn btn-default hidden-xs"><span class="glyphicon glyphicon-search"></span></button>
+                <!-- <button type="submit" id="search-button" class="btn btn-default hidden-xs"><span class="glyphicon glyphicon-search"></span></button> -->
             </form>
             <form class="navbar-form navbar-right">
                 <div class="form-group">
@@ -86,9 +87,9 @@
 
 @section('scripts')
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <script type="text/javascript" src="{{URL::asset('js/navsearch.js')}}"></script>
-@stop
+@show
 </html>
