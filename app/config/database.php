@@ -54,7 +54,7 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
+			'host'      => 'aa1r9yvcn87iur3.clle5ncoz6ou.eu-central-1.rds.amazonaws.com',
 			'database'  => 'ebdb',
 			'username'  => 'teamcitadel',
 			'password'  => 'SuperChar',
