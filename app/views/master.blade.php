@@ -30,7 +30,7 @@
                         </ul>
                     </div>
                 </div>
-                <button type="submit" id="search-button" class="btn btn-default hidden-xs"><span class="glyphicon glyphicon-search"></span></button>
+                <!-- <button type="submit" id="search-button" class="btn btn-default hidden-xs"><span class="glyphicon glyphicon-search"></span></button> -->
             </form>
             <form class="navbar-form navbar-right">
                 <div class="form-group">
