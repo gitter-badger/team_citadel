@@ -36,17 +36,17 @@
                         <tr>
                             <td></td>
                             <td><h5>Subtotal</h5></td>
-                            <td class="text-right"><h5><strong>£{{ $basketTotal }}</strong></h5></td>
+                            <td class="text-right"><h5><strong>£{{ $basketTotal }}.00</strong></h5></td>
                         </tr>
                         <tr>
                             <td></td>
                             <td><h5>Estimated shipping</h5></td>
-                            <td class="text-right"><h5><strong>£{{ $postageTotal }}</strong></h5></td>
+                            <td class="text-right"><h5><strong>£{{ $postageTotal }}.00</strong></h5></td>
                         </tr>
                         <tr>
                             <td></td>
                             <td>Total</td>
-                            <td class="text-right"><strong>£{{$postageTotal + $basketTotal}}</strong></td>
+                            <td class="text-right"><strong>£{{$postageTotal + $basketTotal}}.00</strong></td>
                         </tr>
                         <tr>
                             <td></td>
