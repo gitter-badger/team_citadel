@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'team_citadel',
 			'username'  => 'teamcitadel',
-			'password'  => 'Superchar',
+			'password'  => 'SuperChar',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
