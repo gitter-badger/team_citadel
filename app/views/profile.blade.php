@@ -38,7 +38,7 @@
                         </tr> 
                         <tr>
                             <td>Email</td>
-                            <td>{{$user->email_address}}
+                            <td>{{$user->email}}
                         </tr> 
                         <tr>
                             <td>DOB</td>
