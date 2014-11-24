@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Deck Citadel</title>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css' )}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/styles.css' )}}">
 </head>
 <body>
 <nav class="navbar navbar-default" role="navigation">
@@ -22,14 +23,14 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             @include('widgets.nav')
             <form class="hidden-xs navbar-form navbar-left" role="search" method="get" action="{{ url('search/cards/') }}">
-                <!-- <div class="form-group">
+                <div class="form-group">
                     <input type="text" id="search-bar" class="form-control dropdown" name="query" placeholder="Search" autocomplete='off'>
                     <div class="dropdown">
                         <ul class="dropdown-menu search-dropdown-menu">
                         </ul>
                     </div>
-                </div> -->
-                <!-- <button type="submit" id="search-button" class="btn btn-default hidden-xs"><span class="glyphicon glyphicon-search"></span></button> -->
+                </div>
+                <button type="submit" id="search-button" class="btn btn-default hidden-xs"><span class="glyphicon glyphicon-search"></span></button>
             </form>
             <form class="navbar-form navbar-right">
                 <div class="form-group">
@@ -82,12 +83,13 @@
             </div>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
+    <script type="text/javascript" src="{{URL::asset('js/navsearch.js')}}"></script>
 </body>
 
 @section('scripts')
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="{{asset('js/bootstrap.min.js')}}"></script>
 @stop
 </html>

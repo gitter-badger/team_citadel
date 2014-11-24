@@ -105,4 +105,11 @@ Route::group(['before' => 'env'], function () {
             ->with('message', 'Successfully deleted listing');
     });
 
+    // quicksearch
+    Route::get('/quicksearch/cards/', function() {
+        $query = Input::get('query');
+        $cards = DB::table('cards')->where('name', 'LIKE', '%'.$query.'%')->take(4)->get();
+        return Response::json($cards);
+    });
+
 });
