@@ -63,39 +63,46 @@ Route::group(['before' => 'auth'], function () {
         return Redirect::to('/')
             ->with('message', 'You have logged out');
     });
+});
 
-    Route::get('basket', [
-        'uses' => 'BasketController@showBasket',
-        'as' => 'basket'
+// if it is a feature not ready place it here plx
+Route::group(['domain' => 'localhost'], function () {
+
+    Route::group(['before' => 'auth'], function () {
+        Route::get('basket', [
+            'uses' => 'BasketController@showBasket',
+            'as' => 'basket'
+        ]);
+
+        Route::post('addToBasket', [
+            'uses' => 'BasketController@addToBasket',
+            'as' => 'addToBasket'
+        ]);
+    });
+
+    Route::get('/market', [
+        'as' => 'market',
+        'uses' => 'MarketController@index'
     ]);
 
-    Route::post('addToBasket', [
-        'uses' => 'BasketController@addToBasket',
-        'as' => 'addToBasket'
-    ]);
-});
+    Route::post('listings', function () {
+        $listing = Listing::create(Input::all());
+        return Redirect::to('market/' . $listing->card->id)
+            ->with('message', 'Successfully created listing');
+    });
 
-Route::get('/market', [
-    'as' => 'market',
-    'uses' => 'MarketController@index'
-]);
+    Route::put('listing/{id}', function ($id) {
+        $listing = Listing::find($id);
+        $listing->update(Input::all());
+        return Redirect::to('lisitng/' . $lisitng->id)
+            ->with('message', 'Successfully updated listing');
+    });
 
-Route::post('listings', function () {
-    $listing = Listing::create(Input::all());
-    return Redirect::to('market/' . $listing->card->id)
-        ->with('message', 'Successfully created listing');
-});
+    Route::delete('listing/{id}', function ($id) {
+        $listing = Listing::find($id);
+        $listing->delete();
+        return Redirect::to('master')
+            ->with('message', 'Successfully deleted listing');
+    });
 
-Route::put('listing/{id}', function ($id) {
-    $listing = Listing::find($id);
-    $listing->update(Input::all());
-    return Redirect::to('lisitng/' . $lisitng->id)
-        ->with('message', 'Successfully updated listing');
-});
-
-Route::delete('listing/{id}', function ($id) {
-    $listing = Listing::find($id);
-    $listing->delete();
-    return Redirect::to('master')
-        ->with('message', 'Successfully deleted listing');
 });

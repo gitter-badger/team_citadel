@@ -14,6 +14,7 @@
                             <th>Product</th>
                             <th class="text-center">Price</th>
                             <th class="text-center">Postage</th>
+                            <th class="text-center"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -27,6 +28,7 @@
                                             <h5 class="media-heading"> by <a href="#">{{ User::find($basketItem->seller_id)->username }}</a></h5>
                                             <td class="col-sm-1 col-md-1 text-center"><strong>£{{ $basketItem->listing_cost }}.00</strong></td>
                                             <td class="col-sm-1 col-md-1 text-center"><strong>£{{ $basketItem->postage_cost }}.00</strong></td>
+                                            <td><icon class="glyphicon glyphicon-remove"></icon></td>
                                         </div>
                                     </div>
                                 </td>
