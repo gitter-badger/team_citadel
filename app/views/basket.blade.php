@@ -33,35 +33,33 @@
                             </tr>
                         @endforeach
                     </tbody>
-                        <tr>
-                            <td></td>
-                            <td><h5>Subtotal</h5></td>
-                            <td class="text-right"><h5><strong>£{{ $basketTotal }}.00</strong></h5></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td><h5>Estimated shipping</h5></td>
-                            <td class="text-right"><h5><strong>£{{ $postageTotal }}.00</strong></h5></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>Total</td>
-                            <td class="text-right"><strong>£{{$postageTotal + $basketTotal}}.00</strong></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>
-                                <button type="button" class="btn btn-default">
-                                    <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
-                                </button>
-                            </td>
-                            <td>
-                                <button type="button" class="btn btn-success">
-                                    Checkout <span class="glyphicon glyphicon-play"></span>
-                                </button>
-                            </td>
-                        </tr>
                 </table>
+
+                <!-- Overall cost and buttons section -->
+                <div class="pull-right">
+                <table>
+                    <tr>
+                        <td style="padding:0 15px 0 15px;">Subtotal</td>
+                        <td><strong>£{{ $basketTotal }}.00</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="padding:0 15px 0 15px;">Estimated shipping</td>
+                        <td><strong>£{{ $postageTotal }}.00</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="padding:0 15px 0 15px;">Total</td>
+                        <td><strong>£{{$postageTotal + $basketTotal}}.00</td>
+                    </tr>
+                </table>
+                <br>
+                    <button type="button" class="btn btn-default">
+                        <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
+                    </button>
+
+                    <button type="button" class="btn btn-success">
+                        Checkout <span class="glyphicon glyphicon-play"></span>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
