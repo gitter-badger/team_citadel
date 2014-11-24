@@ -16,7 +16,7 @@ class UpdateListingsWithStatus extends Migration {
             $table->enum('sales_status', ['listed', 'staged', 'sold'])->default('listed');
         });
 
-        Shema::drop('baskets');
+        Schema::drop('baskets');
     }
 
     /**
