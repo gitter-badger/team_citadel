@@ -16,6 +16,13 @@
 <!-- Tab panes -->
 <div class="tab-content col-md-12">
     <div role="tabpanel" class="tab-pane active" id="profile">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-header">
+                    <h1>Your Profile</h1>
+                </div>
+            </div>
+        </div>
         <div class="col-md-12">
             <div class="row">
                 <div class="col-md-6">
@@ -38,7 +45,7 @@
                         </tr> 
                         <tr>
                             <td>Email</td>
-                            <td>{{$user->email_address}}
+                            <td>{{$user->email}}
                         </tr> 
                         <tr>
                             <td>DOB</td>
@@ -47,14 +54,6 @@
                         <tr>
                             <td>Location</td>
                             <td>{{$user->location}}</td>
-                        </tr>  
-                        <tr>
-                            <td>Mobile Number</td>
-                            <td>{{$user->mobile_phone}}
-                        </tr>
-                        <tr>
-                            <td>Home Number</td>
-                            <td>{{$user->home_telephone}}
                         </tr> 
                     </table>  
                 </div>
@@ -71,18 +70,16 @@
         </div>
         <div class="panel panel-default">
             <div class="panel-heading">
-                <table class="table">
-                    <tr>
-                        <td>Order Placed</td>
-                        <td>Total</td>
-                        <td>Dispatch to</td>
-                    </tr>
-                    <tr>
-                        <td><small>14 September 2014</small></td>
-                        <td>£5.94</td>
-                        <td>Phoophanom Tanprasit</td>
-                    </tr>
-                </table>
+                <div class="row">
+                    <div class="col-md-4">Order Placed</div>
+                    <div class="col-md-4">Total</div>
+                    <div class="col-md-4">Dispatch to</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4"><small>14 September 2014</small></div>
+                    <div class="col-md-4">£5.94</div>
+                    <div class="col-md-4">Phoophanom Tanprasit</div>
+                </div>
             </div>
             <div class="panel-body">
                 <div class="col-md-2">
@@ -94,25 +91,23 @@
                 </div>
                 <div class="col-md-4">
                     <button class="btn btn-default btn-md btn-block">Message seller</button><br>
-                    <button class="btn btn-default btn-md btn-block">Return Card</button><br>
+                    <button class="btn btn-default btn-md btn-block">Returns Item</button><br>
                     <button class="btn btn-default btn-md btn-block">Leave a seller feedback</button>
                 </div>
             </div>
         </div>
         <div class="panel panel-default">
             <div class="panel-heading">
-                <table class="table">
-                    <tr>
-                        <td>Order Placed</td>
-                        <td>Total</td>
-                        <td>Dispatch to</td>
-                    </tr>
-                    <tr>
-                        <td><small>14 September 2014</small></td>
-                        <td>£5.94</td>
-                        <td>Phoophanom Tanprasit</td>
-                    </tr>
-                </table>
+                <div class="row">
+                    <div class="col-md-4">Order Placed</div>
+                    <div class="col-md-4">Total</div>
+                    <div class="col-md-4">Dispatch to</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4"><small>14 September 2014</small></div>
+                    <div class="col-md-4">£5.94</div>
+                    <div class="col-md-4">Phoophanom Tanprasit</div>
+                </div>
             </div>
             <div class="panel-body">
                 <div class="col-md-2">
@@ -124,7 +119,35 @@
                 </div>
                 <div class="col-md-4">
                     <button class="btn btn-default btn-md btn-block">Message seller</button><br>
-                    <button class="btn btn-default btn-md btn-block">Return Card</button><br>
+                    <button class="btn btn-default btn-md btn-block">Returns Item</button><br>
+                    <button class="btn btn-default btn-md btn-block">Leave a seller feedback</button>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-md-4">Order Placed</div>
+                    <div class="col-md-4">Total</div>
+                    <div class="col-md-4">Dispatch to</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4"><small>14 September 2014</small></div>
+                    <div class="col-md-4">£5.94</div>
+                    <div class="col-md-4">Phoophanom Tanprasit</div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="col-md-2">
+                    <img class="market-img image-responsive center-block" src="{{ asset('images/cards/1.jpeg') }}">
+                </div>
+                <div class="col-md-6">
+                    <h4>"Songstress" Inori</h4>
+                    <p>Sold by: Admin</p>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-default btn-md btn-block">Message seller</button><br>
+                    <button class="btn btn-default btn-md btn-block">Returns Item</button><br>
                     <button class="btn btn-default btn-md btn-block">Leave a seller feedback</button>
                 </div>
             </div>
