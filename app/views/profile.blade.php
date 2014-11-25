@@ -55,7 +55,12 @@
                     </div>
 
                     <div class="tab-pane active" id="wall-tab">
-                        <p>hello</p>
+                        @foreach($decks as $deck)
+                            <div class="row">
+                                <h4>{{{ $deck->title }}}</h4>
+                                <p>{{{ $deck->description }}}</p>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

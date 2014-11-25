@@ -1,6 +1,7 @@
 <?php
 
-class UsersController extends BaseController {
+class UsersController extends BaseController
+{
 
     /*
     |--------------------------------------------------------------------------
@@ -46,16 +47,18 @@ class UsersController extends BaseController {
     public function show($username)
     {
         $user = User::whereUsername($username)->first();
+        $decks = $this->getUserWall($user->id);
 
         if (Auth::user()->id != $user->id) {
             return 'this is not your profile dont be nosey';
         } else {
-            return View::make('profile', compact('user'));
+            return View::make('profile', compact('user', 'decks'));
         }
     }
 
-    public function getUserWall()
+    public function getUserWall($userId)
     {
-        
+        $user = User::find($userId);
+        return $user->decks;
     }
 }

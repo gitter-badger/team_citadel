@@ -24,7 +24,7 @@
             <form class="navbar-form navbar-right">
                 <div class="form-group">
                     @if( Auth::check() )
-                        <button type="button" class="btn btn-default btn-sm" onClick="location.href='{{{ $user->username }}}'">
+                        <button type="button" class="btn btn-default btn-sm" onClick="location.href='{{{ Auth::user()->username }}}'">
                             <span class="glyphicon glyphicon-home"></span>
                             {{{ Auth::user()->username }}}
                         </button>

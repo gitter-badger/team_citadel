@@ -24,13 +24,6 @@ Route::resource('user', 'UsersController');
 Route::resource('listing', 'ListingController');
 Route::resource('market', 'MarketController');
 
-
-Route::get('{username}', array(
-    'as' => 'profile',
-    'uses' => 'UsersController@show'
-
-));
-
 Route::get('register', array(
     'as' => 'registration',
     'uses' => 'UsersController@registration'
@@ -63,6 +56,12 @@ Route::group(['before' => 'auth'], function () {
         return Redirect::to('/')
             ->with('message', 'You have logged out');
     });
+
+    Route::get('{username}', array(
+        'as' => 'profile',
+        'uses' => 'UsersController@show'
+
+    ));
 });
 
 // if it is a feature not ready place it here plx

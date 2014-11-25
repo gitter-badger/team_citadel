@@ -5,7 +5,8 @@ use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-class User extends Eloquent implements UserInterface, RemindableInterface {
+class User extends Eloquent implements UserInterface, RemindableInterface
+{
 
     use UserTrait, RemindableTrait;
 
@@ -22,26 +23,32 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
      */
     protected $hidden = ['password', 'remember_token'];
     protected $guarded = ['id'];
-    protected $fillable = 
+    protected $fillable =
     [
         'first_name',
         'last_name',
         'email_address',
         'username',
         'password',
-        'mobile_phone', 
+        'mobile_phone',
         'home_telephone',
         'gender',
         'location',
         'title'
     ];
 
-    public function listings() {
+    public function listings()
+    {
         return $this->hasMany('Listing');
     }
 
     public function address()
     {
         return $this->hasMany('Address');
+    }
+
+    public function decks()
+    {
+        return $this->belongsToMany('Deck');
     }
 }

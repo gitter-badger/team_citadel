@@ -19,4 +19,9 @@ class Card extends Eloquent
     {
         return $this->hasMany('Listing');
     }
+
+    public function decks()
+    {
+        return $this->belongsToMany('Deck');
+    }
 }
