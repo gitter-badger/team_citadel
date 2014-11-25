@@ -18,4 +18,8 @@ class Card extends Eloquent
     public function listings() {
         return $this->hasMany('Listing');
     }
+
+    public function getUrlAttribute() {
+        return URL::route('card.show', $this->id);
+    }
 }

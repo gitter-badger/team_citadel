@@ -38,10 +38,7 @@ class CardController extends \BaseController {
         //
         //
         $card = Card::find($id);
-        //$comments = Comment::where('card_id', $id)->with('user')->orderBy('updated_at', 'desc')->take(10)->get();
-        return View::make('card')
-            ->with('card', $card);
-            //->with('comments', $comments);
+        return View::make('card', compact('card'));
     }
     /**
      * Show the form for editing the specified resource.
@@ -72,5 +69,11 @@ class CardController extends \BaseController {
     public function destroy($id)
     {
         //
+    }
+
+    public function cardSearch() {
+        $query = Input::get('query');
+        $cards = Card::where('cards.name', 'LIKE', '%'.$query.'%')->paginate(10);
+        return View::make('result', compact('cards','query'));
     }
 }

@@ -6432,4 +6432,9 @@ button.close {
 .market-text-unavailable {
   color:#d9534f;
 }
+
 tr.clickableRow { cursor: pointer; }
+
+.series-card-img {
+  height: 4em;
+}

@@ -14,4 +14,8 @@ class Series extends Eloquent
     {
         return $this->hasMany('Card');
     }
+    
+    public function getUrlAttribute() {
+        return URL::route('series.show', $this->id);
+    }
 }

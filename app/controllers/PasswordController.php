@@ -2,7 +2,7 @@
 
 use Illuminate\Auth\Reminders\PasswordBroker;
 
-class PasswordController extends BaseController{
+class PasswordController extends BaseController {
 	
 	public function remind()
 	{
@@ -16,18 +16,16 @@ class PasswordController extends BaseController{
 	
 	public function request()
 	{
-		$result = Password::remind( Input::only('email'), function($message)
-    {
+		$result = Password::remind( Input::only('email'), function($message) {
     		$message->subject('Password Reminder');
         	$message->from('support@icdb.com');
-   	});
-
+   		});
+		$message = Lang::get($result);
 		if ($result == PasswordBroker::REMINDER_SENT) {
-		// all is ok!
-			return 'YEESSS';
-		}
-		else {
-			return 'NOOOOO';
+		// TODO: take the user to homepage with email sent message
+			return Redirect::route('welcome')->with('message', $message);
+		} else {
+			return Redirect::route('welcome')->with('error', $message);
 		}
 	}
 	

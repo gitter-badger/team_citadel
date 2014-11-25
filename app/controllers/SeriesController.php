@@ -7,11 +7,8 @@ class SeriesController extends \BaseController {
 	 */
 	public function index()
 	{
-		$cards = [];
-		$series = Series::all();
-		return View::make('series')
-			->with('series', $series)
-			->with('cards', $cards);
+		$series = Series::paginate(12);
+		return View::make('series', compact('series'));
 	}
 	/**
 	 * Show the form for creating a new resource.
@@ -40,11 +37,8 @@ class SeriesController extends \BaseController {
 	public function show($id)
 	{
 		//
-		$cards = DB::table('cards')->where('series_id', $id)->get();
-		$series = DB::table('series')->where('id', $id)->first();
-		return View::make('series')
-			->with('cards', $cards)
-			->with('series', $series);
+		$cards = Card::whereSeriesId($id)->get();
+		return View::make('cards', compact('cards'));
 	}
 
 	/**
