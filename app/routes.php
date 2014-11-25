@@ -23,7 +23,9 @@ Route::get('/', function()
 
 Route::resource('user', 'UsersController'); 
 Route::resource('listing', 'ListingController');
-Route::resource('market', 'MarketController'); 
+Route::resource('market', 'MarketController');
+Route::resource('series', 'SeriesController'); 
+Route::resource('card', 'CardController');
 
 
 Route::get('user/profile', array(
@@ -74,9 +76,10 @@ Route::post('register', array(
 	'uses' => 'UsersController@store'
 )); 
 
-Route::get('login', function() {
-    return View::make('login');
-});
+Route::get('login', array(
+    'as' => 'login',
+    'uses' => 'UsersController@login'
+));
 
 Route::post('login', function() {
     if(Auth::attempt(Input::only('username', 'password'))) {
