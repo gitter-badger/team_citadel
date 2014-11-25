@@ -15,6 +15,7 @@
 					{{ Form::submit('Login', array( 'class' => 'btn btn-custom btn-lg btn-block', 'id' => 'btn-login' )) }}
 				{{ Form::close() }}
 				<a href="{{{URL::to('register')}}}" class="signup">Not registered? Sign up!</a>
+				<a href="{{ route('password.remind') }}" class="signup">Forgotten password? Password reminder!</a>
 			</div>
 		</div>
 	</div>

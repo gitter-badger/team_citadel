@@ -71,6 +71,11 @@ class ListingController extends \BaseController {
         return View::make('create-listing', compact('listing', 'method','card'));
     }
 
+    public function searchListing()
+    {
+        return View::make('result');
+    }
+
 
     /**
      * Show the form for editing the specified resource.

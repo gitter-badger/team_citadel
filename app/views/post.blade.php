@@ -43,7 +43,7 @@
 
             <h4>Seller Information</h4>
             <strong> Username: </strong> {{ $cheapest->user->username }} <br>
-            <strong> Email: </strong> {{ $cheapest->user->email_address }} <br>
+            <strong> Email: </strong> {{ $cheapest->user->email }} <br>
         @endif
     </div>
 </div>

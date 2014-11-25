@@ -8,6 +8,9 @@
 		</ul>
 	</li>
 	<li>
+        <a href="{{url('series')}}">Series</a>
+    </li>
+	<li>
         <a href="{{url('market')}}">Market</a>
     </li>
 </ul>

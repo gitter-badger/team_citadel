@@ -16,19 +16,49 @@ Route::get('tinker', function () {
     return DB::getQueryLog();
 });
 
-Route::get('/', function () {
-    return View::make('master');
-});
+Route::get('/', [ 
+    'as' => 'welcome', 
+    function() {
+        return View::make('master');
+    }
+]);
 
 Route::resource('user', 'UsersController');
 Route::resource('listing', 'ListingController');
 Route::resource('market', 'MarketController');
+Route::resource('series', 'SeriesController'); 
+Route::resource('card', 'CardController');
 
 
 Route::get('user/profile', array(
     'as' => 'profile',
     'uses' => 'UsersController@show'
+));
 
+Route::get('search/cards/', array(
+    'as' => 'cards.search',
+    'uses' => 'CardController@cardSearch'
+));
+
+Route::get('password/reset', array(
+    'as' => 'password.remind',
+    'uses' => 'PasswordController@remind',
+));
+
+Route::post('password/reset', array(
+    'as' => 'password.request',
+    'uses' => 'PasswordController@request'
+  
+));
+
+Route::get('password/reset/{token}', array(
+    'uses' => 'PasswordController@reset',
+    'as' => 'password.reset'
+));
+
+Route::post('password/reset/{token}', array(
+    'uses' => 'PasswordController@update',
+    'as' => 'password.update'
 ));
 
 Route::get('register', array(
@@ -41,9 +71,10 @@ Route::post('register', array(
     'uses' => 'UsersController@store'
 ));
 
-Route::get('login', function () {
-    return View::make('login');
-});
+Route::get('login', array(
+    'as' => 'login',
+    'uses' => 'UsersController@login'
+));
 
 Route::post('login', function () {
     if (Auth::attempt(Input::only('username', 'password'))) {
@@ -56,14 +87,15 @@ Route::post('login', function () {
 });
 
 // Routes that requires authentication before becoming viewable
-Route::group(['before' => 'auth'], function () {
-    // Has Auth Filter
-    Route::get('logout', function () {
-        Auth::logout();
-        return Redirect::to('/')
-            ->with('message', 'You have logged out');
-    });
-});
+Route::group(['before' => 'auth'], function() {
+        // Has Auth Filter 
+        Route::get('logout', function() {
+            Auth::logout();
+            return Redirect::to('/')
+                ->with('message', 'You have logged out');
+        });
+    }
+);
 
 // if it is a feature not ready place it here plx
 Route::group(['before' => 'env'], function () {

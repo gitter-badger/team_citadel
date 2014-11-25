@@ -22,19 +22,19 @@ class UsersController extends BaseController {
 
 	public function store()
 	{
-		$username = Input::get('username');
-		$first_name = Input::get('first_name');
-		$last_name = Input::get('last_name');
-		$email_address = Input::get('email_address');
-		$password = Hash::make((Input::get('password')));
+		$values = Input::only(
+			'username',
+			'first_name',
+			'last_name',
+			'email',
+			'password'
+		);
 
-		$newUser = User::create([
-			'username' => $username, 
-			'first_name' => $first_name, 
-			'last_name' => $last_name, 
-			'email_address' => $email_address, 
-			'password' => $password, 
-		]);
+		// TODO:: NW - VALIDATION!!!!
+
+		$values['password'] = Hash::make( $values['password'] );
+
+		$newUser = User::create($values);
 
 		if($newUser){
 			Auth::login($newUser);
@@ -51,6 +51,10 @@ class UsersController extends BaseController {
 		else{
 			return View::make('profile', compact('user'));
 		}
+	}
+
+	public function login(){
+		return View::make('login');
 	}
 }	
 
