@@ -1,26 +1,18 @@
-@extends( 'master' )
-@section( 'content' )
-    <div class="row">
-        <div class="col-xs-12 col-md-offset-2 col-md-8">
-            <div class="page-header">
-                <h1>Weiβ Schwarz <small>- Card</small></h1>
-            </div>
-        </div>
-    </div>
+@extends('master')
+@section('header')
+    <h1 class="text-center">{{ $card->series->name }} <small>- {{ $card->name }}</small></h1>
+@stop 
+@section('content')
     <div class="row">
         <div class="col-xs-12 col-md-offset-2 col-md-8">
             <ol class="breadcrumb">
                 <li><a href="{{ URL::route('series.index') }}">Series</a></li>
                 <li><a href="{{ $card->series->url }}">{{ $card->series->name }}</a></li>
-                <li class="active">{{ $card->unique_identifier }}</li>
+                <li class="active">{{ $card->serial_number }}</li>
             </ol>
         </div>
     </div>
     <div class="row">
-        <div class="col-xs-12 col-md-offset-2 col-md-8">
-            <h3>{{ $card->name }}</h3>
-            <h4 class="row-line">{{ $card->jap_name }}</h4>
-        </div>
         <div class="col-xs-12 col-md-12">
             <a data-toggle="modal" data-target="#image-modal" href="">
                 <!-- I know you hate this nathan but please let this go for now :) -->
@@ -88,7 +80,4 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
-@stop
-@section('scripts')
-<script type="text/javascript" src="{{ asset('/js/rating.js')}}"></script>
 @stop

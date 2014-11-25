@@ -36,7 +36,7 @@
                 <div class="form-group">
                     @if( Auth::check() )
                         <button type="button" class="btn btn-default btn-sm" onClick="location.href='{{{ url('user/' . Auth::user()->id ) }}}'">
-                            <span class="glyphicon glyphicon-home"></span>
+                            <span class="glyphicon glyphicon-user"></span>
                             {{{ Auth::user()->username }}}
                         </button>
                         <button class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
@@ -65,24 +65,20 @@
                 @yield('header')
             </div>
         </div>
-
-        <div class="row">
+        @if( Session::has('message') )
+            <div class='alert alert-success'>
+                {{ Session::get('message') }}
             </div>
-                @if( Session::has('message') )
-                    <div class='alert alert-success'>
-                        {{ Session::get('message') }}
-                    </div>
-                @endif
-                @if(Session::has('error'))
-                    <div class='alert alert-warning'>
-                        {{ Session::get('error') }}
-                    </div>
-                @endif
-                @yield('content')
-                <!-- <button id='button'>Go!</button> -->
+        @endif
+        @if(Session::has('error'))
+            <div class='alert alert-warning'>
+                {{ Session::get('error') }}
             </div>
-        </div>
+        @endif
+        @yield('content')
+        <!-- <button id='button'>Go!</button> -->
     </div>
+</div>
 </body>
 @section('scripts')
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

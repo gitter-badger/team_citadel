@@ -1,11 +1,8 @@
 @extends('master')
+@section('header')
+    <h1 class="text-center">Weiβ Schwarz <small>- Search Results for {{ $query }}</small></h1>
+@stop
 @section('content')
-    <div class="row">
-        <div class="col-md col-md-offset-2">
-        <div class="page-header">
-            <h1>Weiβ Schwarz <small>- Search Results for {{ $query }}</small></h1>
-        </div>
-    </div>
     @foreach($cards as $card)
         <div class="row result-row-border">
             <div class="col-sm-2  col-sm-offset-2">

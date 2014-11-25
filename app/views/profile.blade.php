@@ -164,5 +164,6 @@
 </div>
 @stop
 @section('scripts')
+@parent
 <script type="text/javascript" src="{{asset('js/validation.js')}}"></script>
 @stop

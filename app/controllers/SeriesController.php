@@ -37,8 +37,8 @@ class SeriesController extends \BaseController {
 	public function show($id)
 	{
 		//
-		$cards = Card::whereSeriesId($id)->get();
-		return View::make('cards', compact('cards'));
+		$aSeries = Series::find($id);
+		return View::make('cards', compact('aSeries'));
 	}
 
 	/**

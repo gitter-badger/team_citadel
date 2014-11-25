@@ -6440,4 +6440,18 @@ tr.clickableRow { cursor: pointer; }
 .series-card-img {
   height: 4em;
 }
->>>>>>> marketplace
+.popup-image {
+  width: 350px;
+  height: auto;
+}
+.modal-popup-image {
+ padding-top: 10px; 
+ padding-bottom: 10px; 
+ padding-right: 10px; 
+ padding-left: 10px; 
+ width: 370px; 
+}
+
+.modal-dialog {
+   width: 370px; 
+}
