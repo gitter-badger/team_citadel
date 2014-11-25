@@ -25,7 +25,7 @@ Route::resource('listing', 'ListingController');
 Route::resource('market', 'MarketController');
 
 
-Route::get('user/profile', array(
+Route::get('{username}', array(
     'as' => 'profile',
     'uses' => 'UsersController@show'
 

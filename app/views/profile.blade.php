@@ -11,9 +11,8 @@
 
             <div class="col-sm-8 col-md-9 ">
                 <ul class="nav nav-tabs nav-pill">
-
                     <li><a href="#profile-tab2" data-toggle="tab" >Profile<i class="fa"></i></a></li>
-                    <li><a href="#wall-tab" data-toggle="tab" >Wall<i class="fa"></i></a></li>
+                    <li class="active"><a href="#wall-tab" data-toggle="tab">Wall<i class="fa"></i></a></li>
                 </ul>
 
                 <div class="tab-content">
@@ -55,7 +54,7 @@
                         </table>
                     </div>
 
-                    <div class="tab-pane" id="wall-tab">
+                    <div class="tab-pane active" id="wall-tab">
                         <p>hello</p>
                     </div>
                 </div>

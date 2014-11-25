@@ -21,20 +21,10 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             @include('widgets.nav')
-            <form class="hidden-xs navbar-form navbar-left" role="search" method="get" action="{{ url('search/cards/') }}">
-                <!-- <div class="form-group">
-                    <input type="text" id="search-bar" class="form-control dropdown" name="query" placeholder="Search" autocomplete='off'>
-                    <div class="dropdown">
-                        <ul class="dropdown-menu search-dropdown-menu">
-                        </ul>
-                    </div>
-                </div> -->
-                <!-- <button type="submit" id="search-button" class="btn btn-default hidden-xs"><span class="glyphicon glyphicon-search"></span></button> -->
-            </form>
             <form class="navbar-form navbar-right">
                 <div class="form-group">
                     @if( Auth::check() )
-                        <button type="button" class="btn btn-default btn-sm" onClick="location.href='{{{ url('user/' . Auth::user()->id ) }}}'">
+                        <button type="button" class="btn btn-default btn-sm" onClick="location.href='{{{ $user->username }}}'">
                             <span class="glyphicon glyphicon-home"></span>
                             {{{ Auth::user()->username }}}
                         </button>
