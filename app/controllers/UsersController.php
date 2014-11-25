@@ -52,5 +52,9 @@ class UsersController extends BaseController {
 			return View::make('profile', compact('user'));
 		}
 	}
+
+	public function login(){
+		return View::make('login');
+	}
 }	
 
