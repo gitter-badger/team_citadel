@@ -1,6 +1,6 @@
 @extends('master')
 @section('header')
-    <h1 class="text-center">{{ $card->series->name }} <small>- {{ $card->name }}</small></h1>
+<h1 class="text-center">{{ $card->series->name }} <small>- {{ $card->name }}</small></h1>
 @stop 
 @section('content')
     <div class="row">
@@ -25,7 +25,7 @@
             <table class="table table-striped">
                 <tr>
                     <td><label>Type</label></td>
-                    <td>{{ $card->type }}</td>
+                    <td>{{ $card }}</td>
                     <td><label>Level</label></td>
                     <td>{{ $card->level }}</td>
                 </tr>
