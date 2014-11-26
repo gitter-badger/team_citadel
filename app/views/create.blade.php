@@ -21,6 +21,9 @@
                 <div class="form-group has-feedback">
                     {{ Form::password( 'password',  array('class' => 'form-control', 'placeholder' => 'Password', 'id' => 'reg-password')) }}
                 </div>
+                <div class="form-group has-feedback">
+                    {{ Form::file('image')}}
+                </div>
                     {{ Form::submit( 'Register', array( 'class' => 'btn btn-custom btn-lg btn-block', 'id' => 'btn-signup' )) }}
                 {{ Form::close() }}
             </div>

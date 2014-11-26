@@ -40,8 +40,13 @@ class UsersController extends BaseController {
 			Auth::login($newUser);
 			return Redirect::to('/');
 		}
+		$destinationPath = 'public\images\users';
+		
+		if (Input::file('image')->isValid()) {
+			Input::file('image')->move($destinationPath);
 		return Redirect::route('create')->withInput();
 	}
+}
 
 	public function show($id){
 		$user = User::find($id);

@@ -39,6 +39,12 @@ Route::get('sendemail', [
     }
 ]);
 
+Route::get('upload', function() {
+  return View::make('pages.upload');
+});
+
+Route::post('apply/upload', 'ApplyController@upload');
+
 Route::get('user/profile', array(
     'as' => 'profile',
     'uses' => 'UsersController@show'
