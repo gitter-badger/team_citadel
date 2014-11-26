@@ -15,11 +15,18 @@ class Card extends Eloquent
         return $this->belongsToMany('Attribute');
     }
 
-    public function listings() {
+    public function listings()
+    {
         return $this->hasMany('Listing');
     }
 
-    public function getUrlAttribute() {
+    public function getUrlAttribute()
+    {
         return URL::route('card.show', $this->id);
+    }
+    
+    public function decks()
+    {
+        return $this->belongsToMany('Deck');
     }
 }
