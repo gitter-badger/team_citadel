@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('header')
-<h2> Shopping Basket <h2>
+<h2> Shopping Basket t<h2>
 @stop
 
 @section('content')

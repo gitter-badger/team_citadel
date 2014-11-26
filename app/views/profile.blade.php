@@ -1,4 +1,13 @@
 @extends( 'master' )
+
+    <style>
+        .post-border{
+            border:
+            1px solid #d3d3d3;
+            padding: 4px;
+            margin-top: 2px;
+        }
+    </style>
     @section('header')
         <h2>Profile {{{ $user->username }}}</h2>
     @stop
@@ -55,10 +64,24 @@
                     </div>
 
                     <div class="tab-pane active" id="wall-tab">
-                        @foreach($decks as $deck)
+                        <div class="row well post-border">
+                            <div class="col-md-3">
+                                <h4 class="text-center">
+                                    <a href="/decks/create">
+                                        Create Deck <icon class="glyphicon glyphicon-plus-sign"></icon>
+                                    </a>
+                                </h4>
+                            </div>
+                        </div>
+                         @foreach($decks as $deck)
                             <div class="row">
-                                <h4>{{{ $deck->title }}}</h4>
-                                <p>{{{ $deck->description }}}</p>
+                                <div class="col-md-12 post-border">
+                                    <span class="col-sm-3 col-md-2">
+                                        <img class="responsive-image center-block" src="/images/games/{{ $deck->game_id.'-back'}}.png" width="70%">
+                                    </span>
+                                    <h4>{{{ $deck->title }}}</h4>
+                                    <p>{{{ $deck->description }}}</p>
+                                </div>
                             </div>
                         @endforeach
                     </div>
