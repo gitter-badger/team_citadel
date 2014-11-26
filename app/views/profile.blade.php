@@ -34,19 +34,19 @@
                         <tr>
                             <td>Title</td>
                             <td>{{ $user->title }}</td>
-                        </tr>  
+                        </tr>
                         <tr>
                             <td>Firstname</td>
-                            <td>{{ $user->first_name }}</td> 
-                        </tr> 
+                            <td>{{ $user->first_name }}</td>
+                        </tr>
                         <tr>
                             <td>Lastname</td>
                             <td>{{ $user->last_name}}
-                        </tr> 
+                        </tr>
                         <tr>
                             <td>Email</td>
                             <td>{{$user->email}}
-                        </tr> 
+                        </tr>
                         <tr>
                             <td>DOB</td>
                             <td>{{$user->date_of_birth}}
@@ -54,8 +54,8 @@
                         <tr>
                             <td>Location</td>
                             <td>{{$user->location}}</td>
-                        </tr> 
-                    </table>  
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
