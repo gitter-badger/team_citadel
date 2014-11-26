@@ -1,0 +1,1001 @@
+card_id,attribute_id,value
+1,2,生徒会 (Student Council)
+1,1,死 (Death)
+1,3,None
+1,4,Character
+1,5,Yellow
+1,6,"\b \b \b \b \b \b \b \b [C] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 All your other <<Death>> Characters gain ""\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b ENCORE \b0 [Discard a Character card from hand to the Waiting Room]"".\line\b \b \b \b \b \b \b \b [S] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 [Rest this] Choose 1 of your Characters. That Character gains +1000 Power for the rest of this turn."
+1,7,0
+1,8,1
+1,9,1
+1,10,3500
+2,2,生徒会 (Student Council)
+2,1,死 (Death)
+2,3,Soul 
+2,4,Character
+2,5,Yellow
+2,6,"\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 When this is placed from hand to the Stage, you may put the top card of your Clock in your Waiting Room.\line\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 When the Battle Opponent of this becomes Reversed, you may send it to Memory."
+2,7,2
+2,8,2
+2,9,3
+2,10,10000
+3,2,音楽 (Music)
+3,1,死 (Death)
+3,3,None
+3,4,Character
+3,5,Yellow
+3,6,\b \b \b \b \b \b \b \b [C] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b SUPPORT \b0 All your Characters in front of this gain +500 Power.\line\b \b \b \b \b \b \b \b [S] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 [(1) Rest 1 of your other <<Music>> Characters] Choose 1 of your <<Music>> Characters. That Character gains +1 Soul for the rest of this turn.
+3,7,0
+3,8,1
+3,9,0
+3,10,500
+4,2,生徒会 (Student Council)
+4,1,死 (Death)
+4,3,None
+4,4,Character
+4,5,Yellow
+4,6,"\b \b \b \b \b \b \b \b [C] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 During your turn, this gains +500 Power for every other <<Death>> Character you have."
+4,7,0
+4,8,1
+4,9,0
+4,10,2500
+5,2,生徒会 (Student Council)
+5,1,死 (Death)
+5,3,Soul 
+5,4,Character
+5,5,Yellow
+5,6,"\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 [(2)] When ""Power to Protect"" is placed to your Climax Zone, if this is in the Front Row, you may pay cost. If so, search your Deck for up to 2 ""Kanade, Reason for Fighting"" and put them in separate Slots in the Front Row. Shuffle your Deck.\line\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b ENCORE \b0 [Discard a Character card from hand to the Waiting Room]"
+5,7,1
+5,8,1
+5,9,1
+5,10,5000
+6,2,音楽 (Music)
+6,1,死 (Death)
+6,3,Soul 
+6,4,Character
+6,5,Yellow
+6,6,"\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 [(1)] When this attacks, if ""A Lady's Greatest Happiness"" is in the Climax Zone, you may pay cost. If so, all your Characters gain +1000 Power and +1 Soul for the rest of this turn.\line\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b ENCORE \b0 [Discard a Character card from hand to the Waiting Room]"
+6,7,2
+6,8,2
+6,9,2
+6,10,7500
+7,2,生徒会 (Student Council)
+7,1,死 (Death)
+7,3,Soul 
+7,4,Character
+7,5,Yellow
+7,6,"\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 When this attacks, choose 1 of your Characters with ""\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b ENCORE \b0 [Discard a Character card from hand to the Waiting Room]"". That Character gains +1 Soul for the rest of this turn."
+7,7,2
+7,8,2
+7,9,2
+7,10,8000
+8,2,生徒会 (Student Council)
+8,1,死 (Death)
+8,3,None
+8,4,Character
+8,5,Yellow
+8,6,"\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 [(1) Discard a card from hand to the Waiting Room, Send this to Memory] When this becomes Reversed while battling, you may pay cost. If so, search your Deck for up to 1 <<Student Council>> Character, reveal it, and put it in your hand. Shuffle your Deck."
+8,7,0
+8,8,1
+8,9,0
+8,10,1000
+9,2,双子 (Twins)
+9,1,死 (Death)
+9,3,None
+9,4,Character
+9,5,Yellow
+9,6,"\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 [(1)] When this is placed from hand to the Stage, you may pay cost. If so, this gains +2500 Power for the rest of this turn."
+9,7,0
+9,8,1
+9,9,0
+9,10,2500
+10,2,生徒会 (Student Council)
+10,1,死 (Death)
+10,3,None
+10,4,Character
+10,5,Yellow
+10,6,"\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 [Discard a card from hand to the Waiting Room, Rest 1 of your Standing Characters] When this is placed to the Stage, you may pay cost. If so, search your Deck for up to 1 ""Kanade, Reason for Fighting reveal it and put it in your hand. Shuffle your Deck."""
+10,7,0
+10,8,1
+10,9,1
+10,10,4500
+11,2,音楽 (Music)
+11,1,死 (Death)
+11,3,None
+11,4,Character
+11,5,Yellow
+11,6,"\b \b \b \b \b \b \b \b [C] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 During your turn, this gains +500 Power for each other Character with ""\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b ENCORE \b0 [Discard a Character card from hand to the Waiting Room]"" you have."
+11,7,0
+11,8,1
+11,9,1
+11,10,5000
+12,2,音楽 (Music)
+12,1,死 (Death)
+12,3,Soul 
+12,4,Character
+12,5,Yellow
+12,6,"\b \b \b \b \b \b \b \b [C] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b SUPPORT \b0 All your Level 2 or higher Characters in front of this gain +1000 Power.\line\b \b \b \b \b \b \b \b [C] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b RECOLLECTION \b0 If there are 3 or more cards in your Memory, this gains ""\b \b \b \b \b \b \b \b [C] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b SUPPORT \b0 All your Characters in front of this gain +500 Power."
+12,7,1
+12,8,1
+12,9,2
+12,10,5500
+13,2,None
+13,1,死 (Death)
+13,3,None
+13,4,Character
+13,5,Yellow
+13,6,"\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b BOND \b0/""Kanade in Straw Hat"" [(1)]"
+13,7,0
+13,8,1
+13,9,0
+13,10,1000
+14,2,音楽 (Music)
+14,1,死 (Death)
+14,3,None
+14,4,Character
+14,5,Yellow
+14,6,"\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 [(1)] When this is placed from hand to the Stage, you may pay cost. If you do, choose 1 of your Opponent's Character whose Level is 0 or lower. Return that Character to the hand, and send this to Memory at the end of your turn. "
+14,7,0
+14,8,1
+14,9,0
+14,10,2500
+15,2,音楽 (Music)
+15,1,死 (Death)
+15,3,None
+15,4,Character
+15,5,Yellow
+15,6,--None--
+15,7,0
+15,8,1
+15,9,0
+15,10,3000
+16,2,音楽 (Music)
+16,1,死 (Death)
+16,3,None
+16,4,Character
+16,5,Yellow
+16,6,--None--
+16,7,0
+16,8,1
+16,9,1
+16,10,5500
+17,2,生徒会 (Student Council)
+17,1,死 (Death)
+17,3,Soul 
+17,4,Character
+17,5,Yellow
+17,6,"\b \b \b \b \b \b \b \b [S] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 [Counter] \b SUPPORT 2000, Level 1 \b0 [(1) Discard this card from hand to the Waiting Room]"
+17,7,1
+17,8,1
+17,9,1
+17,10,2000
+18,2,生徒会 (Student Council)
+18,1,死 (Death)
+18,3,Soul 
+18,4,Character
+18,5,Yellow
+18,6,"\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 When this attacks, if ""Angel Alight"" is in the Climax Zone, you may choose an Opponent's Character and return it to the hand."
+18,7,1
+18,8,1
+18,9,2
+18,10,8000
+19,2,None
+19,1,死 (Death)
+19,3,Soul 
+19,4,Character
+19,5,Yellow
+19,6,--None--
+19,7,1
+19,8,1
+19,9,2
+19,10,8500
+20,2,None
+20,1,None
+20,3,None
+20,4,Event
+20,5,Yellow
+20,6,[Counter] Choose 1 of your <<Death>> Characters. That Character gains +3500 Power for the rest of this turn.
+20,7,1
+20,8,0
+20,9,1
+20,10,0
+21,2,None
+21,1,None
+21,3,None
+21,4,Event
+21,5,Yellow
+21,6,"Search your Deck for up to 3 <<Death>> Characters, reveal them, and put them in your hand. Shuffle your Deck. Discard 2 cards from hand to your Waiting Room."
+21,7,2
+21,8,0
+21,9,1
+21,10,0
+22,2,None
+22,1,None
+22,3,None
+22,4,Event
+22,5,Yellow
+22,6,Choose an Opponent's Front Row Character whose Level is 2 or lower. Send it to Memory.
+22,7,2
+22,8,0
+22,9,2
+22,10,0
+23,2,None
+23,1,None
+23,3,2 Soul 
+23,4,Climax
+23,5,Yellow
+23,6,"\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 When this is placed from hand to the Climax Zone, draw a card, and choose 1 of your Characters. That Character gains +2000 Power and +1 Soul for the rest of this turn."
+23,7,0
+23,8,0
+23,9,0
+23,10,0
+24,2,None
+24,1,None
+24,3,Flame 
+24,4,Climax
+24,5,Yellow
+24,6,\b \b \b \b \b \b \b \b [C] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 All your Characters gain +1000 Power and +1 Soul.
+24,7,0
+24,8,0
+24,9,0
+24,10,0
+25,2,None
+25,1,None
+25,3,Wind
+25,4,Climax
+25,5,Yellow
+25,6,\b \b \b \b \b \b \b \b [C] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 All your Characters gain +1000 Power and +1 Soul.
+25,7,0
+25,8,0
+25,9,0
+25,10,0
+26,2,武器 (Weapon)
+26,1,死 (Death)
+26,3,None
+26,4,Character
+26,5,Red
+26,6,"\b \b \b \b \b \b \b \b [C] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 Character opposite this gains ""\b \b \b \b \b \b \b \b [C] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 This cannot Side Attack"".\line\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 When this becomes Reversed, if its Battle Opponent of this is Level 0 or lower, you may Reverse that Character."
+26,7,0
+26,8,1
+26,9,0
+26,10,1500
+27,2,武器 (Weapon)
+27,1,死 (Death)
+27,3,None
+27,4,Character
+27,5,Red
+27,6,"\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 When this attacks, if ""Memories While Alive"" is in the Climax Zone, you may choose up to 2 <<Death>> Characters in your Waiting Room and return it to your hand. If so, discard 2 cards from your hand to Waiting Room.\line\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b CHANGE \b0 [(1) Discard a card from hand to Waiting Room, Send this to Memory] At beginning of your Encore Step, if this is Rested, you may pay cost. If so, choose a ""Yuri, Graduating from This World"" in your Waiting Room and put it in the Slot this was in."
+27,7,0
+27,8,1
+27,9,1
+27,10,4000
+28,2,武器 (Weapon)
+28,1,死 (Death)
+28,3,None
+28,4,Character
+28,5,Red
+28,6,"\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 [Put a card from hand in Clock] When this is placed from hand to the Stage, you may pay cost. If so, choose a <<Death>> Character in your Waiting Room and return it to your hand."
+28,7,0
+28,8,1
+28,9,1
+28,10,5000
+29,2,武器 (Weapon)
+29,1,死 (Death)
+29,3,Soul 
+29,4,Character
+29,5,Red
+29,6,"\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 [(2)] When you use the \b SUPPORT \b0 on this, you may pay cost. If so, return all cards in your Waiting Room to your Deck. Shuffle your Deck.\line\b \b \b \b \b \b \b \b [S] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 [Counter] \b SUPPORT 2500, Level 2 \b0 [(1) Discard this card from hand to the Waiting Room]"
+29,7,1
+29,8,1
+29,9,2
+29,10,2500
+30,2,武器 (Weapon)
+30,1,死 (Death)
+30,3,Soul 
+30,4,Character
+30,5,Red
+30,6,"\b \b \b \b \b \b \b \b [C] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 If you have 2 or more other <<Death>> Characters, this gains ""\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b ENCORE \b0 [Discard a Character card from hand to the Waiting Room]"".\line\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 [(2)] When ""Afterlife Battlefront"" is placed to your Climax Zone, if this is in the Front Row, you may pay cost. If so, search your Deck for up to 1 Level 2 or lower <<Death>> Character and put it in a vacant Slot on the Stage. Shuffle your Deck."
+30,7,2
+30,8,2
+30,9,2
+30,10,8000
+31,2,武器 (Weapon)
+31,1,死 (Death)
+31,3,Soul 
+31,4,Character
+31,5,Red
+31,6,"\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 [Return 2 Characters from your Waiting Room to the Deck. Shuffle your Deck] When this attacks, you may pay cost. If so, this gains +2000 Power for the rest of this turn.\line\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 [(1)] When this attacks, if ""Returned Feelings"" is in the Climax Zone, you may pay cost. If so, deal 1 damage to your Opponnet. (Damage Cancel can occur)"
+31,7,2
+31,8,2
+31,9,2
+31,10,8000
+32,2,武器 (Weapon)
+32,1,死 (Death)
+32,3,Soul 
+32,4,Character
+32,5,Red
+32,6,"\b \b \b \b \b \b \b \b [C] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 Character opposite this gets -1 Soul.\line\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 [(4)] When this attacks, you may pay cost. If so, choose up to 4 of your other Characters and put them in the Waiting Room. Deal X damage to Opponent, where X = # of Characters put in the Waiting Room with this effect. (Damage Cancel can occur)"
+32,7,2
+32,8,2
+32,9,3
+32,10,10000
+33,2,None
+33,1,死 (Death)
+33,3,None
+33,4,Character
+33,5,Red
+33,6,"\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 [Return 2 Characters from your Waiting Room to the Deck. Shuffle your Deck] When this attacks, you may pay cost. If so, this gains +2000 Power for the rest of this turn."
+33,7,0
+33,8,1
+33,9,0
+33,10,2500
+34,2,None
+34,1,死 (Death)
+34,3,None
+34,4,Character
+34,5,Red
+34,6,\b \b \b \b \b \b \b \b [C] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b SUPPORT \b0 All your <<Death>> Characters in front of this gain +1 Level and +500 Power.
+34,7,0
+34,8,1
+34,9,1
+34,10,4000
+35,2,スポーツ (Sports)
+35,1,死 (Death)
+35,3,None
+35,4,Character
+35,5,Red
+35,6,\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b ENCORE \b0 [Discard a Character card from hand to the Waiting Room]
+35,7,0
+35,8,1
+35,9,1
+35,10,5000
+36,2,武器 (Weapon)
+36,1,死 (Death)
+36,3,Soul 
+36,4,Character
+36,5,Red
+36,6,"\b \b \b \b \b \b \b \b [C] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 All your other Characters with ""\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b ENCORE \b0 [Discard a Character card from hand to the Waiting Room]"" gain +1000 Power.\line\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 [(2)] When this is placed from hand to the Stage, you may pay cost. If so, choose a Character in your Waiting Room and return it to your hand."
+36,7,2
+36,8,1
+36,9,1
+36,10,3000
+37,2,武器 (Weapon)
+37,1,死 (Death)
+37,3,Soul 
+37,4,Character
+37,5,Red
+37,6,"\b \b \b \b \b \b \b \b [C] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b RECOLLECTION \b0 If there are 2 or more cards in your Memory, this gains ""\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 When the Battle Opponent of this becomes Reversed, you may choose a Character in your Waiting Room and return it to your hand. If so, discard a card from your hand to the Waiting Room""."
+37,7,1
+37,8,1
+37,9,2
+37,10,7500
+38,2,武器 (Weapon)
+38,1,死 (Death)
+38,3,None
+38,4,Character
+38,5,Red
+38,6,"\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b BOND \b0/""Otonashi, Seeking the Past"" [(1)]"
+38,7,0
+38,8,1
+38,9,0
+38,10,1000
+39,2,None
+39,1,死 (Death)
+39,3,None
+39,4,Character
+39,5,Red
+39,6,\b \b \b \b \b \b \b \b [C] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b SUPPORT \b0 All your Characters in front of this gain +500 Power.
+39,7,0
+39,8,1
+39,9,0
+39,10,1000
+40,2,メガネ (Glasses)
+40,1,死 (Death)
+40,3,None
+40,4,Character
+40,5,Red
+40,6,"\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 [(2)] When this is placed from the Stage to the Waiting Room, you may pay cost. If so, choose a <<Death>> Character in your Waiting Room and return it to your hand."
+40,7,0
+40,8,1
+40,9,0
+40,10,2500
+41,2,スポーツ (Sports)
+41,1,死 (Death)
+41,3,None
+41,4,Character
+41,5,Red
+41,6,\b \b \b \b \b \b \b \b [S] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 [(1)] Choose 1 of your <<Death>> Characters. That Character gains +1500 Power for the rest of this turn.
+41,7,0
+41,8,1
+41,9,0
+41,10,2500
+42,2,武器 (Weapon)
+42,1,死 (Death)
+42,3,None
+42,4,Character
+42,5,Red
+42,6,--None--
+42,7,0
+42,8,1
+42,9,0
+42,10,3000
+43,2,None
+43,1,死 (Death)
+43,3,None
+43,4,Character
+43,5,Red
+43,6,--None--
+43,7,1
+43,8,1
+43,9,1
+43,10,7000
+44,2,スポーツ (Sports)
+44,1,死 (Death)
+44,3,Soul 
+44,4,Character
+44,5,Red
+44,6,"\b \b \b \b \b \b \b \b [C] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b ALARM \b0 If this is on top of your Clock, and your Level is 2 or higher, all your Characters with ""\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b ENCORE \b0 [Discard a Character card from hand to the Waiting Room]"" gains ""\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 When this becomes Reversed, if Level of the Battle Opponent is equal to or lower than Level of this, you may Reverse that Character""."
+44,7,1
+44,8,1
+44,9,2
+44,10,6000
+45,2,None
+45,1,None
+45,3,None
+45,4,Event
+45,5,Red
+45,6,"Choose 1 of your Characters and put it in the Waiting Room. If so, choose an Opponent's Level 2 or lower Character and put it in the Waiting Room."
+45,7,1
+45,8,0
+45,9,2
+45,10,0
+46,2,None
+46,1,None
+46,3,None
+46,4,Event
+46,5,Red
+46,6,"\b CONCENTRATION \b0 Reveal the top 3 cards of your Deck and put them in the Waiting Room. Choose a Level X or lower <<Death>> Character in your Waiting Room and return it to your hand, where X = # of <<Death>> Characters revealed this way."
+46,7,0
+46,8,0
+46,9,1
+46,10,0
+47,2,None
+47,1,None
+47,3,None
+47,4,Event
+47,5,Red
+47,6,You cannot play this from hand if you have 3 or fewer <<Death>> Characters.\lineChoose a card in your Opponent's Waiting Room and send it to Memory. Send this to Memory.
+47,7,2
+47,8,0
+47,9,1
+47,10,0
+48,2,None
+48,1,None
+48,3,Gate 
+48,4,Climax
+48,5,Red
+48,6,\b \b \b \b \b \b \b \b [C] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 All your Characters gain +1000 Power and +1 Soul.
+48,7,0
+48,8,0
+48,9,0
+48,10,0
+49,2,None
+49,1,None
+49,3,2 Soul 
+49,4,Climax
+49,5,Red
+49,6,"\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 When this is placed from hand to the Climax Zone, put the top card of your Deck to your Bag, and all your Characters gain +1 Soul for the rest of this turn."
+49,7,0
+49,8,0
+49,9,0
+49,10,0
+50,2,None
+50,1,None
+50,3,2 Soul 
+50,4,Climax
+50,5,Red
+50,6,"\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 When this is placed from hand to the Climax Zone, draw a card, and choose 1 of your Characters. That Character gains +2000 Power and +1 Soul for the rest of this turn."
+50,7,0
+50,8,0
+50,9,0
+50,10,0
+51,2,生徒会 (Student Council)
+51,1,死 (Death)
+51,3,None
+51,4,Character
+51,5,Yellow
+51,6,"\b \b \b \b \b \b \b \b [C] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b RECOLLECTION \b0 During your turn, if there are cards in your Memory, this gains +1500 Power."
+51,7,0
+51,8,1
+51,9,1
+51,10,5000
+52,2,生徒会 (Student Council)
+52,1,死 (Death)
+52,3,None
+52,4,Character
+52,5,Yellow
+52,6,--None--
+52,7,1
+52,8,1
+52,9,1
+52,10,7000
+53,2,音楽 (Music)
+53,1,死 (Death)
+53,3,None
+53,4,Character
+53,5,Yellow
+53,6,\b \b \b \b \b \b \b \b [C] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 This gains +1000 Power during your turn.
+53,7,0
+53,8,1
+53,9,0
+53,10,2500
+54,2,武器 (Weapon)
+54,1,死 (Death)
+54,3,None
+54,4,Character
+54,5,Red
+54,6,\b \b \b \b \b \b \b \b [S] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 [Rest 1 of your <<Death>> Characters] This gains +1500 Power for the rest of this turn. 
+54,7,0
+54,8,1
+54,9,1
+54,10,4500
+55,2,武器 (Weapon)
+55,1,死 (Death)
+55,3,None
+55,4,Character
+55,5,Red
+55,6,"\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 When another Character of yours becomes Reversed in Battle, this gains +1000 Power for the rest of this turn. "
+55,7,0
+55,8,1
+55,9,0
+55,10,2500
+56,2,生徒会 (Student Council)
+56,1,死 (Death)
+56,3,None
+56,4,Character
+56,5,Yellow
+56,6,--None--
+56,7,0
+56,8,1
+56,9,1
+56,10,5500
+57,2,武器 (Weapon)
+57,1,死 (Death)
+57,3,None
+57,4,Character
+57,5,Red
+57,6,\b \b \b \b \b \b \b \b [S] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 [(1)] Choose a Level 0 or lower Character in your Opponent's Front Row and put it in the Waiting Room. 
+57,7,1
+57,8,1
+57,9,1
+57,10,6500
+58,2,生徒会 (Student Council)
+58,1,死 (Death)
+58,3,Soul
+58,4,Character
+58,5,Yellow
+58,6,"\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 [(1)] When this is placed from hand to the Stage, you may pay cost. If so, this gains +2500 Power for the rest of this turn. "
+58,7,2
+58,8,2
+58,9,2
+58,10,8500
+59,2,生徒会 (Student Council)
+59,1,死 (Death)
+59,3,None
+59,4,Character
+59,5,Yellow
+59,6,\b \b \b \b \b \b \b \b [C] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 SUPPORT All your Characters in front of this gain +500 Power. \b \b \b \b \b \b \b \b [S] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 [Rest 2 of your Characters] Choose 1 of your Characters. That Character gains +1 Level for the rest of this turn. 
+59,7,0
+59,8,0
+59,9,0
+59,10,500
+60,2,メガネ (Glasses)
+60,1,死 (Death)
+60,3,None
+60,4,Character
+60,5,Yellow
+60,6,--None--
+60,7,0
+60,8,1
+60,9,0
+60,10,3000
+61,2,武器 (Weapon)
+61,1,死 (Death)
+61,3,None
+61,4,Character
+61,5,Red
+61,6,--None--
+61,7,0
+61,8,1
+61,9,0
+61,10,3000
+62,2,武器 (Weapon)
+62,1,死 (Death)
+62,3,Soul 
+62,4,Character
+62,5,Red
+62,6,"\b \b \b \b \b \b \b \b [S] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 [Counter] \b SUPPORT 3000, Level 2 \b0 [(1) Discard this card from hand to the Waiting Room]"
+62,7,1
+62,8,1
+62,9,2
+62,10,2500
+63,2,生徒会 (Student Council)
+63,1,死 (Death)
+63,3,Soul 
+63,4,Character
+63,5,Yellow
+63,6,"\b \b \b \b \b \b \b \b [C] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 During your turn, this gains +1000 Power."
+63,7,2
+63,8,1
+63,9,2
+63,10,8500
+64,2,音楽 (Music)
+64,1,死 (Death)
+64,3,Soul 
+64,4,Character
+64,5,Yellow
+64,6,\b \b \b \b \b \b \b \b [S] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 [(1)] This gains +1 Soul for the rest of this turn.
+64,7,1
+64,8,1
+64,9,2
+64,10,8000
+65,2,None
+65,1,死 (Death)
+65,3,None
+65,4,Character
+65,5,Red
+65,6,"\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 [(1) Discard a card from hand to the Waiting Room] When this is placed from hand to the Stage, you may pay cost. If so, choose 1 <<Death>> Character in your Waiting Room and return it to your hand, and this gains +1000 Power for the rest of this turn."
+65,7,0
+65,8,1
+65,9,0
+65,10,2500
+66,2,スポーツ (Sports)
+66,1,死 (Death)
+66,3,None
+66,4,Character
+66,5,Red
+66,6,"\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 When this is placed from hand to the Stage, choose another <<Death>> Character of yours. That Character gains +1000 Power for the rest of this turn.\line\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b BOND \b0/""Yui, Tomboy Girl"" [(1)]"
+66,7,0
+66,8,1
+66,9,0
+66,10,500
+67,2,生徒会 (Student Council)
+67,1,死 (Death)
+67,3,None
+67,4,Character
+67,5,Yellow
+67,6,--None--
+67,7,0
+67,8,1
+67,9,1
+67,10,5500
+68,2,音楽 (Music)
+68,1,死 (Death)
+68,3,None
+68,4,Character
+68,5,Yellow
+68,6,"\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 [(1)] When this is placed from hand to the Stage, you may pay cost. If you do, choose 1 of your Opponent's Character whose Level is 0 or lower. Return that Character to the hand, and send this to Memory at the end of your turn."
+68,7,0
+68,8,1
+68,9,0
+68,10,2500
+69,2,音楽 (Music)
+69,1,死 (Death)
+69,3,None
+69,4,Character
+69,5,Yellow
+69,6,--None--
+69,7,0
+69,8,1
+69,9,0
+69,10,3000
+70,2,音楽 (Music)
+70,1,死 (Death)
+70,3,None
+70,4,Character
+70,5,Yellow
+70,6,--None--
+70,7,0
+70,8,1
+70,9,1
+70,10,5500
+71,2,生徒会 (Student Council)
+71,1,死 (Death)
+71,3,Soul 
+71,4,Character
+71,5,Yellow
+71,6,"\b \b \b \b \b \b \b \b [S] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 [Counter] \b SUPPORT 2000, Level 1 \b0 [(1) Discard this card from hand to the Waiting Room]"
+71,7,1
+71,8,1
+71,9,1
+71,10,2000
+72,2,音楽 (Music)
+72,1,死 (Death)
+72,3,Soul 
+72,4,Character
+72,5,Yellow
+72,6,"\b \b \b \b \b \b \b \b [C] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b SUPPORT \b0 All your Level 2 or higher Characters in front of this gain +1000 Power.\line\b \b \b \b \b \b \b \b [C] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b RECOLLECTION \b0 If there are 3 or more cards in your Memory, this gains ""\b \b \b \b \b \b \b \b [C] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b SUPPORT \b0 All your Characters in front of this gain +500 Power."
+72,7,1
+72,8,1
+72,9,2
+72,10,5500
+73,2,None
+73,1,死 (Death)
+73,3,Soul 
+73,4,Character
+73,5,Yellow
+73,6,--None--
+73,7,1
+73,8,1
+73,9,2
+73,10,8500
+74,2,None
+74,1,None
+74,3,Wind
+74,4,Climax
+74,5,Yellow
+74,6,\b \b \b \b \b \b \b \b [C] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 All your Characters gain +1000 Power and +1 Soul.
+74,7,0
+74,8,0
+74,9,0
+74,10,0
+75,2,音楽 (Music)
+75,1,死 (Death)
+75,3,None
+75,4,Character
+75,5,Yellow
+75,6,"\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 When this attacks, reveal the top card of your Deck. If it's a Climax card, this gets -3000 Power for the rest of this turn. (Put the revealed card back where it was)"
+75,7,0
+75,8,1
+75,9,0
+75,10,3500
+76,2,音楽 (Music)
+76,1,死 (Death)
+76,3,None
+76,4,Character
+76,5,Yellow
+76,6,"\b \b \b \b \b \b \b \b [C] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b RECOLLECTION \b0 If there is at least 1 card in your Memory, this gains +1500 Power."
+76,7,0
+76,8,1
+76,9,1
+76,10,4500
+77,2,生徒会 (Student Council)
+77,1,死 (Death)
+77,3,None
+77,4,Character
+77,5,Yellow
+77,6,"\b \b \b \b \b \b \b \b [C] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 This gains +1000 Power during your turn.\line\b \b \b \b \b \b \b \b [S] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b CONCENTRATION \b0 [(1)] Reveal the top 4 cards of your Deck and put them in the Waiting Room. For each Climax card revealed this way, choose 1 of your <<Death>> Characters. That Character gains +2000 Power for the rest of this turn."
+77,7,0
+77,8,1
+77,9,1
+77,10,4500
+78,2,生徒会 (Student Council)
+78,1,死 (Death)
+78,3,None
+78,4,Character
+78,5,Yellow
+78,6,"\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 When this is placed from hand to the Stage, reveal the top card of your Deck. If it's not a <<Death>> Character, put this in your Waiting Room at the beginning of your Encore Step. (Put the revealed card back where it was)"
+78,7,1
+78,8,1
+78,9,1
+78,10,7500
+79,2,音楽 (Music)
+79,1,死 (Death)
+79,3,Soul 
+79,4,Character
+79,5,Yellow
+79,6,"\b \b \b \b \b \b \b \b [C] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b RECOLLECTION \b0 If there are 2 or more <<Death>> Characters in your Memory, this gains +500 Power and ""\b \b \b \b \b \b \b \b [C] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 This gains +1000 Power during your turn""."
+79,7,1
+79,8,1
+79,9,2
+79,10,8000
+80,2,生徒会 (Student Council)
+80,1,死 (Death)
+80,3,Soul 
+80,4,Character
+80,5,Yellow
+80,6,"\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 When this is placed from hand to the Stage or via \b CHANGE \b0 to the Stage, you may put the top card of your Clock in your Waiting Room.\line\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 [(1)] When ""Somewhere and Some Other Time"" is placed in your Climax Zone, if this is in the Front Row, you may pay cost. If so, choose an Opponent's Level 2 or lower Character and put it in Bag."
+80,7,2
+80,8,2
+80,9,3
+80,10,10000
+81,2,音楽 (Music)
+81,1,死 (Death)
+81,3,Soul 
+81,4,Character
+81,5,Yellow
+81,6,"\b \b \b \b \b \b \b \b [C] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 This cannot be chosen as target by Opponent's abilities.\line\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 When this is placed from hand to the Stage, choose up to 2 of your other Characters. Those Characters gain +1000 Power and +1 Soul for the rest of this turn.\line\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 [(1) Discard a card from your hand to the Waiting Room] When this attacks, you may pay cost. If so, choose 1 of your Opponent's Front Row Characters and return it to the hand, and this gains +1000 Power for the rest of this turn."
+81,7,2
+81,8,2
+81,9,3
+81,10,10000
+82,2,音楽 (Music)
+82,1,死 (Death)
+82,3,None
+82,4,Character
+82,5,Yellow
+82,6,"\b \b \b \b \b \b \b \b [C] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b SUPPORT \b0 All your Characters in front of this gain +500 Power.\line\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 [(1)] When this becomes Reversed during battle, you may pay cost. If so, Send this to Memory."
+82,7,0
+82,8,1
+82,9,0
+82,10,500
+83,2,None
+83,1,死 (Death)
+83,3,None
+83,4,Character
+83,5,Yellow
+83,6,"\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b BOND \b0 '""Messenger of God"" Tenshi' [(1)]"
+83,7,0
+83,8,1
+83,9,0
+83,10,1000
+84,2,生徒会 (Student Council)
+84,1,死 (Death)
+84,3,None
+84,4,Character
+84,5,Yellow
+84,6,\b \b \b \b \b \b \b \b [C] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 This gains +1000 Power during your turn.
+84,7,0
+84,8,1
+84,9,0
+84,10,2500
+85,2,音楽 (Music)
+85,1,死 (Death)
+85,3,None
+85,4,Character
+85,5,Yellow
+85,6,"\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 [(1)] When this attacks, you may pay cost. If so, choose 1 of your Characters. That Character gains +1500 Power for the rest of this turn."
+85,7,0
+85,8,1
+85,9,0
+85,10,2500
+86,2,生徒会 (Student Council)
+86,1,死 (Death)
+86,3,None
+86,4,Character
+86,5,Yellow
+86,6,--None--
+86,7,0
+86,8,1
+86,9,0
+86,10,3000
+87,2,音楽 (Music)
+87,1,死 (Death)
+87,3,None
+87,4,Character
+87,5,Yellow
+87,6,"\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 [(2) Send this to Memory] When this becomes Reversed while batting, you may pay cost. If so, search your Deck for up to 1 <<Death: Character, reveal it, and put it in your hand. Shuffle your Deck."
+87,7,0
+87,8,1
+87,9,1
+87,10,3000
+88,2,音楽 (Music)
+88,1,死 (Death)
+88,3,None
+88,4,Character
+88,5,Yellow
+88,6,"\b \b \b \b \b \b \b \b [C] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 For each other <<Music>> Character you have, this gains +500 Power."
+88,7,0
+88,8,1
+88,9,1
+88,10,4500
+89,2,音楽 (Music)
+89,1,死 (Death)
+89,3,None
+89,4,Character
+89,5,Yellow
+89,6,"\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 When this is placed from hand to the Stage, this gains +1500 Power for the rest of this turn."
+89,7,0
+89,8,1
+89,9,1
+89,10,5000
+90,2,音楽 (Music)
+90,1,死 (Death)
+90,3,None
+90,4,Character
+90,5,Yellow
+90,6,"\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 [Put the top card of your Deck in your Clock] When this attacks, if ""Operation Tornado feat. Yui"" is in your Climax Zone, you may pay cost. If so, this gains +4000 Power for the rest of this turn, and your Opponent may not use ""\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b ENCORE \b0"" for the rest of this turn. (This includes the ""\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 Encore [(3)]"" provided by the rules.) "
+90,7,1
+90,8,1
+90,9,1
+90,10,6500
+91,2,音楽 (Music)
+91,1,死 (Death)
+91,3,Soul 
+91,4,Character
+91,5,Yellow
+91,6,"\b \b \b \b \b \b \b \b [S] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 [Counter] \b SUPPORT 3000, Level 2 \b0 [(1) Discard this card from hand to the Waiting Room]"
+91,7,1
+91,8,1
+91,9,2
+91,10,2500
+92,2,生徒会 (Student Council)
+92,1,死 (Death)
+92,3,Soul 
+92,4,Character
+92,5,Yellow
+92,6,"\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b CHANGE \b0 [(1) Discard a card from hand to the Waiting Room, Send this to Memory] At the beginning of your Encore Step, if this is Rested, you may pay cost. If so, choose a ""Kanade, Farewell Words"" in your Waiting Room and put it in the Slot this was in."
+92,7,1
+92,8,1
+92,9,2
+92,10,7500
+93,2,生徒会 (Student Council)
+93,1,死 (Death)
+93,3,Soul 
+93,4,Character
+93,5,Yellow
+93,6,"\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 [Discard a card from hand to the Waiting Room] When this is placed from hand to the Stage, if you have another <<Death>> Character, you may pay cost. If so, choose an Opponent's Level 0 or lower Character and put it in Bag."
+93,7,2
+93,8,2
+93,9,2
+93,10,8500
+94,2,None
+94,1,None
+94,3,Wind
+94,4,Climax
+94,5,Yellow
+94,6,\b \b \b \b \b \b \b \b [C] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 All your Characters gain +1000 Power and +1 Soul.
+94,7,0
+94,8,0
+94,9,0
+94,10,0
+95,2,None
+95,1,None
+95,3,2 Soul 
+95,4,Climax
+95,5,Yellow
+95,6,"\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 When this is placed from hand to the Climax Zone, put the top card of your Deck to your Bag, and all your Characters gain +1 Soul for the rest of this turn."
+95,7,0
+95,8,0
+95,9,0
+95,10,0
+96,2,武器 (Weapon)
+96,1,死 (Death)
+96,3,None
+96,4,Character
+96,5,Red
+96,6,"\b \b \b \b \b \b \b \b [C] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 All your other <<Death>> Characters gain +500 Power.\line\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 When another of your <<Death>> Characters become Reversed while Battling, choose 1 of your Characters. That Charcater gains +500 Power."
+96,7,0
+96,8,1
+96,9,0
+96,10,1500
+97,2,None
+97,1,死 (Death)
+97,3,None
+97,4,Character
+97,5,Red
+97,6,"\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 When the Battle Opponent of this becomes Reversed, if you have 1 or fewer other Characters, you may return a Character from your Waiting Room to your hand. If so, discard a card from your hand to the Waiting Room."
+97,7,0
+97,8,1
+97,9,0
+97,10,2500
+98,2,武器 (Weapon)
+98,1,死 (Death)
+98,3,None
+98,4,Character
+98,5,Red
+98,6,"\b \b \b \b \b \b \b \b [C] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 If you have 2 or fewer other Characters, this gains +1000 Power.\line\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b ENCORE \b0 [Discard a Character card from hand to the Waiting Room]"
+98,7,1
+98,8,1
+98,9,1
+98,10,6000
+99,2,None
+99,1,死 (Death)
+99,3,Soul 
+99,4,Character
+99,5,Red
+99,6,\b \b \b \b \b \b \b \b [S] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 [(1) Put a <<Death>> Character from your Memory in the Waiting Room] Choose 1 of your Characters in your Waiting Room and return it to your hand.
+99,7,1
+99,8,1
+99,9,2
+99,10,8000
+100,2,武器 (Weapon)
+100,1,死 (Death)
+100,3,Soul 
+100,4,Character
+100,5,Red
+100,6,"\b \b \b \b \b \b \b \b [A] \b0 \b0 \b0 \b0 \b0 \b0 \b0 \b0 When another of your <<Death>> Character attacks, this gains +1000 Power for the rest of this turn."
+100,7,2
+100,8,2
+100,9,2
+100,10,8500

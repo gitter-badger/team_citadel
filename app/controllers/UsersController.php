@@ -43,24 +43,27 @@ class UsersController extends BaseController {
         return Redirect::route('create')->withInput();
     }
 
-    public function show($username)
-    {
-        $user = User::whereUsername($username)->first();
-        $decks = $this->getUserWall($user->id);
+	public function show($username){
+		$user = User::whereUsername($username)->first();
 
-        if (Auth::user()->id != $user->id) {
-            return 'this is not your profile dont be nosey';
-        } else {
-            return View::make('profile', compact('user', 'decks'));
-        }
-    }
+		$authUser = Auth::user();
+		if ($authUser == null){
+			return Redirect::to('login')->with('message', 'Please log in first!');
+		}
+		else if (Auth::user()->id != $user->id) {
+			return 'this is not your profile dont be nosey';
+		}
+		else {
+			$decks = $this->getUserWall($user->id);
+			return View::make('profile', compact('user', 'decks'));
+		}
+	}
 
     public function getUserWall($userId)
     {
         $user = User::find($userId);
         return $user->decks;
     }
-
     public function login()
     {
         return View::make('login');

@@ -16,10 +16,11 @@ Route::get('tinker', function () {
     return DB::getQueryLog();
 });
 
-Route::get('/', [
-    'as' => 'welcome',
-    function () {
-        return View::make('master');
+
+Route::get('/', [ 
+    'as' => 'welcome', 
+    function() {
+        return View::make('welcome');
     }
 ]);
 
@@ -144,4 +145,8 @@ Route::group(['before' => 'env'], function () {
         return Response::json($cards);
     });
 
+Route::get('{username}', array(
+    'as' => 'profile',
+    'uses' => 'UsersController@show'
+    ));
 });

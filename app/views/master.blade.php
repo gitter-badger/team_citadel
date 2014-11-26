@@ -17,7 +17,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Deck Citadel</a>
+          <a class="navbar-brand" href="{{ route('welcome') }}">Deck Citadel</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -35,7 +35,7 @@
             <form class="navbar-form navbar-right">
                 <div class="form-group">
                     @if( Auth::check() )
-                        <button type="button" class="btn btn-default btn-sm" onClick="location.href='{{{ url('user/' . Auth::user()->username ) }}}'">
+                        <button type="button" class="btn btn-default btn-sm" onClick="location.href='{{{ url('/'.Auth::user()->username ) }}}'">
                             <span class="glyphicon glyphicon-user"></span>
                             {{{ Auth::user()->username }}}
                         </button>
