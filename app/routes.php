@@ -30,7 +30,7 @@ Route::resource('series', 'SeriesController');
 Route::resource('card', 'CardController');
 
 
-Route::get('{username}', array(
+Route::get('/user/{username}', array(
     'as' => 'profile',
     'uses' => 'UsersController@show'
 ));
