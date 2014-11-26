@@ -2,7 +2,8 @@
 @section('content')
 <!-- Nav tabs -->
 <ul class="nav nav-tabs col-md-12" role="tablist">
-    <li role="presentation" class="active"><a href="#profile" role="tab" data-toggle="tab">Profile</a></li>
+    <li role="presentation" class="active"><a href="#wall-tab" role="tab" data-toggle="tab">Wall</a></li>
+    <li role="presentation"><a href="#profile" role="tab" data-toggle="tab">Profile</a></li>
     <li role="presentation"><a href="#myMarket" role="tab" data-toggle="tab">Order History</a></li>
     @if( Auth::check() )
         @if( Auth::user()->id == $user->id )
@@ -15,7 +16,30 @@
 </ul>
 <!-- Tab panes -->
 <div class="tab-content col-md-12">
-    <div role="tabpanel" class="tab-pane active" id="profile">
+    <div class="tab-pane active" id="wall-tab">
+        <div class="row well post-border">
+            <div class="col-md-3">
+                <h4 class="text-center">
+                    <a href="/decks/create">
+                        Create Deck <icon class="glyphicon glyphicon-plus-sign"></icon>
+                    </a>
+                </h4>
+            </div>
+        </div>
+         @foreach($decks as $deck)
+            <div class="row">
+                <div class="col-md-12 post-border">
+                    <span class="col-sm-3 col-md-2">
+                        <img class="responsive-image center-block" src="/images/games/{{ $deck->game_id.'-back'}}.png" width="70%">
+                    </span>
+                    <h4>{{{ $deck->title }}}</h4>
+                    <p>{{{ $deck->description }}}</p>
+                </div>
+            </div>
+        @endforeach
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="profile">
         <div class="row">
             <div class="col-md-12">
                 <div class="page-header">
