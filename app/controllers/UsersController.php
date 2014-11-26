@@ -45,10 +45,14 @@ class UsersController extends BaseController {
 
 	public function show($id){
 		$user = User::find($id);
-		if (Auth::user()->id != $id) {
+		$authUser = Auth::user();
+		if ($authUser == null){
+			return Redirect::to('login')->with('message', 'Please log in first!');
+		}
+		else if (Auth::user()->id != $id) {
 			return 'this is not your profile dont be nosey';
 		}
-		else{
+		else {
 			return View::make('profile', compact('user'));
 		}
 	}
