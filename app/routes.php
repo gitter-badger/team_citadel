@@ -34,7 +34,7 @@ Route::get('sendemail', [
     'as' => 'send.email', 
     function() {
         Mail::send('emails.test', array(), function($message) {
-            $message->to('adamjama7@gmail.com', 'John Smith')->subject('Welcome!');
+            $message->to('adamjama7@gmail.com', 'John Smith')->subject('Welcome!')->('ajama@alacrityfoundation.com', 'Adam Jama');
         }); 
     }
 ]);
