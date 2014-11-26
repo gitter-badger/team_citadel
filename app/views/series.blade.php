@@ -5,7 +5,7 @@
 @section('content')
     <div class='row'>
         @foreach($series as $aSeries)
-            <div class='col-xs-12 col-sm-3'>
+            <div class='col-xs-12 col-sm-2'>
                 <a href="{{ $aSeries->url }}">
                     <img class="series-images image-responsive center-block" src="{{ asset('images/series/'. $aSeries->id . '.jpg') }}" width="90%">
                     <h5 class='text-center series-card-img'>
