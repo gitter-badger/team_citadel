@@ -19,7 +19,7 @@ Route::get('tinker', function () {
 Route::get('/', [ 
     'as' => 'welcome', 
     function() {
-        return View::make('master');
+        return View::make('welcome');
     }
 ]);
 

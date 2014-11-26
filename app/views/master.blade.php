@@ -5,6 +5,7 @@
     <title>Deck Citadel</title>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css' )}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/styles.css' )}}">
+    <link href="http://getbootstrap.com/examples/carousel/carousel.css" rel="stylesheet">
 </head>
 <body>
 <nav class="navbar navbar-default" role="navigation">
