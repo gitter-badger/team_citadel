@@ -1,6 +1,7 @@
 <?php
 
-class MarketController extends \BaseController {
+class MarketController extends \BaseController
+{
 
     /**
      * Display a listing of the resource.
@@ -88,6 +89,4 @@ class MarketController extends \BaseController {
     {
         //
     }
-
-
 }

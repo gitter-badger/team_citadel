@@ -23,7 +23,7 @@ class ListingController extends \BaseController {
         // show form to add a new listing
         $cards = Card::all();
         $method = 'post';
-        return View::make('create-listing', compact('method','cards'));
+        return View::make('create-listing', compact('method', 'cards'));
         // return View::make(route, compact(stuff-required-for-this-view));
     }
 

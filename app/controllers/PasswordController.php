@@ -18,7 +18,7 @@ class PasswordController extends BaseController {
 	{
 		$result = Password::remind( Input::only('email'), function($message) {
     		$message->subject('Password Reminder');
-        	$message->from('support@icdb.com');
+        	$message->from('ajama@alacrityfoundation.com');
    		});
 		$message = Lang::get($result);
 		if ($result == PasswordBroker::REMINDER_SENT) {
@@ -45,11 +45,11 @@ class PasswordController extends BaseController {
 		if (PasswordBroker::PASSWORD_RESET == $result) { // i.e. Success
 			return Redirect::to('login')->with('message', 'Your password has been reset, please log in!');
 		} else if (PasswordBroker::INVALID_PASSWORD == $result) {
-			return Redirect::to('password/reset/{token}')->withInput()->with('message', 'Your passwords do not match!');
+			return Redirect::to('password/reset/{token}')->withInput()->with('error', 'Your passwords do not match!');
 		} else if (PasswordBroker::INVALID_USER == $result) {
-			return Redirect::to('password/reset/{token}')->withInput()->with('message', 'Invalid user!');
+			return Redirect::to('password/reset/{token}')->withInput()->with('error', 'Invalid user!');
 		} else if (PasswordBroker::INVALID_TOKEN == $result) {
-			return Redirect::to('password/reset/{token}')->withInput()->with('message', 'Invalid token!');
+			return Redirect::to('password/reset/{token}')->withInput()->with('error', 'Invalid token!');
 		}
 	}
 }
