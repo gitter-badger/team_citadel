@@ -17,9 +17,9 @@ Route::get('tinker', function () {
 });
 
 
-Route::get('/', [ 
-    'as' => 'welcome', 
-    function() {
+Route::get('/', [
+    'as' => 'welcome',
+    function () {
         return View::make('welcome');
     }
 ]);
@@ -145,8 +145,4 @@ Route::group(['before' => 'env'], function () {
         return Response::json($cards);
     });
 
-Route::get('{username}', array(
-    'as' => 'profile',
-    'uses' => 'UsersController@show'
-    ));
 });
