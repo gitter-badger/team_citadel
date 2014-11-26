@@ -30,10 +30,7 @@ Route::resource('series', 'SeriesController');
 Route::resource('card', 'CardController');
 
 
-Route::get('{username}', array(
-    'as' => 'profile',
-    'uses' => 'UsersController@show'
-));
+
 
 Route::get('search/cards/', array(
     'as' => 'cards.search',
@@ -144,4 +141,8 @@ Route::group(['before' => 'env'], function () {
         return Response::json($cards);
     });
 
+Route::get('{username}', array(
+    'as' => 'profile',
+    'uses' => 'UsersController@show'
+    ));
 });
