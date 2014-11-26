@@ -30,6 +30,15 @@ Route::resource('series', 'SeriesController');
 Route::resource('card', 'CardController');
 
 
+Route::get('sendemail', [
+    'as' => 'send.email', 
+    function() {
+        Mail::send('emails.test', array(), function($message) {
+            $message->to('adamjama7@gmail.com', 'John Smith')->subject('Welcome!')
+        }); 
+    }
+]);
+
 Route::get('user/profile', array(
     'as' => 'profile',
     'uses' => 'UsersController@show'
