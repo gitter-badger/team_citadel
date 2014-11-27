@@ -50,7 +50,7 @@ class UsersController extends BaseController {
 		if ($authUser == null){
 			return Redirect::to('login')->with('message', 'Please log in first!');
 		}
-		else if (Auth::user()->id != $username) {
+		else if (Auth::user()->id != $user->id) {
 			return 'this is not your profile dont be nosey';
 		}
 		else {
