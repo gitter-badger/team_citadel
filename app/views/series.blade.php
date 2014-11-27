@@ -6,18 +6,18 @@
     <div class='row'>
         @foreach($series as $aSeries)
             <div class='col-xs-12 col-sm-2'>
-                <a href="{{ $aSeries->url }}" title="{{{ $aSeries->name }}}">
                     <div style="min-height:140px">
-                        <img class="series-images image-responsive center-block" src="{{ asset('images/series/'. $aSeries->id . '.jpg') }}" width="90%">
-                    </div>
-                    <h5 class='text-center series-card-img'>
                         @if(count($aSeries->cards->all()) > 0) 
-                            {{ $aSeries->name }}
+                            <a class="series-box" href="{{ $aSeries->url }}">
+                                <img class="series-images image-responsive center-block" src="{{ asset('images/series/'. $aSeries->id . '.jpg') }}" width="90%">
+                            </a>
                         @else
-                            {{ $aSeries->name }} (Empty)
+                            <img class="series-images-alt image-responsive center-block" src="{{ asset('images/series/'. $aSeries->id . '.jpg') }}" width="90%">
                         @endif
+                    </div>
+                    <h5 class='text-center series-card-name' title="{{{ $aSeries->name }}}">
+                            {{ $aSeries->name }}
                     </h5>
-                </a>
             </div>
         @endforeach
     </div>
