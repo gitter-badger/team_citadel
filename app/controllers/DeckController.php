@@ -10,7 +10,9 @@ class DeckController extends \BaseController
      */
     public function index()
     {
-        //
+        $decks = Deck::orderBy('decks.created_at', 'desc')
+            ->paginate(10);
+        return View::make('decks.index', compact('decks'));
     }
 
 
@@ -21,7 +23,7 @@ class DeckController extends \BaseController
      */
     public function create()
     {
-        //
+        return View::make('decks.edit');
     }
 
 

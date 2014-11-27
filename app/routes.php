@@ -145,4 +145,31 @@ Route::group(['before' => 'env'], function () {
         return Response::json($cards);
     });
 
+    // Group all deck routes together
+    Route::group(['prefix' => 'decks'], function () {
+        Route::get('/', [
+            'as' => 'decks',
+            'uses' => 'DeckController@index'
+        ]);
+
+        Route::get('/{deck_id}', [
+            'as' =>  'getDeck',
+            'uses' => 'DeckControler@show'
+        ]);
+
+        Route::get('/create', [
+            'as' => 'newDeck',
+            'uses' => 'DeckController@create'
+        ]);
+
+        Route::post('/create', [
+            'as' => 'postDeck',
+            'uses' => 'BasketController@postDeck'
+        ]);
+
+        Route::get('/{deck_id}/edit', [
+            'as' => 'editDeck',
+            'uses' => 'DeckController@edit'
+        ]);
+    });
 });
