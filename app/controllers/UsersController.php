@@ -30,27 +30,45 @@ class UsersController extends BaseController {
 			'password'
 		);
 
-		// TODO:: NW - VALIDATION!!!!
+		$values['image'] = Input::file('image');
+
+		$rules = array(
+			'image' => 'image',
+			'email' => 'required|email|unique:users',
+			'username' => 'required|unique:users',
+			'first_name' => 'required|min:2',
+			'last_name' => 'required|min:2',
+			'password' => 'required|min:6');
+
+		$validator = Validator::make($values, $rules);
+		$firstMessage = ($validator->messages()->first());
+
+		if($firstMessage){
+				return Redirect::to('register')->with('message', $firstMessage)->withInput();	
+		}
 
 		$values['password'] = Hash::make( $values['password'] );
 
 		$newUser = User::create($values);
+		$image = Input::file('image');
+        $destinationPath = 'public/images/users/';
+        $filename = $newUser->id . '.jpeg';
+       
+        Input::file('image')->move($destinationPath, $filename);
 
-		if($newUser){
+		if($newUser ){
 			Auth::login($newUser);
 			return Redirect::to('/');
 		}
-		$destinationPath = 'public\images\users';
-		
-		if (Input::file('image')->isValid()) {
-			Input::file('image')->move($destinationPath);
-		return Redirect::route('create')->withInput();
 	}
-}
 
 	public function show($id){
 		$user = User::find($id);
-		if (Auth::user()->id != $id) {
+		$authUser = Auth::user();
+		if($authUser == null){
+			return Redirect::to('login')->with('message', 'Please log in!');
+		}
+		else if ($authUser->id != $id) {
 			return 'this is not your profile dont be nosey';
 		}
 		else{

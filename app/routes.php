@@ -39,12 +39,6 @@ Route::get('sendemail', [
     }
 ]);
 
-Route::get('upload', function() {
-  return View::make('pages.upload');
-});
-
-Route::post('apply/upload', 'ApplyController@upload');
-
 Route::get('user/profile', array(
     'as' => 'profile',
     'uses' => 'UsersController@show'
@@ -80,6 +74,8 @@ Route::get('register', array(
     'as' => 'registration',
     'uses' => 'UsersController@registration'
 ));
+
+Route::post('upload', 'UsersController@upload');
 
 Route::post('register', array(
     'as' => 'registered',
@@ -153,6 +149,9 @@ Route::group(['before' => 'env'], function () {
     });
 
     // quicksearch
+
+
+
     Route::get('/quicksearch/cards/', function() {
         $query = Input::get('query');
         $cards = DB::table('cards')->where('name', 'LIKE', '%'.$query.'%')->take(4)->get();

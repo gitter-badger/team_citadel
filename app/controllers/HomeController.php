@@ -20,4 +20,13 @@ class HomeController extends BaseController {
         return View::make('hello');
     }
 
+    public function upload(){
+
+        $image = Input::file('image');
+        $destinationPath = 'public/images/users/';
+        $filename = Auth::user()->id . '.jpeg';
+
+        Input::file('image')->move($destinationPath, $filename);
+    }
+
 }
