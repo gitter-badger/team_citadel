@@ -16,17 +16,18 @@ Route::get('tinker', function () {
     return DB::getQueryLog();
 });
 
+
 Route::get('/', [ 
     'as' => 'welcome', 
     function() {
-        return View::make('master');
+        return View::make('welcome');
     }
 ]);
 
 Route::resource('user', 'UsersController');
 Route::resource('listing', 'ListingController');
 Route::resource('market', 'MarketController');
-Route::resource('series', 'SeriesController'); 
+Route::resource('series', 'SeriesController');
 Route::resource('card', 'CardController');
 
 
@@ -39,7 +40,7 @@ Route::get('sendemail', [
     }
 ]);
 
-Route::get('user/profile', array(
+Route::get('user/{username}', array(
     'as' => 'profile',
     'uses' => 'UsersController@show'
 ));
@@ -57,7 +58,7 @@ Route::get('password/reset', array(
 Route::post('password/reset', array(
     'as' => 'password.request',
     'uses' => 'PasswordController@request'
-  
+
 ));
 
 Route::get('password/reset/{token}', array(
@@ -98,9 +99,9 @@ Route::post('login', function () {
 });
 
 // Routes that requires authentication before becoming viewable
-Route::group(['before' => 'auth'], function() {
-        // Has Auth Filter 
-        Route::get('logout', function() {
+Route::group(['before' => 'auth'], function () {
+        // Has Auth Filter
+        Route::get('logout', function () {
             Auth::logout();
             return Redirect::to('/')
                 ->with('message', 'You have logged out');
@@ -149,13 +150,14 @@ Route::group(['before' => 'env'], function () {
     });
 
     // quicksearch
-
-
-
     Route::get('/quicksearch/cards/', function() {
         $query = Input::get('query');
         $cards = DB::table('cards')->where('name', 'LIKE', '%'.$query.'%')->take(4)->get();
         return Response::json($cards);
     });
 
+Route::get('{username}', array(
+    'as' => 'profile',
+    'uses' => 'UsersController@show'
+    ));
 });

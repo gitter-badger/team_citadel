@@ -5,6 +5,17 @@
     <title>Deck Citadel</title>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css' )}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/styles.css' )}}">
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-57164605-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
 </head>
 <body>
 <nav class="navbar navbar-default" role="navigation">
@@ -17,7 +28,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Deck Citadel</a>
+          <a class="navbar-brand" href="{{ route('welcome') }}">Deck Citadel</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -35,7 +46,7 @@
             <form class="navbar-form navbar-right">
                 <div class="form-group">
                     @if( Auth::check() )
-                        <button type="button" class="btn btn-default btn-sm" onClick="location.href='{{{ url('user/' . Auth::user()->id ) }}}'">
+                        <button type="button" class="btn btn-default btn-sm" onClick="location.href='{{{ url('/'.Auth::user()->username ) }}}'">
                             <span class="glyphicon glyphicon-user"></span>
                             {{{ Auth::user()->username }}}
                         </button>

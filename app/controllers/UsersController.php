@@ -29,7 +29,7 @@ class UsersController extends BaseController {
 			'email',
 			'password'
 		);
-
+		
 		$values['image'] = Input::file('image');
 
 		$rules = array(
@@ -56,10 +56,11 @@ class UsersController extends BaseController {
        
         Input::file('image')->move($destinationPath, $filename);
 
-		if($newUser ){
+		if($newUser){
 			Auth::login($newUser);
 			return Redirect::to('/');
 		}
+		return Redirect::route('create')->withInput();
 	}
 
 	public function show($id){
@@ -71,13 +72,19 @@ class UsersController extends BaseController {
 		else if ($authUser->id != $id) {
 			return 'this is not your profile dont be nosey';
 		}
-		else{
-			return View::make('profile', compact('user'));
+		else {
+			$decks = $this->getUserWall($user->id);
+			return View::make('profile', compact('user', 'decks'));
 		}
 	}
 
-	public function login(){
-		return View::make('login');
-	}
-}	
-
+    public function getUserWall($userId)
+    {
+        $user = User::find($userId);
+        return $user->decks;
+    }
+    public function login()
+    {
+        return View::make('login');
+    }
+}

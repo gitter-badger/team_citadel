@@ -7,7 +7,7 @@ class SeriesController extends \BaseController {
 	 */
 	public function index()
 	{
-		$series = Series::paginate(12);
+		$series = Series::paginate(24);
 		return View::make('series', compact('series'));
 	}
 	/**
@@ -38,7 +38,8 @@ class SeriesController extends \BaseController {
 	{
 		//
 		$aSeries = Series::find($id);
-		return View::make('cards', compact('aSeries'));
+		$aSeriesCards = Card::whereSeriesId($id)->paginate(24);
+		return View::make('cards', compact('aSeries', 'aSeriesCards'));
 	}
 
 	/**
