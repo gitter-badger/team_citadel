@@ -14,7 +14,7 @@
     <div class='row'>
         @foreach($aSeriesCards as $card)
             <div class='col-sm-2 col-xs-12'>
-                <a href="{{ $card->url }}">
+                <a href="{{ $card->url }}" title="{{{ $card->name }}}">
                     <div style="min-height: 200px">
                         <img class="series-images image-responsive center-block" src="{{ asset('images/cards/'. $card->id . '.jpeg') }}" width="90%">
                     </div>
@@ -26,7 +26,7 @@
         @endforeach
     </div>
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-12 text-center">
             {{ $aSeriesCards->links() }}
         </div>
     </div>
