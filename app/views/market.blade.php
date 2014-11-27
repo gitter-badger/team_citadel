@@ -22,6 +22,7 @@
     </div>
     <!-- list of the items for sale -->
     <div class="col-md-8">
+        <h1 class="text-center">Weiβ Schwarz <small>- Market</small></h1>
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4 class="">List by Item</h4>
