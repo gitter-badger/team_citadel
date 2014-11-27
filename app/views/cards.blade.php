@@ -29,6 +29,5 @@
         <div class="col-sm-12">
             {{ $aSeriesCards->links() }}
         </div>
-        
     </div>
 @stop

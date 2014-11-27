@@ -7,7 +7,9 @@
         @foreach($series as $aSeries)
             <div class='col-xs-12 col-sm-2'>
                 <a href="{{ $aSeries->url }}">
-                    <img class="series-images image-responsive center-block" src="{{ asset('images/series/'. $aSeries->id . '.jpg') }}" width="90%">
+                    <div style="min-height:140px">
+                        <img class="series-images image-responsive center-block" src="{{ asset('images/series/'. $aSeries->id . '.jpg') }}" width="90%">
+                    </div>
                     <h5 class='text-center series-card-img'>
                         {{ $aSeries->name }}
                     </h5>
