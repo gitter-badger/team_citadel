@@ -155,7 +155,7 @@ Route::group(['before' => 'env'], function () {
         Route::get('/{deck_id}', [
             'as' =>  'getDeck',
             'uses' => 'DeckControler@show'
-        ]);
+        ])->where('deck_id', '[0-9]+');
 
         Route::get('/create', [
             'as' => 'newDeck',
@@ -164,7 +164,7 @@ Route::group(['before' => 'env'], function () {
 
         Route::post('/create', [
             'as' => 'postDeck',
-            'uses' => 'BasketController@postDeck'
+            'uses' => 'DeckController@postDeck'
         ]);
 
         Route::get('/{deck_id}/edit', [

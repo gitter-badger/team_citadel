@@ -23,7 +23,10 @@ class DeckController extends \BaseController
      */
     public function create()
     {
-        return View::make('decks.edit');
+        $deck = new Deck;
+        $method = 'create';
+
+        return View::make('decks.edit', compact('deck', 'method'));
     }
 
 

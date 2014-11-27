@@ -14,4 +14,9 @@ class Deck extends Eloquent
     {
         return $this->belongsToMany('Card');
     }
+
+    public function games()
+    {
+        return $this->belongsTo('Game');
+    }
 }
