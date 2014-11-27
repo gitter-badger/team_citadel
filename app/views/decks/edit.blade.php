@@ -8,37 +8,47 @@
 
     @section('content')
 
-        {{ Form::model($deck, ['route' => 'postDeck']) }}
+        <div class="col-md-6 col-md-offset-3">
+            {{ Form::model($deck, ['route' => 'postDeck']) }}
 
-            {{ Form::token() }}
-            {{ Form::label('Game') }}
-            {{ $deck->games }}
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-md-1">
-                        {{ Form::label('title', 'Title')}}
-                    </div>
-                    <div class="col-md-6">
-                        {{ Form::text('title') }}
-                    </div>
-                </div>
-            </div>
+                {{ Form::token() }}
 
-
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-md-1">
-                        {{ Form::label('description', 'Description')}}
-                    </div>
-                    <div class="col-md-6">
-                        {{ Form::text('description') }}
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-3">
+                            {{ Form::label('Game') }}
+                        </div>
+                        <div class="col-md-9">
+                            {{ Form::select('games', $games, null, ['class' => 'form-control']) }}
+                        </div>
                     </div>
                 </div>
-            </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-3">
+                            {{ Form::label('title', 'Title')}}
+                        </div>
+                        <div class="col-md-9">
+                            {{ Form::text('title', '', ['class' => 'form-control']) }}
+                        </div>
+                    </div>
+                </div>
 
-            {{ Form::submit('Create Deck')}}
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-3">
+                            {{ Form::label('description', 'Description') }}
+                        </div>
+                        <div class="col-md-9">
+                            {{ Form::text('description', '', ['class' => 'form-control']) }}
+                        </div>
+                    </div>
+                </div>
 
-        {{ Form::close() }}
+                {{ Form::submit('Create Deck', ['class' => 'btn btn-custom btn-md btn-block'])}}
+
+            {{ Form::close() }}
+        </div>
     @stop
 
     @section('scripts')
