@@ -86,7 +86,6 @@
     height: auto;
 }
 
-
 /* ------------------------------------------------------
     Border outline for and postioning for users wall
    ------------------------------------------------------- */
@@ -110,4 +109,11 @@
 
 .series-images-alt {
     opacity: 0.3;
+}
+
+.series-image {
+    width: 214px;
+    height: auto;
+    padding-bottom: 20px;
+    padding-top: 15px;
 }

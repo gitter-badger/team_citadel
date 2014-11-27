@@ -15,6 +15,5 @@ class DatabaseSeeder extends Seeder
         $this->call('SeriesSeeder');
         $this->call('CardSeeder');
         $this->call('AttributeSeeder');
-        $this->call('AttributeCardSeeder');
     }
 }
