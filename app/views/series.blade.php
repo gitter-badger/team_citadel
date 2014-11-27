@@ -11,7 +11,11 @@
                         <img class="series-images image-responsive center-block" src="{{ asset('images/series/'. $aSeries->id . '.jpg') }}" width="90%">
                     </div>
                     <h5 class='text-center series-card-img'>
-                        {{ $aSeries->name }}
+                        @if(count($aSeries->cards->all()) > 0) 
+                            {{ $aSeries->name }}
+                        @else
+                            {{ $aSeries->name }} (Empty)
+                        @endif
                     </h5>
                 </a>
             </div>

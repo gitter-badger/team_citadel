@@ -16,7 +16,12 @@
             <div class='col-sm-2 col-xs-12'>
                 <a href="{{ $card->url }}" title="{{{ $card->name }}}">
                     <div style="min-height: 200px">
-                        <img class="series-images image-responsive center-block" src="{{ asset('images/cards/'. $card->id . '.jpeg') }}" width="90%">
+                        <!-- if image exists, show it, else show back of card -->
+                        @if(file_exists('public/images/cards/'. $card->id . '.jpeg'))
+                            <img class="series-images image-responsive center-block" src="{{ asset('images/cards/'. $card->id . '.jpeg') }}" width="90%">
+                        @else
+                            <img class="series-images image-responsive center-block" src="{{ asset('images/cards/back.jpeg') }}" width="90%">
+                        @endif
                     </div>
                     <p class="text-center series-card-name">
                         {{ $card->name }}
