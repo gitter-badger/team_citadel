@@ -76,7 +76,6 @@
 <script type="text/javascript">
     $(function() {
         $(".clickableRow").click(function(e) {
-            console.log('hi');
             window.document.location = $(this).attr("href");
         });
     });
