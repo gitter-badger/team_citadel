@@ -7,6 +7,6 @@ class Attribute extends Eloquent
 
     public function cards()
     {
-        return $this->belongsToMany('Card', 'attributes_card')->withPivot('value');
+        return $this->belongsToMany('Card')->withPivot('value');
     }
 }

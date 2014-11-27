@@ -12,7 +12,7 @@ class Card extends Eloquent
 
     public function attributes()
     {
-        return $this->belongsToMany('Attribute', 'attribute_card')->withPivot('value');
+        return $this->belongsToMany('Attribute')->withPivot('value');
     }
 
     public function listings()
