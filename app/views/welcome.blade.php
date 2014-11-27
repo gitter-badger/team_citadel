@@ -8,19 +8,25 @@
         <!-- Three columns of text below the carousel -->
         <div class="row">
             <div class="col-lg-4">
-                {{ HTML::image('images/welcome/ws-welcome.jpg', 'Weiss Schwarz', array('class' => 'img-circle center-block', 'width' => '124px', 'height' => '124px')) }}
+                <a href="{{ URL::route('series.index') }}">
+                    {{ HTML::image('images/welcome/ws-welcome.jpg', 'Weiss Schwarz', array('class' => 'img-circle center-block', 'width' => '124px', 'height' => '124px')) }}
+                </a>
                 <h2 class="text-center">Weiß Schwarz</h2>
-                <p>DWeiß Schwarz (ヴァイスシュヴァルツ) is a Japanese collectible card game created by Bushiroad. The game is separated into Weiß-side and Schwarz-side. Weiß and Schwarz are German for white and black, respectively. As a general rule, series under Weiß usually have better card effects when compared to those series under Schwarz. However, with the newer series entering the respective sides, there is not much difference between the two.</p>
+                <p>Weiß Schwarz (ヴァイスシュヴァルツ) is a Japanese collectible card game created by Bushiroad. The game is separated into Weiß-side and Schwarz-side. Weiß and Schwarz are German for white and black, respectively. As a general rule, series under Weiß usually have better card effects when compared to those series under Schwarz. However, with the newer series entering the respective sides, there is not much difference between the two.</p>
                 <p><a class="btn btn-default" href="{{ URL::route('series.index') }}" role="button">View cards »</a></p>
             </div><!-- /.col-lg-4 -->
             <div class="col-lg-4">
-                {{ HTML::image('images/welcome/mtg-welcome.jpg', 'Magic the Gathering', array('class' => 'img-circle center-block', 'width' => '124px', 'height' => '124px')) }}
+                <a href="{{ URL::route('series.index') }}">
+                    {{ HTML::image('images/welcome/mtg-welcome.jpg', 'Magic the Gathering', array('class' => 'img-circle center-block', 'width' => '124px', 'height' => '124px')) }}
+                </a>
                 <h2 class="text-center">Magic The Gathering</h2>
                 <p>Each game represents a battle between wizards known as "planeswalkers", who employ spells, artifacts, and creatures depicted on individual Magic cards to defeat their opponents. Although the original concept of the game drew heavily from the motifs of traditional fantasy role-playing games such as Dungeons & Dragons, the gameplay of Magic bears little similarity to pencil-and-paper adventure games, while having substantially more cards and more complex rules than many other card games.</p>
                 <p><a class="btn btn-default" href="{{ URL::route('series.index') }}" role="button">View cards »</a></p>
             </div><!-- /.col-lg-4 -->
             <div class="col-lg-4">
-                {{ HTML::image('images/welcome/pokemon-welcome.jpg', 'pokemon', array('class' => 'img-circle center-block', 'width' => '124px', 'height' => '124px')) }}
+                <a href="{{ URL::route('series.index') }}">
+                    {{ HTML::image('images/welcome/pokemon-welcome.jpg', 'pokemon', array('class' => 'img-circle center-block', 'width' => '124px', 'height' => '124px')) }}
+                </a>
                 <h2 class="text-center">Pokémon</h2>
                 <p>In this game, players take on the role of a Pokémon trainer, using their creatures to battle. Players play Pokémon to the field and use their attacks to reduce the opponent's HP. When a Pokémon's HP is reduced to 0 it is knocked out and the player who knocked it out takes a Prize card into their hand. A player may win the game in three ways: by collecting all of their prize cards (initially six, but some cards can increase this), if their opponent runs out of Pokémon on the field, or if at the beginning of their opponent's turn there are no cards left to draw in the opponent's deck.</p>
                 <p><a class="btn btn-default" href="{{ URL::route('series.index') }}" role="button">View cards »</a></p>
