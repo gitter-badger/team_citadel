@@ -67,25 +67,25 @@
             <div class="col-md-3">
                 <img class="img-circle center-block" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" style="width: 140px; height: 140px;">
                 <h3 class="text-center">Luke</h3>
-                <p>stuff</p>
+                <p>With great power comes... a great card site?</p>
             </div>
 
             <div class="col-md-3">
                 <img class="img-circle center-block" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" style="width: 140px; height: 140px;">
                 <h3 class="text-center">Adam</h3>
-                <p>Stuff</p>
+                <p></p>
             </div>
 
             <div class="col-md-3">
                 <img class="img-circle center-block" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" style="width: 140px; height: 140px;">
                 <h3 class="text-center">Chris</h3>
-                <p>Stuff</p>
+                <p>  </p>
             </div>
 
             <div class="col-md-3">
                 <img class="img-circle center-block" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" style="width: 140px; height: 140px;">
                 <h3 class="text-center">Aled</h3>
-                <p>Stuff</p>
+                <p>A long time ago in a galaxy far, far away, A young programming master found his calling. And that calling was <strong>DeckCitadel</strong></p>
             </div>
         </div>
 @stop
