@@ -4,9 +4,9 @@
 @stop 
 @section('content')
     <div class="row">
-        <div class="col-xs-12">
+        <div class="col-xs-12 col-md-offset-2 col-md-8">
             <ol class="breadcrumb">
-                <li><a href="{{ URL::route('series.index') }}">{{ $card->series->game->name }}</a></li>
+                <li><a href="{{ URL::route('series.index') }}">Series</a></li>
                 <li><a href="{{ $card->series->url }}">{{ $card->series->name }}</a></li>
                 <li class="active">{{ $card->serial_number }}</li>
             </ol>
@@ -15,17 +15,17 @@
     <div class="row">
         <div class="col-xs-12 col-md-12">
             <a data-toggle="modal" data-target="#image-modal" href="">
-                @if(file_exists('public/images/cards/'. $card->id . '.jpeg'))                             
-                    <img class="series-images image-responsive center-block" src="{{ asset('images/cards/'. $card->id . '.jpeg') }}" width="90%">
+                @if(file_exists('public/images/cards/'. $card->id . '.jpeg'))                          
+                    <img class="series-image image-responsive center-block" src="{{ asset('images/cards/'. $card->id . '.jpeg') }}" width="90%">
                 @else
-                    <img class="series-images image-responsive center-block" src="{{ asset('images/cards/back.jpeg') }}" width="90%">          
+                    <img class="series-image image-responsive center-block" src="{{ asset('images/cards/back.jpeg') }}" width="90%">          
                 @endif
             </a>
         </div>
     </div>
     <div class="row">
         <div class="col-xs-12 col-md-offset-2 col-md-8">
-            <table class="table table-striped">
+            <table class="table table-strixcpped">
                 <tr>
                     <td><label>Type</label></td>
                     <td>{{ $card->attributes->find(4)->pivot->value }}</td>
