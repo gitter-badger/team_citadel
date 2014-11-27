@@ -41,7 +41,7 @@
         <!-- CARD DATABASE -->
         <div class="row featurette">
             <div class="col-md-7">
-                <h2 class="featurette-heading">Card <span class="text-muted">Database</span></h2>
+                <h2 class="featurette-heading">Card Database</h2>
                 <p class="lead">Card lookup including translations.</p>
             </div>
             <div class="col-md-5">
@@ -58,7 +58,7 @@
             </div>
             <div class="col-md-7">
                 <!-- TODO: Link to marketplace -->
-                <h2 class="featurette-heading">Card <span class="text-muted">Marketplace</span></h2>
+                <h2 class="featurette-heading">Card Marketplace</h2>
                 <p class="lead">Buy and sell cards.</p>
             </div>
         </div>
@@ -83,7 +83,7 @@
             <div class="col-md-3">
                 <img class="img-circle center-block" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" style="width: 140px; height: 140px;">
                 <h3 class="text-center">Chris</h3>
-                <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec laoreet consectetur nulla at iaculis. Nullam ut magna massa.</p>
+                <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec laoreet consectetur nulla at iaculis. Nullam ut magna massa. Or something like that.</p>
             </div>
 
             <div class="col-md-3">
