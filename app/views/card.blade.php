@@ -4,9 +4,9 @@
 @stop 
 @section('content')
     <div class="row">
-        <div class="col-xs-12">
+        <div class="col-xs-12 col-md-offset-2 col-md-8">
             <ol class="breadcrumb">
-                <li><a href="{{ URL::route('series.index') }}">{{ $card->series->game->name }}</a></li>
+                <li><a href="{{ URL::route('series.index') }}">Series</a></li>
                 <li><a href="{{ $card->series->url }}">{{ $card->series->name }}</a></li>
                 <li class="active">{{ $card->serial_number }}</li>
             </ol>
@@ -15,39 +15,45 @@
     <div class="row">
         <div class="col-xs-12 col-md-12">
             <a data-toggle="modal" data-target="#image-modal" href="">
-                <!-- I know you hate this nathan but please let this go for now :) -->
-                <img class="card-single-image image-responsive center-block" src="{{ asset('/images/cards/' . $card->id . '.jpeg') }}">
+                @if(file_exists('public/images/cards/'. $card->id . '.jpeg'))                          
+                    <img class="series-image image-responsive center-block" src="{{ asset('images/cards/'. $card->id . '.jpeg') }}" width="90%">
+                @else
+                    <img class="series-image image-responsive center-block" src="{{ asset('images/cards/back.jpeg') }}" width="90%">          
+                @endif
             </a>
         </div>
     </div>
     <div class="row">
         <div class="col-xs-12 col-md-offset-2 col-md-8">
-            <table class="table table-striped">
+            <table class="table table-strixcpped">
                 <tr>
                     <td><label>Type</label></td>
-                    <td>{{ $card->type }}</td>
+                    <td>{{ $card->attributes->find(4)->pivot->value }}</td>
                     <td><label>Level</label></td>
-                    <td>{{ $card->level }}</td>
+                    <td>{{ $card->attributes->find(9)->pivot->value }}</td>
                 </tr>
                 <tr>
                     <td><label>Colour</label></td>
-                    <td>{{$card->colour}}</td>
+                    <td>{{ $card->attributes->find(5)->pivot->value }}</td>
                     <td><label>Cost</label></td>
-                    <td>{{$card->cost}}</td>
+                    <td>{{ $card->attributes->find(7)->pivot->value }}</td>
                 </tr>   
                 <tr>
                     <td><label>Trigger</label></td>
-                    <td colspan='3'>{{$card->trigger}}</td>
+                    <td colspan='3'>{{ $card->attributes->find(3)->pivot->value }}</td>
                 </tr>
                 <tr>
                     <td><label>Power</label></td>
-                    <td>{{$card->power}}</td>
+                    <td>{{ $card->attributes->find(10)->pivot->value }}</td>
                     <td><label>Soul</label></td>
-                    <td>{{$card->soul}}</td>
+                    <td>{{ $card->attributes->find(8)->pivot->value }}</td>
                 </tr>
                 <tr>
                     <td><label>Traits</label></td>
-                    <td colspan='3'>{{$card->traits}}</td>
+                    <td colspan='3'>
+                        {{ $card->attributes->find(1)->pivot->value }}<br>
+                        {{ $card->attributes->find(2)->pivot->value }}
+                    </td>
                 </tr>
             </table>
             <div class="panel panel-default">
@@ -55,20 +61,7 @@
                     Card Text/ Abilities
                 </div>
                 <div class="panel-body">
-                    @if ($card->eng_text != 'N/A')
-                        <p>{{$card->eng_text}}</p>
-                        @if ($card->eng_text2 != 'N/A')
-                            <p>{{$card->eng_text2}}</p>
-                        @endif
-                    @else
-                        <p>{{$card->eng_text}}</p>
-                    @endif
-                    @if ($card->jap_text  != 'N/A')
-                        <p>{{$card->jap_text}}</p>
-                        @if ($card->jap_text2 != 'N/A')
-                            <p>{{$card->jap_text2}}</p>
-                        @endif
-                    @endif
+                    {{ $card->attributes->find(6)->pivot->value }}
                 </div>
             </div>
         </div>
