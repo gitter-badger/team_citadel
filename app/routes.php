@@ -32,11 +32,11 @@ Route::resource('card', 'CardController');
 
 
 Route::get('sendemail', [
-    'as' => 'send.email', 
-    function() {
-        Mail::send('emails.test', array(), function($message) {
+    'as' => 'send.email',
+    function () {
+        Mail::send('emails.test', array(), function ($message) {
             $message->to('adamjama7@gmail.com', 'John Smith')->subject('Welcome!')->from('ajama@alacrityfoundation.com', 'Adam Jama');
-        }); 
+        });
     }
 ]);
 
@@ -106,8 +106,7 @@ Route::group(['before' => 'auth'], function () {
             return Redirect::to('/')
                 ->with('message', 'You have logged out');
         });
-    }
-);
+});
 
 // if it is a feature not ready place it here plx
 Route::group(['before' => 'env'], function () {
@@ -150,7 +149,7 @@ Route::group(['before' => 'env'], function () {
     });
 
     // quicksearch
-    Route::get('/quicksearch/cards/', function() {
+    Route::get('/quicksearch/cards/', function () {
         $query = Input::get('query');
         $cards = DB::table('cards')->where('name', 'LIKE', '%'.$query.'%')->take(4)->get();
         return Response::json($cards);
@@ -167,6 +166,11 @@ Route::group(['before' => 'env'], function () {
             'as' =>  'getDeck',
             'uses' => 'DeckController@show'
         ])->where('deck_id', '[0-9]+');
+
+        Route::post('/{deck_id}', [
+            'as' => 'addCard',
+            'uses' => 'DeckController@addCard'
+        ]);
 
         Route::group(['before' => 'auth'], function () {
             Route::get('/create', [

@@ -63,15 +63,24 @@ class DeckController extends \BaseController
         return $values;
     }
 
+    public function addCard($deck_id)
+    {
+        $deck = Deck::find($deck_id);
+
+        return var_dump($deck->games);
+    }
+
     /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return Response
      */
-    public function show($id)
+    public function show($deck_id)
     {
-        return  View::make('decks.show');
+        $deck = Deck::find($deck_id);
+        $cards = $deck->game->cards->lists('name', 'id');
+        return  View::make('decks.show', compact('deck', 'cards'));
     }
 
 
