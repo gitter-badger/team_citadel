@@ -4,9 +4,9 @@
 @stop 
 @section('content')
     <div class="row">
-        <div class="col-xs-12 col-md-offset-2 col-md-8">
+        <div class="col-xs-12 col-md-12">
             <ol class="breadcrumb">
-                <li><a href="{{ URL::route('series.index') }}">Series</a></li>
+                <li><a href="{{ URL::route('series.index') }}"> {{ $card->series->game->name }} </a></li>
                 <li><a href="{{ $card->series->url }}">{{ $card->series->name }}</a></li>
                 <li class="active">{{ $card->serial_number }}</li>
             </ol>

@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-sm-12">
             <ol class="breadcrumb">
-                <li><a href="{{ URL::route('series.index') }}"> {{ $aSeries->game->name }}</a></li>
+                <li><a href="{{ URL::route('series.index') }}"> {{ $aSeries->game->name }} </a></li>
                 <li class="active">{{ $aSeries->name }}</li>
             </ol>
         </div>
