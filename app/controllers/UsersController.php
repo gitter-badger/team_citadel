@@ -31,7 +31,7 @@ class UsersController extends BaseController
 			'password'
 		);
 		
-		$values['image'] = Input::file('image');
+		// $values['image'] = Input::file('image');
 
 		$rules = array(
 			'image' => 'image',
