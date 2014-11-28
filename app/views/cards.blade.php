@@ -17,8 +17,8 @@
                 <a href="{{ $card->url }}" title="{{{ $card->name }}}">
                     <div style="min-height: 200px">
                         <!-- if image exists, show it, else show back of card -->
-                        @if(file_exists('public/images/cards/'. $card->id . '.jpeg'))
-                            <img class="image-responsive center-block" src="{{ asset('images/cards/'. $card->id . '.jpeg') }}" width="90%">
+                        @if(file_exists('public/images/cards/'. $card->id . '.jpg'))
+                            <img class="image-responsive center-block" src="{{ asset('images/cards/'. $card->id . '.jpg') }}" width="90%">
                         @else
                             <img class="image-responsive center-block" src="{{ asset('images/cards/back.jpeg') }}" width="90%">
                         @endif

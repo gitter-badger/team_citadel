@@ -12,20 +12,18 @@
             </ol>
         </div>
     </div>
-    <div class="row center-block">
-        <div class="col-xs-2 col-md-2 col-md-offset-5 col-xs-offset-4">
+    <div class="row">
+        <div class="col-xs-12 col-md-4 col-md-offset-2">
             <a data-toggle="modal" data-target="#image-modal" href="">
-                @if(file_exists('public/images/cards/'. $card->id . '.jpeg'))
-                    <img class="series-image image-responsive" src="{{ asset('images/cards/'. $card->id . '.jpeg') }}">
+                @if(file_exists('public/images/cards/'. $card->id . '.jpg'))
+                    <img class="image-responsive" src="{{ asset('images/cards/'. $card->id . '.jpg') }}">
                 @else
-                    <img class="series-image image-responsive" src="{{ asset('images/cards/back.jpeg') }}">
+                    <img class="image-responsive" src="{{ asset('images/cards/back.jpeg') }}">
                 @endif
             </a>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12 col-md-offset-2 col-md-8">
-            <table class="table table-strixcpped">
+        <div class="col-xs-12 col-md-6">
+            <table class="table table-striped">
                 <tr>
                     <td><label>Type</label></td>
                     <td>{{ $card->attributes->find(4)->pivot->value }}</td>
@@ -68,8 +66,8 @@
     <div class="modal fade" id="image-modal">
         <div class="modal-dialog">
             <div class="modal-content modal-popup-image">
-                @if(file_exists('public/images/cards/'. $card->id . '.jpeg'))                          
-                    <img class="series-image image-responsive center-block" src="{{ asset('images/cards/'. $card->id . '.jpeg') }}">
+                @if(file_exists('public/images/cards/'. $card->id . '.jpg'))                          
+                    <img class="series-image image-responsive center-block" src="{{ asset('images/cards/'. $card->id . '.jpg') }}">
                 @else
                     <img class="series-image image-responsive center-block" src="{{ asset('images/cards/back.jpeg') }}">          
                 @endif
