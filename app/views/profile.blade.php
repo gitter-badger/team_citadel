@@ -50,7 +50,7 @@
         <div class="col-md-12">
             <div class="row">
                 <div class="col-md-6">
-                    <img class="img-circle profile-img" src="{{ asset('images/users/1.jpeg') }}">
+                    <img class="img-circle profile-img" src="{{ asset(  'images/users/' . $user->id . '.jpeg') }}">
                 </div>
                 <div class="col-md-6">
                     <h3> {{ $user->username }} </h3>
@@ -80,6 +80,7 @@
                             <td>{{$user->location}}</td>
                         </tr>
                     </table>
+                    {{ Form::submit('Edit', array( 'class' => 'btn btn-custom btn-lg btn-block', 'id' => 'btn-edit' )) }}
                 </div>
             </div>
         </div>

@@ -38,7 +38,8 @@ class CardController extends \BaseController {
         //
         //
         $card = Card::find($id);
-        return View::make('card', compact('card'));
+        $attributes = Card::find($id)->attributes;
+        return View::make('card', compact('card', 'attributes'));
     }
     /**
      * Show the form for editing the specified resource.

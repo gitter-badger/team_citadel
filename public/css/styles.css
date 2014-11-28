@@ -22,6 +22,7 @@
 }
 #login .checkbox {
     margin-bottom: 20px;
+    position: relative;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -33,6 +34,7 @@
     color: #1fa67b;
     font-size: 17px;
     margin: 1px 0 0 3px;
+    position: absolute;
     pointer-events: none;
     font-family: 'Glyphicons Halflings';
 }
@@ -84,7 +86,6 @@
     height: auto;
 }
 
-
 /* ------------------------------------------------------
     Border outline for and postioning for users wall
    ------------------------------------------------------- */
@@ -107,4 +108,32 @@
     display: inline-block;
     vertical-align: middle;
     float: none;
+}
+
+.series-card-name {
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.series-images-alt {
+    opacity: 0.3;
+}
+
+.series-image {
+    width: 214px;
+    height: auto;
+    padding-bottom: 20px;
+    padding-top: 15px;
+}
+
+/* ------------------------------------------------------
+    Disabled
+   ------------------------------------------------------- */
+
+.disabled {
+    opacity: 0.3;
+    pointer-events: none;
+    cursor: default;
 }

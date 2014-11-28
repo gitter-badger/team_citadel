@@ -1,2 +1,0 @@
-IP: 54.93.217.131
-Username: ec2-user

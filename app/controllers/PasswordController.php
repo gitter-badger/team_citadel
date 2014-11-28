@@ -18,8 +18,9 @@ class PasswordController extends BaseController {
 	{
 		$result = Password::remind( Input::only('email'), function($message) {
     		$message->subject('Password Reminder');
-        	$message->from('ajama@alacrityfoundation.com');
+        	$message->from('noreply@deckcitadel.com', 'Deck Citadel');
    		});
+
 		$message = Lang::get($result);
 		if ($result == PasswordBroker::REMINDER_SENT) {
 		// TODO: take the user to homepage with email sent message

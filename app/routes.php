@@ -31,7 +31,16 @@ Route::resource('series', 'SeriesController');
 Route::resource('card', 'CardController');
 
 
-Route::get('/user/{username}', array(
+Route::get('sendemail', [
+    'as' => 'send.email', 
+    function() {
+        Mail::send('emails.test', array(), function($message) {
+            $message->to('adamjama7@gmail.com', 'John Smith')->subject('Welcome!')->from('ajama@alacrityfoundation.com', 'Adam Jama');
+        }); 
+    }
+]);
+
+Route::get('user/{username}', array(
     'as' => 'profile',
     'uses' => 'UsersController@show'
 ));
@@ -66,6 +75,8 @@ Route::get('register', array(
     'as' => 'registration',
     'uses' => 'UsersController@registration'
 ));
+
+Route::post('upload', 'UsersController@upload');
 
 Route::post('register', array(
     'as' => 'registered',
@@ -139,7 +150,7 @@ Route::group(['before' => 'env'], function () {
     });
 
     // quicksearch
-    Route::get('/quicksearch/cards/', function () {
+    Route::get('/quicksearch/cards/', function() {
         $query = Input::get('query');
         $cards = DB::table('cards')->where('name', 'LIKE', '%'.$query.'%')->take(4)->get();
         return Response::json($cards);
