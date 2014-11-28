@@ -13,16 +13,16 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-xs-12 col-md-4 col-md-offset-2">
+        <div class="col-xs-12 col-md-4">
             <a data-toggle="modal" data-target="#image-modal" href="">
                 @if(file_exists('public/images/cards/'. $card->id . '.jpg'))
-                    <img class="image-responsive" src="{{ asset('images/cards/'. $card->id . '.jpg') }}">
+                    <img class="image-responsive center-block" src="{{ asset('images/cards/'. $card->id . '.jpg') }}">
                 @else
-                    <img class="image-responsive" src="{{ asset('images/cards/back.jpeg') }}">
+                    <img class="image-responsive center-block" src="{{ asset('images/cards/back.jpeg') }}">
                 @endif
             </a>
         </div>
-        <div class="col-xs-12 col-md-6">
+        <div class="col-xs-12 col-md-8">
             <table class="table table-striped">
                 <tr>
                     <td><label>Type</label></td>
@@ -61,6 +61,14 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="row">
+        <nav>
+          <ul class="pager">
+            <li class="previous disabled"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>
+            <li class="next"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+          </ul>
+        </nav>
     </div>
 
     <div class="modal fade" id="image-modal">
