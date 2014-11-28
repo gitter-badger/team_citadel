@@ -37,8 +37,6 @@ class DeckController extends \BaseController
             'description'
         );
 
-
-
         $validator = Validator::make($values, [
             'game_id' => 'required:decks,game_id',
             'title' => 'required:decks,title'
