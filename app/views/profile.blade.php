@@ -80,6 +80,7 @@
                             <td>{{$user->location}}</td>
                         </tr>
                     </table>
+                    {{ Form::submit('Edit', array( 'class' => 'btn btn-custom btn-lg btn-block', 'id' => 'btn-edit' )) }}
                 </div>
             </div>
         </div>

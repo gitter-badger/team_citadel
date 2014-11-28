@@ -63,13 +63,13 @@ class UsersController extends BaseController {
 		return Redirect::route('create')->withInput();
 	}
 
-	public function show($id){
-		$user = User::find($id);
+	public function show($username){
+		$user = User::where('username', $username)->first();
 		$authUser = Auth::user();
 		if($authUser == null){
 			return Redirect::to('login')->with('message', 'Please log in!');
 		}
-		else if ($authUser->id != $id) {
+		else if ($authUser->id != $user->id) {
 			return 'this is not your profile dont be nosey';
 		}
 		else {
