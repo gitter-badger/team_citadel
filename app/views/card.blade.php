@@ -12,13 +12,13 @@
             </ol>
         </div>
     </div>
-    <div class="row">
-        <div class="col-xs-12 col-md-12">
+    <div class="row center-block">
+        <div class="col-xs-2 col-md-2 col-md-offset-5 col-xs-offset-4">
             <a data-toggle="modal" data-target="#image-modal" href="">
-                @if(file_exists('public/images/cards/'. $card->id . '.jpeg'))                          
-                    <img class="series-image image-responsive center-block" src="{{ asset('images/cards/'. $card->id . '.jpeg') }}" width="90%">
+                @if(file_exists('public/images/cards/'. $card->id . '.jpeg'))
+                    <img class="series-image image-responsive" src="{{ asset('images/cards/'. $card->id . '.jpeg') }}">
                 @else
-                    <img class="series-image image-responsive center-block" src="{{ asset('images/cards/back.jpeg') }}" width="90%">          
+                    <img class="series-image image-responsive" src="{{ asset('images/cards/back.jpeg') }}">
                 @endif
             </a>
         </div>
@@ -64,13 +64,14 @@
             </div>
         </div>
     </div>
+
     <div class="modal fade" id="image-modal">
         <div class="modal-dialog">
             <div class="modal-content modal-popup-image">
                 @if(file_exists('public/images/cards/'. $card->id . '.jpeg'))                          
-                    <img class="series-image image-responsive center-block" src="{{ asset('images/cards/'. $card->id . '.jpeg') }}" width="90%">
+                    <img class="series-image image-responsive center-block" src="{{ asset('images/cards/'. $card->id . '.jpeg') }}">
                 @else
-                    <img class="series-image image-responsive center-block" src="{{ asset('images/cards/back.jpeg') }}" width="90%">          
+                    <img class="series-image image-responsive center-block" src="{{ asset('images/cards/back.jpeg') }}">          
                 @endif
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
