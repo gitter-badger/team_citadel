@@ -22,7 +22,6 @@
 }
 #login .checkbox {
     margin-bottom: 20px;
-    position: relative;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -34,7 +33,6 @@
     color: #1fa67b;
     font-size: 17px;
     margin: 1px 0 0 3px;
-    position: absolute;
     pointer-events: none;
     font-family: 'Glyphicons Halflings';
 }
@@ -102,7 +100,7 @@
 }
 
 /* ----------------------------------------------------
-    Vertical Centering shiz
+    Vertical Centering
     ---------------------------------------------------- */
 
 .vCenter{

@@ -154,22 +154,26 @@ Route::group(['before' => 'env'], function () {
 
         Route::get('/{deck_id}', [
             'as' =>  'getDeck',
-            'uses' => 'DeckControler@show'
+            'uses' => 'DeckController@show'
         ])->where('deck_id', '[0-9]+');
 
-        Route::get('/create', [
-            'as' => 'newDeck',
-            'uses' => 'DeckController@create'
-        ]);
+        Route::group(['before' => 'auth'], function () {
+            Route::get('/create', [
+                'as' => 'newDeck',
+                'uses' => 'DeckController@create'
+            ]);
 
-        Route::post('/create', [
-            'as' => 'postDeck',
-            'uses' => 'DeckController@postDeck'
-        ]);
+            Route::get('/{deck_id}/edit', [
+                'as' => 'editDeck',
+                'uses' => 'DeckController@edit'
+            ]);
 
-        Route::get('/{deck_id}/edit', [
-            'as' => 'editDeck',
-            'uses' => 'DeckController@edit'
-        ]);
+            Route::group(['before' => 'csrf'], function () {
+                Route::post('/create', [
+                    'as' => 'postDeck',
+                    'uses' => 'DeckController@postDeck'
+                ]);
+            });
+        });
     });
 });

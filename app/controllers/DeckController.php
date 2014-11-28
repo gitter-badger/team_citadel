@@ -29,17 +29,41 @@ class DeckController extends \BaseController
         return View::make('decks.edit', compact('deck', 'method', 'games'));
     }
 
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @return Response
-     */
-    public function store()
+    public function postDeck()
     {
-        //
-    }
+        $values = Input::only(
+            'game_id',
+            'title',
+            'description'
+        );
 
+
+
+        $validator = Validator::make($values, [
+            'game_id' => 'required:decks,game_id',
+            'title' => 'required:decks,title'
+        ]);
+
+        if ($validator->fails()) {
+            return Redirect::route('newDeck')
+                    ->withInput($values)
+                    ->withErrors($validator);
+        } else {
+            $deck = new Deck;
+                $deck->title = Input::get('title');
+                $deck->game_id = Input::get('game_id');
+                $deck->description = Input::get('description');
+
+            if ($deck->save()) {
+                $deck->users()->sync([Auth::user()->id]);
+                return Redirect::route('getDeck', $deck->id)->with('success', 'The Deck was Created');
+            } else {
+                return Redirect::route('newDeck')->with('fail', 'An Error Occurred while Saving');
+            }
+        }
+
+        return $values;
+    }
 
     /**
      * Display the specified resource.
@@ -49,7 +73,7 @@ class DeckController extends \BaseController
      */
     public function show($id)
     {
-        //
+        return  View::make('decks.show');
     }
 
 

@@ -1,6 +1,7 @@
 <?php
 
-class UsersController extends BaseController {
+class UsersController extends BaseController
+{
 
     /*
     |--------------------------------------------------------------------------
@@ -32,40 +33,40 @@ class UsersController extends BaseController {
 
         // TODO:: NW - VALIDATION!!!!
 
-        $values['password'] = Hash::make( $values['password'] );
+        $values['password'] = Hash::make($values['password']);
 
         $newUser = User::create($values);
 
-        if($newUser){
+        if ($newUser) {
             Auth::login($newUser);
             return Redirect::to('/');
         }
         return Redirect::route('create')->withInput();
     }
 
-	public function show($username){
-		$user = User::whereUsername($username)->first();
+    public function show($username)
+    {
+        $user = User::whereUsername($username)->first();
 
-		$authUser = Auth::user();
-		if ($authUser == null){
-			return Redirect::to('login')->with('message', 'Please log in first!');
-		}
-		else if (Auth::user()->id != $user->id) {
-			return 'this is not your profile dont be nosey';
-		}
-		else {
-			$decks = $this->getUserWall($user->id);
-			return View::make('profile', compact('user', 'decks'));
-		}
-	}
+        $authUser = Auth::user();
+        if ($authUser == null) {
+            return Redirect::to('login')->with('message', 'Please log in first!');
+        }  else if (Auth::user()->id != $user->id) {
+            return 'this is not your profile dont be nosey';
+        } else {
+            $decks = $this->getUserWall($user->id);
+            return View::make('profile', compact('user', 'decks'));
+        }
+    }
+
+    public function login()
+    {
+        return View::make('login');
+    }
 
     public function getUserWall($userId)
     {
         $user = User::find($userId);
         return $user->decks;
-    }
-    public function login()
-    {
-        return View::make('login');
     }
 }
