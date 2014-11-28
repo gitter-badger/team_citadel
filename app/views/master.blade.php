@@ -35,7 +35,7 @@
             @include('widgets.nav')
             <form class="hidden-xs navbar-form navbar-left" role="search" method="get" action="{{ route('cards.search') }}">
                  <div class="form-group">
-                    <input type="text" id="search-bar" class="form-control dropdown disabled" name="query" placeholder="Search" autocomplete='off'>
+                    <input type="text" id="search-bar" class="form-control dropdown " name="query" placeholder="Search" autocomplete='off'>
                     <div class="dropdown">
                         <ul class="dropdown-menu search-dropdown-menu">
                         </ul>
