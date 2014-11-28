@@ -1,4 +1,5 @@
 @extends( 'master' )
+
 @section( 'content' )
 <section id="login">
 	<div class="row">
@@ -21,6 +22,8 @@
 	</div>
 </section>
 @stop
+
 @section('scripts')
-<script type="text/javascript" src="{{asset('js/validation.js')}}"></script>
+	@parent
+    {{ HTML::script('js/validation.js') }}
 @stop

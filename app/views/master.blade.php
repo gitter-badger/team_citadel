@@ -35,7 +35,7 @@
             @include('widgets.nav')
             <form class="hidden-xs navbar-form navbar-left" role="search" method="get" action="{{ route('cards.search') }}">
                  <div class="form-group">
-                    <input type="text" id="search-bar" class="form-control dropdown disabled" name="query" placeholder="Search" autocomplete='off'>
+                    <input type="text" id="search-bar" class="form-control dropdown " name="query" placeholder="Search" autocomplete='off'>
                     <div class="dropdown">
                         <ul class="dropdown-menu search-dropdown-menu">
                         </ul>
@@ -60,9 +60,11 @@
                             <li>{{ link_to('logout', 'Log Out' )}}</li>
                         </ul>
                     @else
-                        <strong>
-                            {{ link_to('login', 'Sign In') }}
-                        </strong>
+                        <a href="{{ URL::route('login') }}" type="button" class="btn btn-default">
+                            <span class="glyphicon glyphicon-user"></span>
+                            sign in
+                        </a>
+                            
                     @endif
                 </div>
             </form>
@@ -100,8 +102,8 @@
 @section('scripts')
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="{{asset('js/bootstrap.min.js')}}"></script>
-    <script type="text/javascript" src="{{URL::asset('js/navsearch.js')}}"></script>
+    {{ HTML::script('https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js') }}
+    {{ HTML::script('js/bootstrap.min.js') }}
+    {{ HTML::script('js/navsearch.js') }}
 @show
 </html>

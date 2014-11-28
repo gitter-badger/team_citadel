@@ -32,6 +32,3 @@
     </div>
 </section>
 @stop
-@section('scripts')
-<script type="text/javascript" src="{{asset('js/validation.js')}}"></script>
-@stop
