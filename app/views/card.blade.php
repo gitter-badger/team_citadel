@@ -39,10 +39,6 @@
                     <td>{{ $card->attributes->find(7)->pivot->value }}</td>
                 </tr>   
                 <tr>
-                    <td><label>Trigger</label></td>
-                    <td colspan='3'>{{ $card->attributes->find(3)->pivot->value }}</td>
-                </tr>
-                <tr>
                     <td><label>Power</label></td>
                     <td>{{ $card->attributes->find(10)->pivot->value }}</td>
                     <td><label>Soul</label></td>
@@ -50,10 +46,12 @@
                 </tr>
                 <tr>
                     <td><label>Traits</label></td>
-                    <td colspan='3'>
+                    <td>
                         {{ $card->attributes->find(1)->pivot->value }}<br>
                         {{ $card->attributes->find(2)->pivot->value }}
                     </td>
+                    <td><label>Trigger</label></td>
+                    <td>{{ $card->attributes->find(3)->pivot->value }}</td>
                 </tr>
             </table>
             <div class="panel panel-default">
