@@ -69,7 +69,11 @@
     <div class="modal fade" id="image-modal">
         <div class="modal-dialog">
             <div class="modal-content modal-popup-image">
-                <img class="popup-image" src="{{ asset('/images/cards/' . $card->id . '.jpeg') }}">
+                @if(file_exists('public/images/cards/'. $card->id . '.jpeg'))                          
+                    <img class="series-image image-responsive center-block" src="{{ asset('images/cards/'. $card->id . '.jpeg') }}" width="90%">
+                @else
+                    <img class="series-image image-responsive center-block" src="{{ asset('images/cards/back.jpeg') }}" width="90%">          
+                @endif
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->

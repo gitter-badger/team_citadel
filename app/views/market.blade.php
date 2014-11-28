@@ -22,7 +22,6 @@
     </div>
     <!-- list of the items for sale -->
     <div class="col-md-8">
-        <h1 class="text-center">Weiβ Schwarz <small>- Market</small></h1>
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4 class="">List by Item</h4>
@@ -42,7 +41,11 @@
                             </td>
                             <td>
                                 <h5 class="text-left">{{ $card->name . ' ' . $card->serial_number . ' - ' . $card->serial_number }}</h5>
-                                <h5>{{ $card->series->game->name }}</h5>
+                                @if($card->series_id !=  'N/A')
+                                    <h5>{{ $card->series->name }}</h5>
+                                @else
+                                    <h5>N/A</h5>
+                                @endif
                             </td>
                             <td>
                                 @if($card->listings->count() > 0)
