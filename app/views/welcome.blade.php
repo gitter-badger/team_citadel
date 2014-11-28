@@ -15,7 +15,7 @@
                 <p>Weiß Schwarz (ヴァイスシュヴァルツ) is a Japanese collectible card game created by Bushiroad. The game is separated into Weiß-side and Schwarz-side. Weiß and Schwarz are German for white and black, respectively. As a general rule, series under Weiß usually have better card effects when compared to those series under Schwarz. However, with the newer series entering the respective sides, there is not much difference between the two.</p>
                 <p><a class="btn btn-default" href="{{ URL::route('series.index') }}" role="button">View cards »</a></p>
             </div><!-- /.col-lg-4 -->
-            <div class="col-lg-4">
+            <div class="col-lg-4 disabled">
                 <a href="{{ URL::route('series.index') }}">
                     {{ HTML::image('images/welcome/mtg-welcome.jpg', 'Magic the Gathering', array('class' => 'img-circle center-block', 'width' => '124px', 'height' => '124px')) }}
                 </a>
@@ -23,7 +23,7 @@
                 <p>Each game represents a battle between wizards known as "planeswalkers", who employ spells, artifacts, and creatures depicted on individual Magic cards to defeat their opponents. Although the original concept of the game drew heavily from the motifs of traditional fantasy role-playing games such as Dungeons & Dragons, the gameplay of Magic bears little similarity to pencil-and-paper adventure games, while having substantially more cards and more complex rules than many other card games.</p>
                 <p><a class="btn btn-default" href="{{ URL::route('series.index') }}" role="button">View cards »</a></p>
             </div><!-- /.col-lg-4 -->
-            <div class="col-lg-4">
+            <div class="col-lg-4 disabled">
                 <a href="{{ URL::route('series.index') }}">
                     {{ HTML::image('images/welcome/pokemon-welcome.jpg', 'pokemon', array('class' => 'img-circle center-block', 'width' => '124px', 'height' => '124px')) }}
                 </a>
@@ -41,12 +41,11 @@
         <!-- CARD DATABASE -->
         <div class="row featurette">
             <div class="col-md-7">
-                <h2 class="featurette-heading">Card <span class="text-muted">Database</span></h2>
+                <h2 class="featurette-heading">Card Database</h2>
                 <p class="lead">Card lookup including translations.</p>
             </div>
             <div class="col-md-5">
-                <!-- TODO: get screenshot of the WS series list page -->
-                <img class="featurette-image img-responsive" data-src="holder.js/500x500/auto" alt="500x500" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgdmlld0JveD0iMCAwIDUwMCA1MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjE5MC4zMTI1IiB5PSIyNTAiIHN0eWxlPSJmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MjNwdDtkb21pbmFudC1iYXNlbGluZTpjZW50cmFsIj41MDB4NTAwPC90ZXh0PjwvZz48L3N2Zz4=" data-holder-rendered="true">
+                {{ HTML::image('images/welcome/series-preview.jpg', 'pokemon', array( 'width' => '400px', 'height' => '400px')) }}
             </div>
         </div>
 
@@ -55,12 +54,11 @@
         <!-- CARD MARKETPLACE -->
         <div class="row featurette">
             <div class="col-md-5">
-                <!-- TODO: get screenshot of the WS listings -->
-                <img class="featurette-image img-responsive" data-src="holder.js/500x500/auto" alt="500x500" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgdmlld0JveD0iMCAwIDUwMCA1MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjE5MC4zMTI1IiB5PSIyNTAiIHN0eWxlPSJmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MjNwdDtkb21pbmFudC1iYXNlbGluZTpjZW50cmFsIj41MDB4NTAwPC90ZXh0PjwvZz48L3N2Zz4=" data-holder-rendered="true">
+                {{ HTML::image('images/welcome/market-preview.jpg', 'pokemon', array( 'width' => '400px', 'height' => '400px')) }}
             </div>
             <div class="col-md-7">
                 <!-- TODO: Link to marketplace -->
-                <h2 class="featurette-heading">Card <span class="text-muted">Marketplace</span></h2>
+                <h2 class="featurette-heading">Card Marketplace</h2>
                 <p class="lead">Buy and sell cards.</p>
             </div>
         </div>
@@ -85,7 +83,7 @@
             <div class="col-md-3">
                 <img class="img-circle center-block" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" style="width: 140px; height: 140px;">
                 <h3 class="text-center">Chris</h3>
-                <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec laoreet consectetur nulla at iaculis. Nullam ut magna massa.</p>
+                <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec laoreet consectetur nulla at iaculis. Nullam ut magna massa. Or something like that.</p>
             </div>
 
             <div class="col-md-3">

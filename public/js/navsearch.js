@@ -23,7 +23,7 @@ $(function() {
                             $('.search-dropdown-menu').append('<li role="presentation" class="divider"></li>');
                         };
                         var id = data[i].id;
-                        $('.search-dropdown-menu').append('<li>' + "<a href='/card/" + id + "'>" + "<img class='mini-search-img' src='" + "/images/cards/"  + id + ".jpeg'" + "'>"  +  data[i].name + "</a>" + '</li>');
+                        $('.search-dropdown-menu').append('<li>' + "<a href='/card/" + id + "'> <strong>" + data[i].name + "</strong> - " + data[i].serial_number + "</a>"  +'</li>');
                         if (i+1 != data.length) {
                             $('.search-dropdown-menu').append('<li role="presentation" class="divider"></li>');
                         }

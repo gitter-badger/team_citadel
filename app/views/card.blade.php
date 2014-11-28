@@ -4,21 +4,21 @@
 @stop 
 @section('content')
     <div class="row">
-        <div class="col-xs-12 col-md-offset-2 col-md-8">
+        <div class="col-xs-12 col-md-12">
             <ol class="breadcrumb">
-                <li><a href="{{ URL::route('series.index') }}">Series</a></li>
+                <li><a href="{{ URL::route('series.index') }}"> {{ $card->series->game->name }} </a></li>
                 <li><a href="{{ $card->series->url }}">{{ $card->series->name }}</a></li>
                 <li class="active">{{ $card->serial_number }}</li>
             </ol>
         </div>
     </div>
-    <div class="row">
-        <div class="col-xs-12 col-md-12">
+    <div class="row center-block">
+        <div class="col-xs-2 col-md-2 col-md-offset-5 col-xs-offset-4">
             <a data-toggle="modal" data-target="#image-modal" href="">
-                @if(file_exists('public/images/cards/'. $card->id . '.jpeg'))                          
-                    <img class="series-image image-responsive center-block" src="{{ asset('images/cards/'. $card->id . '.jpeg') }}" width="90%">
+                @if(file_exists('public/images/cards/'. $card->id . '.jpeg'))
+                    <img class="series-image image-responsive" src="{{ asset('images/cards/'. $card->id . '.jpeg') }}">
                 @else
-                    <img class="series-image image-responsive center-block" src="{{ asset('images/cards/back.jpeg') }}" width="90%">          
+                    <img class="series-image image-responsive" src="{{ asset('images/cards/back.jpeg') }}">
                 @endif
             </a>
         </div>
@@ -39,10 +39,6 @@
                     <td>{{ $card->attributes->find(7)->pivot->value }}</td>
                 </tr>   
                 <tr>
-                    <td><label>Trigger</label></td>
-                    <td colspan='3'>{{ $card->attributes->find(3)->pivot->value }}</td>
-                </tr>
-                <tr>
                     <td><label>Power</label></td>
                     <td>{{ $card->attributes->find(10)->pivot->value }}</td>
                     <td><label>Soul</label></td>
@@ -50,10 +46,12 @@
                 </tr>
                 <tr>
                     <td><label>Traits</label></td>
-                    <td colspan='3'>
+                    <td>
                         {{ $card->attributes->find(1)->pivot->value }}<br>
                         {{ $card->attributes->find(2)->pivot->value }}
                     </td>
+                    <td><label>Trigger</label></td>
+                    <td>{{ $card->attributes->find(3)->pivot->value }}</td>
                 </tr>
             </table>
             <div class="panel panel-default">
@@ -66,10 +64,15 @@
             </div>
         </div>
     </div>
+
     <div class="modal fade" id="image-modal">
         <div class="modal-dialog">
             <div class="modal-content modal-popup-image">
-                <img class="popup-image" src="{{ asset('/images/cards/' . $card->id . '.jpeg') }}">
+                @if(file_exists('public/images/cards/'. $card->id . '.jpeg'))                          
+                    <img class="series-image image-responsive center-block" src="{{ asset('images/cards/'. $card->id . '.jpeg') }}">
+                @else
+                    <img class="series-image image-responsive center-block" src="{{ asset('images/cards/back.jpeg') }}">          
+                @endif
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->

@@ -41,7 +41,11 @@
                             </td>
                             <td>
                                 <h5 class="text-left">{{ $card->name . ' ' . $card->serial_number . ' - ' . $card->serial_number }}</h5>
-                                <h5>{{ $card->series->game->name }}</h5>
+                                @if($card->series_id !=  'N/A')
+                                    <h5>{{ $card->series->name }}</h5>
+                                @else
+                                    <h5>N/A</h5>
+                                @endif
                             </td>
                             <td>
                                 @if($card->listings->count() > 0)

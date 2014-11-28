@@ -86,7 +86,6 @@
     height: auto;
 }
 
-
 /* ------------------------------------------------------
     Border outline for and postioning for users wall
    ------------------------------------------------------- */
@@ -117,4 +116,14 @@
     height: auto;
     padding-bottom: 20px;
     padding-top: 15px;
+}
+
+/* ------------------------------------------------------
+    Disabled
+   ------------------------------------------------------- */
+
+.disabled {
+    opacity: 0.3;
+    pointer-events: none;
+    cursor: default;
 }
