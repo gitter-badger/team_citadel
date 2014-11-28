@@ -2,15 +2,12 @@
 	<li>
 		<a href="" class="dropdown-toggle" data-toggle="dropdown">Games</a>
 		<ul class="dropdown-menu">
-			<li><a href="">Weiβ Schwarz</a></li>
-			<li><a href="">Magic The Gathering</a></li>
-			<li><a href="">Pokemon</a></li>
+			<li><a href="{{ URL::route('series.index') }}">Weiβ Schwarz</a></li>
+			<li><a href="" class="disabled">Magic The Gathering</a></li>
+			<li><a href="" class="disabled">Pokemon</a></li>
 		</ul>
 	</li>
 	<li>
-        <a href="{{url('series')}}">Series</a>
-    </li>
-	<li>
-        <a href="{{url('market')}}">Market</a>
+        <a href="{{ url('market') }}" class="disabled">Market</a>
     </li>
 </ul>

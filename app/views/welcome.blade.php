@@ -15,7 +15,7 @@
                 <p>Weiß Schwarz (ヴァイスシュヴァルツ) is a Japanese collectible card game created by Bushiroad. The game is separated into Weiß-side and Schwarz-side. Weiß and Schwarz are German for white and black, respectively. As a general rule, series under Weiß usually have better card effects when compared to those series under Schwarz. However, with the newer series entering the respective sides, there is not much difference between the two.</p>
                 <p><a class="btn btn-default" href="{{ URL::route('series.index') }}" role="button">View cards »</a></p>
             </div><!-- /.col-lg-4 -->
-            <div class="col-lg-4">
+            <div class="col-lg-4 disabled">
                 <a href="{{ URL::route('series.index') }}">
                     {{ HTML::image('images/welcome/mtg-welcome.jpg', 'Magic the Gathering', array('class' => 'img-circle center-block', 'width' => '124px', 'height' => '124px')) }}
                 </a>
@@ -23,7 +23,7 @@
                 <p>Each game represents a battle between wizards known as "planeswalkers", who employ spells, artifacts, and creatures depicted on individual Magic cards to defeat their opponents. Although the original concept of the game drew heavily from the motifs of traditional fantasy role-playing games such as Dungeons & Dragons, the gameplay of Magic bears little similarity to pencil-and-paper adventure games, while having substantially more cards and more complex rules than many other card games.</p>
                 <p><a class="btn btn-default" href="{{ URL::route('series.index') }}" role="button">View cards »</a></p>
             </div><!-- /.col-lg-4 -->
-            <div class="col-lg-4">
+            <div class="col-lg-4 disabled">
                 <a href="{{ URL::route('series.index') }}">
                     {{ HTML::image('images/welcome/pokemon-welcome.jpg', 'pokemon', array('class' => 'img-circle center-block', 'width' => '124px', 'height' => '124px')) }}
                 </a>
