@@ -1,10 +1,8 @@
 @extends( 'master' )
+@section('header')
+  <h1 class="text-center">Welcome to Deck Citadel <br><small class="text-muted text-center">We have the cards you're looking for.</small></h1>
+@stop
 @section('content')
-    <div class="jumbotron" id="welcome-jumbotron">
-      <h1 class="text-center">Welcome to Deck Citadel</h1>
-      <p class="text-muted text-center">Deck Citadel is website that allows you to look at cards.</p>
-    </div>
-
         <!-- Three columns of text below the carousel -->
         <div class="row">
             <div class="col-lg-4">
