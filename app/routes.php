@@ -17,9 +17,9 @@ Route::get('tinker', function () {
 });
 
 
-Route::get('/', [ 
-    'as' => 'welcome', 
-    function() {
+Route::get('/', [
+    'as' => 'welcome',
+    function () {
         return View::make('welcome');
     }
 ]);
@@ -156,8 +156,35 @@ Route::group(['before' => 'env'], function () {
         return Response::json($cards);
     });
 
-Route::get('{username}', array(
-    'as' => 'profile',
-    'uses' => 'UsersController@show'
-    ));
+    // Group all deck routes together
+    Route::group(['prefix' => 'decks'], function () {
+        Route::get('/', [
+            'as' => 'decks',
+            'uses' => 'DeckController@index'
+        ]);
+
+        Route::get('/{deck_id}', [
+            'as' =>  'getDeck',
+            'uses' => 'DeckController@show'
+        ])->where('deck_id', '[0-9]+');
+
+        Route::group(['before' => 'auth'], function () {
+            Route::get('/create', [
+                'as' => 'newDeck',
+                'uses' => 'DeckController@create'
+            ]);
+
+            Route::get('/{deck_id}/edit', [
+                'as' => 'editDeck',
+                'uses' => 'DeckController@edit'
+            ]);
+
+            Route::group(['before' => 'csrf'], function () {
+                Route::post('/create', [
+                    'as' => 'postDeck',
+                    'uses' => 'DeckController@postDeck'
+                ]);
+            });
+        });
+    });
 });

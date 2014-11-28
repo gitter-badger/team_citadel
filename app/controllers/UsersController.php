@@ -1,6 +1,7 @@
 <?php
 
-class UsersController extends BaseController {
+class UsersController extends BaseController
+{
 
 	/*
 	|--------------------------------------------------------------------------
@@ -30,7 +31,7 @@ class UsersController extends BaseController {
 			'password'
 		);
 		
-		$values['image'] = Input::file('image');
+		// $values['image'] = Input::file('image');
 
 		$rules = array(
 			'image' => 'image',
@@ -64,7 +65,7 @@ class UsersController extends BaseController {
 	}
 
 	public function show($username){
-		$user = User::where('username', $username)->first();
+		$user = User::whereUsername($username)->first();
 		$authUser = Auth::user();
 		if($authUser == null){
 			return Redirect::to('login')->with('message', 'Please log in!');
@@ -83,6 +84,7 @@ class UsersController extends BaseController {
         $user = User::find($userId);
         return $user->decks;
     }
+
     public function login()
     {
         return View::make('login');
