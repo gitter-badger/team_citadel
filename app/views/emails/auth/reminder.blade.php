@@ -12,3 +12,7 @@
         </div>
     </body>
 </html>
+
+@section('javascript')
+    @parent
+@end
