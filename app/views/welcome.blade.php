@@ -66,25 +66,25 @@
     <!-- /END THE FEATURETTES -->
     <h2 class="text-center">About Us</h2>
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-xs-6 col-md-3">
             <img class="img-circle center-block" src="https://avatars0.githubusercontent.com/u/9195105?v=3&s=460" alt="Generic placeholder image" style="width: 140px; height: 140px;">
             <h3 class="text-center">Luke</h3>
             <p class="text-center">With great power comes... a great card site?</p>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-xs-6 col-md-3">
             <img class="img-circle center-block" src="https://avatars3.githubusercontent.com/u/1462219?v=3&s=460" alt="Generic placeholder image" style="width: 140px; height: 140px;">
             <h3 class="text-center">Adam</h3>
             <p class="text-center">"Victoria Concordia Crescit"</p>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-xs-6 col-md-3">
             <img class="img-circle center-block" src="https://avatars1.githubusercontent.com/u/9451135?v=3&s=460" alt="Generic placeholder image" style="width: 140px; height: 140px;">
             <h3 class="text-center">Chris</h3>
             <p class="text-center">Nihongo ga wakarimasen.</p>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-xs-6 col-md-3">
             <img class="img-circle center-block" src="https://avatars3.githubusercontent.com/u/6792534?v=3&s=460" alt="Generic placeholder image" style="width: 140px; height: 140px;">
             <h3 class="text-center">Aled</h3>
             <p class="text-center">A long time ago in a galaxy far, far away, A young programming master found his calling. And that calling was <strong>DeckCitadel</strong></p>
