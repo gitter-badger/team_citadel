@@ -15,7 +15,7 @@
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4 disabled">
             <a href="{{ URL::route('series.index') }}">
-                {{ HTML::image('images/welcome/mtg-welcome.jpg', 'Magic the Gathering', array('class' => 'img-circle center-block', 'width' => '124px', 'height' => '124px')) }}
+                {{ HTML::image('images/welcome/mtg-welcome.png', 'Magic the Gathering', array('class' => 'img-circle center-block', 'width' => '124px', 'height' => '124px')) }}
             </a>
             <h2 class="text-center">Magic The Gathering</h2>
             <p>Each game represents a battle between wizards known as "planeswalkers", who employ spells, artifacts, and creatures depicted on individual Magic cards to defeat their opponents. Although the original concept of the game drew heavily from the motifs of traditional fantasy role-playing games such as Dungeons & Dragons, the gameplay of Magic bears little similarity to pencil-and-paper adventure games, while having substantially more cards and more complex rules than many other card games.</p>
@@ -43,7 +43,7 @@
             <p class="lead">Card lookup including translations.</p>
         </div>
         <div class="col-md-5">
-            {{ HTML::image('images/welcome/Optimized-series-preview.jpg', 'pokemon', array( 'width' => '400px', 'height' => '400px')) }}
+            {{ HTML::image('images/welcome/series-preview.jpg', 'pokemon', array( 'width' => '400px', 'height' => '400px')) }}
         </div>
     </div>
 

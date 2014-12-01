@@ -1,14 +1,14 @@
 @extends('master')
 @section('header')
     <h1 class="text-center">{{ $card->series->name }} <small>- {{ $card->name }}</small></h1>
-@stop 
+@stop
 @section('content')
     <div class="row">
         <div class="col-xs-12 col-md-12">
             <ol class="breadcrumb">
                 <li><a href="{{ URL::route('series.index') }}"> {{ $card->series->game->name }} </a></li>
                 <li><a href="{{ $card->series->url }}">{{ $card->series->name }}</a></li>
-                <li class="active">{{ $card->serial_number }}</li>
+                <li class="active">{{ $card->serial_number . " " . $card->rarity }} </li>
             </ol>
         </div>
     </div>
@@ -18,7 +18,7 @@
                 @if(file_exists('public/images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg'))
                     <img class="image-responsive center-block" src="{{ asset('images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg') }}" width="100%">
                 @else
-                    <img class="image-responsive center-block" src="{{ asset('images/cards/back.jpeg') }}">
+                    <img class="image-responsive center-block" src="{{ asset('images/cards/back.jpg') }}">
                 @endif
             </a>
         </div>
@@ -35,7 +35,7 @@
                     <td>{{ $card->attributes->find(5)->pivot->value }}</td>
                     <td><label>Cost</label></td>
                     <td>{{ $card->attributes->find(7)->pivot->value }}</td>
-                </tr>   
+                </tr>
                 <tr>
                     <td><label>Power</label></td>
                     <td>{{ $card->attributes->find(10)->pivot->value }}</td>
@@ -77,7 +77,7 @@
                 @if(file_exists('public/images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg'))
                     <img class="series-image image-responsive center-block" src="{{ asset('images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg') }}">
                 @else
-                    <img class="series-image image-responsive center-block" src="{{ asset('images/cards/back.jpeg') }}">
+                    <img class="series-image image-responsive center-block" src="{{ asset('images/cards/back.jpg') }}">
                 @endif
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->

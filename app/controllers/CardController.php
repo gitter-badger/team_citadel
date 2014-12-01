@@ -73,7 +73,7 @@ class CardController extends \BaseController {
 
     public function cardSearch() {
         $query = Input::get('query');
-        $cards = Card::where('cards.name', 'LIKE', '%'.$query.'%')->paginate(10);
-        return View::make('result', compact('cards','query'));
+        $cards = Card::where('cards.name', 'LIKE', '%'.$query.'%')->get();
+        return View::make('result', compact('cards', 'query'));
     }
 }
