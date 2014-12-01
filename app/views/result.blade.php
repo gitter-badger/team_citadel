@@ -7,7 +7,7 @@
         <div class="row result-row-border">
             <div class="col-sm-2  col-sm-offset-2">
                 <a href="{{ $card->url }}">
-                    <img class="card-result-image" src="{{asset('/images/cards/' . $card->id . '.jpeg')}}" width="70%">
+                    <img class="card-result-image" src="{{ asset('images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg') }}" width="70%">
                 </a>
             </div>
             <div class="col-sm-6 result-border" >

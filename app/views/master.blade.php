@@ -35,13 +35,13 @@
             @include('widgets.nav')
             <form class="hidden-xs navbar-form navbar-left" role="search" method="get" action="{{ route('cards.search') }}">
                  <div class="form-group">
-                    <input type="text" id="search-bar" class="form-control dropdown disabled" name="query" placeholder="Search" autocomplete='off'>
+                    <input type="text" id="search-bar" class="form-control dropdown" name="query" placeholder="Search" autocomplete='off'>
                     <div class="dropdown">
                         <ul class="dropdown-menu search-dropdown-menu">
                         </ul>
                     </div>
                 </div>
-                <button type="submit" id="search-button" class="btn btn-default hidden-xs disabled"><span class="glyphicon glyphicon-search"></span></button>
+                <button type="submit" id="search-button" class="btn btn-default hidden-xs"><span class="glyphicon glyphicon-search"></span></button>
             </form>
             <form class="navbar-form navbar-right">
                 <div class="form-group">
@@ -104,6 +104,6 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     {{ HTML::script('https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js') }}
     {{ HTML::script('js/bootstrap.min.js') }}
-    {{ HTML::script('js/navsearch.js') }}
+    {{-- HTML::script('js/navsearch.js') --}}
 @show
 </html>
