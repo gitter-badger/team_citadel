@@ -17,7 +17,7 @@
                 <a href="{{ $card->url }}" title="{{{ $card->name  . " " . $card->rarity }}}">
                     <div style="min-height: 200px">
                         <!-- if image exists, show it, else show back of card -->
-                        @if(file_exists('public/images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg'))
+                        @if(file_exists(public_path() . '/images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg'))
                             <img class="image-responsive center-block" src="{{ asset('images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg') }}" width="90%">
                         @else
                             <img class="image-responsive center-block" src="{{ asset('images/cards/back.jpg') }}" width="90%">
