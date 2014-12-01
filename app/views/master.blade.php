@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <title>Deck Citadel</title>
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css' )}}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/styles.css' )}}">
+    {{ HTML::style('/css/bootstrap.min.css') }}
+    {{ HTML::style('/css/styles.css') }}
 
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
