@@ -43,7 +43,7 @@
             <p class="lead">Card lookup including translations.</p>
         </div>
         <div class="col-md-5">
-            {{ HTML::image('images/welcome/series-preview.jpg', 'pokemon', array( 'width' => '400px', 'height' => '400px')) }}
+            {{ HTML::image('images/welcome/Optimized-series-preview.jpg', 'pokemon', array( 'width' => '400px', 'height' => '400px')) }}
         </div>
     </div>
 
