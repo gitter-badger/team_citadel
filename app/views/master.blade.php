@@ -5,7 +5,7 @@
     <title>Deck Citadel</title>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css' )}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/styles.css' )}}">
-    
+
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -18,6 +18,7 @@
     </script>
 </head>
 <body>
+<?php clearstatcache(); ?>
 <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -64,7 +65,7 @@
                             <span class="glyphicon glyphicon-user"></span>
                             sign in
                         </a>
-                            
+
                     @endif
                 </div>
             </form>
