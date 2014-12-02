@@ -29,14 +29,16 @@ Route::resource('listing', 'ListingController');
 Route::resource('market', 'MarketController');
 Route::resource('series', 'SeriesController');
 Route::resource('card', 'CardController');
+Route::resource('rating', 'RatingController');
+
 
 
 Route::get('sendemail', [
-    'as' => 'send.email', 
+    'as' => 'send.email',
     function() {
         Mail::send('emails.test', array(), function($message) {
             $message->to('adamjama7@gmail.com', 'John Smith')->subject('Welcome!')->from('ajama@alacrityfoundation.com', 'Adam Jama');
-        }); 
+        });
     }
 ]);
 

@@ -150,10 +150,21 @@
         // The user clicks submit my ratings
         $('.rate-card-form').submit(function(e) {
             e.preventDefault();
-            console.log(getRating());
-        }); // end of submit event handler
+            var data = getRatings();
+            var $this = $(this);
 
-        function getRating() {
+            $.ajax({
+                type: "POST",
+                url: "{{ URL::route('rating.store') }}",
+                data: data,
+
+                success: function(json) {
+                    console.log(json);
+                }
+            });
+        });
+
+        function getRatings() {
             ajaxData = {
                 card_id : {{ $card->id }},
                 ratings : {}
