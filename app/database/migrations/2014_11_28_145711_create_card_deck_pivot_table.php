@@ -15,7 +15,7 @@ class CreateCardDeckPivotTable extends Migration
     {
         Schema::create('card_deck', function ($table) {
             $table->biginteger('card_id');
-            $table->bitinteger('deck_id');
+            $table->biginteger('deck_id');
         });
     }
 

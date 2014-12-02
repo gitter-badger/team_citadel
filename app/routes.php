@@ -167,11 +167,6 @@ Route::group(['before' => 'env'], function () {
             'uses' => 'DeckController@show'
         ])->where('deck_id', '[0-9]+');
 
-        Route::post('/{deck_id}', [
-            'as' => 'addCard',
-            'uses' => 'DeckController@addCard'
-        ]);
-
         Route::group(['before' => 'auth'], function () {
             Route::get('/create', [
                 'as' => 'newDeck',
@@ -183,11 +178,21 @@ Route::group(['before' => 'env'], function () {
                 'uses' => 'DeckController@edit'
             ]);
 
+            Route::get('find/addCard', [
+                'as' => 'addCardSearch',
+                'uses' => 'DeckController@addCardSearch'
+            ]);
+
             Route::group(['before' => 'csrf'], function () {
                 Route::post('/create', [
                     'as' => 'postDeck',
                     'uses' => 'DeckController@postDeck'
                 ]);
+
+                Route::post('/{deck_id}', [
+                    'as' => 'addCard',
+                    'uses' => 'DeckController@addCard'
+                ])->where('deck_id', '[0-9]+');
             });
         });
     });

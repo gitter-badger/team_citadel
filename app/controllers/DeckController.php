@@ -79,10 +79,10 @@ class DeckController extends \BaseController
     public function show($deck_id)
     {
         $deck = Deck::find($deck_id);
-        $cards = $deck->game->cards->lists('name', 'id');
-        return  View::make('decks.show', compact('deck', 'cards'));
+        $series = $deck->game->series;
+        $cards = $deck->game->cards;
+        return  View::make('decks.show', compact('deck', 'series', 'cards'));
     }
-
 
     /**
      * Show the form for editing the specified resource.
@@ -117,5 +117,11 @@ class DeckController extends \BaseController
     public function destroy($id)
     {
         //
+    }
+
+    public function addCardSearch()
+    {
+        $series = Series::whereName(Input::get('series'))->first();
+        return $series->cards;
     }
 }
