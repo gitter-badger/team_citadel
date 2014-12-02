@@ -66,42 +66,41 @@
 
     <!-- ratings section -->
     <div class="row well">
-        <h2>Ratings</h2>
-        <h5>Using these criteria:</h5>
-        <!-- different attributes to rate a card on -->
-        <form class="form-horizontal rate-card-form" role="form" method="POST" action="" novalidate>
-            <div class="form-group">
-                <label class="rating-lable">Kawaiiness: </label>
-                <div class="col-sm-6 rating-stars" data-rateable="kawaiiness">
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                    <span class="glyphicon glyphicon-star-empty"></span>
+        <div class="col-md-6">
+            <h2>Ratings</h2>
+            <h5>Using these criteria:</h5>
+            <!-- different attributes to rate a card on -->
+            <form class="form-horizontal rate-card-form" role="form" method="POST" action="" novalidate>
+                <div class="form-group">
+                    <label class="rating-lable">Kawaiiness: </label>
+                    <div class="col-sm-6 rating-stars" data-rateable="kawaiiness">
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                <label class="rating-lable">Second: </label>
-                <div class="col-sm-6 rating-stars" data-rateable="second">
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                    <span class="glyphicon glyphicon-star-empty"></span>
+                <!-- endif will go here -->
+                <div class="form-group">
+                    <div class="col-sm-6">
+                    <input
+                        id="submit-ratings-btn"
+                        type="submit"
+                        value="Submit My Ratings"
+                        class="btn login-btn btn-success pull-right">
+                    </div>
                 </div>
-            </div>
-            <!-- endif will go here -->
-            <div class="form-group">
-                <div class="col-sm-6">
-                <input
-                    id="submit-ratings-btn"
-                    type="submit"
-                    value="Submit My Ratings"
-                    class="btn login-btn btn-success pull-right">
-                </div>
-            </div>
-        </form>
+            </form>
+        </div>
+
+        <!-- show chart -->
+        <div class="col-md-6">
+            <h2>Graph</h2>
+            <canvas id="your-rating"></canvas>
+            <div class="pull-right" id='legend-div'></div>
+        </div>
     </div>
 
     <div class="row">
@@ -129,8 +128,34 @@
 
 @section('scripts')
     @parent
+    <script src="/js/charts/chart.min.js"></script>
+    <script src="/js/charts/createRadarChart.js"></script>
     <script>
     $(function() {
+
+        function radarChart() {
+            var chartLabels = [];
+            var averageData = [];
+            var userData = [];
+
+            // get the rating the user just submitted.
+            ajaxData = getRatings();
+
+            for(key in ajaxData.ratings) {
+                chartLabels.push(key);
+            }
+
+            $.each(ajaxData.ratings, function(index) {
+                userData.push(ajaxData.ratings[index]);
+                averageData.push(ajaxData.ratings[index]);
+            });
+            // create new chart on canvas with id "your-rating".
+            createRadarChart(chartLabels, averageData, userData, "your-rating");
+        }
+
+        // create initial chart without user ratings
+        radarChart();
+
         // change stars based on which is pressed
         $('.rating-stars span').click(function(){
             // add stars to star-icon clicked
@@ -159,7 +184,7 @@
                 data: data,
 
                 success: function(json) {
-                    console.log(json);
+                    radarChart();
                 }
             });
         });

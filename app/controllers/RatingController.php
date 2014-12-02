@@ -32,7 +32,10 @@ class RatingController extends \BaseController {
     public function store()
     {
         // insert rating into db
-        return "SUPYO";
+        $card_id = Input::get('player_id');
+        $ratings = Input::get('ratings');
+
+        return $ratings;
     }
 
 
@@ -81,6 +84,12 @@ class RatingController extends \BaseController {
     public function destroy($id)
     {
         //
+    }
+
+    // get the average ratings for that card.
+    public function getAverage($id) {
+        // return the sum/count of all ratings where card_id = id
+
     }
 
 
