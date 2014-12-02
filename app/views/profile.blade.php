@@ -80,7 +80,7 @@
                             <td>{{$user->location}}</td>
                         </tr>
                     </table>
-                    {{ Form::submit('Edit', array( 'class' => 'btn btn-custom btn-lg btn-block', 'id' => 'btn-edit' )) }}
+                    <a href="{{ URL::route('edit.profile.form', $user->username) }}" class="btn btn-custom btn-lg btn-block"> Edit</a>
                 </div>
             </div>
         </div>

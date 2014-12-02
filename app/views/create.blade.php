@@ -22,8 +22,9 @@
                     {{ Form::password( 'password',  array('class' => 'form-control', 'placeholder' => 'Password', 'id' => 'reg-password')) }}
                 </div>
                 <div class="form-group has-feedback">
+
                     {{ Form::label('image', 'Upload Image')}}
-                    {{ Form::file('image') }}
+                    <input name="image" type="file" id="image" accept="image/*">
                 </div>
                     {{ Form::submit( 'Register', array( 'class' => 'btn btn-custom btn-lg btn-block', 'id' => 'btn-signup' )) }}
                 {{ Form::close() }}
