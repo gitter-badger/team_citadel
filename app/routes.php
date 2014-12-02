@@ -12,8 +12,6 @@
 */
 
 Route::get('tinker', function () {
-    return Listing::first()->seller;
-    return DB::getQueryLog();
 });
 
 

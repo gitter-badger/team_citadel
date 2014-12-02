@@ -3,7 +3,9 @@
 class Card extends Eloquent
 {
     protected $table = 'cards';
-    protected $guard = 'id';
+    protected $guarded = [
+        'id'
+    ];
 
     public function series()
     {

@@ -102,3 +102,173 @@ id,name,release_date,serial_number,game_id
 101,Disgaea 4 EP,2013-03-11,DG/SE08-,1
 102,Bakemonogatari,2013-03-12,BM/S15-,1
 103,Macross Frontier,2013-03-13,MF/S13-,1
+104,"Limited Edition Alpha",1993-08-05,LEA,2
+105,"Limited Edition Beta",1993-10-01,LEB,2
+106,"Arabian Nights",1993-12-01,ARN,2
+107,"Unlimited Edition",1993-12-01,2ED,2
+108,"Dragon Con",1994-01-01,pDRC,2
+109,Antiquities,1994-03-01,ATQ,2
+110,"Revised Edition",1994-04-01,3ED,2
+111,Legends,1994-06-01,LEG,2
+112,"The Dark",1994-08-01,DRK,2
+113,189-rarities-agent-of-artifice-novel-promo-insert,1995-01-01,pMEI,2
+114,"Fallen Empires",2014,FEM,2
+115,"Legend Membership",1994-11-01,pLGM,2
+116,"Fourth Edition",1995,4ED,2
+117,"Ice Age",1995-04-01,ICE,2
+118,Chronicles,1995-06-01,CHR,2
+119,Homelands,1995-07-01,HML,2
+120,Alliances,1995-10-01,ALL,2
+121,"Rivals Quick Start Set",1996-06-10,RQS,2
+122,"Arena League",1996-07-01,pARL,2
+123,Celebration,2006-02-03,pCEL,2
+124,Mirage,1997-09,MIR,2
+125,"Multiverse Gift Box",1996-10-08,MGB,2
+126,"Introductory Two-Player Set",1996-11-01,ITP,2
+127,Visions,1996-12-31,VIS,2
+128,"Fifth Edition",1997-02-03,5ED,2
+129,"Portal Demo Game",1997-03-24,pPOD,2
+130,Portal,1997-05-01,POR,2
+131,Vanguard,1997-05-01,VAN,2
+132,Weatherlight,1997-05-01,WTH,2
+133,"Prerelease Events",1997-06-09,pPRE,2
+134,Tempest,2012-07-07,TMP,2
+135,Stronghold,1997-10-14,STH,2
+136,"Portal Second Age",1998-03-02,PO2,2
+137,"Judge Gift Program",1998-06-01,pJGP,2
+138,Exodus,2007,EXO,2
+139,Unglued,1998-06-15,UGL,2
+140,"Asia Pacific Land Program",1998-08-11,pALP,2
+141,"Urza's Saga",1998,USG,2
+142,Anthologies,1998-10-12,ATH,2
+143,"Urza's Legacy",1998-11-01,ULG,2
+144,"Classic Sixth Edition",1999-02-15,6ED,2
+145,"Portal Three Kingdoms",1999-04-21,PTK,2
+146,"Urza's Destiny",1999-05-01,UDS,2
+147,"Starter 1999",1999-06-07,S99,2
+148,Guru,1999-07-01,pGRU,2
+149,Worlds,1999-07-12,pWOR,2
+150,"Wizards of the Coast Online Store",1999-08-04,pWOS,2
+151,"Mercadian Masques",1999-09-04,MMQ,2
+152,"Battle Royale Box Set",1999-10-04,BRB,2
+153,"Super Series",1999-11-12,pSUS,2
+154,"Friday Night Magic",2002-12-01,pFNM,2
+155,"European Land Program",2009-05-05,pELP,2
+156,Nemesis,2000-02-05,NMS,2
+157,"Starter 2000",2000-02-14,S00,2
+158,Prophecy,2000-04-01,PCY,2
+159,"Beatdown Box Set",2000-06-05,BTD,2
+160,Invasion,2000-10-01,INV,2
+161,Planeshift,2000-10-02,PLS,2
+162,"Seventh Edition",2001-02-05,7ED,2
+163,"Magic Player Rewards",2001-04-11,pMPR,2
+164,Apocalypse,2006-05,APC,2
+165,Odyssey,2001-06-04,ODY,2
+166,Deckmasters,2001-10-01,DKM,2
+167,Torment,2001-12-01,TOR,2
+168,Judgment,2002-02-04,JUD,2
+169,Onslaught,2002-05-27,ONS,2
+170,Legions,2002-10-07,LGN,2
+171,Scourge,2003-02-03,SCG,2
+172,"Release Events",2003-05-26,pREL,2
+173,"Eighth Edition",2006-10-06,8ED,2
+174,"Eighth Edition Box Set",2003-07-28,8BS,2
+175,Mirrodin,2003-07-28,MRD,2
+176,Darksteel,2003-10-02,DST,2
+177,"Fifth Dawn",2004-02-06,5DN,2
+178,"Champions of Kamigawa",2004-06-04,CHK,2
+179,Unhinged,2004-10-01,UNH,2
+180,"Betrayers of Kamigawa",2004-11-20,BOK,2
+181,"Saviors of Kamigawa",2005-02-04,SOK,2
+182,"Ninth Edition",2005-06-03,9ED,2
+183,"Ninth Edition Box Set",2005-07-29,9BS,2
+184,"Ravnica: City of Guilds",2005-07-29,RAV,2
+185,"Two-Headed Giant Tournament",2005-10-07,p2HG,2
+186,"WPN and Gateway",2005-12-09,pWPN,2
+187,Guildpact,2007,GPT,2
+188,"Champs and States",2006-02-03,pCMP,2
+189,Dissension,2006-06-24,DIS,2
+190,Coldsnap,2006-05-05,CSP,2
+191,"Coldsnap Theme Decks",2006-07-21,CST,2
+192,"Time Spiral",2006-07-21,TSP,2
+193,"Time Spiral ""Timeshifted""",2006-10-06,TSB,2
+194,"Happy Holidays",2006-10-06,pHHO,2
+195,"Planar Chaos",2011,PLC,2
+196,"Pro Tour",2007-02-02,pPRO,2
+197,"Grand Prix",2009,pGPX,2
+198,"Future Sight",2010,FUT,2
+199,"Tenth Edition",2007-05-04,10E,2
+200,"Magic Game Day",2007-07-13,pMGD,2
+201,"Masters Edition",2012-02-25,MED,2
+202,Lorwyn,2007-09-10,LRW,2
+203,"Duel Decks: Elves vs. Goblins",2007-10-12,EVG,2
+204,"Launch Parties",2007-11-16,pLPA,2
+205,Morningtide,2008-05,MOR,2
+206,"15th Anniversary",2008-02-01,p15A,2
+207,Shadowmoor,2008,SHM,2
+208,"Summer of Magic",2008-05-02,pSUM,2
+209,Eventide,2007-07-21,EVE,2
+210,"From the Vault: Dragons",2008-07-25,DRB,2
+211,"Masters Edition II",2008-08-29,ME2,2
+212,"Shards of Alara",2008-09-22,ALA,2
+213,"Duel Decks: Jace vs. Chandra",2008-10-03,DD2,2
+214,Conflux,2008-11-07,CON,2
+215,"Duel Decks: Divine vs. Demonic",2009-02-06,DDC,2
+216,"Alara Reborn",2009-04-10,ARB,2
+217,"Magic 2010",2009-04-30,M10,2
+218,"From the Vault: Exiled",2009-07-17,V09,2
+219,Planechase,2009-08-28,HOP,2
+220,"Masters Edition III",2009-09-04,ME3,2
+221,Zendikar,2009-09-07,ZEN,2
+222,"Duel Decks: Garruk vs. Liliana",2009-10-02,DDD,2
+223,"Premium Deck Series: Slivers",2009-10-30,H09,2
+224,Worldwake,2009-11-20,WWK,2
+225,"Duel Decks: Phyrexia vs. the Coalition",2010-02-05,DDE,2
+226,"Rise of the Eldrazi",2010-03-19,ROE,2
+227,"Duels of the Planeswalkers",2010-04-23,DPA,2
+228,Archenemy,2010-06-04,ARC,2
+229,"Magic 2011",2010-06-18,M11,2
+230,"From the Vault: Relics",2010-07-16,V10,2
+231,"Duel Decks: Elspeth vs. Tezzeret",2010-08-27,DDF,2
+232,"Scars of Mirrodin",2010-09-03,SOM,2
+233,"Premium Deck Series: Fire and Lightning",2010-10-01,PD2,2
+234,"Masters Edition IV",2010-11-19,ME4,2
+235,"Mirrodin Besieged",2011-01-10,MBS,2
+236,"Duel Decks: Knights vs. Dragons",2011-02-04,DDG,2
+237,"New Phyrexia",2011-04-01,NPH,2
+238,"Magic: The Gathering-Commander",2011-05-13,CMD,2
+239,"Magic 2012",2011-06-17,M12,2
+240,"From the Vault: Legends",2011-07-15,V11,2
+241,"Duel Decks: Ajani vs. Nicol Bolas",2011-08-26,DDH,2
+242,Innistrad,2011-09-02,ISD,2
+243,"Premium Deck Series: Graveborn",2011-09-30,PD3,2
+244,"Dark Ascension",2011-11-18,DKA,2
+245,"Duel Decks: Venser vs. Koth",2012-02-03,DDI,2
+246,"Avacyn Restored",2012-03-30,AVR,2
+247,"Planechase 2012 Edition",2012-05-04,PC2,2
+248,"Magic 2013",2012-06-01,M13,2
+249,"From the Vault: Realms",2012-07-13,V12,2
+250,"Duel Decks: Izzet vs. Golgari",2012-08-31,DDJ,2
+251,"Return to Ravnica",2012-09-07,RTR,2
+252,"Commander's Arsenal",2012-10-05,CM1,2
+253,Gatecrash,2012-11-02,GTC,2
+254,"Duel Decks: Sorin vs. Tibalt",2013-02-01,DDK,2
+255,"World Magic Cup Qualifiers",2013-03-15,pWCQ,2
+256,"Dragon's Maze",2013,DGM,2
+257,"Modern Masters",2013-05-03,MMA,2
+258,"Magic 2014 Core Set",2013-06-07,M14,2
+259,"From the Vault: Twenty",2013-07-19,V13,2
+260,"Duel Decks: Heroes vs. Monsters",2013-08-23,DDL,2
+261,Theros,2013-09-06,THS,2
+262,"Commander 2013 Edition",2013-09-27,C13,2
+263,"Born of the Gods",2013-11-01,BNG,2
+264,"Duel Decks: Jace vs. Vraska",2014-02-07,DDM,2
+265,"Journey into Nyx",2014-03-14,JOU,2
+266,"Modern Event Deck 2014",2014-05-02,MD1,2
+267,"Magic: The Gathering—Conspiracy",2014-05-30,CNS,2
+268,"Vintage Masters",2014-06-06,VMA,2
+269,"Magic 2015 Core Set",2014-06-16,M15,2
+270,"From the Vault: Annihilation (2014)",2014-07-18,V14,2
+271,"Duel Decks: Speed vs. Cunning",2014-08-22,DDN,2
+272,"Khans of Tarkir",2014-09-05,KTK,2
+273,"Commander 2014",2014-09-26,C14,2
