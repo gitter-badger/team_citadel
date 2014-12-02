@@ -92,11 +92,9 @@
         <!-- <button id='button'>Go!</button> -->
     </div>
 
-    <div class="footer navbar-fixed-bottom">
-        <span class="pull-right">
-            <a id="issue-report" href="mailto:tanprasitp@gmail.com?Subject=Issue%20Report"><h5>Report an issue <i class="glyphicon glyphicon glyphicon-exclamation-sign"></i></h5></a>
-        </span>
-    </div>
+    <span class="pull-right fixed">
+        <a id="issue-report" href="mailto:tanprasitp@gmail.com?Subject=Issue%20Report"><h5>Report an issue <i class="glyphicon glyphicon glyphicon-exclamation-sign"></i></h5></a>
+    </span>
 </div>
 </body>
 @section('scripts')

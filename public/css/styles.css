@@ -137,3 +137,17 @@
     pointer-events: none;
     cursor: default;
 }
+
+/* ------------------------------------------------------
+    Card rating
+   ------------------------------------------------------- */
+.rating-stars span {
+    font-size: 1.5em;
+}
+
+.rating-lable {
+    float: left;
+    width: 150px;
+    text-align: right;
+    margin-right: 0.5em;
+}
