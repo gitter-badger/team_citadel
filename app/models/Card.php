@@ -24,7 +24,7 @@ class Card extends Eloquent
     {
         return URL::route('card.show', $this->id);
     }
-    
+
     public function decks()
     {
         return $this->belongsToMany('Deck');
