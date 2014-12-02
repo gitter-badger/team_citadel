@@ -32,8 +32,16 @@ class RatingController extends \BaseController {
     public function store()
     {
         // insert rating into db
-        $card_id = Input::get('player_id');
-        $ratings = Input::get('ratings');
+        $ratings = Input::get('ratingIds');
+
+        foreach ($ratings as $key => $value) {
+            Rating::create([
+                'user_id'=> Auth::user()->id,
+                'card_id' => Input::get('card_id'),
+                'rateable_id' => $key,
+                'value' => $value
+            ]);
+        }
 
         return $ratings;
     }
@@ -72,6 +80,19 @@ class RatingController extends \BaseController {
     public function update($id)
     {
         //
+        $ratings = Input::get('ratings');
+
+        foreach ($ratings as $key => $value) {
+            $rating = Rating::find($id);
+            Rating::update([
+                'user_id'=> Auth::user()->id,
+                'card_id' => Input::get('card_id'),
+                'rateable_id' => $key,
+                'value' => $value
+            ]);
+        }
+
+        return $ratings;
     }
 
 

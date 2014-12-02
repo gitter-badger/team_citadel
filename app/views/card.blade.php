@@ -70,17 +70,23 @@
             <h2>Ratings</h2>
             <h5>Using these criteria:</h5>
             <!-- different attributes to rate a card on -->
-            <form class="form-horizontal rate-card-form" role="form" method="POST" action="" novalidate>
-                <div class="form-group">
-                    <label class="rating-lable">Kawaiiness: </label>
-                    <div class="col-sm-6 rating-stars" data-rateable="kawaiiness">
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
+            @if(Auth::check())
+                <form class="form-horizontal rate-card-form" role="form" method="POST" action="" novalidate>
+            @else
+                <form class="form-horizontal rate-card-form disabled" role="form" method="POST" action="" novalidate>
+            @endif
+                @foreach($rateables as $rateable)
+                    <div class="form-group">
+                        <label class="rating-lable">{{ $rateable->name }}</label>
+                        <div class="col-sm-6 rating-stars" data-rateable-name="{{ $rateable->name }}" data-rateable-id="{{ $rateable->id }}">
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                        </div>
                     </div>
-                </div>
+                @endforeach
 
                 <!-- endif will go here -->
                 <div class="form-group">
@@ -112,7 +118,6 @@
         </nav>
     </div>
 
-
     <div class="modal fade" id="image-modal">
         <div class="modal-dialog">
             <div class="modal-content modal-popup-image">
@@ -137,17 +142,22 @@
             var chartLabels = [];
             var averageData = [];
             var userData = [];
+            var avgAsJSON = {{json_encode($averageRatings)}};
 
             // get the rating the user just submitted.
             ajaxData = getRatings();
 
-            for(key in ajaxData.ratings) {
-                chartLabels.push(key);
+            for(name in ajaxData.ratingNames) {
+                chartLabels.push(ajaxData.ratingNames[name]);
             }
 
-            $.each(ajaxData.ratings, function(index) {
-                userData.push(ajaxData.ratings[index]);
-                averageData.push(ajaxData.ratings[index]);
+            $.each(avgAsJSON, function(index) {
+                averageData.push(avgAsJSON[index]);
+            });
+
+            $.each(ajaxData.ratingIds, function(index) {
+                userData.push(ajaxData.ratingIds[index]);
+                // averageData.push(ajaxData.ratingIds[index]);
             });
             // create new chart on canvas with id "your-rating".
             createRadarChart(chartLabels, averageData, userData, "your-rating");
@@ -192,15 +202,19 @@
         function getRatings() {
             ajaxData = {
                 card_id : {{ $card->id }},
-                ratings : {}
+                ratingIds : {}, // store id and value
+                ratingNames : [] // store name - used for graph
             };
 
             $('.rating-stars').each(function () {
                var $this = $(this);
                var starCount = $this.find('.glyphicon-star').length;
-               var rateable = $this.data('rateable');
-               console.log();
-               ajaxData.ratings[rateable] = starCount;
+               var rateableId = $this.data('rateable-id');
+               ajaxData.ratingIds[rateableId] = starCount;
+
+               var rateableName = $this.data('rateable-name');
+               ajaxData.ratingNames.push(rateableName);
+
             });
 
             return ajaxData;

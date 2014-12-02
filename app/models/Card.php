@@ -29,4 +29,9 @@ class Card extends Eloquent
     {
         return $this->belongsToMany('Deck');
     }
+
+    // A card will be rated on many things
+    public function rateables() {
+        return $this->belongsToMany('Rateable');
+    }
 }
