@@ -13,7 +13,7 @@ class NewAttributesTable extends Migration {
 	public function up()
 	{
 		//
-		Schema::drop('attribute_card');
+		Schema::dropIfExists('attribute_card');
 
 		Schema::create('attribute_card', function($table) {
 		    $table->increments('id');
@@ -32,6 +32,13 @@ class NewAttributesTable extends Migration {
 	{
 		//
 		Schema::dropIfExists('attribute_card');
+
+		Schema::create('attribute_card', function($table) {
+		    $table->increments('id');
+		    $table->integer('card_id');
+		    $table->integer('attribute_id');
+		    $table->string('value');
+		});
 	}
 
 }
