@@ -3,7 +3,6 @@
 <head>
     <meta charset="utf-8">
     <title>Deck Citadel</title>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css' )}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/styles.css' )}}">
 
@@ -102,7 +101,8 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="{{asset('js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('js/bootstrap.js')}}"></script>
+    <script src="{{asset('js/typehead.bundle.js')}}"></script>
     <script type="text/javascript" src="{{URL::asset('js/navsearch.js')}}"></script>
 @show
 </html>

@@ -121,7 +121,9 @@ class DeckController extends \BaseController
 
     public function addCardSearch()
     {
+        $term = Input::get('term');
         $series = Series::whereName(Input::get('series'))->first();
-        return $series->cards;
+
+        return $series->cards()->whereRaw("MATCH(name) AGAINST('+$term*' IN BOOLEAN MODE)")->get();
     }
 }

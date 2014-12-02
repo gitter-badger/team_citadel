@@ -26,17 +26,18 @@
                          <div class="col-md-12">
                             {{ Form::label('Cards') }}
                             <p>
-                                <input type="text" name="input" id="search-cards" placeholder="Type Something" list="carddata" autocomplete="off" class="form-control" data-id="{{ $deck->game_id }}">
-                                <datalist id="carddata"></datalist>
+                                <input type="text" id="cardresults" placeholder="e.g. datalist" class="form-control"
+                                name="term" data-provide="typeahead" autocomplete="off">
                             </p>
                             <a class="btn button-success">Add Card</a>
                         </div> <!-- /col-md-6 -->
                     </div> <!-- /.row -->
                 </div> <!-- /forn-group -->
 
-                 <label for="ajax">Pick an HTML Element (options loaded using AJAX)</label>
-                    <input type="text" id="ajax" list="json-datalist" placeholder="e.g. datalist">
-                  <datalist id="json-datalist"></datalist>
+                <div class="well">
+                    <input  type="text" class="span3" id="typeahead" data-provide="typeahead">
+                </div>
+
 
         {{ Form::close() }}
     @stop
