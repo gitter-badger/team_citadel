@@ -35,16 +35,24 @@ class CardController extends \BaseController {
      */
     public function show($id)
     {
-        // Rating::where('card_id', $id)->avg('value')
         $card = Card::find($id);
         $rateables = $card->series->game->rateables;
         $averageRatings = [];
+        $previousUserRatings = [];
 
+        // get the average for each rateable.
         foreach ($rateables as $rateable) {
-            $averageRatings[$rateable->name] = round(Rating::where('card_id', $id)->where('rateable_id', $rateable->id)->avg('value'));
+            $averageRatings[$rateable->name] = round(Rating::whereCardId($id)
+                ->whereRateableId($rateable->id)
+                ->avg('value'));
+
+            $previousUserRatings[$rateable->name] = Rating::whereCardId($id)
+                ->whereRateableId($rateable->id)
+                ->whereUserId(Auth::user()->id)
+                ->pluck('value');
         }
-        // $averageRatings = json_encode($averageRatings);
-        return View::make('card', compact('card', 'rateables', 'averageRatings'));
+
+        return View::make('card', compact('card', 'rateables', 'averageRatings', 'previousUserRatings'));
     }
     /**
      * Show the form for editing the specified resource.

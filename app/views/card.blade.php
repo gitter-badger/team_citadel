@@ -137,12 +137,26 @@
     <script src="/js/charts/createRadarChart.js"></script>
     <script>
     $(function() {
+        // The users previous rating. values will be null if they have not rated before
+        var previousUserRatings = {{ json_encode($previousUserRatings) }};
+
+        $.each(previousUserRatings, function(key, value) {
+            // If they have rated the card before
+            if(value != null) {
+                console.log(value);
+                $('div').find("[data-rateable-name='" + key + "'] > .glyphicon-star-empty:eq(" + value + ")")
+                    .prevAll()
+                    .removeClass('glyphicon-star-empty')
+                    .addClass('glyphicon-star');
+
+            }
+        });
 
         function radarChart() {
             var chartLabels = [];
             var averageData = [];
             var userData = [];
-            var avgAsJSON = {{json_encode($averageRatings)}};
+            var avgAsJSON = {{ json_encode($averageRatings) }};
 
             // get the rating the user just submitted.
             ajaxData = getRatings();
@@ -157,8 +171,8 @@
 
             $.each(ajaxData.ratingIds, function(index) {
                 userData.push(ajaxData.ratingIds[index]);
-                // averageData.push(ajaxData.ratingIds[index]);
             });
+
             // create new chart on canvas with id "your-rating".
             createRadarChart(chartLabels, averageData, userData, "your-rating");
         }
