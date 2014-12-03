@@ -178,7 +178,7 @@ Route::group(['before' => 'env'], function () {
                 'uses' => 'DeckController@edit'
             ]);
 
-            Route::get('find/addCard', [
+            Route::get('/getallcards', [
                 'as' => 'addCardSearch',
                 'uses' => 'DeckController@addCardSearch'
             ]);

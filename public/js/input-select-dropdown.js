@@ -1,26 +1,12 @@
-$( document ).ready( function(){
+$(document).ready(function(){
+        $('#searchbox').selectize({
+            valueField: 'url',
+            labelField: 'name',
+            searchField: ['name'],
+            maxOptions: 10,
+            options: [],
+            create: false,
 
-    // $('#cardresults').on('keyup', function(){
 
-    //         $.ajax({
-    //             url: "/decks/find/addCard",
-    //             dataType: "json",
-    //             data: {
-    //                 term : $("#cardresults").val(),
-    //                 series : $("#seriesdata").val()
-    //               },
-
-    //             success: function(data) {
-    //                 $.map( data, function( card ) {
-    //                     console.log(card.name);
-    //                     console.log(card.id)
-    //                 });
-    //             }
-    //         });
-    //  });
-    //
-
-    $("#typeahead").typeahead(function() {
-        source: ["YouTube", "Facebook", "Google"]
+        });
     });
-});

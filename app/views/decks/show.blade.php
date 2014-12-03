@@ -35,9 +35,8 @@
                 </div> <!-- /forn-group -->
 
                 <div class="well">
-                    <input  type="text" class="span3" id="typeahead" data-provide="typeahead">
+                        <select id="searchbox" name="q" placeholder="Search products or categories..." class="form-control"></select>
                 </div>
-
 
         {{ Form::close() }}
     @stop
@@ -45,4 +44,6 @@
     @section('scripts')
         @parent
         <script type="text/javascript" src="{{asset('js/input-select-dropdown.js')}}"></script>
+        <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/selectize.js/0.11.2/js/standalone/selectize.js"></script>
     @stop

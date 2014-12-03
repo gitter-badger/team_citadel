@@ -5,6 +5,7 @@
     <title>Deck Citadel</title>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css' )}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/styles.css' )}}">
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/selectize.js/0.11.2/css/selectize.bootstrap3.css">
 
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -100,9 +101,8 @@
 @section('scripts')
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    {{ HTML::script('https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js') }}
     <script src="{{asset('js/bootstrap.js')}}"></script>
-    <script src="{{asset('js/typehead.bundle.js')}}"></script>
     <script type="text/javascript" src="{{URL::asset('js/navsearch.js')}}"></script>
 @show
 </html>
