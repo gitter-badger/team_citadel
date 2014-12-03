@@ -29,9 +29,7 @@ class UsersController extends BaseController {
 			'email',
 			'password'
 		);
-		
-		//$values['image'] = Input::file('image');
-
+        
 		$rules = array(
 			'image' => 'image',
 			'email' => 'required|email|unique:users',

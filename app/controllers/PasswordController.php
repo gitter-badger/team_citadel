@@ -44,7 +44,10 @@ class PasswordController extends BaseController {
 		$result = Password::remind( Input::only('email'), function($message) {
     		$message->subject('Password Reminder');
         	$message->from('noreply@deckcitadel.com', 'Deck Citadel');
+        	//This will load the email for username reminder 
    		}, 'emails.auth.usernamereminder');
+
+
 
 		
 		if ($result == PasswordBroker::REMINDER_SENT) {
@@ -76,7 +79,7 @@ class PasswordController extends BaseController {
 		} else if (PasswordBroker::INVALID_PASSWORD == $result) {
 			return Redirect::to('username/reset/{token}')->withInput()->with('error', 'Your username do not match!');
 		} else if (PasswordBroker::INVALID_USER == $result) {
-			return Redirect::to('username/reset/{token}')->withInput()->with('error', 'Invalid user!');
+			return Redirect::to('username/reset/{token}')->withInput()->with('error', 'Email address not found!');
 		} else if (PasswordBroker::INVALID_TOKEN == $result) {
 			return Redirect::to('username/reset/{token}')->withInput()->with('error', 'Invalid token!');
 		}
