@@ -15,4 +15,5 @@
 
 @section('javascript')
     @parent
+
 @end

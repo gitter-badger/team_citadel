@@ -26,30 +26,30 @@
             <table class="table table-striped">
                 <tr>
                     <td><label>Type</label></td>
-                    <td>{{ $card->attributes->find(4)->pivot->value }}</td>
+                    <td>{{{ $card->attributes->find(4)->pivot->value }}}</td>
                     <td><label>Level</label></td>
-                    <td>{{ $card->attributes->find(9)->pivot->value }}</td>
+                    <td>{{{ $card->attributes->find(9)->pivot->value }}}</td>
                 </tr>
                 <tr>
                     <td><label>Colour</label></td>
-                    <td>{{ $card->attributes->find(5)->pivot->value }}</td>
+                    <td>{{{ $card->attributes->find(5)->pivot->value }}}</td>
                     <td><label>Cost</label></td>
-                    <td>{{ $card->attributes->find(7)->pivot->value }}</td>
+                    <td>{{{ $card->attributes->find(7)->pivot->value }}}</td>
                 </tr>
                 <tr>
                     <td><label>Power</label></td>
-                    <td>{{ $card->attributes->find(10)->pivot->value }}</td>
+                    <td>{{{ $card->attributes->find(10)->pivot->value }}}</td>
                     <td><label>Soul</label></td>
-                    <td>{{ $card->attributes->find(8)->pivot->value }}</td>
+                    <td>{{{ $card->attributes->find(8)->pivot->value }}}</td>
                 </tr>
                 <tr>
                     <td><label>Traits</label></td>
                     <td>
                         {{ $card->attributes->find(1)->pivot->value }}<br>
-                        {{ $card->attributes->find(2)->pivot->value }}
+                        {{{ $card->attributes->find(2)->pivot->value }}}
                     </td>
                     <td><label>Trigger</label></td>
-                    <td>{{ $card->attributes->find(3)->pivot->value }}</td>
+                    <td>{{{ $card->attributes->find(3)->pivot->value }}}</td>
                 </tr>
             </table>
             <div class="panel panel-default">
@@ -57,7 +57,7 @@
                     Card Text/ Abilities
                 </div>
                 <div class="panel-body">
-                    {{ $card->attributes->find(6)->pivot->value }}
+                    {{{ $card->attributes->find(6)->pivot->value }}}
                 </div>
             </div>
         </div>
@@ -140,15 +140,15 @@
         // The users previous rating. values will be null if they have not rated before
         var previousUserRatings = {{ json_encode($previousUserRatings) }};
 
+        // TODO: if they rate 5 stars, does not display the stars
         $.each(previousUserRatings, function(key, value) {
             // If they have rated the card before
             if(value != null) {
-                console.log(value);
-                $('div').find("[data-rateable-name='" + key + "'] > .glyphicon-star-empty:eq(" + value + ")")
-                    .prevAll()
+                console.log(value)
+                $('div').find("[data-rateable-name='" + key + "'] > ")
+                    .nextUntil('.glyphicon-star-empty:eq(" + value + ")')
                     .removeClass('glyphicon-star-empty')
                     .addClass('glyphicon-star');
-
             }
         });
 
