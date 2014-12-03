@@ -41,7 +41,7 @@ class CardController extends \BaseController {
         $averageRatings = [];
 
         foreach ($rateables as $rateable) {
-            $averageRatings[$rateable->name] = Rating::where('card_id', $id)->where('rateable_id', $rateable->id)->avg('value');
+            $averageRatings[$rateable->name] = round(Rating::where('card_id', $id)->where('rateable_id', $rateable->id)->avg('value'));
         }
         // $averageRatings = json_encode($averageRatings);
         return View::make('card', compact('card', 'rateables', 'averageRatings'));

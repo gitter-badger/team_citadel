@@ -62,7 +62,7 @@
                     @else
                         <a href="{{ URL::route('login') }}" type="button" class="btn btn-default">
                             <span class="glyphicon glyphicon-user"></span>
-                            sign in
+                            Sign In
                         </a>
 
                     @endif
