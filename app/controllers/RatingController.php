@@ -80,16 +80,16 @@ class RatingController extends \BaseController {
     public function update($id)
     {
         //
-        $ratings = Input::get('ratings');
+        $ratings = Input::get('ratingIds');
 
         foreach ($ratings as $key => $value) {
-            $rating = Rating::find($id);
-            Rating::update([
-                'user_id'=> Auth::user()->id,
-                'card_id' => Input::get('card_id'),
-                'rateable_id' => $key,
-                'value' => $value
-            ]);
+            $rating = Rating::whereUserId(Auth::user()->id)
+                ->whereCardId($id)
+                ->whereRateableId($key)
+                ->first();
+
+            $rating->value = intval($value);
+            $rating->save();
         }
 
         return $ratings;

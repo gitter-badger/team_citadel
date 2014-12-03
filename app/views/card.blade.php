@@ -139,16 +139,28 @@
     $(function() {
         // The users previous rating. values will be null if they have not rated before
         var previousUserRatings = {{ json_encode($previousUserRatings) }};
+        var hasRatedPreviously = true;
 
         // TODO: if they rate 5 stars, does not display the stars
         $.each(previousUserRatings, function(key, value) {
             // If they have rated the card before
             if(value != null) {
-                console.log(value)
-                $('div').find("[data-rateable-name='" + key + "'] > ")
-                    .nextUntil('.glyphicon-star-empty:eq(" + value + ")')
-                    .removeClass('glyphicon-star-empty')
-                    .addClass('glyphicon-star');
+                // since prevAll isn't working for 5 star ratings, we do this.
+                if(value == 5) {
+                    $('div').find("[data-rateable-name='" + key + "'] > ")
+                        .removeClass('glyphicon-star-empty')
+                        .addClass('glyphicon-star');
+                } else {
+                    // doesn't work with 5 stars (displays them all as empty)
+                    $('div').find("[data-rateable-name='" + key + "'] > .glyphicon-star-empty:eq(" + value + ")")
+                        .prevAll()
+                        .removeClass('glyphicon-star-empty')
+                        .addClass('glyphicon-star');
+                }
+
+            } else {
+                // there ISN'T a previous rating by this user so we change the submit from create to update
+                hasRatedPreviously = false;
             }
         });
 
@@ -199,15 +211,28 @@
         // The user clicks submit my ratings
         $('.rate-card-form').submit(function(e) {
             e.preventDefault();
+            var url;
             var data = getRatings();
             var $this = $(this);
 
+            // console.log(data);
+
+            // if they have previously rated the card, we want to update
+            if(hasRatedPreviously) {
+                url = decodeURI("{{ URL::route('rating.update') }}");
+                url = url.replace('{id}', {{ $card->id }})
+            } else {
+                //  if they have not previously rated the card, we want to store
+                url = "{{ URL::route('rating.store') }}";
+            }
+
             $.ajax({
                 type: "POST",
-                url: "{{ URL::route('rating.store') }}",
+                url: url,
                 data: data,
 
                 success: function(json) {
+                    console.log(json);
                     radarChart();
                 }
             });

@@ -108,6 +108,11 @@ Route::group(['before' => 'auth'], function () {
             return Redirect::to('/')
                 ->with('message', 'You have logged out');
         });
+
+        Route::post('rating/update/{id}', [
+            'as' => 'rating.update',
+            'uses' => 'RatingController@update'
+        ]);
     }
 );
 
