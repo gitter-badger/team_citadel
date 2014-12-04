@@ -38,4 +38,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface
     {
         return $this->belongsToMany('Deck');
     }
+
+        // Use this to retrun the url from a users model
+    public function userURL(){
+        return 'user/'.$this->username;
+    }
 }

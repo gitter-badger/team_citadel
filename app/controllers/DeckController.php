@@ -76,7 +76,7 @@ class DeckController extends \BaseController
      * @param  int  $id
      * @return Response
      */
-    public function show($deck_id)
+    public function showDecks($deck_id)
     {
         $deck = Deck::find($deck_id);
         $series = $deck->game->series;

@@ -182,7 +182,7 @@ Route::group(['before' => 'env'], function () {
 
         Route::get('/{deck_id}', [
             'as' =>  'getDeck',
-            'uses' => 'DeckController@show'
+            'uses' => 'DeckController@showDecks'
         ])->where('deck_id', '[0-9]+');
 
         Route::group(['before' => 'auth'], function () {
