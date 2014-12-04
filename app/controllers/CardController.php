@@ -46,10 +46,12 @@ class CardController extends \BaseController {
                 ->whereRateableId($rateable->id)
                 ->avg('value'));
 
-            $previousUserRatings[$rateable->name] = Rating::whereCardId($id)
-                ->whereRateableId($rateable->id)
-                ->whereUserId(Auth::user()->id)
-                ->pluck('value');
+            if(Auth::check()) {
+                $previousUserRatings[$rateable->name] = Rating::whereCardId($id)
+                    ->whereRateableId($rateable->id)
+                    ->whereUserId(Auth::user()->id)
+                    ->pluck('value');
+            }
         }
 
         return View::make('card', compact('card', 'rateables', 'averageRatings', 'previousUserRatings'));
