@@ -32,7 +32,7 @@
                     <div class="row">
                         {{ Form::label('Cards') }}
                         {{ Form::hidden('deck', $deck->id) }}
-                        {{ Form::text("query", "", ["class" => "form-control", "id" => 'searchbox', 'placeholder' => "Search Cards for your Deck..."]) }}
+                        {{ Form::text("query", "", ["class" => "form-control", "id" => 'searchbox', 'placeholder' => "Search Cards for your Deck...", 'data-id' => $deck->game_id]) }}
                         {{ Form::submit('Add Cards', ['class' => 'btn btn-primary pull-right']) }}
                     </div>
                 </div>

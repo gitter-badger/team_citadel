@@ -127,7 +127,7 @@ class DeckController extends \BaseController
 
     public function addCardSearch()
     {
-        $game = Game::find(1);
+        $game = Game::find(Input::get('game'));
         $term = Input::get('term');
         $cards = $game->cards()
                         ->whereRaw("MATCH(cards.name) AGAINST('+$term*' IN BOOLEAN MODE)")

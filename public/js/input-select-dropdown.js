@@ -41,7 +41,8 @@ $(document).ready(function(){
                     type: 'GET',
                     dataType: 'json',
                     data: {
-                        term: query
+                        term: query,
+                        game: $('#searchbox').data('id')
                     },
                     error: function() {
                         callback();
