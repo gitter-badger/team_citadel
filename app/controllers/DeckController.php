@@ -66,10 +66,10 @@ class DeckController extends \BaseController
     public function addCard()
     {
         $deck = Deck::find(Input::get('deck'));
-        $usersSelection = Input::get('q');
+        $usersSelection = Input::get('query');
         $cards = explode(',', $usersSelection);
 
-        foreach($cards as $card){
+        foreach ($cards as $card) {
             $deck->cards()->attach(intval($card));
         }
 
