@@ -189,7 +189,7 @@ Route::group(['before' => 'env'], function () {
                     'uses' => 'DeckController@postDeck'
                 ]);
 
-                Route::post('/{deck_id}/{card_id}', [
+                Route::post('/{deck_id}', [
                     'as' => 'addCard',
                     'uses' => 'DeckController@addCard'
                 ])->where('deck_id', '[0-9]+');

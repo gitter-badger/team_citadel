@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8">
     <title>Deck Citadel</title>
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css' )}}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/styles.css' )}}">
-    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/selectize.js/0.11.2/css/selectize.bootstrap3.css">
+    {{ HTML::style('//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css') }}
+    {{ HTML::style('//cdnjs.cloudflare.com/ajax/libs/selectize.js/0.11.2/css/selectize.bootstrap3.css') }}
+    {{ HTML::style('css/styles.css') }}
 
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -101,8 +101,9 @@
 @section('scripts')
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    {{ HTML::script('https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js') }}
-    <script src="{{asset('js/bootstrap.js')}}"></script>
-    <script type="text/javascript" src="{{URL::asset('js/navsearch.js')}}"></script>
+    {{ HTML::script('//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js', ["type" => "text/javascript"]) }}
+    {{ HTML::script('//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js', ["type" => "text/javascript"]) }}
+    {{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/selectize.js/0.11.2/js/standalone/selectize.js', ["type" => "text/javascript"]) }}
+    {{ HTML::script('js/navsearch.js', ["type" => "text/javascript"]) }}
 @show
 </html>

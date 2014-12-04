@@ -5,7 +5,7 @@ $(document).ready(function(){
         labelField: 'name',
         searchField: ['name', 'serial_number'], // items used in the search field
         maxOptions: 1000,
-        options: [{delimiter: ';'}],
+        options: [],
         create: false,
         render: {
             option: function(item) {
@@ -33,7 +33,9 @@ $(document).ready(function(){
         optgroupField: 'class',
         load: function(query, callback) {
             if (!query.length) return callback();
-            if (query.length < 2){
+            // for the first two letters perform an ajax request
+            // after which it will use the cached data
+            if (query.length <= 2){
                 $.ajax({
                     url: '/decks/getcards',
                     type: 'GET',
@@ -48,9 +50,11 @@ $(document).ready(function(){
                         callback(result.data);
                     }
                 });
-            } else {
-                callback();
             }
         },
+    });
+
+    $('#add-cards').on('submit', function(){
+
     });
 });
