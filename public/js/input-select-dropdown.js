@@ -9,7 +9,7 @@ $(document).ready(function(){
         create: false,
         render: {
             option: function(item) {
-                return '<div class="row" data-id='+ item.id + ' id="cardidentity">'+
+                return '<div class="row">'+
                                 '<div class="col-md-12">'+
                                     '<span class=name>'  +
                                         item.name +

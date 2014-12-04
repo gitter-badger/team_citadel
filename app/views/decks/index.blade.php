@@ -29,6 +29,7 @@
 
                             <div class="col-md-4 pull-right">
                                 Created at: {{ $deck->users->first()->created_at->diffForHumans() }}
+                                {{ link_to('decks/'.$deck->id) }}
                             </div>
                         </div>
                     </div>

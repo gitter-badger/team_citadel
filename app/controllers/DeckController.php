@@ -63,11 +63,17 @@ class DeckController extends \BaseController
         return $values;
     }
 
-    public function addCard($deck_id)
+    public function addCard()
     {
-        $deck = Deck::find($deck_id);
+        $deck = Deck::find(Input::get('deck'));
+        $usersSelection = Input::get('q');
+        $cards = explode(',', $usersSelection);
 
-        return var_dump($deck->games);
+        foreach($cards as $card){
+            $deck->cards()->attach(intval($card));
+        }
+
+        return Redirect::route('getDeck', $deck->id);
     }
 
     /**
