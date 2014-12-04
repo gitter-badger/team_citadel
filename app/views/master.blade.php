@@ -36,13 +36,13 @@
             @include('widgets.nav')
             <form class="hidden-xs navbar-form navbar-left" role="search" method="get" action="{{ route('cards.search') }}">
                  <div class="form-group">
-                    <input type="text" id="search-bar" class="form-control dropdown disabled" name="query" placeholder="Search" autocomplete='off'>
+                    <input type="text" id="search-bar" class="form-control dropdown" name="query" placeholder="Search" autocomplete='off'>
                     <div class="dropdown">
                         <ul class="dropdown-menu search-dropdown-menu">
                         </ul>
                     </div>
                 </div>
-                <button type="submit" id="search-button" class="btn btn-default hidden-xs disabled"><span class="glyphicon glyphicon-search"></span></button>
+                <button type="submit" id="search-button" class="btn btn-default hidden-xs"><span class="glyphicon glyphicon-search"></span></button>
             </form>
             <form class="navbar-form navbar-right">
                 <div class="form-group">
@@ -61,9 +61,11 @@
                             <li>{{ link_to('logout', 'Log Out' )}}</li>
                         </ul>
                     @else
-                        <strong>
-                            {{ link_to('login', 'Sign In') }}
-                        </strong>
+                        <a href="{{ URL::route('login') }}" type="button" class="btn btn-default">
+                            <span class="glyphicon glyphicon-user"></span>
+                            sign in
+                        </a>
+
                     @endif
                 </div>
             </form>

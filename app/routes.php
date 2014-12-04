@@ -12,8 +12,6 @@
 */
 
 Route::get('tinker', function () {
-    return Listing::first()->seller;
-    return DB::getQueryLog();
 });
 
 
@@ -40,14 +38,29 @@ Route::get('sendemail', [
     }
 ]);
 
-Route::get('user/{username}', array(
-    'as' => 'profile',
-    'uses' => 'UsersController@show'
-));
-
 Route::get('search/cards/', array(
     'as' => 'cards.search',
     'uses' => 'CardController@cardSearch'
+));
+
+Route::get('username/reset', array(
+    'as' => 'username.remind',
+    'uses' => 'PasswordController@usernameRemind'
+    ));
+
+Route::post('username/reset', array(
+    'as' => 'username.request',
+    'uses' => 'PasswordController@usernamerequest'
+    ));
+
+Route::get('username/reset/{token}', array(
+    'as' => 'username.reset',
+    'uses' => 'PasswordController@usernamereset',
+));
+
+Route::post('username/reset/{token}', array(
+    'as' => 'username.update',
+    'uses' => 'PasswordController@usernameupdate',
 ));
 
 Route::get('password/reset', array(
@@ -81,6 +94,11 @@ Route::post('upload', 'UsersController@upload');
 Route::post('register', array(
     'as' => 'registered',
     'uses' => 'UsersController@store'
+));
+
+Route::get('register/{username}/edit', array(
+    'as' => 'edit.profile.form',
+    'uses' => 'UsersController@edit'
 ));
 
 Route::get('login', array(

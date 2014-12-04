@@ -39,8 +39,7 @@ class CardController extends \BaseController
         //
         //
         $card = Card::find($id);
-        $attributes = Card::find($id)->attributes;
-        return View::make('card', compact('card', 'attributes'));
+        return View::make('card', compact('card'));
     }
     /**
      * Show the form for editing the specified resource.
@@ -75,7 +74,11 @@ class CardController extends \BaseController
 
     public function cardSearch() {
         $query = Input::get('query');
-        $cards = Card::where('cards.name', 'LIKE', '%'.$query.'%')->paginate(10);
-        return View::make('result', compact('cards','query'));
+        if($query) {
+            $cards = Card::where('cards.name', 'LIKE', '%'.$query.'%')->get();
+        } else {
+            $cards = null;
+        }
+        return View::make('result', compact('cards', 'query'));
     }
 }

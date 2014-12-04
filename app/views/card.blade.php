@@ -1,31 +1,29 @@
 @extends('master')
 @section('header')
     <h1 class="text-center">{{ $card->series->name }} <small>- {{ $card->name }}</small></h1>
-@stop 
+@stop
 @section('content')
     <div class="row">
         <div class="col-xs-12 col-md-12">
             <ol class="breadcrumb">
                 <li><a href="{{ URL::route('series.index') }}"> {{ $card->series->game->name }} </a></li>
                 <li><a href="{{ $card->series->url }}">{{ $card->series->name }}</a></li>
-                <li class="active">{{ $card->serial_number }}</li>
+                <li class="active">{{ $card->serial_number . " " . $card->rarity }} </li>
             </ol>
         </div>
     </div>
-    <div class="row center-block">
-        <div class="col-xs-2 col-md-2 col-md-offset-5 col-xs-offset-4">
+    <div class="row">
+        <div class="col-xs-12 col-md-4">
             <a data-toggle="modal" data-target="#image-modal" href="">
-                @if(file_exists('public/images/cards/'. $card->id . '.jpeg'))
-                    <img class="series-image image-responsive" src="{{ asset('images/cards/'. $card->id . '.jpeg') }}">
+                @if(file_exists(public_path() . '/images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg'))
+                    <img class="image-responsive center-block" src="{{ asset('images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg') }}" width="100%">
                 @else
-                    <img class="series-image image-responsive" src="{{ asset('images/cards/back.jpeg') }}">
+                    <img class="image-responsive center-block" src="{{ asset('images/cards/back.jpg') }}">
                 @endif
             </a>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12 col-md-offset-2 col-md-8">
-            <table class="table table-strixcpped">
+        <div class="col-xs-12 col-md-8">
+            <table class="table table-striped">
                 <tr>
                     <td><label>Type</label></td>
                     <td>{{ $card->attributes->find(4)->pivot->value }}</td>
@@ -37,7 +35,7 @@
                     <td>{{ $card->attributes->find(5)->pivot->value }}</td>
                     <td><label>Cost</label></td>
                     <td>{{ $card->attributes->find(7)->pivot->value }}</td>
-                </tr>   
+                </tr>
                 <tr>
                     <td><label>Power</label></td>
                     <td>{{ $card->attributes->find(10)->pivot->value }}</td>
@@ -64,14 +62,22 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <nav>
+          <ul class="pager">
+            <li class="previous disabled"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>
+            <li class="next"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+          </ul>
+        </nav>
+    </div>
 
     <div class="modal fade" id="image-modal">
         <div class="modal-dialog">
             <div class="modal-content modal-popup-image">
-                @if(file_exists('public/images/cards/'. $card->id . '.jpeg'))                          
-                    <img class="series-image image-responsive center-block" src="{{ asset('images/cards/'. $card->id . '.jpeg') }}">
+                @if(file_exists('public/images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg'))
+                    <img class="series-image image-responsive center-block" src="{{ asset('images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg') }}">
                 @else
-                    <img class="series-image image-responsive center-block" src="{{ asset('images/cards/back.jpeg') }}">          
+                    <img class="series-image image-responsive center-block" src="{{ asset('images/cards/back.jpg') }}">
                 @endif
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
