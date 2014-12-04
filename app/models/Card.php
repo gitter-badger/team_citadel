@@ -34,4 +34,19 @@ class Card extends Eloquent
     public function rateables() {
         return $this->belongsToMany('Rateable');
     }
+
+    // Gets the average rating for that card.
+    public function average() {
+        $rateables = $this->series->game->rateables;
+        $averageRatings = [];
+
+        foreach ($rateables as $rateable) {
+            $averageRatings[$rateable->name] = round(Rating::whereCardId($this->id)
+                ->whereRateableId($rateable->id)
+                ->avg('value'));
+        }
+
+        return json_encode($averageRatings);
+        // return json_encode($averageRatings);
+    }
 }

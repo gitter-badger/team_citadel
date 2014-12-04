@@ -75,28 +75,24 @@
             @else
                 <form class="form-horizontal rate-card-form disabled" role="form" method="POST" action="" novalidate>
             @endif
-                @foreach($rateables as $rateable)
-                    <div class="form-group">
-                        <label class="rating-lable">{{ $rateable->name }}</label>
-                        <div class="col-sm-6 rating-stars" data-rateable-name="{{ $rateable->name }}" data-rateable-id="{{ $rateable->id }}">
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                            <span class="glyphicon glyphicon-star-empty"></span>
+                <div class="col-sm-8">
+                    @foreach($rateables as $rateable)
+                        <div class="form-group">
+                            <label class="rating-lable">{{ $rateable->name }}</label>
+                            <div class="rating-stars" data-rateable-name="{{ $rateable->name }}" data-rateable-id="{{ $rateable->id }}">
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            </div>
                         </div>
-                    </div>
-                @endforeach
-
-                <!-- endif will go here -->
-                <div class="form-group">
-                    <div class="col-sm-6">
+                    @endforeach
                     <input
                         id="submit-ratings-btn"
                         type="submit"
                         value="Submit My Ratings"
                         class="btn login-btn btn-success pull-right">
-                    </div>
                 </div>
             </form>
         </div>
@@ -164,14 +160,14 @@
             }
         });
 
-        function radarChart() {
+        function radarChart(avgRating) {
             var chartLabels = [];
             var averageData = [];
             var userData = [];
-            var avgAsJSON = {{ json_encode($averageRatings) }};
+            var avgAsJSON = avgRating;
 
             // get the rating the user just submitted.
-            ajaxData = getRatings();
+            var ajaxData = getRatings();
 
             for(name in ajaxData.ratingNames) {
                 chartLabels.push(ajaxData.ratingNames[name]);
@@ -190,7 +186,7 @@
         }
 
         // create initial chart without user ratings
-        radarChart();
+        radarChart({{ $card->average() }});
 
         // change stars based on which is pressed
         $('.rating-stars span').click(function(){
@@ -231,9 +227,8 @@
                 url: url,
                 data: data,
 
-                success: function(json) {
-                    console.log(json);
-                    radarChart();
+                success: function(avgRating) {
+                    radarChart(JSON.parse(avgRating));
                 }
             });
         });

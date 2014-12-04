@@ -37,16 +37,11 @@ class CardController extends \BaseController {
     {
         $card = Card::find($id);
         $rateables = $card->series->game->rateables;
-        $averageRatings = [];
         $previousUserRatings = [];
 
         // get the average for each rateable.
-        foreach ($rateables as $rateable) {
-            $averageRatings[$rateable->name] = round(Rating::whereCardId($id)
-                ->whereRateableId($rateable->id)
-                ->avg('value'));
-
-            if(Auth::check()) {
+        if(Auth::check()) {
+            foreach ($rateables as $rateable) {
                 $previousUserRatings[$rateable->name] = Rating::whereCardId($id)
                     ->whereRateableId($rateable->id)
                     ->whereUserId(Auth::user()->id)
@@ -54,7 +49,7 @@ class CardController extends \BaseController {
             }
         }
 
-        return View::make('card', compact('card', 'rateables', 'averageRatings', 'previousUserRatings'));
+        return View::make('card', compact('card', 'rateables', 'previousUserRatings'));
     }
     /**
      * Show the form for editing the specified resource.

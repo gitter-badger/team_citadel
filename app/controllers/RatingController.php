@@ -81,7 +81,7 @@ class RatingController extends \BaseController {
     {
         //
         $ratings = Input::get('ratingIds');
-
+        $card = Card::find($id);
         foreach ($ratings as $key => $value) {
             $rating = Rating::whereUserId(Auth::user()->id)
                 ->whereCardId($id)
@@ -92,7 +92,7 @@ class RatingController extends \BaseController {
             $rating->save();
         }
 
-        return $ratings;
+        return $card->average();
     }
 
 
