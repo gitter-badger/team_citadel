@@ -23,6 +23,9 @@
                     <a href="/decks/create">
                         Create Deck <icon class="glyphicon glyphicon-plus-sign"></icon>
                     </a>
+                    <a href="/messages/create">
+                    Create Message <icon class="glyphicon glyphicon-envelope"></icon>
+                    </a>
                 </h4>
             </div>
         </div>

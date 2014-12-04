@@ -38,6 +38,11 @@ Route::get('sendemail', [
     }
 ]);
 
+Route::get('sendmessage',[
+    'as' => 'send.message',
+    'uses' => 'ConversationsController@create'
+]);
+
 Route::get('search/cards/', array(
     'as' => 'cards.search',
     'uses' => 'CardController@cardSearch'
