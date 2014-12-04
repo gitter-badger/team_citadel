@@ -3,7 +3,9 @@
 class Attribute extends Eloquent
 {
     protected $table = 'attributes';
-    protected $guard = 'id';
+    protected $guarded = [
+        'id'
+    ];
 
     public function cards()
     {

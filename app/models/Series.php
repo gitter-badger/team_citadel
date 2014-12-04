@@ -3,7 +3,9 @@
 class Series extends Eloquent
 {
     protected $table = 'series';
-    protected $guard = 'id';
+    protected $guarded = [
+        'id'
+    ];
 
     public function game()
     {

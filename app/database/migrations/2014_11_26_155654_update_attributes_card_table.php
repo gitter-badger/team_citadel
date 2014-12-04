@@ -13,7 +13,7 @@ class UpdateAttributesCardTable extends Migration {
 	public function up()
 	{
 		//
-			Schema::table('attribute_card', function($table) {
+		Schema::table('attribute_card', function($table) {
 			$table->increments('id');
 		});
 	}

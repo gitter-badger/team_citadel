@@ -9,3 +9,9 @@ id,name
 8,Soul
 9,Level
 10,Power
+11,ManaCost
+12,CovertedCost
+13,Flavor
+14,Artist
+15,Toughness
+16,Loyalty
