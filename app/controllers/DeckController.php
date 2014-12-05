@@ -43,10 +43,10 @@ class DeckController extends \BaseController
             if ($deck->save()) {
                 // syncs with the pivot table
                 $deck->users()->sync([Auth::user()->id]);
-                return Redirect::route('deck.store', $deck->id)
+                return Redirect::route('deck.show', $deck->id)
                     ->with('success', 'The Deck was Created');
             } else {
-                return Redirect::route('deck.create')
+                return Redirect::route('welcome')
                     ->with('fail', 'An Error Occurred while Saving');
             }
         }
