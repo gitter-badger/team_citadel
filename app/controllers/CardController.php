@@ -3,10 +3,6 @@ class CardController extends \BaseController
 {
     public function show($id)
     {
-<<<<<<< HEAD
-=======
-        //
->>>>>>> 27a5362e9690b25edfd4e41c2a0ba2ed160339bb
         $card = Card::find($id);
         $rateables = $card->series->game->rateables;
         $previousUserRatings = [];

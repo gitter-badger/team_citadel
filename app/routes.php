@@ -36,7 +36,7 @@ Route::get('sendemail', [
     function() {
         Mail::send('emails.test', array(), function($message) {
             $message->to('adamjama7@gmail.com', 'John Smith')->subject('Welcome!')->from('ajama@alacrityfoundation.com', 'Adam Jama');
-        }); 
+        });
     }
 ]);
 
@@ -180,11 +180,7 @@ Route::group(['before' => 'env'], function () {
         ]);
 
         Route::get('/{deck_id}', [
-<<<<<<< HEAD
-            'as' =>  'getDeck',
-=======
             'as' =>  'deck.show',
->>>>>>> 27a5362e9690b25edfd4e41c2a0ba2ed160339bb
             'uses' => 'DeckController@show'
         ])->where('deck_id', '[0-9]+');
 
