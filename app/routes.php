@@ -111,19 +111,23 @@ Route::post('login', function () {
 
 // Routes that requires authentication before becoming viewable
 Route::group(['before' => 'auth'], function () {
-        // Has Auth Filter
-        Route::get('logout', function () {
-            Auth::logout();
-            return Redirect::to('/')
-                ->with('message', 'You have logged out');
-        });
+    // Has Auth Filter
+    Route::get('logout', function () {
+        Auth::logout();
+        return Redirect::to('/')
+            ->with('message', 'You have logged out');
+    });
 
-        Route::post('rating/update/{id}', [
-            'as' => 'rating.update',
-            'uses' => 'RatingController@update'
-        ]);
-    }
-);
+    Route::post('rating/update/{id}', [
+        'as' => 'rating.update',
+        'uses' => 'RatingController@update'
+    ]);
+
+    Route::post('rating/store/{id}', [
+        'as' => 'rating.store',
+        'uses' => 'ratingController@store'
+    ]);
+});
 
 // if it is a feature not ready place it here plx
 Route::group(['before' => 'env'], function () {

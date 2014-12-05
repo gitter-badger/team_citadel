@@ -140,6 +140,7 @@
         // TODO: if they rate 5 stars, does not display the stars
         $.each(previousUserRatings, function(key, value) {
             // If they have rated the card before
+            console.log(value);
             if(value != null) {
                 // since prevAll isn't working for 5 star ratings, we do this.
                 if(value == 5) {
@@ -211,23 +212,23 @@
             var data = getRatings();
             var $this = $(this);
 
-            // console.log(data);
-
             // if they have previously rated the card, we want to update
             if(hasRatedPreviously) {
                 url = decodeURI("{{ URL::route('rating.update') }}");
-                url = url.replace('{id}', {{ $card->id }})
+                url = url.replace('{id}', {{ $card->id }});
             } else {
                 //  if they have not previously rated the card, we want to store
-                url = "{{ URL::route('rating.store') }}";
+                url = decodeURI("{{ URL::route('rating.store') }}");
+                url = url.replace('{id}', {{ $card->id }});
             }
-
+            console.log(url);
+            console.log(data);
             $.ajax({
                 type: "POST",
                 url: url,
                 data: data,
-
                 success: function(avgRating) {
+                    hasRatedPreviously = true;
                     radarChart(JSON.parse(avgRating));
                 }
             });
@@ -250,7 +251,6 @@
                ajaxData.ratingNames.push(rateableName);
 
             });
-
             return ajaxData;
         }
     });

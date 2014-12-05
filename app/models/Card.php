@@ -49,6 +49,5 @@ class Card extends Eloquent
         }
 
         return json_encode($averageRatings);
-        // return json_encode($averageRatings);
     }
 }
