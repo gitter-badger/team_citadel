@@ -84,22 +84,10 @@ Route::post('password/reset/{token}', array(
     'as' => 'password.update'
 ));
 
-Route::get('register', array(
-    'as' => 'registration',
-    'uses' => 'UsersController@registration'
-));
-
-Route::post('upload', 'UsersController@upload');
-
-Route::post('register', array(
-    'as' => 'registered',
-    'uses' => 'UsersController@store'
-));
-
-Route::get('register/{username}/edit', array(
-    'as' => 'edit.profile.form',
+Route::get('user/{username}/edit', [
+    'as' => 'edit.user',
     'uses' => 'UsersController@edit'
-));
+]);
 
 Route::get('login', array(
     'as' => 'login',
