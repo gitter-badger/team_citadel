@@ -24,11 +24,12 @@
                         <hr>
                          <div class="row">
                             <div class="col-md-3">
-                                Created by: {{ link_to_route('profile', $deck->users->first()->username, $parameter = [$deck->users->first()->username]) }}
+                                Created by: {{ link_to($deck->users->first()->userURL(), $deck->users->first()->username) }}
                             </div>
 
                             <div class="col-md-4 pull-right">
                                 Created at: {{ $deck->users->first()->created_at->diffForHumans() }}
+                                {{ link_to('decks/'.$deck->id) }}
                             </div>
                         </div>
                     </div>

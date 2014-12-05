@@ -17,6 +17,7 @@
 				{{ Form::close() }}
 				<a href="{{{URL::to('register')}}}" class="signup">Not registered? Sign up!</a>
 				<a href="{{ route('password.remind') }}" class="signup">Forgotten password? Password reminder!</a>
+				<a href="{{ route('username.remind') }}" class="signup">Forgotten username? Username reminder!</a>
 			</div>
 		</div>
 	</div>

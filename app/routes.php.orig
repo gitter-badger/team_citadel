@@ -33,10 +33,15 @@ Route::resource('rating', 'RatingController');
 
 Route::get('sendemail', [
     'as' => 'send.email',
+<<<<<<< HEAD
     function() {
         Mail::send('emails.test', array(), function($message) {
+=======
+    function () {
+        Mail::send('emails.test', array(), function ($message) {
+>>>>>>> 30a5123201288bedbf8a5e3f9887bdf06678c5a8
             $message->to('adamjama7@gmail.com', 'John Smith')->subject('Welcome!')->from('ajama@alacrityfoundation.com', 'Adam Jama');
-        }); 
+        });
     }
 ]);
 
@@ -126,6 +131,7 @@ Route::group(['before' => 'auth'], function () {
             return Redirect::to('/')
                 ->with('message', 'You have logged out');
         });
+<<<<<<< HEAD
 
         Route::post('rating/update/{id}', [
             'as' => 'rating.update',
@@ -133,6 +139,9 @@ Route::group(['before' => 'auth'], function () {
         ]);
     }
 );
+=======
+});
+>>>>>>> 30a5123201288bedbf8a5e3f9887bdf06678c5a8
 
 // if it is a feature not ready place it here plx
 Route::group(['before' => 'env'], function () {
@@ -175,7 +184,7 @@ Route::group(['before' => 'env'], function () {
     });
 
     // quicksearch
-    Route::get('/quicksearch/cards/', function() {
+    Route::get('/quicksearch/cards/', function () {
         $query = Input::get('query');
         $cards = DB::table('cards')->where('name', 'LIKE', '%'.$query.'%')->take(4)->get();
         return Response::json($cards);
@@ -190,7 +199,7 @@ Route::group(['before' => 'env'], function () {
 
         Route::get('/{deck_id}', [
             'as' =>  'getDeck',
-            'uses' => 'DeckController@show'
+            'uses' => 'DeckController@showDecks'
         ])->where('deck_id', '[0-9]+');
 
         Route::group(['before' => 'auth'], function () {

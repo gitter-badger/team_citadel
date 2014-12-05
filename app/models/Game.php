@@ -12,7 +12,12 @@ class Game extends Eloquent
 
     public function cards()
     {
-        return $this->hasManyThrough('Series', 'Card');
+        return $this->hasManyThrough('Card', 'Series');
+    }
+
+    public function decks()
+    {
+        return $this->hasMany('Deck');
     }
 
     public function rateables()

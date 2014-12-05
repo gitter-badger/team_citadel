@@ -63,17 +63,32 @@ class DeckController extends \BaseController
         return $values;
     }
 
+    public function addCard()
+    {
+        $deck = Deck::find(Input::get('deck'));
+        $usersSelection = Input::get('query');
+        $cards = explode(',', $usersSelection);
+
+        foreach ($cards as $card) {
+            $deck->cards()->attach(intval($card));
+        }
+
+        return Redirect::route('getDeck', $deck->id);
+    }
+
     /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return Response
      */
-    public function show($id)
+    public function showDecks($deck_id)
     {
-        return  View::make('decks.show');
+        $deck = Deck::find($deck_id);
+        $series = $deck->game->series;
+        $cards = $deck->game->cards;
+        return  View::make('decks.show', compact('deck', 'series', 'cards'));
     }
-
 
     /**
      * Show the form for editing the specified resource.
@@ -108,5 +123,18 @@ class DeckController extends \BaseController
     public function destroy($id)
     {
         //
+    }
+
+    public function addCardSearch()
+    {
+        $game = Game::find(Input::get('game'));
+        $term = Input::get('term');
+        $cards = $game->cards()
+                        ->whereRaw("MATCH(cards.name) AGAINST('+$term*' IN BOOLEAN MODE)")
+                        ->get()
+                        ->load('series')
+                        ->toArray();
+
+        return Response::json(['data' => $cards]);
     }
 }

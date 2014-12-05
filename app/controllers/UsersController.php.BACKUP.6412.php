@@ -14,7 +14,7 @@ class UsersController extends BaseController {
 	|	Route::get('/', 'HomeController@showWelcome');
 	|
 	*/
-
+ 
 	public function registration()
 	{
 		return View::make('create');
@@ -29,8 +29,12 @@ class UsersController extends BaseController {
 			'email',
 			'password'
 		);
-
+		
+<<<<<<< HEAD
+		// $values['image'] = Input::file('image');
+=======
 		//$values['image'] = Input::file('image');
+>>>>>>> editprofile
 
 		$rules = array(
 			'image' => 'image',
@@ -44,7 +48,7 @@ class UsersController extends BaseController {
 		$firstMessage = ($validator->messages()->first());
 
 		if($firstMessage){
-				return Redirect::to('register')->with('message', $firstMessage)->withInput();
+				return Redirect::to('register')->with('message', $firstMessage)->withInput();	
 		}
 
 		$values['password'] = Hash::make( $values['password'] );
@@ -53,7 +57,7 @@ class UsersController extends BaseController {
 		$image = Input::file('image');
         $destinationPath = 'public/images/users/';
         $filename = $newUser->id . '.jpeg';
-
+       
         Input::file('image')->move($destinationPath, $filename);
 
 		if($newUser){
@@ -67,7 +71,7 @@ class UsersController extends BaseController {
 
         $user = User::where('username', $username)->first();
         $authUser = Auth::user();
-
+        
         if ($authUser == null) {
             return Redirect::to('login')->with('message', 'Please log in!');
         }
@@ -75,7 +79,7 @@ class UsersController extends BaseController {
         elseif ($authUser->id != $user->id) {
             return Redirect::to('login')->with('message', 'This is not your profile!');
         }
-
+		
         else {
 		$first_name = $user->first_name;
     	$last_name = $user->last_name;
@@ -111,10 +115,10 @@ class UsersController extends BaseController {
 
         $validator = Validator::make($userInfo, $rules);
 
-
+            
         if ($validator->passes())
-        {
-            // move and store new image
+        {   
+            // move and store new image 
             if (Input::hasFile('image')) {
                 // construct the image path
                 $image = Input::file('image');
@@ -135,9 +139,9 @@ class UsersController extends BaseController {
             return Redirect::route('user.show', $user->username)
                 ->withInput()
                 ->withErrors($validator)
-                ->with('message', 'Successfully updated Profile');
+                ->with('message', 'Successfully updated Profile');            
         }
-
+        
         return Redirect::route('user.edit', $username)
             ->withInput()
             ->withErrors($validator)

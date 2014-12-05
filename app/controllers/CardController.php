@@ -1,5 +1,6 @@
 <?php
-class CardController extends \BaseController {
+class CardController extends \BaseController
+{
     /**
      * Display a listing of the resource.
      *

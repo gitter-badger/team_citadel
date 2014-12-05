@@ -137,6 +137,8 @@
     pointer-events: none;
     cursor: default;
 }
+
+<<<<<<< HEAD
 /* ------------------------------------------------------
     Card rating
    ------------------------------------------------------- */
@@ -150,7 +152,7 @@
     text-align: right;
     margin-right: 0.5em;
 }
-
+=======
 .scrollable-menu {
     height: auto;
     max-height: 200px;
@@ -160,3 +162,4 @@
 .search-subtext{
     font-size: 12px;
 }
+>>>>>>> 30a5123201288bedbf8a5e3f9887bdf06678c5a8
