@@ -12,7 +12,7 @@ class PasswordController extends BaseController
 
     public function usernameRemind()
     {
-        return View::make('username.remind');
+        return View::make('user.username.remind');
     }
 
     public function reset($token)
@@ -22,8 +22,9 @@ class PasswordController extends BaseController
 
     public function usernamereset($token)
     {
-        return View::make('username.reset')->with('token', $token);
+        return View::make('user.username.reset')->with('token', $token);
     }
+
     public function request()
     {
         $result = Password::remind( Input::only('email'), function($message) {
@@ -34,9 +35,9 @@ class PasswordController extends BaseController
         $message = Lang::get($result);
         if ($result == PasswordBroker::REMINDER_SENT) {
         // TODO: take the user to homepage with email sent message
-            return Redirect::route('welcome')->with('message', $message);
+            return Redirect::route('welcome')->compact('message');
         } else {
-            return Redirect::route('welcome')->with('error', $message);
+            return Redirect::route('welcome')->compact('error');
         }
     }
 
@@ -47,9 +48,6 @@ class PasswordController extends BaseController
             $message->from('noreply@deckcitadel.com', 'Deck Citadel');
             //This will load the email for username reminder
         }, 'emails.auth.usernamereminder');
-
-
-
 
         if ($result == PasswordBroker::REMINDER_SENT) {
         // TODO: take the user to homepage with email sent message
@@ -63,11 +61,13 @@ class PasswordController extends BaseController
 
     public function usernameupdate()
     {
-        $credentials = array('email' => Input::get('email'),
-        // We need to trick password reset mechanism for username
-        'password' => Input::get('username'),
-        'password_confirmation' => Input::get('username_confirmation'),
-        'token' => Input::get('token'));
+        $credentials = [
+            'email' => Input::get('email'),
+            // We need to trick password reset mechanism for username
+            'password' => Input::get('username'),
+            'password_confirmation' => Input::get('username_confirmation'),
+            'token' => Input::get('token')
+        ];
 
         $result = Password::reset($credentials, function($user, $username)
             {
