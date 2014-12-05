@@ -1,41 +1,12 @@
 <?php
 class CardController extends \BaseController
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
-    public function index()
-    {
-        //
-    }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        //
-    }
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @return Response
-     */
-    public function store()
-    {
-        //
-    }
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
     public function show($id)
     {
+<<<<<<< HEAD
+=======
+        //
+>>>>>>> 27a5362e9690b25edfd4e41c2a0ba2ed160339bb
         $card = Card::find($id);
         $rateables = $card->series->game->rateables;
         $previousUserRatings = [];
@@ -52,41 +23,12 @@ class CardController extends \BaseController
 
         return View::make('card', compact('card', 'rateables', 'previousUserRatings'));
     }
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function update($id)
-    {
-        //
-    }
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 
     public function cardSearch() {
         $query = Input::get('query');
         if($query) {
-            $cards = Card::where('cards.name', 'LIKE', '%'.$query.'%')->get();
+            $cards = Card::whereRaw("MATCH(cards.name) AGAINST('+$query*' IN BOOLEAN MODE)")
+                ->get();
         } else {
             $cards = null;
         }

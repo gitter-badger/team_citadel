@@ -9,22 +9,24 @@ $(document).ready(function(){
         create: false,
         render: {
             option: function(item) {
-                return '<div class="row">'+
-                                '<div class="col-md-12">'+
-                                    '<span class=name>'  +
-                                        item.name +
-                                    '</span>' +
-                                '</div>' +
+                var searchHTML = '<div class="row">'+
+                            '<div class="col-md-12">'+
+                                '<span class=name>'  +
+                                    item.name +
+                                '</span>' +
+                            '</div>' +
 
-                                '<div class="col-md-12 search-subtext">'+
-                                    '<span>'  +
-                                        "series: " + item.series.name +
-                                    '</span>'+
-                                    '<span class="serial_number search-subtext"> - '+
-                                        item.serial_number +
-                                    '</span>' +
-                                '</div>'+
-                            '</div>';
+                            '<div class="col-md-12 search-subtext">'+
+                                '<span>'  +
+                                    "series: " + item.series.name +
+                                '</span>'+
+                                '<span class="serial_number search-subtext"> - '+
+                                    item.serial_number +
+                                '</span>' +
+                            '</div>'+
+                        '</div>';
+
+                return searchHTML
             }
         },
         optgroups: [

@@ -65,43 +65,34 @@ Route::post('username/reset/{token}', array(
     'uses' => 'PasswordController@usernameupdate',
 ));
 
-Route::get('password/reset', array(
-    'as' => 'password.remind',
-    'uses' => 'PasswordController@remind',
-));
+//Group for password reset
+Route::group(['prefix' => 'password'], function () {
+    Route::get('/reset', array(
+        'as' => 'password.remind',
+        'uses' => 'PasswordController@remind',
+    ));
 
-Route::post('password/reset', array(
-    'as' => 'password.request',
-    'uses' => 'PasswordController@request'
+    Route::post('/reset', array(
+        'as' => 'password.request',
+        'uses' => 'PasswordController@request'
 
-));
+    ));
 
-Route::get('password/reset/{token}', array(
-    'uses' => 'PasswordController@reset',
-    'as' => 'password.reset'
-));
+    Route::get('/reset/{token}', array(
+        'uses' => 'PasswordController@reset',
+        'as' => 'password.reset'
+    ));
 
-Route::post('password/reset/{token}', array(
-    'uses' => 'PasswordController@update',
-    'as' => 'password.update'
-));
+    Route::post('/reset/{token}', array(
+        'uses' => 'PasswordController@update',
+        'as' => 'password.update'
+    ));
+});
 
-Route::get('register', array(
-    'as' => 'registration',
-    'uses' => 'UsersController@registration'
-));
-
-Route::post('upload', 'UsersController@upload');
-
-Route::post('register', array(
-    'as' => 'registered',
-    'uses' => 'UsersController@store'
-));
-
-Route::get('register/{username}/edit', array(
-    'as' => 'edit.profile.form',
+Route::get('user/{username}/edit', [
+    'as' => 'edit.user',
     'uses' => 'UsersController@edit'
-));
+]);
 
 Route::get('login', array(
     'as' => 'login',
@@ -189,18 +180,22 @@ Route::group(['before' => 'env'], function () {
         ]);
 
         Route::get('/{deck_id}', [
+<<<<<<< HEAD
             'as' =>  'getDeck',
+=======
+            'as' =>  'deck.show',
+>>>>>>> 27a5362e9690b25edfd4e41c2a0ba2ed160339bb
             'uses' => 'DeckController@show'
         ])->where('deck_id', '[0-9]+');
 
         Route::group(['before' => 'auth'], function () {
             Route::get('/create', [
-                'as' => 'newDeck',
+                'as' => 'deck.create',
                 'uses' => 'DeckController@create'
             ]);
 
             Route::get('/{deck_id}/edit', [
-                'as' => 'editDeck',
+                'as' => 'deck.edit',
                 'uses' => 'DeckController@edit'
             ]);
 
@@ -211,8 +206,8 @@ Route::group(['before' => 'env'], function () {
 
             Route::group(['before' => 'csrf'], function () {
                 Route::post('/create', [
-                    'as' => 'postDeck',
-                    'uses' => 'DeckController@postDeck'
+                    'as' => 'deck.store',
+                    'uses' => 'DeckController@store'
                 ]);
 
                 Route::post('/{deck_id}', [

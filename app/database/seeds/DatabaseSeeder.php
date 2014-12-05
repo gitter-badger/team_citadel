@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call('GameSeeder');
         $this->call('SeriesSeeder');
-        // $this->call('CardSeeder');
+        $this->call('CardSeeder');
         $this->call('AttributeSeeder');
         $this->call('MtgCardsSeeder');
     }

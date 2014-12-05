@@ -30,9 +30,9 @@
             <div class="row">
                 <div class="col-md-12 post-border">
                     <span class="col-sm-3 col-md-2">
-                        <img class="responsive-image center-block" src="/images/games/{{ $deck->game_id.'-back'}}.png" width="70%">
+                        <img class="responsive-image center-block" src="/images/games/{{ $deck->game_id.'-back'}}.jpg" width="70%">
                     </span>
-                    <h4>{{{ $deck->title }}}</h4>
+                    <h4>{{{ ucwords($deck->title) }}}</h4> {{ link_to_route('deck.show', 'See full deck', [$deck->id]) }}
                     <p>{{{ $deck->description }}}</p>
                 </div>
             </div>
@@ -53,34 +53,34 @@
                     <img class="img-circle profile-img" src="{{ asset(  'images/users/' . $user->id . '.jpeg') }}">
                 </div>
                 <div class="col-md-6">
-                    <h3> {{ $user->username }} </h3>
+                    <h3> {{{ $user->username }}} </h3>
                     <table class="table table-hover">
                         <tr>
                             <td>Title</td>
-                            <td>{{ $user->title }}</td>
+                            <td>{{{ $user->title }}}</td>
                         </tr>
                         <tr>
                             <td>Firstname</td>
-                            <td>{{ $user->first_name }}</td>
+                            <td>{{{ $user->first_name }}}</td>
                         </tr>
                         <tr>
                             <td>Lastname</td>
-                            <td>{{ $user->last_name}}
+                            <td>{{{ $user->last_name }}}
                         </tr>
                         <tr>
                             <td>Email</td>
-                            <td>{{$user->email}}
+                            <td>{{{ $user->email }}}
                         </tr>
                         <tr>
                             <td>DOB</td>
-                            <td>{{$user->date_of_birth}}
+                            <td>{{{ $user->date_of_birth }}}
                         </tr>
                         <tr>
                             <td>Location</td>
-                            <td>{{$user->location}}</td>
+                            <td>{{{ $user->location }}}</td>
                         </tr>
                     </table>
-                    <a href="{{ URL::route('edit.profile.form', $user->username) }}" class="btn btn-custom btn-lg btn-block"> Edit</a>
+                    <a href="{{ route('edit.user', $user->username) }}" class="btn btn-custom btn-lg btn-block"> Edit</a>
                 </div>
             </div>
         </div>

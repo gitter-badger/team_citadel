@@ -1,7 +1,7 @@
 @extends('master')
 
     @section('header')
-        <h2>{{{ $deck->title }}}</h2>
+        <h2 class="text-center">{{{ ucwords($deck->title) }}}</h2>
     @stop
 
     @section('content')
@@ -14,9 +14,9 @@
                             <div style="min-height: 100px">
                                 <!-- if image exists, show it, else show back of card -->
                                 @if(file_exists(public_path() . '/images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg'))
-                                    <img class="image-responsive center-block" src="{{ asset('images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg') }}" width="90%">
+                                    <img class="image-responsive center-block" src="{{ asset('images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg') }}" width="90%" style="height: 200px">
                                 @else
-                                    <img class="image-responsive center-block" src="{{ asset('images/cards/back.jpg') }}" width="90%">
+                                    <img class="image-responsive center-block" src="{{ asset('images/games/' . $deck->game_id . '-back.jpg') }}" width="90%" style="height: 200px">
                                 @endif
                             </div>
                             <p class="text-center series-card-name">

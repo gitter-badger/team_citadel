@@ -47,7 +47,7 @@
             <form class="navbar-form navbar-right">
                 <div class="form-group">
                     @if( Auth::check() )
-                        <button type="button" class="btn btn-default btn-sm" onClick="location.href='{{{ url('/user/'.Auth::user()->username ) }}}'">
+                        <button type="button" class="btn btn-default btn-sm" onClick="location.href='{{{ route('user.show', Auth::user()->username) }}}'">
                             <span class="glyphicon glyphicon-user"></span>
                             {{{ Auth::user()->username }}}
                         </button>
@@ -104,6 +104,5 @@
     {{ HTML::script('//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js', ["type" => "text/javascript"]) }}
     {{ HTML::script('//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js', ["type" => "text/javascript"]) }}
     {{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/selectize.js/0.11.2/js/standalone/selectize.js', ["type" => "text/javascript"]) }}
-    {{ HTML::script('js/navsearch.js', ["type" => "text/javascript"]) }}
 @show
 </html>
