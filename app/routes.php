@@ -63,26 +63,29 @@ Route::post('username/reset/{token}', array(
     'uses' => 'PasswordController@usernameupdate',
 ));
 
-Route::get('password/reset', array(
-    'as' => 'password.remind',
-    'uses' => 'PasswordController@remind',
-));
+//Group for password reset
+Route::group(['prefix' => 'password'], function () {
+    Route::get('/reset', array(
+        'as' => 'password.remind',
+        'uses' => 'PasswordController@remind',
+    ));
 
-Route::post('password/reset', array(
-    'as' => 'password.request',
-    'uses' => 'PasswordController@request'
+    Route::post('/reset', array(
+        'as' => 'password.request',
+        'uses' => 'PasswordController@request'
 
-));
+    ));
 
-Route::get('password/reset/{token}', array(
-    'uses' => 'PasswordController@reset',
-    'as' => 'password.reset'
-));
+    Route::get('/reset/{token}', array(
+        'uses' => 'PasswordController@reset',
+        'as' => 'password.reset'
+    ));
 
-Route::post('password/reset/{token}', array(
-    'uses' => 'PasswordController@update',
-    'as' => 'password.update'
-));
+    Route::post('/reset/{token}', array(
+        'uses' => 'PasswordController@update',
+        'as' => 'password.update'
+    ));
+});
 
 Route::get('user/{username}/edit', [
     'as' => 'edit.user',
