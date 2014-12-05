@@ -65,7 +65,7 @@
     <br>
 
     <!-- ratings section -->
-    <div class="row well">
+    <div class="row well disabled">
         <div class="col-md-6">
             <h2>Ratings</h2>
             <h5>Using these criteria:</h5>
