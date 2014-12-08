@@ -120,7 +120,7 @@
 
 @section('scripts')
     @parent
-    <script src="/js/charts/chart.min.js"></script>
+    <script src="/js/charts/Chart.min.js"></script>
     <script src="/js/charts/createRadarChart.js"></script>
     <script>
     $(function() {

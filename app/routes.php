@@ -30,10 +30,7 @@ Route::group(['before' => 'auth'], function () {
             ->with('message', 'You have logged out');
     });
 
-    Route::post('rating/update/{card_id}', [
-        'as' => 'rating.update',
-        'uses' => 'RatingController@update'
-    ]);
+
 });
 
 // Group all deck routes together
@@ -157,7 +154,7 @@ Route::post('username/reset/{token}', array(
     'as' => 'username.update',
     'uses' => 'PasswordController@usernameupdate',
 ));
-    
+
 Route::resource('listing', 'ListingController');
 Route::resource('market', 'MarketController');
 Route::resource('series', 'SeriesController');
@@ -226,4 +223,12 @@ Route::group(['before' => 'env'], function () {
         $cards = DB::table('cards')->where('name', 'LIKE', '%'.$query.'%')->take(4)->get();
         return Response::json($cards);
     });
+});
+
+Route::group(['before' => 'auth'], function () {
+    // Has Auth Filter
+    Route::post('rating/update/{card_id}', [
+            'as' => 'rating.update',
+            'uses' => 'RatingController@update'
+    ]);
 });
