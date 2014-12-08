@@ -94,7 +94,7 @@
     </div>
 
     <span class="pull-right fixed">
-        <a id="issue-report" href="mailto:support@teamcitadel.com?Subject=Issue%20Report"><h5>Report an issue <i class="glyphicon glyphicon glyphicon-exclamation-sign"></i></h5></a>
+        <a id="issue-report" href="mailto:support@deckcitadel.com?Subject=Issue%20Report"><h5>Report an issue <i class="glyphicon glyphicon glyphicon-exclamation-sign"></i></h5></a>
     </span>
 </div>
 </body>
