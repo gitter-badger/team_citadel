@@ -55,6 +55,17 @@ class MtgCardsSeeder extends Seeder
                             ]
                         );
                     }
+                    // Adding Card Image Addribute
+                    if (array_key_exists('imageName', $card)) {
+                        $cardModel
+                            ->attributes()
+                            ->save( $cardModel,
+                            [
+                                'attribute_id' => '17',
+                                'value' => $card['imageName']
+                            ]
+                        );
+                    }
                     //  Adding Mana Cost Attribute
                     if (array_key_exists('manaCost', $card)) {
                         $cardModel

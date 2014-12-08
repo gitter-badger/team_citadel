@@ -35,9 +35,9 @@ class PasswordController extends BaseController
         $message = Lang::get($result);
         if ($result == PasswordBroker::REMINDER_SENT) {
         // TODO: take the user to homepage with email sent message
-            return Redirect::route('welcome')->compact('message');
+            return Redirect::route('welcome')->with('message', $message);
         } else {
-            return Redirect::route('welcome')->compact('error');
+            return Redirect::route('welcome')->with('error', $error);
         }
     }
 

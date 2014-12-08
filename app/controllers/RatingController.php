@@ -2,16 +2,16 @@
 
 class RatingController extends \BaseController {
 
-    public function store($id)
+    public function store()
     {
         // insert rating into db
         $ratings = Input::get('ratingIds');
-        $card = Card::find($id);
+        $card = Card::find(Input::get('card_id'));
 
         foreach ($ratings as $key => $value) {
             Rating::create([
                 'user_id'=> Auth::user()->id,
-                'card_id' => Input::get('card_id'),
+                'card_id' => $card->id,
                 'rateable_id' => $key,
                 'value' => $value
             ]);
@@ -20,13 +20,13 @@ class RatingController extends \BaseController {
         return $card->average();
     }
 
-    public function update($id)
+    public function update($card_id)
     {
         $ratings = Input::get('ratingIds');
-        $card = Card::find($id);
+        $card = Card::find(Input::get('card_id'));
         foreach ($ratings as $key => $value) {
             $rating = Rating::whereUserId(Auth::user()->id)
-                ->whereCardId($id)
+                ->whereCardId($card->id)
                 ->whereRateableId($key)
                 ->first();
 

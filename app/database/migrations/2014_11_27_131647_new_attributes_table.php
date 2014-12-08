@@ -19,7 +19,7 @@ class NewAttributesTable extends Migration {
 		    $table->increments('id');
 		    $table->integer('card_id');
 		    $table->integer('attribute_id');
-		    $table->string('value');
+		    $table->string('value', 1000);
 		});
 	}
 
@@ -37,7 +37,7 @@ class NewAttributesTable extends Migration {
 		    $table->increments('id');
 		    $table->integer('card_id');
 		    $table->integer('attribute_id');
-		    $table->string('value');
+		    $table->string('value', 1000);
 		});
 	}
 

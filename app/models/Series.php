@@ -19,6 +19,8 @@ class Series extends Eloquent
 
     public function getUrlAttribute()
     {
-        return URL::route('series.show', $this->id);
+        $gameName = str_replace(' ', '', $this->game->name);
+        $seriesName = str_replace(' ', '', $this->name);
+        return URL::route('set.show', [$gameName, $this->id]);
     }
 }

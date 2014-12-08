@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-xs-12 col-md-12">
             <ol class="breadcrumb">
-                <li><a href="{{ URL::route('games.show','WeissSchwarz') }}"> {{ $card->series->game->name }} </a></li>
+                <li><a href="{{ URL::route('games.show','MagicTheGathering') }}"> {{ $card->series->game->name }} </a></li>
                 <li><a href="{{ $card->series->url }}">{{ $card->series->name }}</a></li>
                 <li class="active">{{ $card->serial_number . " " . $card->rarity }} </li>
             </ol>
@@ -15,41 +15,51 @@
     <div class="row">
         <div class="col-xs-12 col-md-4">
             <a data-toggle="modal" data-target="#image-modal" href="">
-                @if(file_exists(public_path() . '/images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg'))
-                    <img class="image-responsive center-block" src="{{ asset('images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg') }}" width="70%">
-                @else
-                    <img class="image-responsive center-block" src="{{ asset('images/cards/back.jpg') }}">
-                @endif
+                <img class="image-responsive center-block" src="{{ ('http://mtgimage.com/set/' . $card->serial_number . '/' . $card->name . '.jpg') }}" width="50%">
             </a>
         </div>
         <div class="col-xs-12 col-md-8">
             <table class="table table-striped">
                 <tr>
                     <td><label>Type</label></td>
-                    <td>{{{ $card->attributes->find(4)->pivot->value }}}</td>
-                    <td><label>Level</label></td>
-                    <td>{{{ $card->attributes->find(9)->pivot->value }}}</td>
-                </tr>
-                <tr>
-                    <td><label>Colour</label></td>
-                    <td>{{{ $card->attributes->find(5)->pivot->value }}}</td>
-                    <td><label>Cost</label></td>
-                    <td>{{{ $card->attributes->find(7)->pivot->value }}}</td>
-                </tr>
-                <tr>
-                    <td><label>Power</label></td>
-                    <td>{{{ $card->attributes->find(10)->pivot->value }}}</td>
-                    <td><label>Soul</label></td>
-                    <td>{{{ $card->attributes->find(8)->pivot->value }}}</td>
-                </tr>
-                <tr>
-                    <td><label>Traits</label></td>
+                    <td>{{ $card->attributes->find(4)->pivot->value }}</td>
+                    <td><label>Artist</label></td>
                     <td>
-                        {{ $card->attributes->find(1)->pivot->value }}<br>
-                        {{{ $card->attributes->find(2)->pivot->value }}}
+                        {{ $card->attributes->find(14)->pivot->value }}
                     </td>
-                    <td><label>Trigger</label></td>
-                    <td>{{{ $card->attributes->find(3)->pivot->value }}}</td>
+                </tr>
+                <tr>
+                    <td><label>Mana Cost</label></td>
+                    <td>{{ $card->attributes->find(11)->pivot->value }}</td>
+                    <td><label>Converted Mana Cost</label></td>
+                    <td>{{ $card->attributes->find(12)->pivot->value }}</td>
+                </tr>
+                <tr>
+                    @if($card->attributes->find(10))
+                        <td><label>Power</label></td>
+                        <td>{{ $card->attributes->find(10)->pivot->value }}</td>
+                    @else
+                        <td><label>Power</label></td>
+                        <td>N/A</td>
+                    @endif
+                    @if($card->attributes->find(15))
+                        <td><label>Toughness</label></td>
+                        <td>{{ $card->attributes->find(15)->pivot->value }}</td>
+                    @else
+                        <td><label>Toughness</label></td>
+                        <td>N/A</td>
+                    @endif
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    @if($card->attributes->find(16))
+                        <td><label>Trigger</label></td>
+                        <td>{{ $card->attributes->find(16)->pivot->value }}</td>
+                    @else
+                        <td></td>
+                        <td></td>
+                    @endif
                 </tr>
             </table>
             <div class="panel panel-default">
@@ -65,7 +75,7 @@
     <br>
 
     <!-- ratings section -->
-    <div class="row well">
+    <div class="row well disabled">
         <div class="col-md-6">
             <h2>Ratings</h2>
             <h5>Using these criteria:</h5>
@@ -131,6 +141,7 @@
         // TODO: if they rate 5 stars, does not display the stars
         $.each(previousUserRatings, function(key, value) {
             // If they have rated the card before
+            console.log(value);
             if(value != null) {
                 // since prevAll isn't working for 5 star ratings, we do this.
                 if(value == 5) {
@@ -205,11 +216,14 @@
             // if they have previously rated the card, we want to update
             if(hasRatedPreviously) {
                 url = decodeURI("{{ URL::route('rating.update') }}");
-                url = url.replace('{card_id}', {{ $card->id }});
+                url = url.replace('{id}', {{ $card->id }});
             } else {
                 //  if they have not previously rated the card, we want to store
                 url = decodeURI("{{ URL::route('rating.store') }}");
+                url = url.replace('{id}', {{ $card->id }});
             }
+            console.log(url);
+            console.log(data);
             $.ajax({
                 type: "POST",
                 url: url,
