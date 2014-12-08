@@ -1,6 +1,6 @@
 @extends('master')
 @section('header')
-    <h1 class="text-center">Weiβ Schwarz <small>- Series</small></h1>
+    <h1 class="text-center">Magic The Gathering <small>- Sets</small></h1>
 @stop
 @section('content')
     <div class='row'>
@@ -12,10 +12,10 @@
             @endif
                 <div style="min-height:160px">
                     <a class="series-box" href="{{ $aSeries->url }}">
-                        @if($aSeries->game->name == 'Magic The Gathering')
-                            <img class="image-responsive center-block" src="{{ ('http://mtgimage.com/set/' . $card->serial_number . '/' . $card->name . '.jpg') }}" width="70%">
-                        @else
+                        @if(file_exists(public_path() . '/images/series/' . $aSeries->id . '.jpg'))
                             <img class="series-images image-responsive center-block" src="{{ asset('images/series/'. $aSeries->id . '.jpg') }}" width="90%">
+                        @else
+                            <img class="series-images image-responsive center-block" src="{{ URL::to('http://placehold.it/210x210') }}" width="90%">
                         @endif
                     </a>
                     <h5 class='text-center series-card-name' title="{{{ $aSeries->name }}}">

@@ -1,5 +1,7 @@
 <?php
-class SeriesController extends \BaseController {
+
+class GameController extends \BaseController {
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -7,9 +9,10 @@ class SeriesController extends \BaseController {
 	 */
 	public function index()
 	{
-		$series = Series::with('cards')->paginate(24);
-		return View::make('series', compact('series'));
+		//
 	}
+
+
 	/**
 	 * Show the form for creating a new resource.
 	 *
@@ -19,6 +22,8 @@ class SeriesController extends \BaseController {
 	{
 		//
 	}
+
+
 	/**
 	 * Store a newly created resource in storage.
 	 *
@@ -28,19 +33,29 @@ class SeriesController extends \BaseController {
 	{
 		//
 	}
+
+
 	/**
 	 * Display the specified resource.
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($gameName, $id)
+	public function show($gameName)
 	{
 		//
-		$aSeries = Series::with('cards')->find($id);
-		$aSeriesCards = $aSeries->cards()->paginate(24);
-		return View::make('cards', compact('aSeries', 'aSeriesCards'));
+		switch ($gameName) {
+			case 'WeissSchwarz':
+				$series = Series::whereGameId('1')->paginate(24);
+				return View::make('series', compact('series'));
+			case 'MagicTheGathering':
+				$series = Series::whereGameId('2')->paginate(24);
+				return View::make('mtg-series', compact('series'));
+			default:
+				return App::abort(404);
+		}
 	}
+
 
 	/**
 	 * Show the form for editing the specified resource.
@@ -52,6 +67,8 @@ class SeriesController extends \BaseController {
 	{
 		//
 	}
+
+
 	/**
 	 * Update the specified resource in storage.
 	 *
@@ -62,6 +79,8 @@ class SeriesController extends \BaseController {
 	{
 		//
 	}
+
+
 	/**
 	 * Remove the specified resource from storage.
 	 *
@@ -72,4 +91,6 @@ class SeriesController extends \BaseController {
 	{
 		//
 	}
+
+
 }

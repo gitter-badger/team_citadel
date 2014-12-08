@@ -1,5 +1,7 @@
 <?php
-class SeriesController extends \BaseController {
+
+class MtgSeriesController extends \BaseController {
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -7,9 +9,13 @@ class SeriesController extends \BaseController {
 	 */
 	public function index()
 	{
-		$series = Series::with('cards')->paginate(24);
+		//
+		$game = Game::whereName('Magic The Gathering');
+		$series = $game->series()->with('cards')->paginate(24);
 		return View::make('series', compact('series'));
 	}
+
+
 	/**
 	 * Show the form for creating a new resource.
 	 *
@@ -19,6 +25,8 @@ class SeriesController extends \BaseController {
 	{
 		//
 	}
+
+
 	/**
 	 * Store a newly created resource in storage.
 	 *
@@ -28,19 +36,19 @@ class SeriesController extends \BaseController {
 	{
 		//
 	}
+
+
 	/**
 	 * Display the specified resource.
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($gameName, $id)
+	public function show($id)
 	{
 		//
-		$aSeries = Series::with('cards')->find($id);
-		$aSeriesCards = $aSeries->cards()->paginate(24);
-		return View::make('cards', compact('aSeries', 'aSeriesCards'));
 	}
+
 
 	/**
 	 * Show the form for editing the specified resource.
@@ -52,6 +60,8 @@ class SeriesController extends \BaseController {
 	{
 		//
 	}
+
+
 	/**
 	 * Update the specified resource in storage.
 	 *
@@ -62,6 +72,8 @@ class SeriesController extends \BaseController {
 	{
 		//
 	}
+
+
 	/**
 	 * Remove the specified resource from storage.
 	 *
@@ -72,4 +84,6 @@ class SeriesController extends \BaseController {
 	{
 		//
 	}
+
+
 }

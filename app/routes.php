@@ -22,12 +22,27 @@ Route::get('/', [
     }
 ]);
 
+Route::get('{gameName}/{seriesName}/{id}',[
+    'as' => 'aCard.show',
+    'uses' => 'CardController@show'
+]);
+
+Route::get('{gameName}/{id}',[
+    'as' => 'set.show',
+    'uses' => 'SeriesController@show'
+]);
+
+Route::get('/{gameName}',[
+    'as' => 'games.show',
+    'uses' => 'GameController@show'
+]);
+
 Route::resource('user', 'UsersController');
 Route::resource('listing', 'ListingController');
 Route::resource('market', 'MarketController');
 Route::resource('series', 'SeriesController');
 Route::resource('card', 'CardController');
-
+Route::resource('game', 'GameController');
 
 Route::get('sendemail', [
     'as' => 'send.email', 

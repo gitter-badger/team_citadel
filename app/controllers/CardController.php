@@ -27,18 +27,27 @@ class CardController extends \BaseController {
     {
         //
     }
-    /**
+        /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return Response
      */
-    public function show($id)
+    public function show($gameName, $seriesName, $id)
     {
         //
-        //
         $card = Card::find($id);
-        return View::make('card', compact('card'));
+        $gameName = $card->series->game->name;
+        switch ($gameName) {
+            case 'Weiss Schwarz':
+                return View::make('card', compact('card'));
+
+            case 'Magic The Gathering':
+                return View::make('mtg-card', compact('card'));
+
+            default:
+                return 'lol';
+        }
     }
     /**
      * Show the form for editing the specified resource.
@@ -70,7 +79,6 @@ class CardController extends \BaseController {
     {
         //
     }
-
     public function cardSearch() {
         $query = Input::get('query');
         if($query) {
@@ -80,4 +88,5 @@ class CardController extends \BaseController {
         }
         return View::make('result', compact('cards', 'query'));
     }
+
 }

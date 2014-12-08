@@ -1,5 +1,7 @@
 /*# sourceMappingURL=bootstrap.css.map */
-
+html {
+    min-width: 426px;
+}
 /*    --------------------------------------------------
   :: Login Section
   -------------------------------------------------- */
@@ -54,7 +56,7 @@
 }
 #login .btn.btn-custom {
     font-size: 14px;
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 #login .forget, .signup {
     font-size: 13px;
@@ -136,4 +138,51 @@
     opacity: 0.3;
     pointer-events: none;
     cursor: default;
+}
+
+/* ------------------------------------------------------
+    Flip Animation
+   ------------------------------------------------------- */
+
+/* entire container, keeps perspective */
+.flip-container {
+    perspective: 1000;
+}
+
+/* flip the pane when hovered */
+.flip-container:hover .flipper, .flip-container.hover .flipper {
+    transform: rotateY(180deg);
+}
+
+.flip-container, .front, .back {
+    width: 100%;
+    height: auto;
+}
+
+/* flip speed goes here */
+.flipper {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+
+    position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+    z-index: 2;
+    /* for firefox 31 */
+    transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+    transform: rotateY(180deg);
 }
