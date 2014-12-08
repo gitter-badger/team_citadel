@@ -170,7 +170,7 @@ Route::group(['before' => 'env'], function () {
     });
 
     // quicksearch
-    Route::get('/quicksearch/cards/', function() {
+    Route::get('/quicksearch/cards/', function () {
         $query = Input::get('query');
         $cards = DB::table('cards')->where('name', 'LIKE', '%'.$query.'%')->take(4)->get();
         return Response::json($cards);

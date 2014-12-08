@@ -13,18 +13,7 @@ class UpdateCardsTableEngine extends Migration
      */
     public function up()
     {
-        Schema::drop('cards');
-
-        Schema::create('cards', function ($table) {
-            $table->engine = 'MYISAM';
-            $table->bigincrements('id');
-            $table->string('name');
-            $table->string('rarity');
-            $table->string('series_id');
-            $table->string('serial_number');
-            $table->timestamps();
-        });
-
+        DB::update(DB::raw('ALTER TABLE cards ENGINE = MYISAM'));
         DB::statement('ALTER TABLE cards ADD FULLTEXT search(name)');
     }
 
