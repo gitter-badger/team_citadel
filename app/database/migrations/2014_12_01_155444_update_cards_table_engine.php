@@ -24,15 +24,7 @@ class UpdateCardsTableEngine extends Migration
      */
     public function down()
     {
-        Schema::drop('cards');
-         // creates the card table
-        Schema::create('cards', function ($table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->string('series_id');
-            $table->string('rarity');
-            $table->string('serial_number');
-            $table->timestamps();
-        });
+        DB::statement('DROP INDEX cards ON series');
+        DB::update(DB::raw('ALTER TABLE cards ENGINE = InnoDB'));
     }
 }
