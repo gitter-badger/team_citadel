@@ -6,4 +6,7 @@
 			<li><a href="{{ URL::route('games.show', 'MagicTheGathering') }}">Magic The Gathering</a></li>
 		</ul>
 	</li>
+	<li>
+		<a href="{{ URL::route('decks') }}" class="dropdown">Decks</a>
+	</li>
 </ul>

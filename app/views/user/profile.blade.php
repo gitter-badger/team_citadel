@@ -4,7 +4,6 @@
 <ul class="nav nav-tabs col-md-12" role="tablist">
     <li role="presentation" class="active"><a href="#wall-tab" role="tab" data-toggle="tab">Wall</a></li>
     <li role="presentation"><a href="#profile" role="tab" data-toggle="tab">Profile</a></li>
-    <li role="presentation"><a href="#myMarket" role="tab" data-toggle="tab">Order History</a></li>
     @if( Auth::check() )
         @if( Auth::user()->id == $user->id )
             <li role="presentation"><a href="#messages" role="tab" data-toggle="tab">Messages</a></li>
@@ -30,7 +29,11 @@
             <div class="row">
                 <div class="col-md-12 post-border">
                     <span class="col-sm-3 col-md-2">
-                        <img class="responsive-image center-block" src="/images/games/{{ $deck->game_id.'-back'}}.jpg" width="70%">
+                        @if($deck->game_id == 1)
+                            <img class="responsive-image center-block" src="/images/games/{{ $deck->game_id.'-back'}}.jpg" width="70%">
+                        @elseif($deck->game_id == 2)
+                            <img class="responsive-image center-block" src="http://mtgimage.com/card/cardback.hq.jpg" width="70%">
+                        @endif
                     </span>
                     <h4>{{{ ucwords($deck->title) }}}</h4> {{ link_to_route('deck.show', 'See full deck', [$deck->id]) }}
                     <p>{{{ $deck->description }}}</p>
@@ -81,99 +84,6 @@
                         </tr>
                     </table>
                     <a href="{{ route('edit.user', $user->username) }}" class="btn btn-custom btn-lg btn-block"> Edit</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="myMarket">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="page-header">
-                    <h1>Your Order History</h1>
-                </div>
-            </div>
-        </div>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <div class="row">
-                    <div class="col-md-4">Order Placed</div>
-                    <div class="col-md-4">Total</div>
-                    <div class="col-md-4">Dispatch to</div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4"><small>14 September 2014</small></div>
-                    <div class="col-md-4">£5.94</div>
-                    <div class="col-md-4">Phoophanom Tanprasit</div>
-                </div>
-            </div>
-            <div class="panel-body">
-                <div class="col-md-2">
-                    <img class="market-img image-responsive center-block" src="{{ asset('images/cards/1.jpeg') }}">
-                </div>
-                <div class="col-md-6">
-                    <h4>"Songstress" Inori</h4>
-                    <p>Sold by: Admin</p>
-                </div>
-                <div class="col-md-4">
-                    <button class="btn btn-default btn-md btn-block">Message seller</button><br>
-                    <button class="btn btn-default btn-md btn-block">Returns Item</button><br>
-                    <button class="btn btn-default btn-md btn-block">Leave a seller feedback</button>
-                </div>
-            </div>
-        </div>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <div class="row">
-                    <div class="col-md-4">Order Placed</div>
-                    <div class="col-md-4">Total</div>
-                    <div class="col-md-4">Dispatch to</div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4"><small>14 September 2014</small></div>
-                    <div class="col-md-4">£5.94</div>
-                    <div class="col-md-4">Phoophanom Tanprasit</div>
-                </div>
-            </div>
-            <div class="panel-body">
-                <div class="col-md-2">
-                    <img class="market-img image-responsive center-block" src="{{ asset('images/cards/1.jpeg') }}">
-                </div>
-                <div class="col-md-6">
-                    <h4>"Songstress" Inori</h4>
-                    <p>Sold by: Admin</p>
-                </div>
-                <div class="col-md-4">
-                    <button class="btn btn-default btn-md btn-block">Message seller</button><br>
-                    <button class="btn btn-default btn-md btn-block">Returns Item</button><br>
-                    <button class="btn btn-default btn-md btn-block">Leave a seller feedback</button>
-                </div>
-            </div>
-        </div>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <div class="row">
-                    <div class="col-md-4">Order Placed</div>
-                    <div class="col-md-4">Total</div>
-                    <div class="col-md-4">Dispatch to</div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4"><small>14 September 2014</small></div>
-                    <div class="col-md-4">£5.94</div>
-                    <div class="col-md-4">Phoophanom Tanprasit</div>
-                </div>
-            </div>
-            <div class="panel-body">
-                <div class="col-md-2">
-                    <img class="market-img image-responsive center-block" src="{{ asset('images/cards/1.jpeg') }}">
-                </div>
-                <div class="col-md-6">
-                    <h4>"Songstress" Inori</h4>
-                    <p>Sold by: Admin</p>
-                </div>
-                <div class="col-md-4">
-                    <button class="btn btn-default btn-md btn-block">Message seller</button><br>
-                    <button class="btn btn-default btn-md btn-block">Returns Item</button><br>
-                    <button class="btn btn-default btn-md btn-block">Leave a seller feedback</button>
                 </div>
             </div>
         </div>
