@@ -26,7 +26,7 @@ $(document).ready(function(){
                             '</div>'+
                         '</div>';
 
-                return searchHTML
+                return searchHTML;
             }
         },
         optgroups: [
