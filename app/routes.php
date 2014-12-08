@@ -22,6 +22,11 @@ Route::get('/', [
     }
 ]);
 
+Route::get('search/cards/', array(
+    'as' => 'cards.search',
+    'uses' => 'CardController@cardSearch'
+));
+
 Route::get('{gameName}/{seriesName}/{id}',[
     'as' => 'aCard.show',
     'uses' => 'CardController@show'
@@ -52,11 +57,6 @@ Route::get('sendemail', [
         }); 
     }
 ]);
-
-Route::get('search/cards/', array(
-    'as' => 'cards.search',
-    'uses' => 'CardController@cardSearch'
-));
 
 Route::get('username/reset', array(
     'as' => 'username.remind',

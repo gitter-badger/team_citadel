@@ -46,7 +46,7 @@ class CardController extends \BaseController {
                 return View::make('mtg-card', compact('card'));
 
             default:
-                return 'lol';
+                return App::abort(404);
         }
     }
     /**
@@ -79,6 +79,7 @@ class CardController extends \BaseController {
     {
         //
     }
+
     public function cardSearch() {
         $query = Input::get('query');
         if($query) {
@@ -88,5 +89,4 @@ class CardController extends \BaseController {
         }
         return View::make('result', compact('cards', 'query'));
     }
-
 }

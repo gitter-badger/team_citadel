@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-xs-12 col-md-12">
             <ol class="breadcrumb">
-                <li><a href="{{ URL::route('series.index') }}"> {{ $card->series->game->name }} </a></li>
+                <li><a href="{{ URL::route('games.show','WeissSchwarz') }}"> {{ $card->series->game->name }} </a></li>
                 <li><a href="{{ $card->series->url }}">{{ $card->series->name }}</a></li>
                 <li class="active">{{ $card->serial_number . " " . $card->rarity }} </li>
             </ol>
@@ -61,14 +61,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <nav>
-          <ul class="pager">
-            <li class="previous disabled"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>
-            <li class="next"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
-          </ul>
-        </nav>
     </div>
 
     <div class="modal fade" id="image-modal">
