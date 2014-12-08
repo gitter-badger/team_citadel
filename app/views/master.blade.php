@@ -3,8 +3,9 @@
 <head>
     <meta charset="utf-8">
     <title>Deck Citadel</title>
-    {{ HTML::style('/css/bootstrap.min.css') }}
-    {{ HTML::style('/css/styles.css') }}
+    {{ HTML::style('//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css') }}
+    {{ HTML::style('//cdnjs.cloudflare.com/ajax/libs/selectize.js/0.11.2/css/selectize.bootstrap3.css') }}
+    {{ HTML::style('css/styles.css') }}
 
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -46,7 +47,7 @@
             <form class="navbar-form navbar-right">
                 <div class="form-group">
                     @if( Auth::check() )
-                        <button type="button" class="btn btn-default btn-sm" onClick="location.href='{{{ url('/user/'.Auth::user()->username ) }}}'">
+                        <button type="button" class="btn btn-default btn-sm" onClick="location.href='{{{ route('user.show', Auth::user()->username) }}}'">
                             <span class="glyphicon glyphicon-user"></span>
                             {{{ Auth::user()->username }}}
                         </button>
@@ -62,7 +63,7 @@
                     @else
                         <a href="{{ URL::route('login') }}" type="button" class="btn btn-default">
                             <span class="glyphicon glyphicon-user"></span>
-                            sign in
+                            Sign In
                         </a>
 
                     @endif
@@ -92,18 +93,16 @@
         <!-- <button id='button'>Go!</button> -->
     </div>
 
-    <div class="footer navbar-fixed-bottom">
-        <span class="pull-right">
-            <a id="issue-report" href="mailto:tanprasitp@gmail.com?Subject=Issue%20Report"><h5>Report an issue <i class="glyphicon glyphicon glyphicon-exclamation-sign"></i></h5></a>
-        </span>
-    </div>
+    <span class="pull-right fixed">
+        <a id="issue-report" href="mailto:tanprasitp@gmail.com?Subject=Issue%20Report"><h5>Report an issue <i class="glyphicon glyphicon glyphicon-exclamation-sign"></i></h5></a>
+    </span>
 </div>
 </body>
 @section('scripts')
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    {{ HTML::script('https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js') }}
-    {{ HTML::script('js/bootstrap.min.js') }}
-    {{-- HTML::script('js/navsearch.js') --}}
+    {{ HTML::script('//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js', ["type" => "text/javascript"]) }}
+    {{ HTML::script('//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js', ["type" => "text/javascript"]) }}
+    {{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/selectize.js/0.11.2/js/standalone/selectize.js', ["type" => "text/javascript"]) }}
 @show
 </html>

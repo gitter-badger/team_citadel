@@ -2,24 +2,12 @@
 
 class DeckController extends \BaseController
 {
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
     public function index()
     {
         $decks = Deck::orderBy('decks.created_at', 'desc')->paginate(10);
         return View::make('decks.index', compact('decks'));
     }
 
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
     public function create()
     {
         $deck = new Deck;
@@ -29,7 +17,7 @@ class DeckController extends \BaseController
         return View::make('decks.edit', compact('deck', 'method', 'games'));
     }
 
-    public function postDeck()
+    public function store()
     {
         $values = Input::only(
             'game_id',
@@ -43,70 +31,71 @@ class DeckController extends \BaseController
         ]);
 
         if ($validator->fails()) {
-            return Redirect::route('newDeck')
-                    ->withInput($values)
-                    ->withErrors($validator);
+            return Redirect::route('deck.create')
+                ->withInput($values)
+                ->withErrors($validator);
         } else {
             $deck = new Deck;
-                $deck->title = Input::get('title');
-                $deck->game_id = Input::get('game_id');
-                $deck->description = Input::get('description');
+            $deck->title = Input::get('title');
+            $deck->game_id = Input::get('game_id');
+            $deck->description = Input::get('description');
 
             if ($deck->save()) {
+                // syncs with the pivot table
                 $deck->users()->sync([Auth::user()->id]);
-                return Redirect::route('getDeck', $deck->id)->with('success', 'The Deck was Created');
+                return Redirect::route('deck.show', $deck->id)
+                    ->with('success', 'The Deck was Created');
             } else {
-                return Redirect::route('newDeck')->with('fail', 'An Error Occurred while Saving');
+                return Redirect::route('welcome')
+                    ->with('fail', 'An Error Occurred while Saving');
             }
         }
 
         return $values;
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function show($id)
+    public function addCard()
     {
-        return  View::make('decks.show');
+        $deck = Deck::find(Input::get('deck'));
+        $usersSelection = Input::get('query');
+        // maybe put this in js instead of on server.
+        $cards = explode(',', $usersSelection);
+
+        foreach ($cards as $card) {
+            $deck->cards()->attach(intval($card));
+        }
+
+        return Redirect::route('deck.show', $deck->id);
     }
 
+    public function show($deck_id)
+    {
+        $deck = Deck::find($deck_id);
+        $series = $deck->game->series;
+        $cards = $deck->game->cards;
+        return  View::make('decks.show', compact('deck', 'series', 'cards'));
+    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
     public function edit($id)
     {
         //
     }
 
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function update($id)
+    public function destroy($id)
     {
         //
     }
 
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function destroy($id)
+    public function addCardSearch()
     {
-        //
+        $game = Game::find(Input::get('game'));
+        $term = Input::get('term'); // search term
+        $cards = $game->cards()
+            ->whereRaw("MATCH(cards.name) AGAINST('+$term*' IN BOOLEAN MODE)")
+            ->get()
+            ->load('series')
+            ->toArray();
+
+        return Response::json(['data' => $cards]);
     }
 }

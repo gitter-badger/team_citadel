@@ -60,7 +60,7 @@ return array(
 
 	'reminder' => array(
 
-		'email' => 'emails.auth.reminder',
+		'email' => 'emails.auth.passwordreminder',
 
 		'table' => 'password_reminders',
 
