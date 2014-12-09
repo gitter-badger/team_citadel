@@ -5,11 +5,7 @@
 @section('content')
     <div class='row'>
         @foreach($series as $aSeries)
-            @if(count($aSeries->cards->all()) > 0) 
-                <div class='col-xs-12 col-sm-2'>
-            @else
-                <div class='col-xs-12 col-sm-2 disabled'>
-            @endif
+            <div class='col-xs-12 col-sm-2'>
                 <div style="min-height:160px">
                     <a class="series-box" href="{{ $aSeries->url }}">
                         @if(file_exists(public_path() . '/images/series/' . $aSeries->id . '.jpg'))
@@ -26,7 +22,7 @@
         @endforeach
     </div>
     <div class="row">
-        <div class="col-sm-12 text-center"> 
+        <div class="col-sm-12 text-center">
             {{ $series->links() }}
         </div>
     </div>

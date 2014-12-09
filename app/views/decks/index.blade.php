@@ -29,7 +29,7 @@
                     <hr>
                      <div class="row">
                         <div class="col-md-6">
-                            Created:{{ $deck->users->first()->created_at->diffForHumans()}} by {{ link_to_route('user.show', $deck->users->first()->username, [$deck->users->first()->username]) }}
+                            Created: {{ $deck->users->first()->created_at->diffForHumans()}} by {{ link_to_route('user.show', $deck->users->first()->username, [$deck->users->first()->username]) }}
                         </div>
 
                         <div class="col-md-4 pull-right">
