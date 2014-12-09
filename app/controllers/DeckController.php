@@ -78,7 +78,11 @@ class DeckController extends \BaseController
 
     public function edit($id)
     {
-        //
+        $deck = Deck::find($id);d
+        $games = Game::all()->lists('name', 'id');
+        $method = 'edit';
+
+        return View::make('decks.edit', compact('deck', 'method', 'games'));
     }
 
     public function destroy($id)

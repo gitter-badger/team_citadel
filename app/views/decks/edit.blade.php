@@ -17,7 +17,7 @@
                         {{ Form::label('Game') }}
                     </div>
                     <div class="col-md-9">
-                        {{ Form::select('game_id', $games, null, ['class' => 'form-control']) }}
+                        {{ Form::select('game_id', $games, $deck->game_id, ['class' => 'form-control']) }}
                     </div>
                 </div>
             </div>
@@ -28,7 +28,7 @@
                         {{ Form::label('title', 'Title')}}
                     </div>
                     <div class="col-md-9">
-                        {{ Form::text('title', '', ['class' => 'form-control']) }}
+                        {{ Form::text('title', $deck->title, ['class' => 'form-control']) }}
                     </div>
                 </div>
             </div>
@@ -39,7 +39,7 @@
                         {{ Form::label('description', 'Description') }}
                     </div>
                     <div class="col-md-9">
-                        {{ Form::textarea('description', '', ['class' => 'form-control']) }}
+                        {{ Form::textarea('description', $deck->description, ['class' => 'form-control']) }}
                         {{ Form::submit('Create Deck', ['class' => 'btn btn-custom btn-md btn-block post-border'])}}
                     </div>
                 </div>
