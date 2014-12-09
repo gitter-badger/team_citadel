@@ -19,54 +19,32 @@
     </div>
     <div class='row'>
         @foreach($aSeriesCards as $card)
-            <div class='card col-xs-12 col-sm-2 col-md-2 col-lg-2'>
-                <a href="{{ $card->url }}" title="{{{ $card->name  . " " . $card->rarity }}}">
-                    <div style="min-height: 220px;">
-                        @if($card->series->game->name == 'Weiss Schwarz')
-                            <div class="flip-container">
-                                <div class="flipper">
-                                    <div class="front">
-                                        <!-- Front Content -->
-                                        <img class="image-responsive center-block" src="http://approachphase.files.wordpress.com/2013/05/148lwsm.png" width="90%">
-                                    </div>
-                                    <div class="back">
-                                        <!-- Back Content -->
-                                        <!-- if image exists, show it, else show back of card -->
-                                        @if(file_exists(public_path() . '/images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg'))
-                                            <img class="image-responsive center-block" src="{{ asset('images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg') }}" width="90%">
-                                            <p class="text-center series-card-name">
-                                                {{ $card->name  . " " . $card->rarity }}
-                                            </p>
-                                        @else
-                                            <img class="image-responsive center-block" src="http://approachphase.files.wordpress.com/2013/05/148lwsm.png" width="90%">
-                                            <p class="text-center series-card-name">
-                                                {{ $card->name  . " " . $card->rarity }}
-                                            </p>
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
+            @if($card->series->game->name == 'Weiss Schwarz')
+
+                <div class='col-xs-6 col-sm-3 col-md-2'>
+                    <a href="{{ $card->url }}" title="{{{ $card->name  . " " . $card->rarity }}}">
+                        @if(file_exists(public_path() . '/images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg'))
+                            <img class="image-responsive center-block" src="{{ asset('images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg') }}" width="90%">
+                        @else
+                             <img class="image-responsive center-block" src="{{ asset('images/cards/'. $card->series->game->id . '-' . 'back.jpg') }}" width="90%">
                         @endif
-                        @if($card->series->game->name == 'Magic The Gathering')
-                            <div class="flip-container">
-                                <div class="flipper">
-                                    <div class="front">
-                                        <!-- Front Content -->
-                                        <img class="image-responsive center-block" src="http://mtgimage.com/card/cardback.hq.jpg" width="90%">
-                                    </div>
-                                    <div class="back">
-                                        <!-- Back Content -->
-                                        <img class="image-responsive center-block" src="{{ ('http://mtgimage.com/set/' . $card->serial_number . '/' . $card->attributes->find(17)->pivot->value . '.jpg') }}" width="90%">
-                                        <p class="text-center series-card-name">
-                                            {{ $card->name  . " " . $card->rarity }}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        @endif
-                    </div>
-                </a>
-            </div>
+                    </a>
+                    <p class="text-center series-card-name">
+                        {{ $card->name  . " " . $card->rarity }}
+                    </p>
+                    <br>
+                </div>
+            @elseif($card->series->game->name == 'Magic The Gathering')
+                <div class='col-xs-6 col-sm-3 col-md-2'>
+                    <a href="{{ $card->url }}" title="{{{ $card->name  . " " . $card->rarity }}}">
+                         <img class="image-responsive center-block" src="{{ ('http://mtgimage.com/set/' . $card->serial_number . '/' . $card->attributes->find(17)->pivot->value . '.jpg') }}" width="90%">
+                    </a>
+                    <p class="text-center series-card-name">
+                        {{ $card->name  . " " . $card->rarity }}
+                    </p>
+                    <br>
+                </div>
+            @endif
         @endforeach
     </div>
     <div class="row">

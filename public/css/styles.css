@@ -139,8 +139,6 @@ html {
     pointer-events: none;
     cursor: default;
 }
-<<<<<<< HEAD
-
 /* ------------------------------------------------------
     Flip Animation
    ------------------------------------------------------- */
@@ -157,12 +155,12 @@ html {
 
 .flip-container, .front, .back {
     width: 100%;
-    height: auto;
+    height: 100%;
 }
 
 /* flip speed goes here */
 .flipper {
-    transition: 0.6s;
+    transition: 0.5s;
     transform-style: preserve-3d;
 
     position: relative;
@@ -187,7 +185,6 @@ html {
 .back {
     transform: rotateY(180deg);
 }
-=======
 /* ------------------------------------------------------
     Card rating
    ------------------------------------------------------- */
@@ -211,4 +208,3 @@ html {
 .search-subtext{
     font-size: 12px;
 }
->>>>>>> e34ed30d42e2d06abb08b288905c8f6207e0d743
