@@ -147,16 +147,9 @@ class UsersController extends BaseController
     {
         $user = User::where('username', $username)->first();
         $authUser = Auth::user();
-        if ($authUser == null) {
-            return Redirect::to('user.login')->with('message', 'Please log in!');
 
-        } elseif ($authUser->id != $user->id) {
-            return 'this is not your profile dont be nosey';
-
-        } else {
-            $decks = $this->getUserWall($user->id);
-            return View::make('user.profile', compact('user', 'decks'));
-        }
+        $decks = $this->getUserWall($user->id);
+        return View::make('user.profile', compact('user', 'decks'));
     }
 
     //gets the wall posts for the user
