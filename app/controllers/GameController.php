@@ -46,11 +46,19 @@ class GameController extends \BaseController {
 		//
 		switch ($gameName) {
 			case 'WeissSchwarz':
-				$series = Series::whereGameId('1')->paginate(24);
+				$series = Series::whereGameId('1')
+					->orderBy('name', 'asc')
+					->paginate(24);
+
 				return View::make('series', compact('series'));
+
 			case 'MagicTheGathering':
-				$series = Series::whereGameId('2')->paginate(24);
+				$series = Series::whereGameId('2')
+					->orderBy('name', 'asc')
+					->paginate(24);
+
 				return View::make('mtg-series', compact('series'));
+
 			default:
 				return App::abort(404);
 		}

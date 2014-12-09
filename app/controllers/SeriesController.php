@@ -32,7 +32,6 @@ class SeriesController extends \BaseController {
 	 */
 	public function show($gameName, $id)
 	{
-		//
 		$aSeries = Series::with('cards')->find($id);
 		$aSeriesCards = $aSeries->cards()->paginate(24);
 		return View::make('cards', compact('aSeries', 'aSeriesCards'));
