@@ -16,9 +16,13 @@
         <div class="col-xs-12 col-md-4">
             <a data-toggle="modal" data-target="#image-modal" href="">
                 @if(file_exists(public_path() . '/images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg'))
-                    <img class="image-responsive center-block" src="{{ asset('images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg') }}" width="70%">
+                    <div class="img_wrapper_card center-block">
+                        <img class="image-responsive center-block" src="{{ asset('images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg') }}" width="70%" onload="imgLoaded(this)">
+                    </div>
                 @else
-                    <img class="image-responsive center-block" src="{{ asset('images/cards/back.jpg') }}">
+                    <div class="img_wrapper_card center-block">
+                        <img class="image-responsive center-block" src="{{ asset('images/cards/back.jpg') }}">
+                    </div>
                 @endif
             </a>
         </div>
@@ -109,9 +113,9 @@
         <div class="modal-dialog">
             <div class="modal-content modal-popup-image">
                 @if(file_exists('public/images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg'))
-                    <img class="series-image image-responsive center-block" src="{{ asset('images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg') }}">
+                    <img class="image-responsive center-block" src="{{ asset('images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg') }}" width="100%">
                 @else
-                    <img class="series-image image-responsive center-block" src="{{ asset('images/cards/back.jpg') }}">
+                    <img class="image-responsive center-block" src="{{ asset('images/cards/back.jpg') }}" width="100%">
                 @endif
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
@@ -122,6 +126,12 @@
     @parent
     <script src="/js/charts/Chart.min.js"></script>
     <script src="/js/charts/createRadarChart.js"></script>
+    <script type="text/javascript">
+        function imgLoaded(img) {
+            var imgWrapper = img.parentNode;
+            imgWrapper.className += imgWrapper.className ? ' loaded' : 'loaded';
+        };
+    </script>
     <script>
     $(function() {
         // The users previous rating. values will be null if they have not rated before

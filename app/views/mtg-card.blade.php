@@ -15,7 +15,9 @@
     <div class="row">
         <div class="col-xs-12 col-md-4">
             <a data-toggle="modal" data-target="#image-modal" href="">
-                <img class="image-responsive center-block" src="{{ ('http://mtgimage.com/set/' . $card->serial_number . '/' . $card->name . '.jpg') }}" width="50%">
+                <div class="img_wrapper_card center-block">
+                    <img class="image-responsive" src="{{ ('http://mtgimage.com/set/' . $card->serial_number . '/' . $card->name . '.jpg') }}" width="50%" onload="imgLoaded(this)">
+                </div>
             </a>
         </div>
         <div class="col-xs-12 col-md-8">
@@ -118,11 +120,7 @@
     <div class="modal fade" id="image-modal">
         <div class="modal-dialog">
             <div class="modal-content modal-popup-image">
-                @if(file_exists('public/images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg'))
-                    <img class="series-image image-responsive center-block" src="{{ asset('images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg') }}">
-                @else
-                    <img class="series-image image-responsive center-block" src="{{ asset('images/cards/back.jpg') }}">
-                @endif
+                <img class="image-responsive center-block" src="{{ ('http://mtgimage.com/set/' . $card->serial_number . '/' . $card->name . '.jpg') }}" width="100%">
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
@@ -132,7 +130,13 @@
     @parent
     <script src="/js/charts/chart.min.js"></script>
     <script src="/js/charts/createRadarChart.js"></script>
-    <script>
+    <script type="text/javascript">
+        function imgLoaded(img) {
+            var imgWrapper = img.parentNode;
+            imgWrapper.className += imgWrapper.className ? ' loaded' : 'loaded';
+        };
+    </script>
+    <script>      
     $(function() {
         // The users previous rating. values will be null if they have not rated before
         var previousUserRatings = {{ json_encode($previousUserRatings) }};
@@ -254,6 +258,7 @@
             });
             return ajaxData;
         }
+
     });
     </script>
 @stop

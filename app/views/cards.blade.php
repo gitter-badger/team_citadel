@@ -20,13 +20,16 @@
     <div class='row'>
         @foreach($aSeriesCards as $card)
             @if($card->series->game->name == 'Weiss Schwarz')
-
                 <div class='col-xs-6 col-sm-3 col-md-2'>
                     <a href="{{ $card->url }}" title="{{{ $card->name  . " " . $card->rarity }}}">
                         @if(file_exists(public_path() . '/images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg'))
-                            <img class="image-responsive center-block" src="{{ asset('images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg') }}" width="90%">
+                            <div class="img_wrapper">
+                                <img class="image-responsive center-block" src="{{ asset('images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg') }}" width="90%" onload="imgLoaded(this)">
+                            </div>
                         @else
-                             <img class="image-responsive center-block" src="{{ asset('images/cards/'. $card->series->game->id . '-' . 'back.jpg') }}" width="90%">
+                            <div class="img_wrapper">
+                                <img class="image-responsive center-block" src="http://approachphase.files.wordpress.com/2013/05/148lwsm.png" width="90%" onload="imgLoaded(this)">
+                            </div>
                         @endif
                     </a>
                     <p class="text-center series-card-name">
@@ -37,7 +40,9 @@
             @elseif($card->series->game->name == 'Magic The Gathering')
                 <div class='col-xs-6 col-sm-3 col-md-2'>
                     <a href="{{ $card->url }}" title="{{{ $card->name  . " " . $card->rarity }}}">
-                         <img class="image-responsive center-block" src="{{ ('http://mtgimage.com/set/' . $card->serial_number . '/' . $card->attributes->find(17)->pivot->value . '.jpg') }}" width="90%">
+                        <div class="img_wrapper">
+                            <img class="image-responsive center-block" src="{{ ('http://mtgimage.com/set/' . $card->serial_number . '/' . $card->attributes->find(17)->pivot->value . '.jpg') }}" width="90%" onload="imgLoaded(this)">
+                        </div>
                     </a>
                     <p class="text-center series-card-name">
                         {{ $card->name  . " " . $card->rarity }}
@@ -56,15 +61,9 @@
 @section('scripts')
     @parent
     <script type="text/javascript">
-        $(function() {
-            $card = $('.card').first();
-            setTimeout(function() {
-                $card.find('.flip-container').addClass('hover');
-                setInterval(function() {
-                    $card = $card.next();
-                    $card.find('.flip-container').addClass('hover');
-                }, 300);
-            }, 300);
-        });
+        function imgLoaded(img){
+            var imgWrapper = img.parentNode;
+            imgWrapper.className += imgWrapper.className ? ' loaded' : 'loaded';
+        };
     </script>
 @stop
