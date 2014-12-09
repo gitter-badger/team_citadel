@@ -20,14 +20,9 @@
     <div class='row'>
         @foreach($aSeriesCards as $card)
             @if($card->series->game->name == 'Weiss Schwarz')
-
-                <div class='col-xs-6 col-sm-3 col-md-2'>
+                <div class='col-xs-4 col-sm-3 col-lg-2'>
                     <a href="{{ $card->url }}" title="{{{ $card->name  . " " . $card->rarity }}}">
-                        @if(file_exists(public_path() . '/images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg'))
-                            <img class="image-responsive center-block" src="{{ asset('images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg') }}" width="90%">
-                        @else
-                             <img class="image-responsive center-block" src="{{ asset('images/cards/'. $card->series->game->id . '-' . 'back.jpg') }}" width="90%">
-                        @endif
+                        <img class="center-block" src="{{ $card->getSmallImageURL() }}">
                     </a>
                     <p class="text-center series-card-name">
                         {{ $card->name  . " " . $card->rarity }}

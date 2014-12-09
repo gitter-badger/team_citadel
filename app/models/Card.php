@@ -51,4 +51,31 @@ class Card extends Eloquent
 
         return json_encode($averageRatings);
     }
+
+    public function getLargeImageURL()
+    {
+        if (file_exists(public_path() . '/images/cards/large/'. str_replace('/', '-', $this->serial_number) . '-' . $this->rarity . '.jpg')) {
+            return '/images/cards/large/'. str_replace('/', '-', $this->serial_number) . '-' . $this->rarity . '.jpg';
+        } else {
+            return '/images/cards/small/'. $this->series->game->id . '-' . 'back.jpg';
+        }
+    }
+
+    public function getMediumImageURL()
+    {
+        if (file_exists(public_path() . '/images/cards/medium/'. str_replace('/', '-', $this->serial_number) . '-' . $this->rarity . '.jpg')) {
+            return '/images/cards/medium/'. str_replace('/', '-', $this->serial_number) . '-' . $this->rarity . '.jpg';
+        } else {
+            return '/images/cards/medium/'. $this->series->game->id . '-' . 'back.jpg';
+        }
+    }
+
+    public function getSmallImageURL()
+    {
+        if (file_exists(public_path() . '/images/cards/small/'. str_replace('/', '-', $this->serial_number) . '-' . $this->rarity . '.jpg')) {
+            return '/images/cards/small/'. str_replace('/', '-', $this->serial_number) . '-' . $this->rarity . '.jpg';
+        } else {
+            return '/images/cards/small/'. $this->series->game->id . '-' . 'back.jpg';
+        }
+    }
 }

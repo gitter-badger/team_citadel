@@ -23,4 +23,14 @@ class Series extends Eloquent
         $seriesName = str_replace(' ', '', $this->name);
         return URL::route('set.show', [$gameName, $this->id]);
     }
+
+    public function getLargeImageURL()
+    {
+        return 'images/series/large/'. $this->id . '.jpg';
+    }
+
+    public function getSmallImageURL()
+    {
+        return 'images/series/small/'. $this->id . '.jpg';
+    }
 }

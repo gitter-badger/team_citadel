@@ -15,11 +15,7 @@
     <div class="row">
         <div class="col-xs-12 col-md-4">
             <a data-toggle="modal" data-target="#image-modal" href="">
-                @if(file_exists(public_path() . '/images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg'))
-                    <img class="image-responsive center-block" src="{{ asset('images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg') }}" width="70%">
-                @else
-                    <img class="image-responsive center-block" src="{{ asset('images/cards/back.jpg') }}">
-                @endif
+                <img class="center-block" src="{{ $card->getMediumImageURL() }}" width="70%">
             </a>
         </div>
         <div class="col-xs-12 col-md-8">
@@ -108,11 +104,7 @@
     <div class="modal fade" id="image-modal">
         <div class="modal-dialog">
             <div class="modal-content modal-popup-image">
-                @if(file_exists('public/images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg'))
-                    <img class="series-image image-responsive center-block" src="{{ asset('images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg') }}">
-                @else
-                    <img class="series-image image-responsive center-block" src="{{ asset('images/cards/back.jpg') }}">
-                @endif
+                <img class="center-block" src="{{ $card->getLargeImageURL() }}" width="100%">
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->

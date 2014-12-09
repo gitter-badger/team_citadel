@@ -5,14 +5,14 @@
 @section('content')
     <div class='row'>
         @foreach($series as $aSeries)
-            <div class='col-xs-12 col-sm-2'>
+            @if(count($aSeries->cards->all()) > 0)
+                <div class='col-xs-12 col-sm-2'>
+            @else
+                <div class='col-xs-12 col-sm-2 disabled'>
+            @endif
                 <div style="min-height:160px">
                     <a class="series-box" href="{{ $aSeries->url }}">
-                        @if(file_exists(public_path() . '/images/series/' . $aSeries->id . '.jpg'))
-                            <img class="series-images image-responsive center-block" src="{{ asset('images/series/'. $aSeries->id . '.jpg') }}" width="90%">
-                        @else
-                            <img class="series-images image-responsive center-block" src="{{ URL::to('http://placehold.it/210x210') }}" width="90%">
-                        @endif
+                        <img class="series-images image-responsive center-block" src="{{ $aSeries->getLargeImageURL() }}" width="90%">
                     </a>
                     <h5 class='text-center series-card-name' title="{{{ $aSeries->name }}}">
                         {{ $aSeries->name }}

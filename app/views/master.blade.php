@@ -104,5 +104,9 @@
     {{ HTML::script('//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js', ["type" => "text/javascript"]) }}
     {{ HTML::script('//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js', ["type" => "text/javascript"]) }}
     {{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/selectize.js/0.11.2/js/standalone/selectize.js', ["type" => "text/javascript"]) }}
+
+    <script>
+        // TODO: restrict search to over 2 characters
+    </script>
 @show
 </html>

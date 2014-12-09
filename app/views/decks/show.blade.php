@@ -14,11 +14,7 @@
                             <div style="min-height: 100px">
                                 <!-- if image exists, show it, else show back of card -->
                                 @if($deck->game_id == 1)
-                                    @if(file_exists(public_path() . '/images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg'))
-                                        <img class="image-responsive center-block" src="{{ asset('images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg') }}" width="90%" style="height: 200px">
-                                    @else
-                                        <img class="image-responsive center-block" src="{{ asset('images/games/' . $deck->game_id . '-back.jpg') }}" width="90%" style="height: 200px">
-                                    @endif
+                                    <img class="center-block" src="{{ $card->getSmallImageURL() }}">
                                 @elseif($deck->game_id == 2)
                                     <img class="image-responsive center-block" src="{{ ('http://mtgimage.com/set/' . $card->serial_number . '/' . $card->name . '.jpg') }}" style="height: 200px">
                                 @endif
