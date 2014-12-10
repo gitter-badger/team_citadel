@@ -12,14 +12,13 @@
             <div class="col-md-12  post-border ">
                     <span class="col-sm-3 col-md-2 vCenter">
                         @if($deck->game_id == 1)
-                            <img class="responsive-image center-block" src="{{ asset('images/cards/'. str_replace('/', '-', $deck->cards->first()->serial_number) . '-' . $deck->cards->first()->rarity . '.jpg') }}" width="70%">
+                            <img class="responsive-image center-block" src="{{ $deck->cards->first()->getSmallImageURL() }}" width="70%">
                         @elseif($deck->game_id == 2)
                             <img class="responsive-image center-block" src="http://mtgimage.com/card/cardback.hq.jpg" width="70%">
                         @endif
                     </span>
                 <div class="col-md-9 vCenter">
                     <div class=''>
-
                         <h4>{{{ ucwords($deck->title) }}}</h4> {{ link_to_route('deck.show', 'See full deck', [$deck->id]) }}
                     </div>
                     <hr>
