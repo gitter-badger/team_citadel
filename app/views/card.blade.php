@@ -78,11 +78,11 @@
                         <div class="form-group">
                             <label class="rating-lable">{{ $rateable->name }}</label>
                             <div class="rating-stars" data-rateable-name="{{ $rateable->name }}" data-rateable-id="{{ $rateable->id }}">
-                                <span class="glyphicon glyphicon-star-empty"></span>
-                                <span class="glyphicon glyphicon-star-empty"></span>
-                                <span class="glyphicon glyphicon-star-empty"></span>
-                                <span class="glyphicon glyphicon-star-empty"></span>
-                                <span class="glyphicon glyphicon-star-empty"></span>
+                                <span class="glyphicon glyphicon-star-empty star"></span>
+                                <span class="glyphicon glyphicon-star-empty star"></span>
+                                <span class="glyphicon glyphicon-star-empty star"></span>
+                                <span class="glyphicon glyphicon-star-empty star"></span>
+                                <span class="glyphicon glyphicon-star-empty star"></span>
                             </div>
                         </div>
                     @endforeach

@@ -209,8 +209,12 @@ html {
     font-size: 12px;
 }
 
-/* 
-*  The .img_wrapper and img styles should be 
+.star {
+    cursor: pointer;
+}
+
+/*
+*  The .img_wrapper and img styles should be
 *  changed to suit your project. The only crucial
 *  properties are the opacity values and CSS3 transitions
 *  defined on the img tags.
@@ -231,7 +235,7 @@ html {
     top: 0;
     left: 0;
     opacity: 0;
-  
+
     -webkit-transition: opacity .5s;
     -moz-transition: opacity .5s;
     -ms-transition: opacity .5s;
@@ -261,7 +265,7 @@ html {
     top: 0;
     left: 0;
     opacity: 0;
-  
+
     -webkit-transition: opacity .5s;
     -moz-transition: opacity .5s;
     -ms-transition: opacity .5s;
