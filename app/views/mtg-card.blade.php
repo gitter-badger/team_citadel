@@ -16,7 +16,7 @@
         <div class="col-xs-12 col-md-4">
             <a data-toggle="modal" data-target="#image-modal" href="">
                 <div class="img_wrapper_card center-block">
-                    <img class="image-responsive" src="{{ ('http://mtgimage.com/set/' . $card->serial_number . '/' . $card->name . '.jpg') }}" width="50%" onload="imgLoaded(this)">
+                    <img class="image-responsive" src="{{ $card->getMediumImageURL() }}" width="50%" onload="imgLoaded(this)">
                 </div>
             </a>
         </div>
@@ -69,7 +69,13 @@
                     <label>Card Text/ Abilities</label>
                 </div>
                 <div class="panel-body">
-                    {{{ $card->attributes->find(6)->pivot->value }}}
+                    @if($card->attributes->find(6))
+                        <td><label>Trigger</label></td>
+                        <td>{{ $card->attributes->find(6)->pivot->value }}</td>
+                    @else
+                        <td>N/A</td>
+                        <td>N/A</td>
+                    @endif
                 </div>
             </div>
         </div>
@@ -120,7 +126,7 @@
     <div class="modal fade" id="image-modal">
         <div class="modal-dialog">
             <div class="modal-content modal-popup-image">
-                <img class="image-responsive center-block" src="{{ ('http://mtgimage.com/set/' . $card->serial_number . '/' . $card->name . '.jpg') }}" width="100%">
+                <img class="image-responsive center-block" src="{{ $card->getLargeImageURL() }}" width="100%">
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
@@ -128,7 +134,7 @@
 
 @section('scripts')
     @parent
-    <script src="/js/charts/chart.min.js"></script>
+    <script src="/js/charts/Chart.min.js"></script>
     <script src="/js/charts/createRadarChart.js"></script>
     <script type="text/javascript">
         function imgLoaded(img) {

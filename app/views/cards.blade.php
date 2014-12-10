@@ -19,7 +19,6 @@
     </div>
     <div class='row'>
         @foreach($aSeriesCards as $card)
-            @if($card->series->game->name == 'Weiss Schwarz')
                 <div class='col-xs-4 col-sm-3 col-lg-2'>
                     <a href="{{ $card->url }}" title="{{{ $card->name  . " " . $card->rarity }}}">
                         <div class="img_wrapper">
@@ -31,19 +30,6 @@
                     </p>
                     <br>
                 </div>
-            @elseif($card->series->game->name == 'Magic The Gathering')
-                <div class='col-xs-6 col-sm-3 col-md-2'>
-                    <a href="{{ $card->url }}" title="{{{ $card->name  . " " . $card->rarity }}}">
-                        <div class="img_wrapper">
-                            <img class="image-responsive center-block" src="{{ ('http://mtgimage.com/set/' . $card->serial_number . '/' . $card->attributes->find(17)->pivot->value . '.jpg') }}" width="90%" onload="imgLoaded(this)">
-                        </div>
-                    </a>
-                    <p class="text-center series-card-name">
-                        {{ $card->name  . " " . $card->rarity }}
-                    </p>
-                    <br>
-                </div>
-            @endif
         @endforeach
     </div>
     <div class="row">
