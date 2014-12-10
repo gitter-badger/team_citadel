@@ -178,7 +178,7 @@
         radarChart({{ $card->average() }});
 
         // change stars based on which is pressed
-        $('.rating-stars span').bind("click touchstart", function(){
+        $('.rating-stars span').on("click touchstart", function(){
             // add stars to star-icon clicked
             $(this)
                 .removeClass('glyphicon-star-empty')
