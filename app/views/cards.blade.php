@@ -22,7 +22,9 @@
             @if($card->series->game->name == 'Weiss Schwarz')
                 <div class='col-xs-4 col-sm-3 col-lg-2'>
                     <a href="{{ $card->url }}" title="{{{ $card->name  . " " . $card->rarity }}}">
-                        <img class="center-block" src="{{ $card->getSmallImageURL() }}">
+                        <div class="img_wrapper">
+                            <img class="center-block" src="{{ $card->getSmallImageURL() }}" onload="imgLoaded(this)">
+                        </div>
                     </a>
                     <p class="text-center series-card-name">
                         {{ $card->name  . " " . $card->rarity }}
@@ -32,7 +34,9 @@
             @elseif($card->series->game->name == 'Magic The Gathering')
                 <div class='col-xs-6 col-sm-3 col-md-2'>
                     <a href="{{ $card->url }}" title="{{{ $card->name  . " " . $card->rarity }}}">
-                         <img class="image-responsive center-block" src="{{ ('http://mtgimage.com/set/' . $card->serial_number . '/' . $card->attributes->find(17)->pivot->value . '.jpg') }}" width="90%">
+                        <div class="img_wrapper">
+                            <img class="image-responsive center-block" src="{{ ('http://mtgimage.com/set/' . $card->serial_number . '/' . $card->attributes->find(17)->pivot->value . '.jpg') }}" width="90%" onload="imgLoaded(this)">
+                        </div>
                     </a>
                     <p class="text-center series-card-name">
                         {{ $card->name  . " " . $card->rarity }}
@@ -51,15 +55,9 @@
 @section('scripts')
     @parent
     <script type="text/javascript">
-        $(function() {
-            $card = $('.card').first();
-            setTimeout(function() {
-                $card.find('.flip-container').addClass('hover');
-                setInterval(function() {
-                    $card = $card.next();
-                    $card.find('.flip-container').addClass('hover');
-                }, 300);
-            }, 300);
-        });
+        function imgLoaded(img){
+            var imgWrapper = img.parentNode;
+            imgWrapper.className += imgWrapper.className ? ' loaded' : 'loaded';
+        };
     </script>
 @stop
