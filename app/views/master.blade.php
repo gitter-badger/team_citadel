@@ -62,8 +62,6 @@
                             <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="{{url('listing/create')}}">Sell</a></li>
-                            <li class="divider"></li>
                             <li>{{ link_to('logout', 'Log Out' )}}</li>
                         </ul>
                     @else
