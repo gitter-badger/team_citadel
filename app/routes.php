@@ -14,7 +14,6 @@
 Route::get('tinker', function () {
 });
 
-
 Route::get('/', [
     'as' => 'welcome',
     function () {
@@ -22,21 +21,32 @@ Route::get('/', [
     }
 ]);
 
-Route::resource('user', 'UsersController');
-Route::resource('listing', 'ListingController');
-Route::resource('market', 'MarketController');
-Route::resource('series', 'SeriesController');
-Route::resource('card', 'CardController');
+// Routes that requires authentication before becoming viewable
+Route::group(['before' => 'auth'], function () {
+    // Has Auth Filter
+    Route::get('logout', function () {
+        Auth::logout();
+        return Redirect::to('/')
+            ->with('message', 'You have logged out');
+    });
 
 
-Route::get('sendemail', [
-    'as' => 'send.email', 
-    function() {
-        Mail::send('emails.test', array(), function($message) {
-            $message->to('adamjama7@gmail.com', 'John Smith')->subject('Welcome!')->from('ajama@alacrityfoundation.com', 'Adam Jama');
-        }); 
-    }
-]);
+});
+
+// Group all deck routes together
+Route::group(['prefix' => 'decks'], function () {
+    Route::get('/', [
+        'as' => 'decks',
+        'uses' => 'DeckController@index'
+    ]);
+
+
+    Route::get('/{deck_id}', [
+        'as' =>  'deck.show',
+        'uses' => 'DeckController@show'
+    ])->where('deck_id', '[0-9]+');
+});
+
 
 Route::get('messages/create',[
     'as' => 'create.message',
@@ -63,23 +73,118 @@ Route::get('messages/reply/{username}', [
     'as' => 'reply.message',
     'uses' => 'ConversationsController@reply'
     ]);
+Route::get('search/cards/', array(
+    'as' => 'cards.search',
+    'uses' => 'CardController@cardSearch'
+));
+
+// Routes that requires authentication before becoming viewable
+Route::group(['before' => 'auth'], function () {
+    Route::get('/create', [
+        'as' => 'deck.create',
+        'uses' => 'DeckController@create'
+    ]);
+
+    Route::get('/{deck_id}/edit', [
+        'as' => 'deck.edit',
+        'uses' => 'DeckController@edit'
+    ]);
+
+    Route::get('/getcards', [
+        'as' => 'addCardSearch',
+        'uses' => 'DeckController@addCardSearch'
+    ]);
+
+    Route::get('logout', function () {
+        Auth::logout();
+        return Redirect::to('/')
+            ->with('message', 'You have logged out');
+    });
+
+    Route::group(['before' => 'csrf'], function () {
+        Route::post('/create', [
+            'as' => 'deck.store',
+            'uses' => 'DeckController@store'
+        ]);
+
+        Route::post('/{deck_id}', [
+            'as' => 'addCard',
+            'uses' => 'DeckController@addCard'
+        ])->where('deck_id', '[0-9]+');
+    });
+});
 
 
+
+//Group for password reset
+Route::group(['prefix' => 'password'], function () {
+    Route::get('/reset', array(
+        'as' => 'password.remind',
+        'uses' => 'PasswordController@remind',
+    ));
+
+    Route::post('/reset', array(
+        'as' => 'password.request',
+        'uses' => 'PasswordController@request'
+
+    ));
+
+    Route::get('/reset/{token}', array(
+        'uses' => 'PasswordController@reset',
+        'as' => 'password.reset'
+    ));
+
+    Route::post('/reset/{token}', array(
+        'uses' => 'PasswordController@update',
+        'as' => 'password.update'
+    ));
+});
+
+Route::get('username/reset', array(
+    'as' => 'username.remind',
+    'uses' => 'PasswordController@usernameRemind'
+));
+
+Route::resource('user', 'UsersController');
+
+Route::get('{gameName}/{seriesName}/{id}',[
+    'as' => 'aCard.show',
+    'uses' => 'CardController@show'
+]);
+
+Route::get('login', array(
+    'as' => 'login',
+    'uses' => 'UsersController@login'
+));
 
 Route::get('search/cards/', array(
     'as' => 'cards.search',
     'uses' => 'CardController@cardSearch'
 ));
 
-Route::get('username/reset', array(
-    'as' => 'username.remind',
-    'uses' => 'PasswordController@usernameRemind'
-    ));
+Route::get('{gameName}/{id}',[
+    'as' => 'set.show',
+    'uses' => 'SeriesController@show'
+]);
+
+Route::get('/{gameName}',[
+    'as' => 'games.show',
+    'uses' => 'GameController@show'
+]);
+
+Route::get('sendemail', [
+    'as' => 'send.email',
+    function() {
+        Mail::send('emails.test', array(), function($message) {
+            $message->to('adamjama7@gmail.com', 'John Smith')->subject('Welcome!')->from('ajama@alacrityfoundation.com', 'Adam Jama');
+        });
+    }
+]);
 
 Route::post('username/reset', array(
     'as' => 'username.request',
     'uses' => 'PasswordController@usernamerequest'
-    ));
+));
 
 Route::get('username/reset/{token}', array(
     'as' => 'username.reset',
@@ -91,48 +196,17 @@ Route::post('username/reset/{token}', array(
     'uses' => 'PasswordController@usernameupdate',
 ));
 
-Route::get('password/reset', array(
-    'as' => 'password.remind',
-    'uses' => 'PasswordController@remind',
-));
+Route::resource('listing', 'ListingController');
+Route::resource('market', 'MarketController');
+Route::resource('series', 'SeriesController');
+Route::resource('card', 'CardController');
+Route::resource('game', 'GameController');
+Route::resource('rating', 'RatingController');
 
-Route::post('password/reset', array(
-    'as' => 'password.request',
-    'uses' => 'PasswordController@request'
-
-));
-
-Route::get('password/reset/{token}', array(
-    'uses' => 'PasswordController@reset',
-    'as' => 'password.reset'
-));
-
-Route::post('password/reset/{token}', array(
-    'uses' => 'PasswordController@update',
-    'as' => 'password.update'
-));
-
-Route::get('register', array(
-    'as' => 'registration',
-    'uses' => 'UsersController@registration'
-));
-
-Route::post('upload', 'UsersController@upload');
-
-Route::post('register', array(
-    'as' => 'registered',
-    'uses' => 'UsersController@store'
-));
-
-Route::get('register/{username}/edit', array(
-    'as' => 'edit.profile.form',
+Route::get('user/{username}/edit', [
+    'as' => 'edit.user',
     'uses' => 'UsersController@edit'
-));
-
-Route::get('login', array(
-    'as' => 'login',
-    'uses' => 'UsersController@login'
-));
+]);
 
 Route::post('login', function () {
     if (Auth::attempt(Input::only('username', 'password'))) {
@@ -143,17 +217,6 @@ Route::post('login', function () {
             ->with('error', "Invalid credentials");
     }
 });
-
-// Routes that requires authentication before becoming viewable
-Route::group(['before' => 'auth'], function () {
-        // Has Auth Filter
-        Route::get('logout', function () {
-            Auth::logout();
-            return Redirect::to('/')
-                ->with('message', 'You have logged out');
-        });
-    }
-);
 
 // if it is a feature not ready place it here plx
 Route::group(['before' => 'env'], function () {
@@ -196,41 +259,17 @@ Route::group(['before' => 'env'], function () {
     });
 
     // quicksearch
-    Route::get('/quicksearch/cards/', function() {
+    Route::get('/quicksearch/cards/', function () {
         $query = Input::get('query');
         $cards = DB::table('cards')->where('name', 'LIKE', '%'.$query.'%')->take(4)->get();
         return Response::json($cards);
     });
+});
 
-    // Group all deck routes together
-    Route::group(['prefix' => 'decks'], function () {
-        Route::get('/', [
-            'as' => 'decks',
-            'uses' => 'DeckController@index'
-        ]);
-
-        Route::get('/{deck_id}', [
-            'as' =>  'getDeck',
-            'uses' => 'DeckController@show'
-        ])->where('deck_id', '[0-9]+');
-
-        Route::group(['before' => 'auth'], function () {
-            Route::get('/create', [
-                'as' => 'newDeck',
-                'uses' => 'DeckController@create'
-            ]);
-
-            Route::get('/{deck_id}/edit', [
-                'as' => 'editDeck',
-                'uses' => 'DeckController@edit'
-            ]);
-
-            Route::group(['before' => 'csrf'], function () {
-                Route::post('/create', [
-                    'as' => 'postDeck',
-                    'uses' => 'DeckController@postDeck'
-                ]);
-            });
-        });
-    });
+Route::group(['before' => 'auth'], function () {
+    // Has Auth Filter
+    Route::post('rating/update/{card_id}', [
+            'as' => 'rating.update',
+            'uses' => 'RatingController@update'
+    ]);
 });

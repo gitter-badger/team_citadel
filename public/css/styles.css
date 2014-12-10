@@ -1,5 +1,7 @@
 /*# sourceMappingURL=bootstrap.css.map */
-
+html {
+    min-width: 500px;
+}
 /*    --------------------------------------------------
   :: Login Section
   -------------------------------------------------- */
@@ -54,7 +56,7 @@
 }
 #login .btn.btn-custom {
     font-size: 14px;
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 #login .forget, .signup {
     font-size: 13px;
@@ -136,4 +138,148 @@
     opacity: 0.3;
     pointer-events: none;
     cursor: default;
+}
+/* ------------------------------------------------------
+    Flip Animation
+   ------------------------------------------------------- */
+
+/* entire container, keeps perspective */
+.flip-container {
+    perspective: 1000;
+}
+
+/* flip the pane when hovered */
+.flip-container:hover .flipper, .flip-container.hover .flipper {
+    transform: rotateY(180deg);
+}
+
+.flip-container, .front, .back {
+    width: 100%;
+    height: 100%;
+}
+
+/* flip speed goes here */
+.flipper {
+    transition: 0.5s;
+    transform-style: preserve-3d;
+
+    position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+    z-index: 2;
+    /* for firefox 31 */
+    transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+    transform: rotateY(180deg);
+}
+/* ------------------------------------------------------
+    Card rating
+   ------------------------------------------------------- */
+.rating-stars span {
+    font-size: 1.5em;
+}
+
+.rating-lable {
+    float: left;
+    width: 150px;
+    text-align: right;
+    margin-right: 0.5em;
+}
+
+.scrollable-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}
+
+.search-subtext{
+    font-size: 12px;
+}
+
+.star {
+    cursor: pointer;
+}
+
+/*
+*  The .img_wrapper and img styles should be
+*  changed to suit your project. The only crucial
+*  properties are the opacity values and CSS3 transitions
+*  defined on the img tags.
+*/
+
+.img_wrapper {
+    position: relative;
+    padding-top: 100%;
+    padding-bottom: 40%;
+    margin-bottom: 10px;
+    background: #fafafa;
+    overflow: hidden;
+}
+
+.img_wrapper img{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+
+    -webkit-transition: opacity .5s;
+    -moz-transition: opacity .5s;
+    -ms-transition: opacity .5s;
+    transition: opacity .5s;
+}
+
+.img_wrapper.loaded img{
+    opacity: 1;
+}
+
+.img_wrapper.loaded .css_spinner{
+    display: none;
+}
+
+.img_wrapper_card {
+    position: relative;
+    padding-top: 100%;
+    max-width: 65%;
+    margin-bottom: 10px;
+    background: #fafafa;
+    overflow: hidden;
+}
+
+.img_wrapper_card img{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+
+    -webkit-transition: opacity .5s;
+    -moz-transition: opacity .5s;
+    -ms-transition: opacity .5s;
+    transition: opacity .5s;
+}
+
+.img_wrapper_card.loaded img{
+    opacity: 1;
+}
+
+.img_wrapper_card.loaded .css_spinner{
+    display: none;
+}
+
+img.image-responsive.center-block {
+    padding-bottom: 15px;
 }

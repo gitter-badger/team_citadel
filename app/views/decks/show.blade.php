@@ -1,34 +1,50 @@
 @extends('master')
 
     @section('header')
+        <h2 class="text-center">{{{ ucwords($deck->title) }}}</h2>
     @stop
 
     @section('content')
-        <div  class="">
-            <div class="item"><h1>1</h1></div>
-            <div class="item"><h1>2</h1></div>
-            <div class="item"><h1>3</h1></div>
-            <div class="item"><h1>4</h1></div>
-            <div class="item"><h1>5</h1></div>
-            <div class="item"><h1>6</h1></div>
-            <div class="item"><h1>7</h1></div>
-            <div class="item"><h1>8</h1></div>
-            <div class="item"><h1>9</h1></div>
-            <div class="item"><h1>10</h1></div>
-            <div class="item"><h1>11</h1></div>
-            <div class="item"><h1>12</h1></div>
-            <div class="item"><h1>13</h1></div>
-            <div class="item"><h1>14</h1></div>
-            <div class="item"><h1>15</h1></div>
-            <div class="item"><h1>16</h1></div>
-            <div class="item"><h1>17</h1></div>
-            <div class="item"><h1>18</h1></div>
-            <div class="item"><h1>19</h1></div>
-            <div class="item"><h1>20</h1></div>
-        </div>
+        {{ Form::open(['route' => ['addCard', $deck->id]]) }}
+
+            <div class="row">
+                @foreach($deck->cards as $card)
+                    <div class='col-sm-2 col-xs-12'>
+                        <a href="{{ $card->url }}" title="{{{ $card->name  . " " . $card->rarity }}}">
+                            <div style="min-height: 100px">
+                                <!-- if image exists, show it, else show back of card -->
+                                @if($deck->game_id == 1)
+                                    <img class="center-block" src="{{ $card->getSmallImageURL() }}">
+                                @elseif($deck->game_id == 2)
+                                    <img class="image-responsive center-block" src="{{ ('http://mtgimage.com/set/' . $card->serial_number . '/' . $card->name . '.jpg') }}" style="height: 200px">
+                                @endif
+                            </div>
+                            <p class="text-center series-card-name">
+                                {{ $card->name  . " " . $card->rarity }}
+                            </p>
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+            @if(Auth::check()) {{-- if we don't check to see if user is logged in, we get property of non-object --}}
+                @if(Auth::user()->id == $deck->users->first()->id)
+                    <div class="form-group">
+                        <div class="well">
+                            <div class="row">
+                                {{ Form::label('Cards') }}
+                                {{ Form::hidden('deck', $deck->id) }}
+                                {{ Form::text("query", "", ["class" => "form-control", "id" => 'searchbox', 'placeholder' => "Search Cards for your Deck...", 'data-id' => $deck->game_id]) }}
+                                {{ Form::submit('Add Cards', ['class' => 'btn btn-primary pull-right']) }}
+                            </div>
+                        </div>
+                    </div>
+                @endif
+            @endif
+
+        {{ Form::close() }}
     @stop
 
     @section('scripts')
         @parent
-        <script type="text/javascript" src="{{asset('js/carousel.js')}}"></script>
+        {{ HTML::script('js/input-select-dropdown.js', ["type" => "text/javascript"]) }}
     @stop

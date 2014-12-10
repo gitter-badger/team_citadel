@@ -27,18 +27,40 @@ class CardController extends \BaseController {
     {
         //
     }
-    /**
+        /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return Response
      */
-    public function show($id)
+    public function show($gameName, $seriesName, $id)
     {
         //
-        //
         $card = Card::find($id);
-        return View::make('card', compact('card'));
+        $gameName = $card->series->game->name;
+        $rateables = $card->series->game->rateables;
+        $previousUserRatings = [];
+
+        // get the average for each rateable.
+        if(Auth::check()) {
+            foreach ($rateables as $rateable) {
+                $previousUserRatings[$rateable->name] = Rating::whereCardId($id)
+                    ->whereRateableId($rateable->id)
+                    ->whereUserId(Auth::user()->id)
+                    ->pluck('value');
+            }
+        }
+
+        switch ($gameName) {
+            case 'Weiss Schwarz':
+                return View::make('card', compact('card', 'rateables', 'previousUserRatings'));
+
+            case 'Magic The Gathering':
+                return View::make('mtg-card', compact('card', 'rateables', 'previousUserRatings'));
+
+            default:
+                return App::abort(404);
+        }
     }
     /**
      * Show the form for editing the specified resource.
@@ -68,13 +90,13 @@ class CardController extends \BaseController {
      */
     public function destroy($id)
     {
-        //
-    }
 
+    }
     public function cardSearch() {
         $query = Input::get('query');
         if($query) {
-            $cards = Card::where('cards.name', 'LIKE', '%'.$query.'%')->get();
+            $cards = Card::whereRaw("MATCH(cards.name) AGAINST('+$query*' IN BOOLEAN MODE)")
+                ->get();
         } else {
             $cards = null;
         }
