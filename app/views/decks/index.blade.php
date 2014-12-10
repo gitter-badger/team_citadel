@@ -9,13 +9,11 @@
 @section('content')
      @foreach($decks as $deck)
         <div class="row">
-            <div class="col-md-12  post-border ">
-                    <span class="col-sm-3 col-md-2 vCenter">
-                        @if($deck->game_id == 1)
-                            <img class="responsive-image center-block" src="{{ $deck->cards->first()->getSmallImageURL() }}" width="70%">
-                        @elseif($deck->game_id == 2)
-                            <img class="responsive-image center-block" src="http://mtgimage.com/card/cardback.hq.jpg" width="70%">
-                        @endif
+            <div class="col-md-12  post-border">
+                    <span class="col-sm-3 col-md-2 vCenter ">
+                        <div class="img_wrapper_cards">
+                            <img class="responsive-image center-block" src="{{ $deck->cards->first()->getSmallImageURL() }}" width="70%" onload="imgLoaded(this)">
+                        </div>
                     </span>
                 <div class="col-md-9 vCenter">
                     <div class=''>

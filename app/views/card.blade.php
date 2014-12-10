@@ -11,14 +11,14 @@
         </ol>
     </div>
     <div class="row">
-        <div class="col-xs-12 col-md-4">
+        <div class="col-xs-6 col-md-4">
             <a data-toggle="modal" data-target="#image-modal" href="">
                 <div class="img_wrapper_card center-block">
                     <img class="center-block" src="{{ $card->getMediumImageURL() }}" width="70%" onload="imgLoaded(this)">
                 </div>
             </a>
         </div>
-        <div class="col-xs-12 col-md-8">
+        <div class="col-xs-6 col-md-8">
             <table class="table table-striped">
                 <tr>
                     <td><label>Type</label></td>
@@ -114,12 +114,6 @@
     @parent
     <script src="/js/charts/Chart.min.js"></script>
     <script src="/js/charts/createRadarChart.js"></script>
-    <script type="text/javascript">
-        function imgLoaded(img) {
-            var imgWrapper = img.parentNode;
-            imgWrapper.className += imgWrapper.className ? ' loaded' : 'loaded';
-        };
-    </script>
     <script>
     $(function() {
         // The users previous rating. values will be null if they have not rated before
@@ -178,7 +172,7 @@
         radarChart({{ $card->average() }});
 
         // change stars based on which is pressed
-        $('.rating-stars span').on("click touchstart", function(){
+        $('.rating-stars span').bind("click touchstart", function(){
             // add stars to star-icon clicked
             $(this)
                 .removeClass('glyphicon-star-empty')

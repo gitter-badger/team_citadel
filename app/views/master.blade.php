@@ -15,7 +15,13 @@
 
       ga('create', 'UA-57164605-1', 'auto');
       ga('send', 'pageview');
+    </script>
 
+    <script type="text/javascript">
+        function imgLoaded(img) {
+            var imgWrapper = img.parentNode;
+            imgWrapper.className += imgWrapper.className ? ' loaded' : 'loaded';
+        };
     </script>
 </head>
 <body>

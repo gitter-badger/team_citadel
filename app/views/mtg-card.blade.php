@@ -137,12 +137,6 @@
     @parent
     <script src="/js/charts/Chart.min.js"></script>
     <script src="/js/charts/createRadarChart.js"></script>
-    <script type="text/javascript">
-        function imgLoaded(img) {
-            var imgWrapper = img.parentNode;
-            imgWrapper.className += imgWrapper.className ? ' loaded' : 'loaded';
-        };
-    </script>
     <script>
     $(function() {
         // The users previous rating. values will be null if they have not rated before

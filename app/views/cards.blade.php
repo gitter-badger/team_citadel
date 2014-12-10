@@ -3,12 +3,6 @@
     <h1 class="text-center">{{ $aSeries->game->name }} <small>- {{ $aSeries->name }}</small></h1>
 @stop
 @section('content')
-    <script type="text/javascript">
-        function imgLoaded(img){
-            var imgWrapper = img.parentNode;
-            imgWrapper.className += imgWrapper.className ? ' loaded' : 'loaded';
-        };
-    </script>
     <div class="row">
         <ol class="breadcrumb">
             <li>
