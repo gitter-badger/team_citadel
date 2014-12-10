@@ -4,21 +4,11 @@
 @stop
 @section('content')
     <div class="row">
-<<<<<<< HEAD
         <ol class="breadcrumb">
             <li><a href="{{ URL::route('games.show','MagicTheGathering') }}"> {{ $card->series->game->name }} </a></li>
             <li><a href="{{ $card->series->url }}">{{ $card->series->name }}</a></li>
             <li class="active">{{ $card->serial_number . " " . $card->rarity }} </li>
         </ol>
-=======
-        <div class="col-xs-12 col-md-12">
-            <ol class="breadcrumb">
-                <li><a href="{{ URL::route('games.show','MagicTheGathering') }}"> {{ $card->series->game->name }} </a></li>
-                <li><a href="{{ $card->series->url }}">{{ $card->series->name }}</a></li>
-                <li class="active">{{ $card->name }} </li>
-            </ol>
-        </div>
->>>>>>> bd9602a569de85d9e81053393d477593832f4630
     </div>
     <div class="row">
         <div class="col-xs-12 col-md-4">
@@ -39,7 +29,6 @@
                     </td>
                 </tr>
                 <tr>
-<<<<<<< HEAD
                     @if($card->attributes->find(11))
                         <td><label>Mana Cost</label></td>
                         <td>{{ $card->attributes->find(11)->pivot->value }}</td>
@@ -49,19 +38,6 @@
                         <td><label>Mana Cost</label></td>
                         <td>N/A</td>
                         <td><label>Converted Mana Cost</label></td>
-=======
-                    <td><label>Mana Cost</label></td>
-                    @if($card->attributes->find(11))
-                        <td>{{ $card->attributes->find(11)->pivot->value }}</td>
-                    @else
-                        <td>N/A</td>
-                    @endif
-
-                    <td><label>Converted Mana Cost</label></td>
-                    @if($card->attributes->find(12))
-                        <td>{{ $card->attributes->find(12)->pivot->value }}</td>
-                    @else
->>>>>>> bd9602a569de85d9e81053393d477593832f4630
                         <td>N/A</td>
                     @endif
                 </tr>
