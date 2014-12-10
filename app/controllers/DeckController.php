@@ -54,7 +54,7 @@ class DeckController extends \BaseController
 
             if ($deck->save()) {
                 $deck->users()->sync([Auth::user()->id]);
-                return Redirect::route('getDeck', $deck->id)->with('success', 'The Deck was Created');
+                return Redirect::route('getDeck', $deck->id)->with('success', 'The Deck was sent');
             } else {
                 return Redirect::route('newDeck')->with('fail', 'An Error Occurred while Saving');
             }

@@ -5,14 +5,8 @@
     <li role="presentation" class="active"><a href="#wall-tab" role="tab" data-toggle="tab">Wall</a></li>
     <li role="presentation"><a href="#profile" role="tab" data-toggle="tab">Profile</a></li>
     <li role="presentation"><a href="#myMarket" role="tab" data-toggle="tab">Order History</a></li>
-    @if( Auth::check() )
-        @if( Auth::user()->id == $user->id )
-            <li role="presentation"><a href="#messages" role="tab" data-toggle="tab">Messages</a></li>
-        @endif
-        @if( Auth::user()->id == $user->id )
-            <li role="presentation"><a href="#settings" role="tab" data-toggle="tab">Settings</a></li>
-        @endif
-    @endif
+    <li role="presentation"><a href="#messages" role="tab" data-toggle="tab">Messages</a></li>
+    <li role="presentation"><a href="#settings" role="tab" data-toggle="tab">Settings</a></li>    
 </ul>
 <!-- Tab panes -->
 <div class="tab-content col-md-12">
@@ -22,9 +16,6 @@
                 <h4 class="text-center">
                     <a href="/decks/create">
                         Create Deck <icon class="glyphicon glyphicon-plus-sign"></icon>
-                    </a>
-                    <a href="/messages/create">
-                    Create Message <icon class="glyphicon glyphicon-envelope"></icon>
                     </a>
                 </h4>
             </div>
@@ -41,6 +32,36 @@
             </div>
         @endforeach
     </div>
+
+    <div role="tabpanel" class="tab-pane" id="messages">
+        <div class="row well post-border">
+            <div class="col-md-3">
+                <h4 class="text-center">
+                    <a href="/messages/create">
+                        Create Message <icon class="glyphicon glyphicon-envelope"></icon>
+                    </a>
+                </h4>
+            </div>
+        </div>
+        <div class="row well post-border">
+            <div class="col-md-3">
+                <h4 class="text-center">
+                    <a href="/messages/sent">
+                        Sent <icon class="glyphicon glyphicon-envelope"></icon>
+                    </a>
+                </h4>
+            </div>
+        </div>
+        <div class="row well post-border">
+            <div class="col-md-3">
+                <h4 class="text-center">
+                    <a href="/messages/received">
+                        Inbox <icon class="glyphicon glyphicon-envelope"></icon>
+                    </a>
+                </h4>
+            </div>
+        </div>
+    </div> 
 
     <div role="tabpanel" class="tab-pane" id="profile">
         <div class="row">
@@ -183,7 +204,7 @@
     </div>
     @if( Auth::check() )
         @if( Auth::user()->id == $user->id )
-            <div role="tabpanel" class="tab-pane" id="messages">Future Updates</div>
+        <div role="tabpanel" class="tab-pane" id="messages">Future Updates</div>
         @endif
         @if( Auth::user()->id == $user->id )
             <div role="tabpanel" class="tab-pane" id="settings">Future Updates</div>

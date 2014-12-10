@@ -38,10 +38,33 @@ Route::get('sendemail', [
     }
 ]);
 
-Route::get('sendmessage',[
-    'as' => 'send.message',
-    'uses' => 'ConversationsController@create'
-]);
+Route::get('messages/create',[
+    'as' => 'create.message',
+    'uses' => 'ConversationsController@show'
+    ]);
+
+Route::post('message/create',[
+    'as' => 'post.message',
+    'uses' => 'ConversationsController@post'
+    ]);
+
+
+Route::get('messages/received', [
+    'as' => 'received.message',
+    'uses' => 'ConversationsController@received'
+    ]);
+
+Route::get('messages/sent', [
+    'as' => 'sent.message',
+    'uses' => 'ConversationsController@sent'
+    ]);
+
+Route::get('messages/reply/{username}', [
+    'as' => 'reply.message',
+    'uses' => 'ConversationsController@reply'
+    ]);
+
+
 
 Route::get('search/cards/', array(
     'as' => 'cards.search',

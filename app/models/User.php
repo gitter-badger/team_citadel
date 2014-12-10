@@ -39,11 +39,13 @@ class User extends Pichkrement\Messenger\Models\User  implements UserInterface, 
         return $this->belongsToMany('Deck');
     }
 
-    public function message(){
+    //received messages
+    public function messages(){
         return $this->hasMany('Pichkrement\Messenger\Models\Message');        
     }
 
-    public function conversation(){
+    //messages the user has sent 
+    public function conversations(){
         return $this->belongsToMany('Pichkrement\Messenger\Models\Conversation');
     }
 }

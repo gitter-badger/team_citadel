@@ -1,5 +1,4 @@
 <?php
-// app/models/Conversation.php
 
 
 class Conversation extends Pichkrement\Messenger\Models\Conversation {
@@ -18,5 +17,9 @@ class Conversation extends Pichkrement\Messenger\Models\Conversation {
 
     public function users(){
         return $this->belongsToMany('\Pichkrement\Messenger\Models\User');
+    }
+
+    public function foo(){
+        return $this->messages()->orderBy('created_at', 'DESC')->first();
     }
 }

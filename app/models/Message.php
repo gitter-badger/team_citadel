@@ -1,4 +1,4 @@
-// app/models/Message.php
+
 
 <?php
 class Message extends Pichkrement\Messenger\Models\Message {
