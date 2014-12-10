@@ -16,7 +16,7 @@
         </ol>
     </div>
     <div class='row'>
-        <table class="table table-bordered table-hover">
+        <table class="table table-hover">
             @if($aSeries->game->name == 'Weiss Schwarz')
             <tr>
                 <th class="cards-col-width">Images</th>
