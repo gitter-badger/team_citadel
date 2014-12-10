@@ -4,13 +4,11 @@
 @stop
 @section('content')
     <div class="row">
-        <div class="col-xs-12 col-md-12">
-            <ol class="breadcrumb">
-                <li><a href="{{ URL::route('games.show','WeissSchwarz') }}"> {{ $card->series->game->name }} </a></li>
-                <li><a href="{{ $card->series->url }}">{{ $card->series->name }}</a></li>
-                <li class="active">{{ $card->serial_number . " " . $card->rarity }} </li>
-            </ol>
-        </div>
+        <ol class="breadcrumb">
+            <li><a href="{{ URL::route('games.show','WeissSchwarz') }}"> {{ $card->series->game->name }} </a></li>
+            <li><a href="{{ $card->series->url }}">{{ $card->series->name }}</a></li>
+            <li class="active">{{ $card->serial_number . " " . $card->rarity }} </li>
+        </ol>
     </div>
     <div class="row">
         <div class="col-xs-12 col-md-4">

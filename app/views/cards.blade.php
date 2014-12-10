@@ -4,52 +4,75 @@
 @stop
 @section('content')
     <div class="row">
-        <div class="col-sm-12">
-            <ol class="breadcrumb">
-                <li>
-                    @if($aSeries->game->name == 'Weiss Schwarz')
-                        <a href="{{ URL::route('games.show', 'WeissSchwarz') }}"> {{ $aSeries->game->name }} </a>
-                    @elseif($aSeries->game->name == 'Magic The Gathering')
-                        <a href="{{ URL::route('games.show', 'MagicTheGathering') }}"> {{ $aSeries->game->name }} </a>
-                    @endif
-                </li>
-                <li class="active">{{ $aSeries->name }}</li>
-            </ol>
-        </div>
+        <ol class="breadcrumb">
+            <li>
+                @if($aSeries->game->name == 'Weiss Schwarz')
+                    <a href="{{ URL::route('games.show', 'WeissSchwarz') }}"> {{ $aSeries->game->name }} </a>
+                @elseif($aSeries->game->name == 'Magic The Gathering')
+                    <a href="{{ URL::route('games.show', 'MagicTheGathering') }}"> {{ $aSeries->game->name }} </a>
+                @endif
+            </li>
+            <li class="active">{{ $aSeries->name }}</li>
+        </ol>
     </div>
     <div class='row'>
-        @foreach($aSeriesCards as $card)
-            @if($card->series->game->name == 'Weiss Schwarz')
-                <div class='col-xs-4 col-sm-3 col-lg-2'>
-                    <a href="{{ $card->url }}" title="{{{ $card->name  . " " . $card->rarity }}}">
-                        <div class="img_wrapper">
-                            <img class="center-block" src="{{ $card->getSmallImageURL() }}" onload="imgLoaded(this)">
-                        </div>
-                    </a>
-                    <p class="text-center series-card-name">
-                        {{ $card->name  . " " . $card->rarity }}
-                    </p>
-                    <br>
-                </div>
-            @elseif($card->series->game->name == 'Magic The Gathering')
-                <div class='col-xs-6 col-sm-3 col-md-2'>
-                    <a href="{{ $card->url }}" title="{{{ $card->name  . " " . $card->rarity }}}">
-                        <div class="img_wrapper">
-                            <img class="image-responsive center-block" src="{{ ('http://mtgimage.com/set/' . $card->serial_number . '/' . $card->attributes->find(17)->pivot->value . '.jpg') }}" width="90%" onload="imgLoaded(this)">
-                        </div>
-                    </a>
-                    <p class="text-center series-card-name">
-                        {{ $card->name  . " " . $card->rarity }}
-                    </p>
-                    <br>
-                </div>
+        <table class="table table-bordered table-hover">
+            @if($aSeries->game->name == 'Weiss Schwarz')
+            <tr>
+                <th class="cards-col-width">Images</th>
+                <th class="vert-align text-center">Name</th>
+                <th class="vert-align text-center">Type</th>
+                <th class="vert-align text-center">Colour</th>
+                <th class="vert-align text-center">Rarity</th>
+                <th class="vert-align text-center">Lowest</th>
+            </tr>
+            @elseif($aSeries->game->name == 'Magic The Gathering')
+            <tr>
+                <th class="cards-col-width">Images</th>
+                <th class="vert-align text-center">Name</th>
+                <th class="vert-align text-center">Type</th>
+                <th class="vert-align text-center">Cost</th>
+                <th class="vert-align text-center">Rarity</th>
+                <th class="vert-align text-center">Lowest</th>
+            </tr>
             @endif
-        @endforeach
-    </div>
-    <div class="row">
-        <div class="col-sm-12 text-center">
-            {{ $aSeriesCards->links() }}
-        </div>
+            @foreach($aSeries->cards as $card)
+                @if($card->series->game->name == 'Weiss Schwarz')
+                <tr class="clickable-row" href="{{ $card->url }}">
+                    <td>
+                         <div class="img_wrapper_cards center-block">
+                            <img class="img-responsive" src="{{ $card->getSmallImageURL() }}" onload="imgLoaded(this)">
+                         </div>
+                    </td>
+                    <td class="vert-align text-center">{{ $card->name }}</td>
+                    <!-- Get card type attribute -->
+                    <td class="vert-align text-center">{{ $card->attributes->find(4)->pivot->value }}</td>
+                    <!-- Get card colour attribute -->
+                    <td class="vert-align text-center">{{ $card->attributes->find(5)->pivot->value }}</td>
+                    <td class="vert-align text-center">{{ $card->rarity }}</td>
+                    <td class="vert-align text-center">$0.00</td>
+                </tr>
+                @elseif($card->series->game->name == 'Magic The Gathering')
+                    <tr class="clickable-row" href="{{ $card->url }}">
+                        <td >
+                            <div class="img_wrapper_cards center-block">
+                                <img class="img-responsive" src="{{ ('http://mtgimage.com/set/' . $card->serial_number . '/' . $card->attributes->find(17)->pivot->value . '.jpg') }}" onload="imgLoaded(this)"></td>
+                            </div>
+                        <td class="vert-align text-center">{{ $card->name }}</td>
+                        <!-- Get card type color -->
+                        <td class="vert-align text-center">{{ $card->attributes->find(4)->pivot->value }}</td>
+                        <!-- Get card cost attribute -->
+                        @if($card->attributes->find(11))
+                            <td class="vert-align text-center">{{ $card->attributes->find(11)->pivot->value }}</td>
+                        @else
+                            <td class="vert-align text-center">N/A</td>
+                        @endif
+                        <td class="vert-align text-center">{{ $card->rarity }}</td>
+                        <td class="vert-align text-center">$0.00</td>
+                    </tr>
+                @endif
+            @endforeach
+        </table>
     </div>
 @stop
 @section('scripts')
@@ -59,5 +82,10 @@
             var imgWrapper = img.parentNode;
             imgWrapper.className += imgWrapper.className ? ' loaded' : 'loaded';
         };
+        $(document).ready(function($) {
+              $(".clickable-row").click(function() {
+                    window.document.location = $(this).attr("href");
+              });
+        });
     </script>
 @stop
