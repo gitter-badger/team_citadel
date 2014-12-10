@@ -46,6 +46,36 @@
 
     @if(Auth::check())
         @if(Auth::user()->id == $user->id)
+
+            <div role="tabpanel" class="tab-pane" id="messages">
+                <div class="row well post-border">
+                    <div class="col-md-3">
+                        <h4 class="text-center">
+                            <a href="/messages/create">
+                                Create Message <icon class="glyphicon glyphicon-envelope"></icon>
+                            </a>
+                        </h4>
+                    </div>
+                </div>
+                <div class="row well post-border">
+                    <div class="col-md-3">
+                        <h4 class="text-center">
+                            <a href="/messages/sent">
+                                Sent <icon class="glyphicon glyphicon-envelope"></icon>
+                            </a>
+                        </h4>
+                    </div>
+                </div>
+                <div class="row well post-border">
+                    <div class="col-md-3">
+                        <h4 class="text-center">
+                            <a href="/messages/received">
+                                Inbox <icon class="glyphicon glyphicon-envelope"></icon>
+                            </a>
+                        </h4>
+                    </div>
+                </div>
+            </div> 
             <div role="tabpanel" class="tab-pane" id="profile">
                 <div class="row">
                     <div class="col-md-12">
