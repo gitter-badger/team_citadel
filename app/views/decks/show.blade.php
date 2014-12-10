@@ -13,7 +13,7 @@
                         <a href="{{ $card->url }}" title="{{{ $card->name  . " " . $card->rarity }}}">
                             <div class="img_wrapper_cards" style="min-height: 100px">
                                 <!-- if image exists, show it, else show back of card -->
-                                <img class="center-block" src="{{ $card->getSmallImageURL() }}" onload="imgLoaded(this)" width="100%">
+                                <img class="center-block" src="{{ $card->getMediumImageURL() }}" onload="imgLoaded(this)" width="100%">
 
                             </div>`
                             <p class="text-center series-card-name">
