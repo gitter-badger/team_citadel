@@ -56,4 +56,15 @@ $(document).ready(function(){
             }
         },
     });
+
+    $('div.img-wrap-decks').on('click', function () {
+        $.ajax({
+                    url: '/decks/dropcard',
+                    type: 'post',
+                    data: {
+                        deck: $('.img-wrap-decks').data('deckId'),
+                        card: $('.img-wrap-decks').data('cardId')
+                    }
+                });
+    });
 });

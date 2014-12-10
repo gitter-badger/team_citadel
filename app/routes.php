@@ -29,8 +29,6 @@ Route::group(['before' => 'auth'], function () {
         return Redirect::to('/')
             ->with('message', 'You have logged out');
     });
-
-
 });
 
 // Group all deck routes together
@@ -61,10 +59,20 @@ Route::group(['prefix' => 'decks'], function () {
             'uses' => 'DeckController@addCardSearch'
         ]);
 
+        Route::post('/dropcard', [
+            'as' => 'dropCard',
+            'uses' => 'DeckController@removeCardsFromDeck'
+        ]);
+
         Route::group(['before' => 'csrf'], function () {
             Route::post('/create', [
                 'as' => 'deck.store',
                 'uses' => 'DeckController@store'
+            ]);
+
+            Route::post('/{deck_id}/edit', [
+                'as' => 'deck.edit',
+                'uses' => 'DeckController@update'
             ]);
 
             Route::post('/{deck_id}', [
@@ -106,7 +114,7 @@ Route::get('username/reset', array(
 
 Route::resource('user', 'UsersController');
 
-Route::get('{gameName}/{seriesName}/{id}',[
+Route::get('{gameName}/{seriesName}/{id}', [
     'as' => 'aCard.show',
     'uses' => 'CardController@show'
 ]);
@@ -121,20 +129,20 @@ Route::get('search/cards/', array(
     'uses' => 'CardController@cardSearch'
 ));
 
-Route::get('{gameName}/{id}',[
+Route::get('{gameName}/{id}', [
     'as' => 'set.show',
     'uses' => 'SeriesController@show'
-]);
+])->where('id', '[0-9]+');
 
-Route::get('/{gameName}',[
+Route::get('/{gameName}', [
     'as' => 'games.show',
     'uses' => 'GameController@show'
 ]);
 
 Route::get('sendemail', [
     'as' => 'send.email',
-    function() {
-        Mail::send('emails.test', array(), function($message) {
+    function () {
+        Mail::send('emails.test', array(), function ($message) {
             $message->to('adamjama7@gmail.com', 'John Smith')->subject('Welcome!')->from('ajama@alacrityfoundation.com', 'Adam Jama');
         });
     }

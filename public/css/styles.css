@@ -209,8 +209,8 @@ html {
     font-size: 12px;
 }
 
-/* 
-*  The .img_wrapper and img styles should be 
+/*
+*  The .img_wrapper and img styles should be
 *  changed to suit your project. The only crucial
 *  properties are the opacity values and CSS3 transitions
 *  defined on the img tags.
@@ -231,7 +231,7 @@ html {
     top: 0;
     left: 0;
     opacity: 0;
-  
+
     -webkit-transition: opacity .5s;
     -moz-transition: opacity .5s;
     -ms-transition: opacity .5s;
@@ -261,7 +261,7 @@ html {
     top: 0;
     left: 0;
     opacity: 0;
-  
+
     -webkit-transition: opacity .5s;
     -moz-transition: opacity .5s;
     -ms-transition: opacity .5s;
@@ -278,4 +278,24 @@ html {
 
 img.image-responsive.center-block {
     padding-bottom: 15px;
+}
+
+
+/**
+ * Adding a Cross about images in deck
+ */
+.img-wrap-decks {
+    position: relative;
+}
+
+.img-wrap-decks .close {
+    position: absolute;
+    top: 4%;
+    right: 9%;
+    z-index: 100;
+    color: white;
+    font-size: 12px;
+    opacity: 1;
+    border-radius: 100%;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }

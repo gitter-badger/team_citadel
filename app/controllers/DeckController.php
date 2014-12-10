@@ -78,11 +78,26 @@ class DeckController extends \BaseController
 
     public function edit($id)
     {
-        $deck = Deck::find($id);d
-        $games = Game::all()->lists('name', 'id');
+        $deck = Deck::find($id);
+        $games = Game::find($deck->game_id)->first();
         $method = 'edit';
 
         return View::make('decks.edit', compact('deck', 'method', 'games'));
+    }
+
+    public function update()
+    {
+        $deck = Deck::find(Input::get('deck'));
+        $deck->title = Input::get('title');
+        $deck->description = Input::get('description');
+
+        if ($deck->save()) {
+            return Redirect::route('deck.show', $deck->id)
+                ->with('success', 'The Deck was Created');
+        } else {
+            return Redirect::route('welcome')
+                ->with('fail', 'An Error Occurred while Saving');
+        }
     }
 
     public function destroy($id)
@@ -101,5 +116,12 @@ class DeckController extends \BaseController
             ->toArray();
 
         return Response::json(['data' => $cards]);
+    }
+
+    public function removeCardsFromDeck()
+    {
+        return Input::get('deck');
+        $deck = Deck::find(Input::get('deck'));
+        $deck->cards()->get()->detach(Input::get('card'));
     }
 }
