@@ -1,7 +1,7 @@
 @extends('master')
 
     @section('header')
-        <h2 class="text-center">{{{ ucwords($deck->title) }}}</h2>
+        <h2 class="text-center">{{{ ucwords($deck->title) }}} {{ link_to_route('deck.edit', 'edit', [$deck->id]) }}</h2>
     @stop
 
     @section('content')
@@ -15,7 +15,7 @@
                                 <!-- if image exists, show it, else show back of card -->
                                 @if($deck->game_id == 1)
                                     @if(file_exists(public_path() . '/images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg'))
-                                        <div class="img-wrap-decks" data-cardId="{{ $card->id }}" data-deckId="{{ $deck->id }}">
+                                        <div class="img-wrap-decks" data-card="{{ $card->id }}" data-deck="{{ $deck->id }}">
                                             <icon class="close glyphicon glyphicon-remove"></icon>
                                             <a href="{{ $card->url }}" title="{{{ $card->name  . " " . $card->rarity }}}">
                                                 <img class="image-responsive center-block" src="{{ asset('images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg') }}" width="90%">

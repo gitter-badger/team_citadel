@@ -120,8 +120,7 @@ class DeckController extends \BaseController
 
     public function removeCardsFromDeck()
     {
-        return Input::get('deck');
         $deck = Deck::find(Input::get('deck'));
-        $deck->cards()->get()->detach(Input::get('card'));
+        $deck->cards()->detach(Input::get('card'));
     }
 }

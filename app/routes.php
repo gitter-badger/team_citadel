@@ -59,7 +59,7 @@ Route::group(['prefix' => 'decks'], function () {
             'uses' => 'DeckController@addCardSearch'
         ]);
 
-        Route::post('/dropcard', [
+        Route::get('/dropcard', [
             'as' => 'dropCard',
             'uses' => 'DeckController@removeCardsFromDeck'
         ]);
