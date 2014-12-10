@@ -7,7 +7,7 @@
         @foreach($cards as $card)
             <div class='col-xs-6 col-sm-3 col-md-2'>
                 <a href="{{ $card->url }}" title="{{{ $card->name  . " " . $card->rarity }}}">
-                    <div class="img_wrapper">
+                    <div class="img_wrapper_cards">
                         <img class="image-responsive center-block" src="{{ $card->getMediumImageURL() }}" width="90%" onload="imgLoaded(this)">
                     </div>
                 </a>
