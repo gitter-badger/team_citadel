@@ -10,7 +10,7 @@
             <div class="row">
                 @foreach($deck->cards as $card)
                     <div class='col-sm-2 col-xs-12'>
-                            <div class="img_wrapper_cardsimg-wrap-decks" data-card="{{ $card->id }}" data-deck="{{ $deck->id }}" style="min-height: 100px">
+                            <div class="img_wrapper_cards img-wrap-decks" data-card="{{ $card->id }}" data-deck="{{ $deck->id }}" style="min-height: 100px">
                                 <icon class="close glyphicon glyphicon-remove"></icon>
                                  <!-- if image exists, show it, else show back of card -->
                                 <a href="{{ $card->url }}" title="{{{ $card->name  . " " . $card->rarity }}}">
