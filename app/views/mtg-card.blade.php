@@ -8,7 +8,7 @@
             <ol class="breadcrumb">
                 <li><a href="{{ URL::route('games.show','MagicTheGathering') }}"> {{ $card->series->game->name }} </a></li>
                 <li><a href="{{ $card->series->url }}">{{ $card->series->name }}</a></li>
-                <li class="active">{{ $card->serial_number . " " . $card->rarity }} </li>
+                <li class="active">{{ $card->name }} </li>
             </ol>
         </div>
     </div>
@@ -32,48 +32,53 @@
                 </tr>
                 <tr>
                     <td><label>Mana Cost</label></td>
-                    <td>{{ $card->attributes->find(11)->pivot->value }}</td>
+                    @if($card->attributes->find(11))
+                        <td>{{ $card->attributes->find(11)->pivot->value }}</td>
+                    @else
+                        <td>N/A</td>
+                    @endif
+
                     <td><label>Converted Mana Cost</label></td>
-                    <td>{{ $card->attributes->find(12)->pivot->value }}</td>
+                    @if($card->attributes->find(12))
+                        <td>{{ $card->attributes->find(12)->pivot->value }}</td>
+                    @else
+                        <td>N/A</td>
+                    @endif
                 </tr>
                 <tr>
+                    <td><label>Power</label></td>
                     @if($card->attributes->find(10))
-                        <td><label>Power</label></td>
                         <td>{{ $card->attributes->find(10)->pivot->value }}</td>
                     @else
-                        <td><label>Power</label></td>
                         <td>N/A</td>
                     @endif
+
+                    <td><label>Toughness</label></td>
                     @if($card->attributes->find(15))
-                        <td><label>Toughness</label></td>
                         <td>{{ $card->attributes->find(15)->pivot->value }}</td>
                     @else
-                        <td><label>Toughness</label></td>
                         <td>N/A</td>
                     @endif
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td><label>Loyalty</label></td>
                     @if($card->attributes->find(16))
-                        <td><label>Trigger</label></td>
                         <td>{{ $card->attributes->find(16)->pivot->value }}</td>
                     @else
-                        <td></td>
-                        <td></td>
+                        <td>N/A</td>
                     @endif
+                    <td></td>
+                    <td></td>
                 </tr>
             </table>
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <label>Card Text/ Abilities</label>
+                    <label>Card Text / Abilities</label>
                 </div>
                 <div class="panel-body">
                     @if($card->attributes->find(6))
-                        <td><label>Trigger</label></td>
                         <td>{{ $card->attributes->find(6)->pivot->value }}</td>
                     @else
-                        <td>N/A</td>
                         <td>N/A</td>
                     @endif
                 </div>
