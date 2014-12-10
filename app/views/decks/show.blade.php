@@ -1,7 +1,12 @@
 @extends('master')
 
     @section('header')
-        <h2 class="text-center">{{{ ucwords($deck->title) }}} {{ link_to_route('deck.edit', 'edit', [$deck->id]) }}</h2>
+        <h2 class="text-center">
+            {{{ ucwords($deck->title) }}}
+            @if(Auth::user()->id == $deck->users()->first()->id)
+                {{ link_to_route('deck.edit', 'edit information', [$deck->id]) }}
+            @endif
+        </h2>
     @stop
 
     @section('content')
@@ -11,7 +16,9 @@
                 @foreach($deck->cards as $card)
                     <div class='col-sm-2 col-xs-12'>
                             <div class="img_wrapper_cards img-wrap-decks" data-card="{{ $card->id }}" data-deck="{{ $deck->id }}" style="min-height: 100px">
-                                <icon class="close glyphicon glyphicon-remove"></icon>
+                                @if(Auth::user()->id == $deck->users()->first()->id)
+                                    <icon class="close glyphicon glyphicon-remove"></icon>
+                                @endif
                                  <!-- if image exists, show it, else show back of card -->
                                 <a href="{{ $card->url }}" title="{{{ $card->name  . " " . $card->rarity }}}">
                                     <img class="center-block" src="{{ $card->getMediumImageURL() }}" onload="imgLoaded(this)" width="100%">

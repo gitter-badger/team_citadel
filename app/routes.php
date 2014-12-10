@@ -69,37 +69,40 @@ Route::group(['prefix' => 'decks'], function () {
         'uses' => 'DeckController@show'
     ])->where('deck_id', '[0-9]+');
 
-    Route::get('/{deck_id}/edit', [
-        'as' => 'deck.edit',
-        'uses' => 'DeckController@edit'
-    ]);
-
-    Route::get('/getcards', [
-        'as' => 'addCardSearch',
-        'uses' => 'DeckController@addCardSearch'
-    ]);
-
-    Route::get('/dropcard', [
-        'as' => 'dropCard',
-        'uses' => 'DeckController@removeCardsFromDeck'
-    ]);
-
-    Route::group(['before' => 'csrf'], function () {
-        Route::post('/create', [
-            'as' => 'deck.store',
-            'uses' => 'DeckController@store'
-        ]);
-
-        Route::post('/{deck_id}/edit', [
+    Route::group(['before' => 'auth'], function() {
+        Route::get('/{deck_id}/edit', [
             'as' => 'deck.edit',
-            'uses' => 'DeckController@update'
+            'uses' => 'DeckController@edit'
         ]);
 
-        Route::post('/{deck_id}', [
-            'as' => 'addCard',
-            'uses' => 'DeckController@addCard'
-        ])->where('deck_id', '[0-9]+');
+        Route::get('/getcards', [
+            'as' => 'addCardSearch',
+            'uses' => 'DeckController@addCardSearch'
+        ]);
+
+        Route::get('/dropcard', [
+            'as' => 'dropCard',
+            'uses' => 'DeckController@removeCardsFromDeck'
+        ]);
+
+        Route::group(['before' => 'csrf'], function () {
+            Route::post('/create', [
+                'as' => 'deck.store',
+                'uses' => 'DeckController@store'
+            ]);
+
+            Route::post('/{deck_id}/edit', [
+                'as' => 'deck.edit',
+                'uses' => 'DeckController@update'
+            ]);
+
+            Route::post('/{deck_id}', [
+                'as' => 'addCard',
+                'uses' => 'DeckController@addCard'
+            ])->where('deck_id', '[0-9]+');
+        });
     });
+
 });
 
 

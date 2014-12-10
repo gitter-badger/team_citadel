@@ -93,3 +93,10 @@ Route::filter('env', function () {
             ->with('message', 'This feature is comming soon');
     }
 });
+
+
+Route::filter('owner', function($id) {
+    if(!Auth::user()->id == $id) {
+        return Redirect::to('/');
+    }
+});
