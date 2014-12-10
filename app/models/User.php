@@ -5,7 +5,7 @@ use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-class User extends Eloquent implements UserInterface, RemindableInterface
+class User extends Pichkrement\Messenger\Models\User  implements UserInterface, RemindableInterface
 {
 
     use UserTrait, RemindableTrait;
@@ -39,8 +39,19 @@ class User extends Eloquent implements UserInterface, RemindableInterface
         return $this->belongsToMany('Deck');
     }
 
-        // Use this to retrun the url from a users model
+    // Use this to retrun the url from a users model
     public function userURL(){
         return 'user/'.$this->username;
     }
+
+    //received messages
+    public function messages(){
+        return $this->hasMany('Pichkrement\Messenger\Models\Message');        
+    }
+
+    //messages the user has sent 
+    public function conversations(){
+        return $this->belongsToMany('Pichkrement\Messenger\Models\Conversation');
+    }
+
 }

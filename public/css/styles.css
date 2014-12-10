@@ -1,6 +1,6 @@
 /*# sourceMappingURL=bootstrap.css.map */
 html {
-    min-width: 426px;
+    min-width: 500px;
 }
 /*    --------------------------------------------------
   :: Login Section
@@ -280,8 +280,55 @@ img.image-responsive.center-block {
     padding-bottom: 15px;
 }
 
+/*
+    Series Card page
+*/
+.cards-col-width {
+    width: 8%;
+}
 
-/**
+.table-hover tbody tr:hover td {
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+.table tbody>tr>td.vert-align {
+    vertical-align: middle;
+}
+
+.img_wrapper_cards {
+    position: relative;
+    padding-top: 146%;
+    background: #f5f5f5;
+    overflow: hidden;
+}
+
+.img_wrapper_cards img{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+
+    -webkit-transition: opacity .5s;
+    -moz-transition: opacity .5s;
+    -ms-transition: opacity .5s;
+    transition: opacity .5s;
+}
+
+.img_wrapper_cards.loaded img{
+    opacity: 1;
+}
+
+.img_wrapper_cards.loaded .css_spinner{
+    display: none;
+}
+
+img.image-responsive.center-block {
+    padding-bottom: 15px;
+}
+
+**
  * Adding a Cross about images in deck
  */
 .img-wrap-decks {

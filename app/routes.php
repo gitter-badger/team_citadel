@@ -31,6 +31,32 @@ Route::group(['before' => 'auth'], function () {
     });
 });
 
+Route::get('messages/create', [
+    'as' => 'create.message',
+    'uses' => 'ConversationsController@show'
+    ]);
+
+Route::post('message/create', [
+    'as' => 'post.message',
+    'uses' => 'ConversationsController@post'
+    ]);
+
+
+Route::get('messages/received', [
+    'as' => 'received.message',
+    'uses' => 'ConversationsController@received'
+    ]);
+
+Route::get('messages/sent', [
+    'as' => 'sent.message',
+    'uses' => 'ConversationsController@sent'
+    ]);
+
+Route::get('messages/reply/{username}', [
+    'as' => 'reply.message',
+    'uses' => 'ConversationsController@reply'
+    ]);
+
 // Group all deck routes together
 Route::group(['prefix' => 'decks'], function () {
     Route::get('/', [
@@ -43,45 +69,40 @@ Route::group(['prefix' => 'decks'], function () {
         'uses' => 'DeckController@show'
     ])->where('deck_id', '[0-9]+');
 
-    Route::group(['before' => 'auth'], function () {
-        Route::get('/create', [
-            'as' => 'deck.create',
-            'uses' => 'DeckController@create'
+    Route::get('/{deck_id}/edit', [
+        'as' => 'deck.edit',
+        'uses' => 'DeckController@edit'
+    ]);
+
+    Route::get('/getcards', [
+        'as' => 'addCardSearch',
+        'uses' => 'DeckController@addCardSearch'
+    ]);
+
+    Route::get('/dropcard', [
+        'as' => 'dropCard',
+        'uses' => 'DeckController@removeCardsFromDeck'
+    ]);
+
+    Route::group(['before' => 'csrf'], function () {
+        Route::post('/create', [
+            'as' => 'deck.store',
+            'uses' => 'DeckController@store'
         ]);
 
-        Route::get('/{deck_id}/edit', [
+        Route::post('/{deck_id}/edit', [
             'as' => 'deck.edit',
-            'uses' => 'DeckController@edit'
+            'uses' => 'DeckController@update'
         ]);
 
-        Route::get('/getcards', [
-            'as' => 'addCardSearch',
-            'uses' => 'DeckController@addCardSearch'
-        ]);
-
-        Route::get('/dropcard', [
-            'as' => 'dropCard',
-            'uses' => 'DeckController@removeCardsFromDeck'
-        ]);
-
-        Route::group(['before' => 'csrf'], function () {
-            Route::post('/create', [
-                'as' => 'deck.store',
-                'uses' => 'DeckController@store'
-            ]);
-
-            Route::post('/{deck_id}/edit', [
-                'as' => 'deck.edit',
-                'uses' => 'DeckController@update'
-            ]);
-
-            Route::post('/{deck_id}', [
-                'as' => 'addCard',
-                'uses' => 'DeckController@addCard'
-            ])->where('deck_id', '[0-9]+');
-        });
+        Route::post('/{deck_id}', [
+            'as' => 'addCard',
+            'uses' => 'DeckController@addCard'
+        ])->where('deck_id', '[0-9]+');
     });
 });
+
+
 
 //Group for password reset
 Route::group(['prefix' => 'password'], function () {

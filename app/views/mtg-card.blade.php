@@ -4,19 +4,17 @@
 @stop
 @section('content')
     <div class="row">
-        <div class="col-xs-12 col-md-12">
-            <ol class="breadcrumb">
-                <li><a href="{{ URL::route('games.show','MagicTheGathering') }}"> {{ $card->series->game->name }} </a></li>
-                <li><a href="{{ $card->series->url }}">{{ $card->series->name }}</a></li>
-                <li class="active">{{ $card->serial_number . " " . $card->rarity }} </li>
-            </ol>
-        </div>
+        <ol class="breadcrumb">
+            <li><a href="{{ URL::route('games.show','MagicTheGathering') }}"> {{ $card->series->game->name }} </a></li>
+            <li><a href="{{ $card->series->url }}">{{ $card->series->name }}</a></li>
+            <li class="active">{{ $card->serial_number . " " . $card->rarity }} </li>
+        </ol>
     </div>
     <div class="row">
         <div class="col-xs-12 col-md-4">
             <a data-toggle="modal" data-target="#image-modal" href="">
                 <div class="img_wrapper_card center-block">
-                    <img class="image-responsive" src="{{ ('http://mtgimage.com/set/' . $card->serial_number . '/' . $card->name . '.jpg') }}" width="50%" onload="imgLoaded(this)">
+                    <img class="image-responsive" src="{{ $card->getMediumImageURL() }}" width="50%" onload="imgLoaded(this)">
                 </div>
             </a>
         </div>
@@ -31,45 +29,54 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><label>Mana Cost</label></td>
-                    <td>{{ $card->attributes->find(11)->pivot->value }}</td>
-                    <td><label>Converted Mana Cost</label></td>
-                    <td>{{ $card->attributes->find(12)->pivot->value }}</td>
+                    @if($card->attributes->find(11))
+                        <td><label>Mana Cost</label></td>
+                        <td>{{ $card->attributes->find(11)->pivot->value }}</td>
+                        <td><label>Converted Mana Cost</label></td>
+                        <td>{{ $card->attributes->find(12)->pivot->value }}</td>
+                    @else
+                        <td><label>Mana Cost</label></td>
+                        <td>N/A</td>
+                        <td><label>Converted Mana Cost</label></td>
+                        <td>N/A</td>
+                    @endif
                 </tr>
                 <tr>
+                    <td><label>Power</label></td>
                     @if($card->attributes->find(10))
-                        <td><label>Power</label></td>
                         <td>{{ $card->attributes->find(10)->pivot->value }}</td>
                     @else
-                        <td><label>Power</label></td>
                         <td>N/A</td>
                     @endif
+
+                    <td><label>Toughness</label></td>
                     @if($card->attributes->find(15))
-                        <td><label>Toughness</label></td>
                         <td>{{ $card->attributes->find(15)->pivot->value }}</td>
                     @else
-                        <td><label>Toughness</label></td>
                         <td>N/A</td>
                     @endif
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td><label>Loyalty</label></td>
                     @if($card->attributes->find(16))
-                        <td><label>Trigger</label></td>
                         <td>{{ $card->attributes->find(16)->pivot->value }}</td>
                     @else
-                        <td></td>
-                        <td></td>
+                        <td>N/A</td>
                     @endif
+                    <td></td>
+                    <td></td>
                 </tr>
             </table>
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <label>Card Text/ Abilities</label>
+                    <label>Card Text / Abilities</label>
                 </div>
                 <div class="panel-body">
-                    {{{ $card->attributes->find(6)->pivot->value }}}
+                    @if($card->attributes->find(6))
+                        <td>{{ $card->attributes->find(6)->pivot->value }}</td>
+                    @else
+                        <td>N/A</td>
+                    @endif
                 </div>
             </div>
         </div>
@@ -120,7 +127,7 @@
     <div class="modal fade" id="image-modal">
         <div class="modal-dialog">
             <div class="modal-content modal-popup-image">
-                <img class="image-responsive center-block" src="{{ ('http://mtgimage.com/set/' . $card->serial_number . '/' . $card->name . '.jpg') }}" width="100%">
+                <img class="image-responsive center-block" src="{{ $card->getLargeImageURL() }}" width="100%">
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
@@ -128,15 +135,9 @@
 
 @section('scripts')
     @parent
-    <script src="/js/charts/chart.min.js"></script>
+    <script src="/js/charts/Chart.min.js"></script>
     <script src="/js/charts/createRadarChart.js"></script>
-    <script type="text/javascript">
-        function imgLoaded(img) {
-            var imgWrapper = img.parentNode;
-            imgWrapper.className += imgWrapper.className ? ' loaded' : 'loaded';
-        };
-    </script>
-    <script>      
+    <script>
     $(function() {
         // The users previous rating. values will be null if they have not rated before
         var previousUserRatings = {{ json_encode($previousUserRatings) }};

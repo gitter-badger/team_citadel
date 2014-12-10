@@ -10,35 +10,13 @@
             <div class="row">
                 @foreach($deck->cards as $card)
                     <div class='col-sm-2 col-xs-12'>
-
-                            <div style="min-height: 100px">
-                                <!-- if image exists, show it, else show back of card -->
-                                @if($deck->game_id == 1)
-                                    @if(file_exists(public_path() . '/images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg'))
-                                        <div class="img-wrap-decks" data-card="{{ $card->id }}" data-deck="{{ $deck->id }}">
-                                            <icon class="close glyphicon glyphicon-remove"></icon>
-                                            <a href="{{ $card->url }}" title="{{{ $card->name  . " " . $card->rarity }}}">
-                                                <img class="image-responsive center-block" src="{{ asset('images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg') }}" width="90%">
-                                            </a>
-                                        </div>
-                                    @else
-                                        <div class="img-wrap-decks" data-cardId="{{ $card->id }}" data-deckId="{{ $deck->id }}">
-                                            <icon class="close glyphicon glyphicon-remove"></icon>
-                                            <a href="{{ $card->url }}" title="{{{ $card->name  . " " . $card->rarity }}}">
-                                                <img class="image-responsive center-block" src="{{ asset('images/games/' . $deck->game_id . '-back.jpg') }}" width="90%">
-                                            </a>
-                                        </div>
-                                        </div>
-                                    @endif
-                                @elseif($deck->game_id == 2)
-                                    <div class="img-wrap-decks" data-cardId="{{ $card->id }}" data-deckId="{{ $deck->id }}">
-                                        <icon class="close glyphicon glyphicon-remove"></icon>
-                                        <a href="{{ $card->url }}" title="{{{ $card->name  . " " . $card->rarity }}}">
-                                            <img class="image-responsive center-block" src="{{ ('http://mtgimage.com/set/' . $card->serial_number . '/' . $card->name . '.jpg') }}" style="height: 200px">
-                                        </a>
-                                    </div>
-                                @endif
-                            </div>
+                            <div class="img_wrapper_cardsimg-wrap-decks" data-card="{{ $card->id }}" data-deck="{{ $deck->id }}" style="min-height: 100px">
+                                <icon class="close glyphicon glyphicon-remove"></icon>
+                                 <!-- if image exists, show it, else show back of card -->
+                                <a href="{{ $card->url }}" title="{{{ $card->name  . " " . $card->rarity }}}">
+                                    <img class="center-block" src="{{ $card->getMediumImageURL() }}" onload="imgLoaded(this)" width="100%">
+                                </a>
+                            </div>`
                             <p class="text-center series-card-name">
                                 {{ $card->name  . " " . $card->rarity }}
                             </p>

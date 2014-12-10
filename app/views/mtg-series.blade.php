@@ -12,11 +12,7 @@
             @endif
                 <div style="min-height:160px">
                     <a class="series-box" href="{{ $aSeries->url }}">
-                        @if(file_exists(public_path() . '/images/series/' . $aSeries->id . '.jpg'))
-                            <img class="series-images image-responsive center-block" src="{{ asset('images/series/'. $aSeries->id . '.jpg') }}" width="90%">
-                        @else
-                            <img class="series-images image-responsive center-block" src="{{ URL::to('http://placehold.it/210x210') }}" width="90%">
-                        @endif
+                        <img class="series-images image-responsive center-block" src="{{ $aSeries->getLargeImageURL() }}" width="90%" onload="imgLoaded(this)">
                     </a>
                     <h5 class='text-center series-card-name' title="{{{ $aSeries->name }}}">
                         {{ $aSeries->name }}
