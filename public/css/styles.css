@@ -281,7 +281,44 @@ img.image-responsive.center-block {
 }
 
 /*
-    Series Card page
+    Image loading animation for series page
+*/
+
+.img_wrapper_series {
+    position: relative;
+    padding-top: 100%;
+    margin-bottom: 10px;
+    background: #fafafa;
+    overflow: hidden;
+}
+
+.img_wrapper_series img{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+
+    -webkit-transition: opacity .5s;
+    -moz-transition: opacity .5s;
+    -ms-transition: opacity .5s;
+    transition: opacity .5s;
+}
+
+.img_wrapper_series.loaded img {
+    opacity: 1;
+}
+
+.img_wrapper_series.loaded .css_spinner{
+    display: none;
+}
+
+.image-responsive.center-block img {
+    padding-bottom: 15px;
+}
+
+/*
+    Series Card table styling
 */
 .cards-col-width {
     width: 8%;

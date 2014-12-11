@@ -12,7 +12,9 @@
             @endif
                 <div style="min-height:160px">
                     <a class="series-box" href="{{ $aSeries->url }}">
-                        <img class="series-images image-responsive center-block" src="{{ $aSeries->getLargeImageURL() }}" width="90%" onload="imgLoaded(this)">
+                        <div class="img_wrapper_series">
+                            <img class="series-images image-responsive center-block" src="{{ $aSeries->getLargeImageURL() }}" width="90%" onload="imgLoaded(this)">
+                        </div>
                     </a>
                     <h5 class='text-center series-card-name' title="{{{ $aSeries->name }}}">
                         {{ $aSeries->name }}
