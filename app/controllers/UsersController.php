@@ -148,7 +148,7 @@ class UsersController extends BaseController
         $user = User::where('username', $username)->first();
         $authUser = Auth::user();
 
-        $decks = $this->getUserWall($user->id);
+        $decks = $user->decks;
         return View::make('user.profile', compact('user', 'decks'));
     }
 

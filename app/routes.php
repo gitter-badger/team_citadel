@@ -71,6 +71,7 @@ Route::group(['prefix' => 'decks'], function () {
 
     Route::group(['before' => 'auth'], function() {
         Route::get('/{deck_id}/edit', [
+            'before' => 'owns:Deck',
             'as' => 'deck.edit',
             'uses' => 'DeckController@edit'
         ]);

@@ -94,9 +94,15 @@ Route::filter('env', function () {
     }
 });
 
+// filter defined in filters.php
+Route::filter('owns', function ($route, $request, $thingToBeOwned) {
+    // find the thing ID
+    $id = $route->getParameter('deck_id');
 
-Route::filter('owner', function($id) {
-    if(!Auth::user()->id == $id) {
-        return Redirect::to('/');
-    }
+    // find the thing!
+    $thing = $thingToBeOwned::find($id);
+
+    return Auth::check() && $thing->user->id == Auth::id()
+        ? null
+        : Response::make('no permissions!!', 403);
 });

@@ -36,7 +36,7 @@ class User extends Pichkrement\Messenger\Models\User  implements UserInterface, 
 
     public function decks()
     {
-        return $this->belongsToMany('Deck');
+        return $this->hasMany('Deck');
     }
 
     // Use this to retrun the url from a users model
@@ -46,10 +46,10 @@ class User extends Pichkrement\Messenger\Models\User  implements UserInterface, 
 
     //received messages
     public function messages(){
-        return $this->hasMany('Pichkrement\Messenger\Models\Message');        
+        return $this->hasMany('Pichkrement\Messenger\Models\Message');
     }
 
-    //messages the user has sent 
+    //messages the user has sent
     public function conversations(){
         return $this->belongsToMany('Pichkrement\Messenger\Models\Conversation');
     }

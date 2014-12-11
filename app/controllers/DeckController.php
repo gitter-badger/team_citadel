@@ -39,10 +39,9 @@ class DeckController extends \BaseController
             $deck->title = Input::get('title');
             $deck->game_id = Input::get('game_id');
             $deck->description = Input::get('description');
+            $deck->user_id = Auth::id();
 
             if ($deck->save()) {
-                // syncs with the pivot table
-                $deck->users()->sync([Auth::user()->id]);
                 return Redirect::route('deck.show', $deck->id)
                     ->with('success', 'The Deck was Created.');
             } else {
