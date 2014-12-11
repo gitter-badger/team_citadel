@@ -328,9 +328,9 @@ img.image-responsive.center-block {
     padding-bottom: 15px;
 }
 
-**
- * Adding a Cross about images in deck
- */
+
+/*Adding a Cross about images in deck*/
+
 .img-wrap-decks {
     position: relative;
 }
@@ -345,4 +345,27 @@ img.image-responsive.center-block {
     opacity: 1;
     border-radius: 100%;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+/*
+    Cards sorting style for cards
+*/
+#cardsTable_filter label {
+    padding-right: 8px;
+    font-weight: normal;
+}
+
+#cardsTable_length label {
+    padding-left: 18px;
+    font-weight: normal;
+}
+
+#cardsTable_filter input {
+    font-size: 20px;
+    -webkit-appearance: searchfield;
+    box-sizing: border-box;
+}
+
+#cardsTable_length select {
+    font-size: 20px;
 }

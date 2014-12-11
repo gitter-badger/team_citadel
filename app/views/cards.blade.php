@@ -16,42 +16,45 @@
         </ol>
     </div>
     <div class='row'>
-        <table class="table table-hover">
-            @if($aSeries->game->name == 'Weiss Schwarz')
-            <tr>
-                <th class="cards-col-width">Images</th>
-                <th class="vert-align text-center">Name</th>
-                <th class="vert-align text-center">Type</th>
-                <th class="vert-align text-center">Colour</th>
-                <th class="vert-align text-center">Rarity</th>
-                <th class="vert-align text-center">Lowest</th>
-            </tr>
-            @elseif($aSeries->game->name == 'Magic The Gathering')
-            <tr>
-                <th class="cards-col-width">Images</th>
-                <th class="vert-align text-center">Name</th>
-                <th class="vert-align text-center">Type</th>
-                <th class="vert-align text-center">Cost</th>
-                <th class="vert-align text-center">Rarity</th>
-                <th class="vert-align text-center">Lowest</th>
-            </tr>
-            @endif
+        <table id="cardsTable" class="table table-hover">
+            <thead>
+                @if($aSeries->game->name == 'Weiss Schwarz')
+                    <tr>
+                        <th class="cards-col-width">Images</th>
+                        <th class="vert-align text-center">Name</th>
+                        <th class="vert-align text-center">Type</th>
+                        <th class="vert-align text-center">Colour</th>
+                        <th class="vert-align text-center">Rarity</th>
+                        <th class="vert-align text-center">Lowest</th>
+                    </tr>
+                @elseif($aSeries->game->name == 'Magic The Gathering')
+                    <tr>
+                        <th class="cards-col-width">Images</th>
+                        <th class="vert-align text-center">Name</th>
+                        <th class="vert-align text-center">Type</th>
+                        <th class="vert-align text-center">Cost</th>
+                        <th class="vert-align text-center">Rarity</th>
+                        <th class="vert-align text-center">Lowest</th>
+                    </tr>
+                @endif
+            </thead>
+            <tbody>
             @foreach($aSeries->cards as $card)
                 @if($card->series->game->name == 'Weiss Schwarz')
-                <tr class="clickable-row" href="{{ $card->url }}">
-                    <td>
-                         <div class="img_wrapper_cards center-block">
-                            <img class="img-responsive" src="{{ $card->getSmallImageURL() }}" onload="imgLoaded(this)">
-                         </div>
-                    </td>
-                    <td class="vert-align text-center">{{ $card->name }}</td>
-                    <!-- Get card type attribute -->
-                    <td class="vert-align text-center">{{ $card->attributes->find(4)->pivot->value }}</td>
-                    <!-- Get card colour attribute -->
-                    <td class="vert-align text-center">{{ $card->attributes->find(5)->pivot->value }}</td>
-                    <td class="vert-align text-center">{{ $card->rarity }}</td>
-                    <td class="vert-align text-center">$0.00</td>
-                </tr>
+                    <tr class="clickable-row" href="{{ $card->url }}">
+                        <td>
+                             <div class="img_wrapper_cards center-block">
+                                <img class="img-responsive" src="{{ $card->getSmallImageURL() }}" onload="imgLoaded(this)">
+                             </div>
+                        </td>
+                        <td class="vert-align text-center">{{ $card->name }}</td>
+                        <!-- Get card type attribute -->
+                        <td class="vert-align text-center">{{ $card->attributes->find(4)->pivot->value }}</td>
+                        <!-- Get card colour attribute -->
+                        <td class="vert-align text-center">{{ $card->attributes->find(5)->pivot->value }}</td>
+                        <td class="vert-align text-center">{{ $card->rarity }}</td>
+                        <td class="vert-align text-center">$0.00</td>
+                    </tr>
                 @elseif($card->series->game->name == 'Magic The Gathering')
                     <tr class="clickable-row" href="{{ $card->url }}">
                         <td >
@@ -72,6 +75,7 @@
                     </tr>
                 @endif
             @endforeach
+            </tbody>
         </table>
     </div>
 @stop
@@ -79,9 +83,11 @@
     @parent
     <script type="text/javascript">
         $(document).ready(function($) {
-              $(".clickable-row").click(function() {
-                    window.document.location = $(this).attr("href");
-              });
+            $(".clickable-row").click(function() {
+                window.document.location = $(this).attr("href");
+            });
+
+            $('#cardsTable').DataTable();
         });
     </script>
 @stop
