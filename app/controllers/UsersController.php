@@ -85,14 +85,14 @@ class UsersController extends BaseController
             return Redirect::to('login')->with('message', 'This is not your profile!');
 
         } else {
-                        return View::make('user.update', compact('user'));
+            return View::make('user.update', compact('user'));
         }
     }
 
     public function update($username)
     {
-
-        $user = User::whereUsername($username)->firstOrFail();
+        // discard parameter
+        $user = Auth::user();
         $userInfo = Input::only(
             'title',
             'username',
