@@ -7,15 +7,9 @@
         @foreach($cards as $card)
             <div class='col-xs-6 col-sm-3 col-md-2'>
                 <a href="{{ $card->url }}" title="{{{ $card->name  . " " . $card->rarity }}}">
-                    @if(file_exists(public_path() . '/images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg'))
-                        <div class="img_wrapper">
-                            <img class="image-responsive center-block" src="{{ asset('images/cards/'. str_replace('/', '-', $card->serial_number) . '-' . $card->rarity . '.jpg') }}" width="90%" onload="imgLoaded(this)">
-                        </div>
-                    @else
-                        <div class="img_wrapper">
-                            <img class="image-responsive center-block" src="http://approachphase.files.wordpress.com/2013/05/148lwsm.png" width="90%" onload="imgLoaded(this)">
-                        </div>
-                    @endif
+                    <div class="img_wrapper_cards">
+                        <img class="image-responsive center-block" src="{{ $card->getMediumImageURL() }}" width="90%" onload="imgLoaded(this)">
+                    </div>
                 </a>
                 <p class="text-center series-card-name">
                     {{ $card->name  . " " . $card->rarity }}

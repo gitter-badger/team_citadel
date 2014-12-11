@@ -85,14 +85,14 @@ class UsersController extends BaseController
             return Redirect::to('login')->with('message', 'This is not your profile!');
 
         } else {
-                        return View::make('user.update', compact('user'));
+            return View::make('user.update', compact('user'));
         }
     }
 
     public function update($username)
     {
-
-        $user = User::whereUsername($username)->firstOrFail();
+        // discard parameter
+        $user = Auth::user();
         $userInfo = Input::only(
             'title',
             'username',
@@ -150,14 +150,11 @@ class UsersController extends BaseController
         $decks = $this->getUserWall($user->id);
         $method = 'sent';
 
-        if($user == null){
-            return Redirect::to('login')->with('message', 'Please log in!');
-        }
-        else {
-            $conversations = $authUser->conversations()->orderBy('created_at', 'DESC')->get();
-            $messages = Message::where('user_id', $authUser->id)->orderBy('created_at', 'DESC')->get();
-            //$conversations = Conversation::where('users', $authUser->id)->orderBy('created_at', 'DESC')->get();
-            return View::make('user.profile', compact('conversations', 'method','user', 'decks', 'messages'));
+        $decks = $this->getUserWall($user->id);
+        $conversations = $authUser->conversations()->orderBy('created_at', 'DESC')->get();
+        $messages = Message::where('user_id', $authUser->id)->orderBy('created_at', 'DESC')->get();
+        //$conversations = Conversation::where('users', $authUser->id)->orderBy('created_at', 'DESC')->get();
+        return View::make('user.profile', compact('conversations', 'method','user', 'decks', 'messages'));
         }
     }
 

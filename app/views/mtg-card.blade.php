@@ -4,23 +4,21 @@
 @stop
 @section('content')
     <div class="row">
-        <div class="col-xs-12 col-md-12">
-            <ol class="breadcrumb">
-                <li><a href="{{ URL::route('games.show','MagicTheGathering') }}"> {{ $card->series->game->name }} </a></li>
-                <li><a href="{{ $card->series->url }}">{{ $card->series->name }}</a></li>
-                <li class="active">{{ $card->name }} </li>
-            </ol>
-        </div>
+        <ol class="breadcrumb">
+            <li><a href="{{ URL::route('games.show','MagicTheGathering') }}"> {{ $card->series->game->name }} </a></li>
+            <li><a href="{{ $card->series->url }}">{{ $card->series->name }}</a></li>
+            <li class="active">{{ $card->serial_number . " " . $card->rarity }} </li>
+        </ol>
     </div>
     <div class="row">
-        <div class="col-xs-12 col-md-4">
+        <div class="col-xs-6 col-md-4">
             <a data-toggle="modal" data-target="#image-modal" href="">
                 <div class="img_wrapper_card center-block">
                     <img class="image-responsive" src="{{ $card->getMediumImageURL() }}" width="50%" onload="imgLoaded(this)">
                 </div>
             </a>
         </div>
-        <div class="col-xs-12 col-md-8">
+        <div class="col-xs-6 col-md-8">
             <table class="table table-striped">
                 <tr>
                     <td><label>Type</label></td>
@@ -31,17 +29,15 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><label>Mana Cost</label></td>
                     @if($card->attributes->find(11))
+                        <td><label>Mana Cost</label></td>
                         <td>{{ $card->attributes->find(11)->pivot->value }}</td>
-                    @else
-                        <td>N/A</td>
-                    @endif
-
-                    <td><label>Converted Mana Cost</label></td>
-                    @if($card->attributes->find(12))
+                        <td><label>Converted Mana Cost</label></td>
                         <td>{{ $card->attributes->find(12)->pivot->value }}</td>
                     @else
+                        <td><label>Mana Cost</label></td>
+                        <td>N/A</td>
+                        <td><label>Converted Mana Cost</label></td>
                         <td>N/A</td>
                     @endif
                 </tr>
@@ -88,7 +84,7 @@
     <br>
 
     <!-- ratings section -->
-    <div class="row well disabled">
+    <div class="row well">
         <div class="col-md-6">
             <h2>Ratings</h2>
             <h5>Using these criteria:</h5>
@@ -141,12 +137,6 @@
     @parent
     <script src="/js/charts/Chart.min.js"></script>
     <script src="/js/charts/createRadarChart.js"></script>
-    <script type="text/javascript">
-        function imgLoaded(img) {
-            var imgWrapper = img.parentNode;
-            imgWrapper.className += imgWrapper.className ? ' loaded' : 'loaded';
-        };
-    </script>
     <script>
     $(function() {
         // The users previous rating. values will be null if they have not rated before

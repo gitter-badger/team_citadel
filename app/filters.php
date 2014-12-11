@@ -93,3 +93,16 @@ Route::filter('env', function () {
             ->with('message', 'This feature is comming soon');
     }
 });
+
+// filter defined in filters.php
+Route::filter('owns', function ($route, $request, $thingToBeOwned) {
+    // find the thing ID
+    $id = $route->getParameter('deck_id');
+
+    // find the thing!
+    $thing = $thingToBeOwned::find($id);
+
+    return Auth::check() && $thing->user->id == Auth::id()
+        ? null
+        : Redirect::to('/')->with('error', '403: You do not have permission.', 403);
+});

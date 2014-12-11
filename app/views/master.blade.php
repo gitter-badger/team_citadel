@@ -15,7 +15,13 @@
 
       ga('create', 'UA-57164605-1', 'auto');
       ga('send', 'pageview');
+    </script>
 
+    <script type="text/javascript">
+        function imgLoaded(img) {
+            var imgWrapper = img.parentNode;
+            imgWrapper.className += imgWrapper.className ? ' loaded' : 'loaded';
+        };
     </script>
 </head>
 <body>
@@ -56,8 +62,6 @@
                             <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="{{url('listing/create')}}">Sell</a></li>
-                            <li class="divider"></li>
                             <li>{{ link_to('logout', 'Log Out' )}}</li>
                         </ul>
                     @else
@@ -80,12 +84,14 @@
             </div>
         </div>
         @if( Session::has('message') )
-            <div class='alert alert-success'>
+            <div class='alert alert-success alert-dismissible' role="alert">
+                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>
                 {{ Session::get('message') }}
             </div>
         @endif
         @if(Session::has('error'))
-            <div class='alert alert-warning'>
+            <div class='alert alert-warning alert-dismissible' role="alert">
+                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>
                 {{ Session::get('error') }}
             </div>
         @endif

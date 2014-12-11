@@ -1,50 +1,55 @@
 @extends('master')
 
-    @section('header')
-        <h2 class="text-center">{{{ ucwords($deck->title) }}}</h2>
-    @stop
+@section('header')
+    <h2 class="text-center">
+        {{{ ucwords($deck->title) }}}
+        @if(Auth::check() && Auth::id() == $deck->user->id)
+            <small>
+                <icon class="glyphicon glyphicon-edit"></icon>
+                {{ link_to_route('deck.edit', 'edit', [$deck->id]) }}
+            </small>
+        @endif
+    </h2>
+@stop
 
-    @section('content')
-        {{ Form::open(['route' => ['addCard', $deck->id]]) }}
+@section('content')
+    {{ Form::open(['route' => ['addCard', $deck->id]]) }}
 
-            <div class="row">
-                @foreach($deck->cards as $card)
-                    <div class='col-sm-2 col-xs-12'>
-                        <a href="{{ $card->url }}" title="{{{ $card->name  . " " . $card->rarity }}}">
-                            <div style="min-height: 100px">
-                                <!-- if image exists, show it, else show back of card -->
-                                @if($deck->game_id == 1)
-                                    <img class="center-block" src="{{ $card->getSmallImageURL() }}">
-                                @elseif($deck->game_id == 2)
-                                    <img class="image-responsive center-block" src="{{ ('http://mtgimage.com/set/' . $card->serial_number . '/' . $card->name . '.jpg') }}" style="height: 200px">
-                                @endif
+        <div class="row">
+            @foreach($deck->cards as $card)
+                <div class='col-sm-2 col-xs-12'>
+                    <div class="img-wrap-decks" data-card="{{ $card->id }}" data-deck="{{ $deck->id }}" style="min-height: 100px">
+                        @if(Auth::check() && Auth::id() == $deck->user->id)
+                            <icon class="close glyphicon glyphicon-remove"></icon>
+                        @endif
+                        <a href="{{ $card->url }}" title="{{{ $card->name  . " " . $card->rarity }}}" class="img_wrapper_cards">
+                            <div class="img_wrapper_cards center-block">
+                                <img class="center-block" src="{{ $card->getMediumImageURL() }}" onload="imgLoaded(this)" width="100%">
                             </div>
-                            <p class="text-center series-card-name">
-                                {{ $card->name  . " " . $card->rarity }}
-                            </p>
                         </a>
                     </div>
-                @endforeach
-            </div>
-            @if(Auth::check()) {{-- if we don't check to see if user is logged in, we get property of non-object --}}
-                @if(Auth::user()->id == $deck->users->first()->id)
-                    <div class="form-group">
-                        <div class="well">
-                            <div class="row">
-                                {{ Form::label('Cards') }}
-                                {{ Form::hidden('deck', $deck->id) }}
-                                {{ Form::text("query", "", ["class" => "form-control", "id" => 'searchbox', 'placeholder' => "Search Cards for your Deck...", 'data-id' => $deck->game_id]) }}
-                                {{ Form::submit('Add Cards', ['class' => 'btn btn-primary pull-right']) }}
-                            </div>
-                        </div>
+                    <p class="text-center series-card-name">
+                        {{ $card->name  . " " . $card->rarity }}
+                    </p>
+                </div>
+            @endforeach
+        </div>
+        @if(Auth::check() && Auth::id() == $deck->user->id)
+            <div class="form-group">
+                <div class="well">
+                    <div class="row">
+                        {{ Form::label('Cards') }}
+                        {{ Form::hidden('deck', $deck->id) }}
+                        {{ Form::text("query", "", ["class" => "form-control", "id" => 'searchbox', 'placeholder' => "Search Cards for your Deck...", 'data-id' => $deck->game_id]) }}
+                        {{ Form::submit('Add Cards', ['class' => 'btn btn-primary pull-right']) }}
                     </div>
-                @endif
-            @endif
+                </div>
+            </div>
+        @endif
+    {{ Form::close() }}
+@stop
 
-        {{ Form::close() }}
-    @stop
-
-    @section('scripts')
-        @parent
-        {{ HTML::script('js/input-select-dropdown.js', ["type" => "text/javascript"]) }}
-    @stop
+@section('scripts')
+    @parent
+    {{ HTML::script('js/input-select-dropdown.js', ["type" => "text/javascript"]) }}
+@stop
