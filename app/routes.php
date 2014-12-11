@@ -86,7 +86,13 @@ Route::group(['prefix' => 'decks'], function () {
             'uses' => 'DeckController@removeCardsFromDeck'
         ]);
 
+        Route::get('/create', [
+            'as' => 'deck.create',
+            'uses' => 'DeckController@create'
+        ]);
+
         Route::group(['before' => 'csrf'], function () {
+
             Route::post('/create', [
                 'as' => 'deck.store',
                 'uses' => 'DeckController@store'

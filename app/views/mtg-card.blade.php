@@ -11,14 +11,14 @@
         </ol>
     </div>
     <div class="row">
-        <div class="col-xs-12 col-md-4">
+        <div class="col-xs-6 col-md-4">
             <a data-toggle="modal" data-target="#image-modal" href="">
                 <div class="img_wrapper_card center-block">
                     <img class="image-responsive" src="{{ $card->getMediumImageURL() }}" width="50%" onload="imgLoaded(this)">
                 </div>
             </a>
         </div>
-        <div class="col-xs-12 col-md-8">
+        <div class="col-xs-6 col-md-8">
             <table class="table table-striped">
                 <tr>
                     <td><label>Type</label></td>
@@ -84,7 +84,7 @@
     <br>
 
     <!-- ratings section -->
-    <div class="row well disabled">
+    <div class="row well">
         <div class="col-md-6">
             <h2>Ratings</h2>
             <h5>Using these criteria:</h5>
