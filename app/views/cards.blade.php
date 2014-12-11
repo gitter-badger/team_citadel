@@ -56,7 +56,7 @@
                     <tr class="clickable-row" href="{{ $card->url }}">
                         <td >
                             <div class="img_wrapper_cards center-block">
-                                <img class="img-responsive" src="{{ ('http://mtgimage.com/set/' . $card->serial_number . '/' . $card->attributes->find(17)->pivot->value . '.jpg') }}" onload="imgLoaded(this)"></td>
+                                <img class="img-responsive" src="{{ $card->getSmallImageURL() }}" onload="imgLoaded(this)"></td>
                             </div>
                         <td class="vert-align text-center">{{ $card->name }}</td>
                         <!-- Get card type color -->

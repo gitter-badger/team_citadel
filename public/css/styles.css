@@ -337,8 +337,8 @@ img.image-responsive.center-block {
 
 .img-wrap-decks .close {
     position: absolute;
-    top: 4%;
-    right: 9%;
+    top: 3%;
+    right: 11%;
     z-index: 100;
     color: white;
     font-size: 12px;

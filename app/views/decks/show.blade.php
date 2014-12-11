@@ -15,13 +15,14 @@
         <div class="row">
             @foreach($deck->cards as $card)
                 <div class='col-sm-2 col-xs-12'>
-                    <div class="img_wrapper_cards img-wrap-decks" data-card="{{ $card->id }}" data-deck="{{ $deck->id }}" style="min-height: 100px">
+                    <div class="img-wrap-decks" data-card="{{ $card->id }}" data-deck="{{ $deck->id }}" style="min-height: 100px">
                         @if(Auth::check() && Auth::id() == $deck->user->id)
                             <icon class="close glyphicon glyphicon-remove"></icon>
                         @endif
-                         <!-- if image exists, show it, else show back of card -->
-                        <a href="{{ $card->url }}" title="{{{ $card->name  . " " . $card->rarity }}}">
-                            <img class="center-block" src="{{ $card->getMediumImageURL() }}" onload="imgLoaded(this)" width="100%">
+                        <a href="{{ $card->url }}" title="{{{ $card->name  . " " . $card->rarity }}}" class="img_wrapper_cards">
+                            <div class="img_wrapper_cards center-block">
+                                <img class="center-block" src="{{ $card->getMediumImageURL() }}" onload="imgLoaded(this)" width="100%">
+                            </div>
                         </a>
                     </div>
                     <p class="text-center series-card-name">
