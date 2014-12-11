@@ -4,7 +4,10 @@
     <h2 class="text-center">
         {{{ ucwords($deck->title) }}}
         @if(Auth::check() && Auth::id() == $deck->user->id)
-            {{ link_to_route('deck.edit', 'edit information', [$deck->id]) }}
+            <small>
+                <icon class="glyphicon glyphicon-edit"></icon>
+                {{ link_to_route('deck.edit', 'edit', [$deck->id]) }}
+            </small>
         @endif
     </h2>
 @stop
