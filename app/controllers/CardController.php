@@ -42,7 +42,7 @@ class CardController extends \BaseController {
         $previousUserRatings = [];
 
         // get the average for each rateable.
-        if(Auth::check()) {
+        if (Auth::check()) {
             foreach ($rateables as $rateable) {
                 $previousUserRatings[$rateable->name] = Rating::whereCardId($id)
                     ->whereRateableId($rateable->id)
@@ -92,14 +92,15 @@ class CardController extends \BaseController {
     {
 
     }
-    public function cardSearch() {
+    public function cardSearch()
+    {
         $query = Input::get('query');
-        if($query) {
+        if ($query) {
             $cards = Card::whereRaw("MATCH(cards.name) AGAINST('+$query*' IN BOOLEAN MODE)")
-                ->get();
+                ->paginate(24);
         } else {
             $cards = null;
         }
-        return View::make('result', compact('cards', 'query'));
+        return View::make('search', compact('cards', 'query'));
     }
 }
