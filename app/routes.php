@@ -69,7 +69,7 @@ Route::group(['prefix' => 'decks'], function () {
         'uses' => 'DeckController@show'
     ])->where('deck_id', '[0-9]+');
 
-    Route::group(['before' => 'auth'], function() {
+    Route::group(['before' => 'auth'], function () {
         Route::get('/{deck_id}/edit', [
             'before' => 'owns:Deck',
             'as' => 'deck.edit',
