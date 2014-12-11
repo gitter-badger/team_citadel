@@ -104,5 +104,5 @@ Route::filter('owns', function ($route, $request, $thingToBeOwned) {
 
     return Auth::check() && $thing->user->id == Auth::id()
         ? null
-        : Response::make('no permissions!!', 403);
+        : Redirect::to('/')->with('error', '403: You do not have permission.', 403);
 });
