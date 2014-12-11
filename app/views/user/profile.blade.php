@@ -39,7 +39,6 @@
         @endforeach
     </div>
 
-      
 
         <div role="tabpanel" class="tab-pane" id="messages">
             <div class="row well post-border">
@@ -53,13 +52,13 @@
             </div>
 
             <ul class="nav nav-pills nav-stacked col-md-2">
-                <li><a href="#tab_b" data-toggle="pill">Inbox</a></li>
+                <li class="active"><a href="#tab_b" data-toggle="pill">Inbox</a></li>
                 <li><a href="#tab_c" data-toggle="pill">Sent</a></li>
                 <li><a href="" data-toggle="pill">Deleted</a></li>
             </ul>
 
             <div class="tab-content col-md-10">
-                <div class="tab-pane" id="tab_b">
+                <div class="tab-pane active" id="tab_b">
                 @foreach($messages as $message)
                 <div class="panel panel-info">
                     <div class="panel-heading">
