@@ -155,8 +155,8 @@ class UsersController extends BaseController
         $messages = Message::where('user_id', $authUser->id)->orderBy('created_at', 'DESC')->get();
         //$conversations = Conversation::where('users', $authUser->id)->orderBy('created_at', 'DESC')->get();
         return View::make('user.profile', compact('conversations', 'method','user', 'decks', 'messages'));
-        }
     }
+
 
     //gets the wall posts for the user
     public function getUserWall($userId)

@@ -25,6 +25,7 @@
                 </div>
             </div>
         @endif
+
         @foreach($decks as $deck)
             <div class="row">
                 <div class="col-md-12 post-border">
@@ -38,8 +39,7 @@
         @endforeach
     </div>
 
-    @if(Auth::check())
-        @if(Auth::user()->id == $user->id)
+      
 
         <div role="tabpanel" class="tab-pane" id="messages">
             <div class="row well post-border">
@@ -147,10 +147,10 @@
                     </div>
                 </div>
             </div>
+            
 
         <div role="tabpanel" class="tab-pane" id="messages">Future Updates</div>
         <div role="tabpanel" class="tab-pane" id="settings">Future Updates</div>
-    @endif
 </div>
 @stop
 @section('scripts')
