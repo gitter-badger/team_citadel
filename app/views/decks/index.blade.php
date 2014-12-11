@@ -10,11 +10,11 @@
      @foreach($decks as $deck)
         <div class="row">
             <div class="col-md-12  post-border">
-                    <span class="col-sm-3 col-md-2 vCenter ">
-                        <div class="img_wrapper_cards">
-                            <img class="responsive-image center-block" src="{{ $deck->cards->first()->getSmallImageURL() }}" width="70%" onload="imgLoaded(this)">
-                        </div>
-                    </span>
+                <span class="col-sm-3 col-md-2 vCenter ">
+                    <div class="img_wrapper_cards">
+                        <img class="responsive-image center-block" src="{{ $deck->cards->first()->getMediumImageURL() }}" width="70%" onload="imgLoaded(this)">
+                    </div>
+                </span>
                 <div class="col-md-9 vCenter">
                     <div class=''>
                         <h4>{{{ ucwords($deck->title) }}}</h4> {{ link_to_route('deck.show', 'See full deck', [$deck->id]) }}
