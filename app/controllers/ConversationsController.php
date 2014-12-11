@@ -167,7 +167,7 @@ class ConversationsController extends \BaseController {
 		$conversation = Conversation::all()->lists('name', 'id');
 		$method = 'reply';
 
-		return View::make('messages.reply', compact('message', 'conversation', 'method', 'username'));
+		return View::make('messages.reply', compact('message', 'conversation', 'method', 'username', 'name'));
 	}
 
 

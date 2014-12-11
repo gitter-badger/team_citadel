@@ -147,9 +147,18 @@ class UsersController extends BaseController
     {
         $user = User::where('username', $username)->first();
         $authUser = Auth::user();
-
         $decks = $this->getUserWall($user->id);
-        return View::make('user.profile', compact('user', 'decks'));
+        $method = 'sent';
+
+        if($user == null){
+            return Redirect::to('login')->with('message', 'Please log in!');
+        }
+        else {
+            $conversations = $authUser->conversations()->orderBy('created_at', 'DESC')->get();
+            $messages = Message::where('user_id', $authUser->id)->orderBy('created_at', 'DESC')->get();
+            //$conversations = Conversation::where('users', $authUser->id)->orderBy('created_at', 'DESC')->get();
+            return View::make('user.profile', compact('conversations', 'method','user', 'decks', 'messages'));
+        }
     }
 
     //gets the wall posts for the user

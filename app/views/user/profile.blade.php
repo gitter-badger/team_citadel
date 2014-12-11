@@ -47,35 +47,66 @@
     @if(Auth::check())
         @if(Auth::user()->id == $user->id)
 
-            <div role="tabpanel" class="tab-pane" id="messages">
-                <div class="row well post-border">
-                    <div class="col-md-3">
-                        <h4 class="text-center">
-                            <a href="/messages/create">
-                                Create Message <icon class="glyphicon glyphicon-envelope"></icon>
-                            </a>
-                        </h4>
+        <div role="tabpanel" class="tab-pane" id="messages">
+            <div class="row well post-border">
+                <div class="col-md-3">
+                    <h4 class="text-center">
+                        <a href="/messages/create">
+                            Create Message <icon class="glyphicon glyphicon-envelope"></icon>
+                        </a>
+                    </h4>
+                </div>
+            </div>
+
+            <ul class="nav nav-pills nav-stacked col-md-2">
+                <li><a href="#tab_b" data-toggle="pill">Inbox</a></li>
+                <li><a href="#tab_c" data-toggle="pill">Sent</a></li>
+                <li><a href="" data-toggle="pill">Deleted</a></li>
+            </ul>
+
+            <div class="tab-content col-md-10">
+                <div class="tab-pane" id="tab_b">
+                @foreach($messages as $message)
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Inbox</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                @foreach($message->conversation->users as $user)
+                    {{{ $user->username }}}
+                @endforeach
+                        </p>
+                        <p>{{{ $message->conversation->name }}}</p>
+                        <p>{{{ $message->content }}}</p>
+                        <a href="{{{ URL::route('reply.message', $user->username) }}}" class="btn btn-info">Reply</a>
                     </div>
                 </div>
-                <div class="row well post-border">
-                    <div class="col-md-3">
-                        <h4 class="text-center">
-                            <a href="/messages/sent">
-                                Sent <icon class="glyphicon glyphicon-envelope"></icon>
-                            </a>
-                        </h4>
+                @endforeach
+            </div>
+
+            <div class="tab-pane" id="tab_c"> 
+                @foreach($conversations as $conversation)
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Sent</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                @foreach($conversation->messages as $message)
+                    {{{ $message->user->username}}}
+                @endforeach
+                        </p>
+                        <p>{{{ $conversation->name }}}</p>
+                        <p> {{{ $conversation->messages()->orderBy('created_at', 'DESC')->get()->first()->content}}}</p>
+                        <a href="{{{ URL::route('reply.message', $message->user->username) }}}" class="btn btn-info">Reply</a>
                     </div>
                 </div>
-                <div class="row well post-border">
-                    <div class="col-md-3">
-                        <h4 class="text-center">
-                            <a href="/messages/received">
-                                Inbox <icon class="glyphicon glyphicon-envelope"></icon>
-                            </a>
-                        </h4>
-                    </div>
-                </div>
-            </div> 
+                @endforeach
+            </div>
+            </div>
+        </div>
+
             <div role="tabpanel" class="tab-pane" id="profile">
                 <div class="row">
                     <div class="col-md-12">
