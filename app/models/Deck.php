@@ -5,9 +5,9 @@ class Deck extends Eloquent
     protected $table = 'decks';
     protected $guard = 'id';
 
-    public function users()
+    public function user()
     {
-        return $this->belongsToMany('User');
+        return $this->belongsTo('User');
     }
 
     public function cards()

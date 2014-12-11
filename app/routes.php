@@ -29,31 +29,14 @@ Route::group(['before' => 'auth'], function () {
         return Redirect::to('/')
             ->with('message', 'You have logged out');
     });
-
-
 });
 
-// Group all deck routes together
-Route::group(['prefix' => 'decks'], function () {
-    Route::get('/', [
-        'as' => 'decks',
-        'uses' => 'DeckController@index'
-    ]);
-
-
-    Route::get('/{deck_id}', [
-        'as' =>  'deck.show',
-        'uses' => 'DeckController@show'
-    ])->where('deck_id', '[0-9]+');
-});
-
-
-Route::get('messages/create',[
+Route::get('messages/create', [
     'as' => 'create.message',
     'uses' => 'ConversationsController@show'
     ]);
 
-Route::post('message/create',[
+Route::post('message/create', [
     'as' => 'post.message',
     'uses' => 'ConversationsController@post'
     ]);
@@ -73,45 +56,54 @@ Route::get('messages/reply/{username}', [
     'as' => 'reply.message',
     'uses' => 'ConversationsController@reply'
     ]);
-Route::get('search/cards/', array(
-    'as' => 'cards.search',
-    'uses' => 'CardController@cardSearch'
-));
 
-// Routes that requires authentication before becoming viewable
-Route::group(['before' => 'auth'], function () {
-    Route::get('/create', [
-        'as' => 'deck.create',
-        'uses' => 'DeckController@create'
+// Group all deck routes together
+Route::group(['prefix' => 'decks'], function () {
+    Route::get('/', [
+        'as' => 'decks',
+        'uses' => 'DeckController@index'
     ]);
 
-    Route::get('/{deck_id}/edit', [
-        'as' => 'deck.edit',
-        'uses' => 'DeckController@edit'
-    ]);
+    Route::get('/{deck_id}', [
+        'as' =>  'deck.show',
+        'uses' => 'DeckController@show'
+    ])->where('deck_id', '[0-9]+');
 
-    Route::get('/getcards', [
-        'as' => 'addCardSearch',
-        'uses' => 'DeckController@addCardSearch'
-    ]);
-
-    Route::get('logout', function () {
-        Auth::logout();
-        return Redirect::to('/')
-            ->with('message', 'You have logged out');
-    });
-
-    Route::group(['before' => 'csrf'], function () {
-        Route::post('/create', [
-            'as' => 'deck.store',
-            'uses' => 'DeckController@store'
+    Route::group(['before' => 'auth'], function() {
+        Route::get('/{deck_id}/edit', [
+            'before' => 'owns:Deck',
+            'as' => 'deck.edit',
+            'uses' => 'DeckController@edit'
         ]);
 
-        Route::post('/{deck_id}', [
-            'as' => 'addCard',
-            'uses' => 'DeckController@addCard'
-        ])->where('deck_id', '[0-9]+');
+        Route::get('/getcards', [
+            'as' => 'addCardSearch',
+            'uses' => 'DeckController@addCardSearch'
+        ]);
+
+        Route::get('/dropcard', [
+            'as' => 'dropCard',
+            'uses' => 'DeckController@removeCardsFromDeck'
+        ]);
+
+        Route::group(['before' => 'csrf'], function () {
+            Route::post('/create', [
+                'as' => 'deck.store',
+                'uses' => 'DeckController@store'
+            ]);
+
+            Route::post('/{deck_id}/edit', [
+                'as' => 'deck.edit',
+                'uses' => 'DeckController@update'
+            ]);
+
+            Route::post('/{deck_id}', [
+                'as' => 'addCard',
+                'uses' => 'DeckController@addCard'
+            ])->where('deck_id', '[0-9]+');
+        });
     });
+
 });
 
 
@@ -147,7 +139,7 @@ Route::get('username/reset', array(
 
 Route::resource('user', 'UsersController');
 
-Route::get('{gameName}/{seriesName}/{id}',[
+Route::get('{gameName}/{seriesName}/{id}', [
     'as' => 'aCard.show',
     'uses' => 'CardController@show'
 ]);
@@ -162,20 +154,20 @@ Route::get('search/cards/', array(
     'uses' => 'CardController@cardSearch'
 ));
 
-Route::get('{gameName}/{id}',[
+Route::get('{gameName}/{id}', [
     'as' => 'set.show',
     'uses' => 'SeriesController@show'
-]);
+])->where('id', '[0-9]+');
 
-Route::get('/{gameName}',[
+Route::get('/{gameName}', [
     'as' => 'games.show',
     'uses' => 'GameController@show'
 ]);
 
 Route::get('sendemail', [
     'as' => 'send.email',
-    function() {
-        Mail::send('emails.test', array(), function($message) {
+    function () {
+        Mail::send('emails.test', array(), function ($message) {
             $message->to('adamjama7@gmail.com', 'John Smith')->subject('Welcome!')->from('ajama@alacrityfoundation.com', 'Adam Jama');
         });
     }

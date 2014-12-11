@@ -39,10 +39,9 @@ class DeckController extends \BaseController
             $deck->title = Input::get('title');
             $deck->game_id = Input::get('game_id');
             $deck->description = Input::get('description');
+            $deck->user_id = Auth::id();
 
             if ($deck->save()) {
-                // syncs with the pivot table
-                $deck->users()->sync([Auth::user()->id]);
                 return Redirect::route('deck.show', $deck->id)
                     ->with('success', 'The Deck was Created.');
             } else {
@@ -78,7 +77,26 @@ class DeckController extends \BaseController
 
     public function edit($id)
     {
-        //
+        $deck = Deck::find($id);
+        $games = Game::find($deck->game_id)->first();
+        $method = 'edit';
+
+        return View::make('decks.edit', compact('deck', 'method', 'games'));
+    }
+
+    public function update()
+    {
+        $deck = Deck::find(Input::get('deck'));
+        $deck->title = Input::get('title');
+        $deck->description = Input::get('description');
+
+        if ($deck->save()) {
+            return Redirect::route('deck.show', $deck->id)
+                ->with('success', 'The Deck was Created');
+        } else {
+            return Redirect::route('welcome')
+                ->with('fail', 'An Error Occurred while Saving');
+        }
     }
 
     public function destroy($id)
@@ -97,5 +115,11 @@ class DeckController extends \BaseController
             ->toArray();
 
         return Response::json(['data' => $cards]);
+    }
+
+    public function removeCardsFromDeck()
+    {
+        $deck = Deck::find(Input::get('deck'));
+        $deck->cards()->detach(Input::get('card'));
     }
 }
