@@ -2,6 +2,7 @@
 @section('header')
     <h1 class="text-center">Weiβ Schwarz <small>- Search Results for {{{ $query }}}</small></h1>
 @stop
+
 @section('content')
     @if($cards != null)
         @foreach($cards as $card)
@@ -17,8 +18,13 @@
                 <br>
             </div>
         @endforeach
+
+        <div class="text-center">
+            {{ $cards->links() }}
+        </div>
     @endif
 @stop
+
 @section('scripts')
     @parent
     <script type="text/javascript">

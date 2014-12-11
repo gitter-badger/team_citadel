@@ -54,6 +54,28 @@ $(document).ready(function(){
                     }
                 });
             }
+
+            //if no results from whats typed check the database again
+            if (!$('.selectize-dropdown-content').children().length){
+                $.ajax({
+                    url: '/decks/getcards',
+                    type: 'GET',
+                    dataType: 'json',
+                    data: {
+                        term: query,
+                        game: $('#searchbox').data('id')
+                    },
+                    error: function() {
+                        callback();
+                    },
+                    success: function(result) {
+                        callback(result.data);
+                    }
+                });
+            }
+        },
+        onChange: function(){
+            $('.selectize-dropdown-content').empty();
         },
     });
 
