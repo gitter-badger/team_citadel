@@ -43,6 +43,21 @@
                         {{ Form::text("query", "", ["class" => "form-control", "id" => 'searchbox', 'placeholder' => "Search Cards for your Deck...", 'data-id' => $deck->game_id]) }}
                         {{ Form::submit('Add Cards', ['class' => 'btn btn-primary pull-right']) }}
                     </div>
+                    <div class="row">
+                        <div clas="pull-left">
+                            <div class="col-xs-12 col-md-3">
+                                <div class="col-md-4">
+                                    {{ Shareable::facebook($options = array()) }}
+                                </div>
+                                <div class="col-md-4">
+                                    {{ Shareable::googlePlus($options = array()) }}
+                                </div>
+                                <div class="col-md-4">
+                                    {{ Shareable::twitter($options = array()) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         @endif

@@ -7,7 +7,9 @@
 	"require": {
 		"laravel/framework": "4.2.*",
 		"phpunit/phpunit": "4.0.*",
-		"pichkrement/messenger": "dev-master" 
+		"pichkrement/messenger": "dev-master", 
+		"thujohn/share": "dev-master",
+		"ryannielson/shareable": "1.0.*"
 	},
 	"autoload": {
 		"classmap": [

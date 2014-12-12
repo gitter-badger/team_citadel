@@ -31,6 +31,7 @@ Route::group(['before' => 'auth'], function () {
     });
 });
 
+
 Route::get('messages/create', [
     'as' => 'create.message',
     'uses' => 'ConversationsController@show'
