@@ -24,4 +24,8 @@ class Game extends Eloquent
     {
         return $this->hasMany('Rateable');
     }
+
+    public function getUrlAttribute() {
+        return Str::slug($this->name);
+    }
 }

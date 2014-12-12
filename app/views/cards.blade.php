@@ -7,9 +7,9 @@
         <ol class="breadcrumb">
             <li>
                 @if($aSeries->game->name == 'Weiss Schwarz')
-                    <a href="{{ URL::route('games.show', 'weiss-schwarz') }}"> {{ $aSeries->game->name }} </a>
+                    <a href="{{ URL::route('games.show', $aSeries->game->url) }}"> {{ $aSeries->game->name }} </a>
                 @elseif($aSeries->game->name == 'Magic The Gathering')
-                    <a href="{{ URL::route('games.show', 'magic-the-gathering') }}"> {{ $aSeries->game->name }} </a>
+                    <a href="{{ URL::route('games.show', $aSeries->game->url) }}"> {{ $aSeries->game->name }} </a>
                 @endif
             </li>
             <li class="active">{{ $aSeries->name }}</li>
