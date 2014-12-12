@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
     <title>Deck Citadel</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Card database.">
+    <meta name="keywords" content="Weiss Schwarz, Magic The Gathering, MTG, Card Games">
+    <meta name="author" content="Christopher Paterson, Luke Tanprasit, Adam Jama, Aled Davies">
+
     {{ HTML::style('//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css') }}
     {{ HTML::style('//cdnjs.cloudflare.com/ajax/libs/selectize.js/0.11.2/css/selectize.bootstrap3.css') }}
     {{ HTML::style('css/styles.css') }}
