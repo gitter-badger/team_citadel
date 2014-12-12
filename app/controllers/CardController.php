@@ -37,7 +37,6 @@ class CardController extends \BaseController {
     {
         //
         $card = Card::find($id);
-        $gameName = $card->series->game->name;
         $rateables = $card->series->game->rateables;
         $previousUserRatings = [];
 
@@ -52,10 +51,10 @@ class CardController extends \BaseController {
         }
 
         switch ($gameName) {
-            case 'Weiss Schwarz':
+            case 'weiss-schwarz':
                 return View::make('card', compact('card', 'rateables', 'previousUserRatings'));
 
-            case 'Magic The Gathering':
+            case 'magic-the-gathering':
                 return View::make('mtg-card', compact('card', 'rateables', 'previousUserRatings'));
 
             default:
@@ -96,7 +95,7 @@ class CardController extends \BaseController {
     {
         $query = Input::get('query');
         if ($query) {
-            $cards = Card::whereRaw("MATCH(cards.name) AGAINST('+$query*' IN BOOLEAN MODE)")
+            $cards = Card::whereRaw("MATCH(cards.name) AGAINST('+$query*' IN BOOLEAN MODE) AND (cards.series_id) != 'N/A'")
                 ->paginate(24);
         } else {
             $cards = null;

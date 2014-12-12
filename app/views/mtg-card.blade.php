@@ -5,7 +5,7 @@
 @section('content')
     <div class="row">
         <ol class="breadcrumb">
-            <li><a href="{{ URL::route('games.show','MagicTheGathering') }}"> {{ $card->series->game->name }} </a></li>
+            <li><a href="{{ URL::route('games.show','magic-the-gathering') }}"> {{ $card->series->game->name }} </a></li>
             <li><a href="{{ $card->series->url }}">{{ $card->series->name }}</a></li>
             <li class="active">{{ $card->serial_number . " " . $card->rarity }} </li>
         </ol>

@@ -23,9 +23,8 @@ class Card extends Eloquent
     }
 
     public function getUrlAttribute()
-    {   $gameName = str_replace(' ', '', $this->series->game->name);
-        $seriesName = str_replace(' ', '', $this->series->name);
-        $seriesName = str_replace('/', '', $seriesName);
+    {   $gameName = Str::slug($this->series->game->name);
+        $seriesName = Str::slug($this->series->name);
         return URL::route('aCard.show', [$gameName, $seriesName, $this->id]);
     }
 

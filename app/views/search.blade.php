@@ -1,6 +1,6 @@
 @extends('master')
 @section('header')
-    <h1 class="text-center">Weiβ Schwarz <small>- Search Results for {{{ $query }}}</small></h1>
+    <h1 class="text-center">Cards <small>- Search Results for {{{ $query }}}</small></h1>
 @stop
 
 @section('content')
