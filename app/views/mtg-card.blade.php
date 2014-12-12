@@ -5,7 +5,7 @@
 @section('content')
     <div class="row">
         <ol class="breadcrumb">
-            <li><a href="{{ URL::route('games.show','MagicTheGathering') }}"> {{ $card->series->game->name }} </a></li>
+            <li><a href="{{ URL::route('games.show', $card->series->game->url) }}"> {{ $card->series->game->name }} </a></li>
             <li><a href="{{ $card->series->url }}">{{ $card->series->name }}</a></li>
             <li class="active">{{ $card->serial_number . " " . $card->rarity }} </li>
         </ol>
@@ -27,6 +27,7 @@
                     <td>
                         {{ $card->attributes->find(14)->pivot->value }}
                     </td>
+                    
                 </tr>
                 <tr>
                     @if($card->attributes->find(11))

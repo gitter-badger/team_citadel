@@ -113,8 +113,6 @@ Route::group(['prefix' => 'decks'], function () {
 
 });
 
-
-
 //Group for password reset
 Route::group(['prefix' => 'password'], function () {
     Route::get('/reset', array(
@@ -146,7 +144,7 @@ Route::get('username/reset', array(
 
 Route::resource('user', 'UsersController');
 
-Route::get('{gameName}/{seriesName}/{id}', [
+Route::get('{gameName}/{seriesName}/{id}/{cardName?}', [
     'as' => 'aCard.show',
     'uses' => 'CardController@show'
 ]);
@@ -255,13 +253,6 @@ Route::group(['before' => 'env'], function () {
         $listing->delete();
         return Redirect::to('master')
             ->with('message', 'Successfully deleted listing');
-    });
-
-    // quicksearch
-    Route::get('/quicksearch/cards/', function () {
-        $query = Input::get('query');
-        $cards = DB::table('cards')->where('name', 'LIKE', '%'.$query.'%')->take(4)->get();
-        return Response::json($cards);
     });
 });
 

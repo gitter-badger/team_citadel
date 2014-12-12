@@ -281,7 +281,44 @@ img.image-responsive.center-block {
 }
 
 /*
-    Series Card page
+    Image loading animation for series page
+*/
+
+.img_wrapper_series {
+    position: relative;
+    padding-top: 100%;
+    margin-bottom: 10px;
+    background: #fafafa;
+    overflow: hidden;
+}
+
+.img_wrapper_series img{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+
+    -webkit-transition: opacity .5s;
+    -moz-transition: opacity .5s;
+    -ms-transition: opacity .5s;
+    transition: opacity .5s;
+}
+
+.img_wrapper_series.loaded img {
+    opacity: 1;
+}
+
+.img_wrapper_series.loaded .css_spinner{
+    display: none;
+}
+
+.image-responsive.center-block img {
+    padding-bottom: 15px;
+}
+
+/*
+    Series Card table styling
 */
 .cards-col-width {
     width: 8%;
@@ -328,9 +365,9 @@ img.image-responsive.center-block {
     padding-bottom: 15px;
 }
 
-**
- * Adding a Cross about images in deck
- */
+
+/*Adding a Cross about images in deck*/
+
 .img-wrap-decks {
     position: relative;
 }
@@ -345,4 +382,27 @@ img.image-responsive.center-block {
     opacity: 1;
     border-radius: 100%;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+/*
+    Cards sorting style for cards
+*/
+#cardsTable_filter label {
+    padding-right: 8px;
+    font-weight: normal;
+}
+
+#cardsTable_length label {
+    padding-left: 18px;
+    font-weight: normal;
+}
+
+#cardsTable_filter input {
+    font-size: 20px;
+    -webkit-appearance: searchfield;
+    box-sizing: border-box;
+}
+
+#cardsTable_length select {
+    font-size: 20px;
 }

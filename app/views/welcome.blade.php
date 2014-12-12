@@ -6,19 +6,19 @@
     <!-- Three columns of text below the carousel -->
     <div class="row">
         <div class="col-lg-6">
-            <a href="{{ URL::route('games.show', 'WeissSchwarz') }}">
+            <a href="{{ URL::route('games.show', 'weiss-schwarz') }}">
                 {{ HTML::image('images/welcome/ws-welcome.jpg', 'Weiss Schwarz', array('class' => 'img-circle center-block', 'width' => '124px', 'height' => '124px')) }}
             </a>
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     <h2 class="text-center">Weiß Schwarz</h2>
                     <p>Weiß Schwarz (ヴァイスシュヴァルツ) is a Japanese collectible card game created by Bushiroad. The game is separated into Weiß-side and Schwarz-side. Weiß and Schwarz are German for white and black, respectively. As a general rule, series under Weiß usually have better card effects when compared to those series under Schwarz. However, with the newer series entering the respective sides, there is not much difference between the two.</p>
-                    <p><a class="btn btn-default" href="{{ URL::route('games.show', 'WeissSchwarz') }}" role="button">View cards »</a></p>
+                    <p><a class="btn btn-default" href="{{ URL::route('games.show', 'weiss-schwarz') }}" role="button">View cards »</a></p>
                 </div>
             </div>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-6">
-            <a href="{{ URL::route('games.show', 'MagicTheGathering') }}">
+            <a href="{{ URL::route('games.show', 'magic-the-gathering') }}">
                 {{ HTML::image('images/welcome/mtg-welcome.png', 'Magic the Gathering', array('class' => 'img-circle center-block', 'width' => '124px', 'height' => '124px')) }}
             </a>
             <div class="row">
