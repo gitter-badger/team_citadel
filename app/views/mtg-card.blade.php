@@ -23,10 +23,6 @@
                 <tr>
                     <td><label>Type</label></td>
                     <td>{{ $card->attributes->find(4)->pivot->value }}</td>
-                    <td><label>Artist</label></td>
-                    <td>
-                        {{ $card->attributes->find(14)->pivot->value }}
-                    </td>
                 </tr>
                 <tr>
                     @if($card->attributes->find(11))
