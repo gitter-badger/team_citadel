@@ -35,6 +35,11 @@ class CardController extends \BaseController {
      */
     public function show($gameName, $seriesName, $id)
     {
+        // $card = Game::whereSlug($gameName)
+        //     ->series()
+        //     ->whereSlug($seriesName)
+        //     ->cards()
+        //     ->whereId($id);
         //
         $card = Card::find($id);
         $rateables = $card->series->game->rateables;

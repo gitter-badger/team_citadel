@@ -143,7 +143,7 @@ Route::get('username/reset', array(
 
 Route::resource('user', 'UsersController');
 
-Route::get('{gameName}/{seriesName}/{id}', [
+Route::get('{gameName}/{seriesName}/{id}/{cardName?}', [
     'as' => 'aCard.show',
     'uses' => 'CardController@show'
 ]);
