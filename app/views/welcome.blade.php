@@ -6,7 +6,7 @@
     <!-- Three columns of text below the carousel -->
     <div class="row">
         <div class="col-lg-6">
-            <a href="{{ URL::route('games.show', 'WeissSchwarz') }}">
+            <a href="{{ URL::route('games.show', 'weiss-schwarz') }}">
                 {{ HTML::image('images/welcome/ws-welcome.jpg', 'Weiss Schwarz', array('class' => 'img-circle center-block', 'width' => '124px', 'height' => '124px')) }}
             </a>
             <div class="row">
@@ -18,7 +18,7 @@
             </div>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-6">
-            <a href="{{ URL::route('games.show', 'MagicTheGathering') }}">
+            <a href="{{ URL::route('games.show', 'magic-the-gathering') }}">
                 {{ HTML::image('images/welcome/mtg-welcome.png', 'Magic the Gathering', array('class' => 'img-circle center-block', 'width' => '124px', 'height' => '124px')) }}
             </a>
             <div class="row">
