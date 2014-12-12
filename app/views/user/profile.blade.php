@@ -38,8 +38,7 @@
             </div>
         @endforeach
     </div>
-
-
+    
         <div role="tabpanel" class="tab-pane" id="messages">
             <div class="row well post-border">
                 <div class="col-md-3">
