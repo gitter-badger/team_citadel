@@ -1,6 +1,14 @@
 @extends( 'master' )
 @section('header')
-  <h1 class="text-center">Welcome to Deck Citadel <br><small class="text-muted text-center">We have the cards you're looking for.</small></h1>
+<!-- <marquee direction="right">
+<img src="http://cdn.nyanit.com/nyan2.gif" alt="">
+</marquee> -->
+<h1 class="text-center">Welcome to Deck Citadel <br>
+    <small class="text-muted text-center">
+        The social media platform for card enthusiasts.
+    </small>
+    {{ link_to_route('deck.create', 'Create your deck now!', null, ['class' => 'btn btn-default btn-sm']) }}
+</h1>
 @stop
 @section('content')
     <!-- Three columns of text below the carousel -->
