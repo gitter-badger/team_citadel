@@ -88,7 +88,7 @@
                         id="submit-ratings-btn"
                         type="submit"
                         value="Submit My Ratings"
-                        class="btn login-btn btn-success pull-right">
+                        class="btn btn-primary btn-block pull-right">
                 </div>
             </form>
         </div>
