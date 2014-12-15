@@ -21,7 +21,7 @@ class Series extends Eloquent
     {
         $gameName = strtolower(Str::slug($this->game->name));
         $seriesName = strtolower(Str::slug($this->name));
-        return URL::route('set.show', [$gameName, $this->id]);
+        return URL::route('set.show', [$gameName, $this->id, $seriesName]);
     }
 
     public function getLargeImageURL()

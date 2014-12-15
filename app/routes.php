@@ -21,6 +21,13 @@ Route::get('/', [
     }
 ]);
 
+// Routes for search result paginaiton ajax 
+Route::get('cards/ajax/{type}', [
+    'as' => 'cards.type',
+    'uses' => 'CardController@getCardsType'
+])->where('type', 'weiss-schwarz|magic-the-gathering');
+
+
 // Routes that requires authentication before becoming viewable
 Route::group(['before' => 'auth'], function () {
     // Has Auth Filter
@@ -149,7 +156,7 @@ Route::get('username/reset', array(
 
 Route::resource('user', 'UsersController');
 
-Route::get('{gameName}/{seriesName}/{id}/{cardName?}', [
+Route::get('{gameName}/{seriesId}/{seriesName}/{id}/{cardName?}', [
     'as' => 'aCard.show',
     'uses' => 'CardController@show'
 ]);
@@ -164,7 +171,7 @@ Route::get('search/cards/', array(
     'uses' => 'CardController@cardSearch'
 ));
 
-Route::get('{gameName}/{id}', [
+Route::get('{gameName}/{id}/{seriesName?}', [
     'as' => 'set.show',
     'uses' => 'SeriesController@show'
 ])->where('id', '[0-9]+');

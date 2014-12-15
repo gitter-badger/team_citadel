@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
     <title>Deck Citadel</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Card database.">
+    <meta name="keywords" content="Weiss Schwarz, Magic The Gathering, MTG, Card Games">
+    <meta name="author" content="Christopher Paterson, Luke Tanprasit, Adam Jama, Aled Davies">
+
     {{ HTML::style('//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css') }}
     {{ HTML::style('//cdnjs.cloudflare.com/ajax/libs/selectize.js/0.11.2/css/selectize.bootstrap3.css') }}
     {{ HTML::style('css/styles.css') }}
@@ -49,16 +53,16 @@
                         </ul>
                     </div>
                 </div>
-                <button type="submit" id="search-button" class="btn btn-default hidden-xs"><span class="glyphicon glyphicon-search"></span></button>
+                <button type="submit" id="search-button" class="btn btn-primary hidden-xs"><span class="glyphicon glyphicon-search"></span></button>
             </form>
             <form class="navbar-form navbar-right">
                 <div class="form-group">
                     @if( Auth::check() )
-                        <button type="button" class="btn btn-default btn-sm" onClick="location.href='{{{ route('user.show', Auth::user()->username) }}}'">
+                        <button type="button" class="btn btn-primary btn-sm" onClick="location.href='{{{ route('user.show', Auth::user()->username) }}}'">
                             <span class="glyphicon glyphicon-user"></span>
                             {{{ Auth::user()->username }}}
                         </button>
-                        <button class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
+                        <button class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
                             <span class="glyphicon glyphicon-cog"></span>
                             <span class="caret"></span>
                         </button>

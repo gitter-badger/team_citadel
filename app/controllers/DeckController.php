@@ -101,7 +101,9 @@ class DeckController extends \BaseController
 
     public function destroy($id)
     {
-        //
+        // destroy the deck
+        return Redirect::route('welcome')
+            ->with('fail', 'An Error Occurred while Saving');
     }
 
     public function addCardSearch()
