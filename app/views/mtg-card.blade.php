@@ -27,7 +27,7 @@
                     <td>
                         {{ $card->attributes->find(14)->pivot->value }}
                     </td>
-                    
+
                 </tr>
                 <tr>
                     @if($card->attributes->find(11))
@@ -112,7 +112,7 @@
                         id="submit-ratings-btn"
                         type="submit"
                         value="Submit My Ratings"
-                        class="btn login-btn btn-success pull-right">
+                        class="btn btn-primary btn-block pull-right">
                 </div>
             </form>
         </div>

@@ -25,7 +25,7 @@ class Card extends Eloquent
     public function getUrlAttribute()
     {   $gameName = Str::slug($this->series->game->name);
         $seriesName = Str::slug($this->series->name);
-        return URL::route('aCard.show', [$gameName, $seriesName, $this->id, Str::slug($this->name)]);
+        return URL::route('aCard.show', [$gameName, $this->series->id, $seriesName, $this->id, Str::slug($this->name)]);
     }
 
     public function decks()
