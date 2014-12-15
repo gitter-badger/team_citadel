@@ -24,4 +24,8 @@ class Deck extends Eloquent
     {
         return $this->morphMany('Comment', 'commentable');
     }
+
+    public function getUrlAttribute() {
+        return URL::route('deck.show', $this->id);
+    }
 }

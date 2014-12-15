@@ -5,14 +5,15 @@
         <div class="col-md-12">
             <div class="form-group">
                 <h3>Comment on this deck:</h3>
-                {{ Form::open(['route' => ['comment.show']]) }}
+                {{ Form::open(['route' => ['comment.store']]) }}
                     {{ Form::textarea('comment', null, [
                         'class' => 'form-control',
                         'size' => '30x5'
                         ]); }}
-                    {{ Form::submit('Save', ['class' => 'btn btn-primary pull-right'])}}
                     {{ Form::hidden('id', $type->id) }}
                     {{ Form::hidden('type', get_class($type)) }}
+                    <br>
+                    {{ Form::submit('Save', ['class' => 'btn btn-primary pull-right'])}}
                 {{ Form::close() }}
             </div>
         </div>
