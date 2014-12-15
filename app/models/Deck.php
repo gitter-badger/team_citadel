@@ -19,4 +19,9 @@ class Deck extends Eloquent
     {
         return $this->belongsTo('Game');
     }
+
+    public function comments()
+    {
+        return $this->morphMany('Comment', 'commentable');
+    }
 }
