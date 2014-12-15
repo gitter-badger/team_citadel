@@ -72,7 +72,8 @@ class DeckController extends \BaseController
         $deck = Deck::find($deck_id);
         $series = $deck->game->series;
         $cards = $deck->game->cards;
-        return  View::make('decks.show', compact('deck', 'series', 'cards'));
+        $comments = $deck->comments()->orderBy('created_at', 'desc')->get();
+        return  View::make('decks.show', compact('deck', 'series', 'cards', 'comments'));
     }
 
     public function edit($id)

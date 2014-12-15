@@ -41,18 +41,19 @@
                         {{ Form::label('Cards') }}
                         {{ Form::hidden('deck', $deck->id) }}
                         {{ Form::text("query", "", ["class" => "form-control", "id" => 'searchbox', 'placeholder' => "Search Cards for your Deck...", 'data-id' => $deck->game_id]) }}
-                        {{ Form::submit('Add Cards', ['class' => 'btn btn-primary pull-right']) }}
                     </div>
+                    <br>
                     <div class="row">
-                        <div clas="pull-left">
-                            <div class="col-xs-12 col-md-3">
-                                <div class="col-md-4">
+                        {{ Form::submit('Add Cards', ['class' => 'btn btn-primary pull-right']) }}
+                        <div class="col-xs-12 col-md-8">
+                            <div clas="pull-left">
+                                <div class="col-md-2">
                                     {{ Shareable::facebook($options = array()) }}
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-2">
                                     {{ Shareable::googlePlus($options = array()) }}
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-2">
                                     {{ Shareable::twitter($options = array()) }}
                                 </div>
                             </div>
@@ -62,6 +63,9 @@
             </div>
         @endif
     {{ Form::close() }}
+
+    <!-- Comments section -->
+    @include('widgets.comment-section', ['type' => $deck])
 @stop
 
 @section('scripts')

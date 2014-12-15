@@ -199,6 +199,7 @@ Route::resource('series', 'SeriesController');
 Route::resource('card', 'CardController');
 Route::resource('game', 'GameController');
 Route::resource('rating', 'RatingController');
+Route::resource('comment', 'CommentController');
 
 Route::get('user/{username}/edit', [
     'as' => 'edit.user',
