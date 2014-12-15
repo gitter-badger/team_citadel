@@ -13,11 +13,11 @@ class UpdateUsersAndCommentsTables extends Migration
      */
     public function up()
     {
-        Schema::table('comments', function (Blueprint $table) {
+        Schema::table('comments', function ($table) {
             $table->integer('user_id');
         }) ;
 
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('users', function ($table) {
             $table->dropColumn(['mobile_phone', 'home_telephone', 'paypal_email_address']);
         });
 
@@ -31,18 +31,18 @@ class UpdateUsersAndCommentsTables extends Migration
      */
     public function down()
     {
-        Schema::table('comments', function (Blueprint $table) {
+        Schema::table('comments', function ($table) {
             $table->dropColumn('user_id');
         });
 
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('users', function ($table) {
             $table->string('mobile_phone');
             $table->string('home_telephone');
             $table->string('paypal_email_address');
         });
 
-        Schema::create('addresses', function (Blueprint $table) {
-            $table->increment('id');
+        Schema::create('addresses', function ($table) {
+            $table->increments('id');
             $table->integer('user_id');
             $table->string('line_1');
             $table->string('line_2');

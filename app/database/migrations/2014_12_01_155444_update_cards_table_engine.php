@@ -24,7 +24,7 @@ class UpdateCardsTableEngine extends Migration
      */
     public function down()
     {
-        DB::statement('DROP INDEX cards ON series');
+        DB::statement('DROP INDEX search ON cards');
         DB::update(DB::raw('ALTER TABLE cards ENGINE = InnoDB'));
     }
 }
