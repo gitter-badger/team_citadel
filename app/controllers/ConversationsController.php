@@ -170,6 +170,12 @@ class ConversationsController extends \BaseController {
 		return View::make('messages.reply', compact('message', 'conversation', 'method', 'username', 'name'));
 	}
 
+	public function delete($id)
+	{                                                          
+		Conversation::find($id)->delete();
+		return Redirect::route('welcome');
+	}     
+
 
 
 

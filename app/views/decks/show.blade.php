@@ -47,7 +47,7 @@
                         <div clas="pull-left">
                             <div class="col-xs-12 col-md-3">
                                 <div class="col-md-4">
-                                    {{ Shareable::facebook($options = array()) }}
+                                    {{ Shareable::facebook($options = array($deck->description)) }}
                                 </div>
                                 <div class="col-md-4">
                                     {{ Shareable::googlePlus($options = array()) }}

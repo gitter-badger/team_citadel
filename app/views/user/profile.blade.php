@@ -53,7 +53,6 @@
             <ul class="nav nav-pills nav-stacked col-md-2">
                 <li class="active"><a href="#tab_b" data-toggle="pill">Inbox</a></li>
                 <li><a href="#tab_c" data-toggle="pill">Sent</a></li>
-                <li><a href="" data-toggle="pill">Deleted</a></li>
             </ul>
 
             <div class="tab-content col-md-10">
@@ -64,6 +63,7 @@
                         <h3 class="panel-title">Inbox</h3>
                     </div>
                     <div class="panel-body">
+                        <img class="img-square profile-img" src="{{ asset(  'images/users/' . $message->user->id . '.jpeg') }}">
                         <p>
                 @foreach($message->conversation->users as $user)
                     {{{ $user->username }}}
@@ -71,6 +71,11 @@
                         </p>
                         <p>{{{ $message->conversation->name }}}</p>
                         <p>{{{ $message->content }}}</p>
+                @if($message->conversation->created_at->diffInDays() > 30)
+                    <p>{{ $message->conversation->created_at->toFormattedDateString() }}</p>
+                    @else
+                    <p>{{ $message->conversation->created_at->diffForHumans()}}</p>
+                    @endif
                         <a href="{{{ URL::route('reply.message', $user->username) }}}" class="btn btn-info">Reply</a>
                     </div>
                 </div>
@@ -84,13 +89,19 @@
                         <h3 class="panel-title">Sent</h3>
                     </div>
                     <div class="panel-body">
+                        <img class="img-square profile-img" src="{{ asset(  'images/users/' . $message->user->id . '.jpeg') }}">
                         <p>
-                @foreach($conversation->messages as $message)
-                    {{{ $message->user->username}}}
-                @endforeach
+                            @foreach($conversation->messages as $message)
+                                {{{ $message->user->username}}}
+                            @endforeach
                         </p>
                         <p>{{{ $conversation->name }}}</p>
-                        <p> {{{ $conversation->messages()->orderBy('created_at', 'DESC')->get()->first()->content}}}</p>
+                        <p>{{{ $conversation->messages()->orderBy('created_at', 'DESC')->get()->first()->content}}}</p>
+                        @if($conversation->created_at->diffInDays() > 30)
+                            <p>{{ $conversation->created_at->toFormattedDateString() }}</p>
+                        @else
+                            <p>{{ $conversation->created_at->diffForHumans() }}</p>
+                        @endif
                         <a href="{{{ URL::route('reply.message', $message->user->username) }}}" class="btn btn-info">Reply</a>
                     </div>
                 </div>
