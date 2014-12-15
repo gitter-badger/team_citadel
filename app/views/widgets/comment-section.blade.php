@@ -26,6 +26,8 @@
             @foreach($comments as $comment)
                 <tr>
                     <td>
+                        Posted {{{ $comment->created_at->diffForHumans() }}} by:
+
                         {{{ $comment->comment }}}
                     </td>
                 </tr>
