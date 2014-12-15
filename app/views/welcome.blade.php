@@ -25,7 +25,7 @@
                 <div class="col-md-8 col-md-offset-2">
                     <h2 class="text-center">Magic The Gathering</h2>
                     <p>Each game represents a battle between wizards known as "planeswalkers", who employ spells, artifacts, and creatures depicted on individual Magic cards to defeat their opponents. Although the original concept of the game drew heavily from the motifs of traditional fantasy role-playing games such as Dungeons & Dragons, the gameplay of Magic bears little similarity to pencil-and-paper adventure games, while having substantially more cards and more complex rules than many other card games.</p>
-                    <p><a class="btn btn-default" href="{{ URL::route('games.show', 'MagicTheGathering') }}" role="button">View cards »</a></p>
+                    <p><a class="btn btn-default" href="{{ URL::route('games.show', 'magic-the-gathering') }}" role="button">View cards »</a></p>
                 </div>
             </div>
         </div><!-- /.col-lg-4 -->

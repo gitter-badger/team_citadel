@@ -33,7 +33,7 @@ class CardController extends \BaseController {
      * @param  int  $id
      * @return Response
      */
-    public function show($gameName, $seriesName, $id)
+    public function show($gameName, $seriesId,$seriesName, $id)
     {
         // $card = Game::whereSlug($gameName)
         //     ->series()
@@ -100,11 +100,22 @@ class CardController extends \BaseController {
     {
         $query = Input::get('query');
         if ($query) {
-            $cards = Card::whereRaw("MATCH(cards.name) AGAINST('+$query*' IN BOOLEAN MODE) AND (cards.series_id) != 'N/A'")
+            $game = Game::find(1);
+            $wsCards = $game->cards();
+            $wsCards = $wsCards
+                ->whereRaw("MATCH(cards.name) AGAINST('+$query*' IN BOOLEAN MODE) AND (cards.series_id) != 'N/A'")
+                ->whereGameId(1)
+                ->paginate(24);
+
+            $game = Game::find(2);
+            $mtgCards = $game->cards();
+            $mtgCards = $mtgCards
+                ->whereRaw("MATCH(cards.name) AGAINST('+$query*' IN BOOLEAN MODE) AND (cards.series_id) != 'N/A'")
+                ->whereGameId(2)
                 ->paginate(24);
         } else {
             $cards = null;
         }
-        return View::make('search', compact('cards', 'query'));
+        return View::make('search', compact('wsCards', 'mtgCards', 'query'));
     }
 }
