@@ -6,7 +6,7 @@
     <li role="presentation"><a href="#profile" role="tab" data-toggle="tab">Profile</a></li>
     <li role="presentation"><a href="#myMarket" role="tab" data-toggle="tab">Order History</a></li>
     <li role="presentation"><a href="#messages" role="tab" data-toggle="tab">Messages</a></li>
-    <li role="presentation"><a href="#settings" role="tab" data-toggle="tab">Settings</a></li>    
+    <li role="presentation"><a href="#settings" role="tab" data-toggle="tab">Settings</a></li>
 </ul>
 <!-- Tab panes -->
 <div class="tab-content col-md-12">
@@ -20,17 +20,19 @@
                 </h4>
             </div>
         </div>
-         @foreach($decks as $deck)
-            <div class="row">
-                <div class="col-md-12 post-border">
-                    <span class="col-sm-3 col-md-2">
-                        <img class="responsive-image center-block" src="/images/games/{{ $deck->game_id.'-back'}}.png" width="70%">
-                    </span>
-                    <h4>{{{ $deck->title }}}</h4>
-                    <p>{{{ $deck->description }}}</p>
+        @if(sizeof($decks > 0)
+             @foreach($decks as $deck)
+                <div class="row">
+                    <div class="col-md-12 post-border">
+                        <span class="col-sm-3 col-md-2">
+                            <img class="responsive-image center-block" src="{{ $deck->game_id.'-back'}}.png" width="70%">
+                        </span>
+                        <h4>{{{ $deck->title }}}</h4>
+                        <p>{{{ $deck->description }}}</p>
+                    </div>
                 </div>
-            </div>
-        @endforeach
+            @endforeach
+        @endif
     </div>
 
     <div role="tabpanel" class="tab-pane" id="messages">
@@ -61,7 +63,7 @@
                 </h4>
             </div>
         </div>
-    </div> 
+    </div>
 
     <div role="tabpanel" class="tab-pane" id="profile">
         <div class="row">

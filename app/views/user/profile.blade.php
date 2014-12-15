@@ -25,20 +25,21 @@
                 </div>
             </div>
         @endif
-
-        @foreach($decks as $deck)
-            <div class="row">
-                <div class="col-md-12 post-border">
-                    <span class="col-sm-3 col-md-2">
-                        <img class="responsive-image center-block" src="{{ $deck->cards->first()->getSmallImageURL() }}" width="70%">
-                    </span>
-                    <h4>{{{ ucwords($deck->title) }}}</h4> {{ link_to_route('deck.show', 'See full deck', [$deck->id]) }}
-                    <p>{{{ $deck->description }}}</p>
+            @foreach($decks as $deck)
+                <div class="row">
+                    <div class="col-md-12 post-border">
+                        <span class="col-sm-3 col-md-2">
+                            @if(sizeof($deck->cards) > 0)
+                                <img class="responsive-image center-block" src="{{ $deck->cards->first()->getSmallImageURL() }}" width="70%">
+                            @endif
+                        </span>
+                        <h4>{{{ ucwords($deck->title) }}}</h4> {{ link_to_route('deck.show', 'See full deck', [$deck->id]) }}
+                        <p>{{{ $deck->description }}}</p>
+                    </div>
                 </div>
-            </div>
-        @endforeach
+            @endforeach
     </div>
-    
+
         <div role="tabpanel" class="tab-pane" id="messages">
             <div class="row well post-border">
                 <div class="col-md-3">
@@ -77,7 +78,7 @@
                 @endforeach
             </div>
 
-            <div class="tab-pane" id="tab_c"> 
+            <div class="tab-pane" id="tab_c">
                 @foreach($conversations as $conversation)
                 <div class="panel panel-info">
                     <div class="panel-heading">
@@ -145,7 +146,7 @@
                     </div>
                 </div>
             </div>
-            
+
 
         <div role="tabpanel" class="tab-pane" id="messages">Future Updates</div>
         <div role="tabpanel" class="tab-pane" id="settings">Future Updates</div>
