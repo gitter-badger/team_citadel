@@ -60,7 +60,7 @@
                         @elseif($method == 'edit')
                             {{ Form::submit('Update Deck', ['class' => 'btn btn-custom btn-md btn-block post-border'])}}
                         @endif
-                            {{ Form::submit('Delete Deck', ['class' => 'btn btn-danger btn-md btn-block post-border'])}}
+                            {{-- Form::submit('Delete Deck', ['class' => 'btn btn-danger btn-md btn-block post-border'])--}}
                     </div>
                 </div>
             </div>
