@@ -45,7 +45,7 @@
                     </div>
                     <div class="row">
                         <div clas="pull-left">
-                            <div class="col-xs-12 col-md-3">
+                            <div class="col-xs-12 col-md-6">
                                 <div class="col-md-4">
                                     {{ Shareable::facebook($options = array($deck->description)) }}
                                 </div>
