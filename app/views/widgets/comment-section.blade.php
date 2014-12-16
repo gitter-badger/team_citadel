@@ -1,5 +1,8 @@
+@if(Auth::check())
 <div class="well">
-
+@else
+<div class="well disabled">
+@endif
     <!-- Create new comment section -->
     <div class="row">
         <div class="col-md-12">
