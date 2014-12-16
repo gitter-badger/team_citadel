@@ -68,7 +68,7 @@ class UsersController extends BaseController
             return Redirect::to('/');
         }
 
-        return Redirect::route('user.store')
+        return Redirect::route('user.show')
             ->withInput();
     }
 
