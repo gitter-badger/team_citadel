@@ -30,7 +30,7 @@ class PasswordController extends BaseController
         $result = Password::remind( Input::only('email'), function($message) {
             $message->subject('Password Reminder');
             $message->from('noreply@deckcitadel.com', 'Deck Citadel');
-        });
+        }, 'emails.auth.passwordreminder');
 
         $message = Lang::get($result);
         if ($result == PasswordBroker::REMINDER_SENT) {
@@ -44,7 +44,7 @@ class PasswordController extends BaseController
     public function usernamerequest()
     {
         $result = Password::remind( Input::only('email'), function($message) {
-            $message->subject('Password Reminder');
+            $message->subject('Username Reminder');
             $message->from('noreply@deckcitadel.com', 'Deck Citadel');
             //This will load the email for username reminder
         }, 'emails.auth.usernamereminder');

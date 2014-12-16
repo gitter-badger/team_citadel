@@ -15,10 +15,11 @@ class Conversation extends Pichkrement\Messenger\Models\Conversation {
     protected $fillable = ['name'];
 
     public function messages(){
-        return $this->hasMany('\Pichkrement\Messenger\Models\Message');     
+        return $this->hasMany('\Pichkrement\Messenger\Models\Message')->orderBy('created_at', 'DESC');     
     }
 
     public function users(){
         return $this->belongsToMany('\Pichkrement\Messenger\Models\User');
     }
+
 }
