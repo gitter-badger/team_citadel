@@ -150,6 +150,7 @@ class UsersController extends BaseController
         $method = 'sent';
 
         $decks = $this->getUserWall($user->id);
+
         if($user->conversations) {
             $conversations = $user->conversations()->orderBy('created_at', 'DESC')->get();
             $messages = Message::where('user_id', $user->id)->orderBy('created_at', 'DESC')->get();
