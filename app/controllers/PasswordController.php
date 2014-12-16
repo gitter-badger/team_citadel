@@ -49,6 +49,7 @@ class PasswordController extends BaseController
             //This will load the email for username reminder
         }, 'emails.auth.usernamereminder');
 
+        $message = Lang::get($result);
         if ($result == PasswordBroker::REMINDER_SENT) {
         // TODO: take the user to homepage with email sent message
             return Redirect::route('welcome')->with('message', 'Username reminder sent!');
