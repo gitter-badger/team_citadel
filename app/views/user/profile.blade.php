@@ -97,7 +97,7 @@
                             @endforeach
                         </p>
                         <p>{{{ $conversation->name }}}</p>
-                        <p>{{{ $conversation->messages->content }}}</p>
+                        <p>{{{ $conversation->messages->first()->content }}}</p>
                         @if($conversation->created_at->diffInDays() > 30)
                             <p>{{ $conversation->created_at->toFormattedDateString() }}</p>
                         @else
