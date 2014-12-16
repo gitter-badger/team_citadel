@@ -146,13 +146,12 @@ class UsersController extends BaseController
     public function show($username)
     {
         $user = User::where('username', $username)->first();
-        $authUser = Auth::user();
         $decks = $this->getUserWall($user->id);
         $method = 'sent';
 
         $decks = $this->getUserWall($user->id);
-        $conversations = $authUser->conversations()->orderBy('created_at', 'DESC')->get();
-        $messages = Message::where('user_id', $authUser->id)->orderBy('created_at', 'DESC')->get();
+        $conversations = $user->conversations()->orderBy('created_at', 'DESC')->get();
+        $messages = Message::where('user_id', $user->id)->orderBy('created_at', 'DESC')->get();
         //$conversations = Conversation::where('users', $authUser->id)->orderBy('created_at', 'DESC')->get();
         return View::make('user.profile', compact('conversations', 'method','user', 'decks', 'messages'));
     }
