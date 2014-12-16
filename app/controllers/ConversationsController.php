@@ -50,12 +50,10 @@ class ConversationsController extends \BaseController {
             }
 
             // add authenticated User
-            $user = Auth::user()->id;
             $conversation = new Conversation;
             $conversation->name = Input::get('name');
             $conversation->save();
-            $conversation->users()->attach($user);
-            return $conversation->users;
+            $conversation->users()->attach(Auth::user()->id);
 
             $message = new Message;
             $message->content = Input::get('content');
