@@ -146,11 +146,11 @@ class UsersController extends BaseController
     public function show($username)
     {
         $user = User::where('username', $username)->first();
-        $authUser = Auth::user();
         $decks = $this->getUserWall($user->id);
         $method = 'sent';
 
         $decks = $this->getUserWall($user->id);
+
         if($user->conversations) {
             $conversations = $user->conversations()->orderBy('created_at', 'DESC')->get();
             $messages = Message::where('user_id', $user->id)->orderBy('created_at', 'DESC')->get();
