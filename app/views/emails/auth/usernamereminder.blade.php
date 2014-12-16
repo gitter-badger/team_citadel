@@ -4,11 +4,10 @@
         <meta charset="utf-8">
     </head>
     <body>
-        <h2>Username Reset</h2>
+        <h2>Username Reminder</h2>
 
         <div>
-            To reset your username, complete this form: {{ URL::to('username/reset', array($token)) }}.<br/>
-            This link will expire in {{ Config::get('auth.reminder.expire', 60) }} minutes.
+            You had requested a username reminder. Your username is {{ $username }}
         </div>
     </body>
 </html>

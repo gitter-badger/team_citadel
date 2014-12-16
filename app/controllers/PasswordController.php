@@ -26,6 +26,7 @@ class PasswordController extends BaseController
     }
 
     public function request()
+
     {
         $result = Password::remind( Input::only('email'), function($message) {
             $message->subject('Password Reminder');
@@ -37,26 +38,23 @@ class PasswordController extends BaseController
         // TODO: take the user to homepage with email sent message
             return Redirect::route('welcome')->with('message', $message);
         } else {
-            return Redirect::route('welcome')->with('error', $error);
+            return Redirect::route('welcome')->with('error', $message);
         }
     }
 
     public function usernamerequest()
     {
-        $result = Password::remind( Input::only('email'), function($message) {
-            $message->subject('Username Reminder');
-            $message->from('noreply@deckcitadel.com', 'Deck Citadel');
-            //This will load the email for username reminder
-        }, 'emails.auth.usernamereminder');
-
-        $message = Lang::get($result);
-        if ($result == PasswordBroker::REMINDER_SENT) {
-        // TODO: take the user to homepage with email sent message
+        // Grab first user with specified username
+        $user = User::whereEmail(Input::only('email'))->first();
+        if ($user) {
+            Mail::send('emails.auth.usernamereminder', ['username' => $user->username], function($message) use ($user) {
+                $message->to($user->email, $user->first_name . ' ' . $user->last_name)
+                    ->from('noreply@deckcitadel.com', 'Deck Citadel')
+                    ->subject('Username Reminder');
+            });
             return Redirect::route('welcome')->with('message', 'Username reminder sent!');
-        } else if ($result == PasswordBroker::INVALID_USER){
-            return Redirect::route('welcome')->with('error', 'Invalid user!');
         } else {
-            return Redirect::route('welcome')->with('error', 'Username reminder not sent!');
+            return Redirect::route('welcome')->with('error', 'An account with that email address does not exist!');
         }
     }
 
