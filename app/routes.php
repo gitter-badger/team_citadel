@@ -21,7 +21,7 @@ Route::get('/', [
     }
 ]);
 
-// Routes for search result paginaiton ajax 
+// Routes for search result paginaiton ajax
 Route::get('cards/ajax/{type}', [
     'as' => 'cards.type',
     'uses' => 'CardController@getCardsType'
@@ -219,9 +219,9 @@ Route::get('user/{username}/edit', [
 
 Route::post('login', function () {
     if (Auth::attempt(Input::only('username', 'password'))) {
-        return Redirect::intended('/');
+        return Redirect::to('/');
     } else {
-        return Redirect::back()
+        return Redirect::route('login')
             ->withInput()
             ->with('error', "Invalid credentials");
     }
