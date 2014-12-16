@@ -65,6 +65,11 @@ Route::get('messages/reply/{username}', [
     'uses' => 'ConversationsController@reply'
     ]);
 
+Route::get('messages/delete/{username}',[
+    'as' => 'delete.message',
+    'uses' => 'ConversationsController@delete'
+    ]);
+
 // Group all deck routes together
 Route::group(['prefix' => 'decks'], function () {
     Route::get('/', [

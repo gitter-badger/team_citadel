@@ -54,30 +54,33 @@
             <ul class="nav nav-pills nav-stacked col-md-2">
                 <li class="active"><a href="#tab_b" data-toggle="pill">Inbox</a></li>
                 <li><a href="#tab_c" data-toggle="pill">Sent</a></li>
-                <li><a href="" data-toggle="pill">Deleted</a></li>
             </ul>
 
             <div class="tab-content col-md-10">
                 <div class="tab-pane active" id="tab_b">
-                @if(isset($messages))
-                    @foreach($messages as $message)
-                        <div class="panel panel-info">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Inbox</h3>
-                            </div>
-                            <div class="panel-body">
-                                <p>
-                        @foreach($message->conversation->users as $user)
-                            {{{ $user->username }}}
-                        @endforeach
-                                </p>
-                                <p>{{{ $message->conversation->name }}}</p>
-                                <p>{{{ $message->content }}}</p>
-                                <a href="{{{ URL::route('reply.message', $user->username) }}}" class="btn btn-info">Reply</a>
-                            </div>
+                @foreach($messages as $message)
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Inbox</h3>
                         </div>
-                    @endforeach
-                @endif
+                        <div class="panel-body">
+                            <img class="img-square profile-img" src="{{ asset(  'images/users/' . $message->user->id . '.jpeg') }}">
+                            <p>
+                                @foreach($message->conversation->users as $user)
+                                    {{{ $user->username }}}
+                                @endforeach
+                            </p>
+                            <p>{{{ $message->conversation->name }}}</p>
+                            <p>{{{ $message->content }}}</p>
+                            @if($message->conversation->created_at->diffInDays() > 30)
+                                <p>{{ $message->conversation->created_at->toFormattedDateString() }}</p>
+                                @else
+                                <p>{{ $message->conversation->created_at->diffForHumans()}}</p>
+                            @endif
+                            <a href="{{{ URL::route('reply.message', $user->username) }}}" class="btn btn-info">Reply</a>
+                        </div>
+                    </div>
+                @endforeach
             </div>
 
             <div class="tab-pane" id="tab_c">
@@ -87,13 +90,19 @@
                         <h3 class="panel-title">Sent</h3>
                     </div>
                     <div class="panel-body">
+                        <img class="img-square profile-img" src="{{ asset(  'images/users/' . $conversation->users->first()->id . '.jpeg') }}">
                         <p>
-                @foreach($conversation->messages as $message)
-                    {{{ $message->user->username}}}
-                @endforeach
+                            @foreach($conversation->messages as $message)
+                                {{{ $message->user->username }}}
+                            @endforeach
                         </p>
                         <p>{{{ $conversation->name }}}</p>
-                        <p> {{{ $conversation->messages()->orderBy('created_at', 'DESC')->get()->first()->content}}}</p>
+                        <p>{{{ $conversation->messages->first()->content }}}</p>
+                        @if($conversation->created_at->diffInDays() > 30)
+                            <p>{{ $conversation->created_at->toFormattedDateString() }}</p>
+                        @else
+                            <p>{{ $conversation->created_at->diffForHumans() }}</p>
+                        @endif
                         <a href="{{{ URL::route('reply.message', $message->user->username) }}}" class="btn btn-info">Reply</a>
                     </div>
                 </div>
