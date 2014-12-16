@@ -87,7 +87,9 @@
                 success: function(comment) {
                     if(comment.comment) {
                         var newComment = ' <tr><td> \
+                            @if(Auth::check())
                             {{ link_to_route("user.show", Auth::user()->username, [Auth::user()->username]) }} : \
+                            @endif
                             ' + comment.comment + ' \
                             <small> \
                                 <p>Posted now</p> \
