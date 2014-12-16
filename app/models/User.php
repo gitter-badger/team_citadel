@@ -40,18 +40,25 @@ class User extends Pichkrement\Messenger\Models\User  implements UserInterface, 
     }
 
     // Use this to retrun the url from a users model
-    public function userURL(){
+    public function userURL()
+    {
         return 'user/'.$this->username;
     }
 
     //received messages
-    public function messages(){
+    public function messages()
+    {
         return $this->hasMany('Pichkrement\Messenger\Models\Message');
     }
 
     //messages the user has sent
-    public function conversations(){
+    public function conversations()
+    {
         return $this->belongsToMany('Pichkrement\Messenger\Models\Conversation');
     }
 
+    public function comments()
+    {
+        return $this->hasMany('Comment');
+    }
 }

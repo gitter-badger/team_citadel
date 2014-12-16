@@ -71,4 +71,35 @@
 @section('scripts')
     @parent
     {{ HTML::script('js/input-select-dropdown.js', ["type" => "text/javascript"]) }}
+    <script>
+        $('.comment-form').submit(function(e) {
+            e.preventDefault();
+            var url = decodeURI("{{ URL::route('comment.store') }}");
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: {
+                    comment: $('#comment-form-comment').val(),
+                    id: $('#comment-form-id').val(),
+                    type: $('#comment-form-type').val()
+                },
+                success: function(comment) {
+                    if(comment.comment) {
+                        var newComment = ' <tr><td> \
+                            {{ link_to_route("user.show", Auth::user()->username, [Auth::user()->username]) }} : \
+                            ' + comment.comment + ' \
+                            <small> \
+                                <p>Posted now</p> \
+                            </small> \
+                        </td></tr> ';
+
+                        $(newComment).prependTo('#comment-table > tbody');
+                        $('#comment-form-comment').val('')
+
+                    }
+                }
+            });
+        });
+    </script>
 @stop

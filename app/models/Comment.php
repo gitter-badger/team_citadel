@@ -9,4 +9,9 @@ class Comment extends Eloquent
     {
         return $this->morphTo();
     }
+
+    public function user()
+    {
+        return $this->belongsTo('User');
+    }
 }
