@@ -13,7 +13,7 @@
                 <div class="form-group has-feedback">
                     {{ Form::password('password',  array('class' => 'form-control', 'placeholder' => 'Password', 'id' => 'signup-password')) }}
                 </div>
-                    {{ Form::submit('Login', array( 'class' => 'btn btn-custom btn-lg btn-block', 'id' => 'btn-login' )) }}
+                    {{ Form::submit('Login', array( 'class' => 'btn btn-primary btn-lg btn-block', 'id' => 'btn-login' )) }}
                 {{ Form::close() }}
                 <a href="{{{ route('user.create') }}}" class="signup">Not registered? Sign up!</a>
                 <a href="{{ route('password.remind') }}" class="signup">Forgotten password? Password reminder!</a>

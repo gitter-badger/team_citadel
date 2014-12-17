@@ -41,7 +41,7 @@
                         </div>
                         <div class="col-md-9">
                             {{ Form::textarea('content', '', ['class' => 'form-control']) }}
-                            {{ Form::submit('Send Message', ['class' => 'btn btn-custom btn-md btn-block post-border'])}}
+                            {{ Form::submit('Send Message', ['class' => 'btn btn-primary btn-md btn-block post-border'])}}
                         </div>
                     </div>
                 </div>

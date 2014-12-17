@@ -22,7 +22,7 @@
                          {{ Form::password('password_confirmation', ['class' => 'form-control', 'placeholder' => 'Password', 'id' => 'signup-password']) }}
                     </div>
                     {{ Form::hidden('token', $token) }}
-                    {{ Form::submit( 'Submit', ['class' => 'btn btn-custom btn-lg btn-block', 'id' => 'btn-signup' ]) }}
+                    {{ Form::submit( 'Submit', ['class' => 'btn btn-primary btn-lg btn-block', 'id' => 'btn-signup' ]) }}
                {{ Form::close() }}
           </div>
      </div>

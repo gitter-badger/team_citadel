@@ -10,15 +10,16 @@
     @elseif (Session::has('success'))
         An email with the password reset has been sent.
     @endif
-
-    <div class="col-md-6 col-md-offset-3">
-        <div class="form-wrap">
-            {{ Form::open(array('route' => 'password.request')) }}
-                <div class="form-group has-feedback">
-                    {{ Form::text( 'email', $value = null,  ['class' => 'form-control', 'placeholder' => 'Email', 'id' => 'signup-email']) }}
-                </div>
-                {{ Form::submit( 'Submit', [ 'class' => 'btn btn-custom btn-lg btn-block', 'id' => 'btn-signup' ]) }}
-            {{ Form::close() }}
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="form-wrap">
+                {{ Form::open(array('route' => 'password.request')) }}
+                    <div class="form-group has-feedback">
+                        {{ Form::text( 'email', $value = null,  ['class' => 'form-control', 'placeholder' => 'Email', 'id' => 'signup-email']) }}
+                    </div>
+                    {{ Form::submit( 'Submit', [ 'class' => 'btn btn-primary btn-lg btn-block', 'id' => 'btn-signup' ]) }}
+                {{ Form::close() }}
+            </div>
         </div>
     </div>
 @stop

@@ -18,7 +18,7 @@
                     {{ Form::text('username_confirmation', $value = null, array('class' => 'form-control', 'placeholder' => 'Username', 'id' => 'signup-password')) }}
                </div>
                {{ Form::hidden('token', $token) }}
-               {{ Form::submit( 'Submit', array( 'class' => 'btn btn-custom btn-lg btn-block', 'id' => 'btn-signup' )) }}
+               {{ Form::submit( 'Submit', array( 'class' => 'btn btn-primary btn-lg btn-block', 'id' => 'btn-signup' )) }}
                {{ Form::close() }}
           </div>
      </div>
