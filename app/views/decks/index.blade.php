@@ -7,38 +7,40 @@
 @stop
 
 @section('content')
-     @foreach($decks as $deck)
-        @if(count($deck->cards) > 0)
-            <div class="row">
-                <div class="col-md-12  post-border">
-                    <span class="col-sm-3 col-md-2 vCenter ">
-                        <div class="img_wrapper_cards">
-                            <img class="responsive-image center-block" src="{{ $deck->cards->first()->getMediumImageURL() }}" width="70%" onload="imgLoaded(this)">
-                        </div>
-                    </span>
-                    <div class="col-md-9 vCenter">
-                        <div class=''>
-                            <h4>{{{ ucwords($deck->title) }}}</h4> {{ link_to_route('deck.show', 'See full deck', [$deck->id]) }}
-                        </div>
-                        <hr>
-                        <div class="">
-                            <p>{{{ $deck->description }}}</p>
-                        </div>
-                        <hr>
-                         <div class="row">
-                            <div class="col-md-6">
-                                Created: {{ $deck->user->created_at->diffForHumans()}} by {{ link_to_route('user.show', $deck->user->username, [$deck->user->username]) }}
-                            </div>
-
-                            <div class="col-md-4 pull-right">
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        @endif
-    @endforeach
+        <div class='row'>
+            <table id="cardsTable" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th class="cards-col-width"></th>
+                        <th class="vert-align text-center">Name</th>
+                        <th class="vert-align text-center">Description</th>
+                        <th class="vert-align text-center">Game</th>
+                        <th class="vert-align text-center">Uploaded</th>
+                        <th class="vert-align text-center">Created By</th>
+                    </tr>
+                </thead>
+                <tbody>
+                 @foreach($decks as $deck)
+                    @if(count($deck->cards) > 0)
+                    <tr class="clickable-row" href="{{ route('deck.show', $deck->id) }}">
+                        <td>
+                             <div class="img_wrapper_cards center-block">
+                                <img class="img-responsive" src="{{ $deck->cards->first()->getSmallImageURL() }}" onload="imgLoaded(this)">
+                             </div>
+                        </td>
+                        <td class="vert-align text-center">{{ $deck->title }}</td>
+                        <!-- Get card type attribute -->
+                        <td class="vert-align text-center deck-description-text">{{ Str::limit($deck->description, 200) }}</td>
+                        <!-- Get card colour attribute -->
+                        <td class="vert-align text-center">{{ $deck->game->name }}</td>
+                        <td class="vert-align text-center">{{ $deck->updated_at->diffForHumans() }}</td>
+                        <td class="vert-align text-center">{{ link_to_route('user.show', $deck->user->username, [$deck->user->username]) }} </td>
+                    </tr>
+                    @endif
+                @endforeach
+                </tbody>
+            </table>
+        </div>
     <div class="row text-center">
         {{ $decks->links() }}
     </div>
@@ -46,4 +48,13 @@
 
 @section('scripts')
     @parent
+    <script type="text/javascript">
+        $(document).ready(function($) {
+            $(".clickable-row").click(function() {
+                window.document.location = $(this).attr("href");
+            });
+
+            $('#cardsTable').DataTable();
+        });
+    </script>
 @stop
