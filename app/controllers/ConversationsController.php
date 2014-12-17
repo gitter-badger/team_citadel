@@ -61,7 +61,7 @@ class ConversationsController extends \BaseController {
             $message->conversation_id = $conversation->id;
 
             if ($message->save()) {
-                return Redirect::route('create.message')
+                return Redirect::route('user.show', Auth::user()->username)
                 ->withInput($values)
                 ->with('message', 'The message was sent to ' . $recptUser->username );
             } else {
@@ -103,18 +103,6 @@ class ConversationsController extends \BaseController {
         // array_fetch( Conversation::find($conv_id)->users->toArray(), 'firstname' );
 
     }
-
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @return Response
-     */
-    public function store()
-    {
-        //
-    }
-
 
     /**
      * Display the specified resource.
@@ -175,45 +163,4 @@ class ConversationsController extends \BaseController {
         Conversation::find($id)->delete();
         return Redirect::route('welcome');
     }
-
-
-
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function update($id)
-    {
-        //
-    }
-
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-
-
 }
