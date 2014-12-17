@@ -56,7 +56,7 @@ class UsersController extends BaseController
         $newUser = User::create($values);
 
         // check if image exists
-        if (Input::hasFile('image'))  {
+        if (Input::hasFile('image')) {
             $image = Input::file('image');
             $destinationPath =  public_path().'/images/users/';
             $filename = $newUser->id . '.jpeg';
@@ -155,8 +155,9 @@ class UsersController extends BaseController
             $conversations = $user->conversations()->orderBy('created_at', 'DESC')->get();
             $messages = Message::where('user_id', $user->id)->orderBy('created_at', 'DESC')->get();
         }
+
         //$conversations = Conversation::where('users', $authUser->id)->orderBy('created_at', 'DESC')->get();
-        return View::make('user.profile', compact('conversations', 'method','user', 'decks', 'messages'));
+        return View::make('user.profile', compact('conversations', 'method', 'user', 'decks', 'messages'));
     }
 
 

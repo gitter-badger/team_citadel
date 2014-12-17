@@ -44,7 +44,7 @@
             <div class="row well post-border">
                 <div class="col-md-3">
                     <h4 class="text-center">
-                        <a href="/messages/create">
+                        <a href="{{ URL::route('create.message') }}">
                             Create Message <icon class="glyphicon glyphicon-envelope"></icon>
                         </a>
                     </h4>
@@ -66,8 +66,8 @@
                         <div class="panel-body">
                             <img class="img-square profile-img" src="{{ asset(  'images/users/' . $message->user->id . '.jpeg') }}">
                             <p>
-                                @foreach($message->conversation->users as $user)
-                                    {{{ $user->username }}}
+                                @foreach($message->conversation->users as $repUser)
+                                    {{{ $repUser->username }}}
                                 @endforeach
                             </p>
                             <p>{{{ $message->conversation->name }}}</p>
@@ -152,7 +152,7 @@
                                 <td>{{{ $user->location }}}</td>
                             </tr>
                         </table>
-                        <a href="{{ route('edit.user', $user->username) }}" class="btn btn-primary btn-lg btn-block"> Edit</a>
+                        <a href="{{ route('edit.user', Auth::user()->username) }}" class="btn btn-primary btn-lg btn-block"> Edit</a>
                     </div>
                 </div>
             </div>
