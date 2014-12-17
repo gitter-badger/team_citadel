@@ -1,8 +1,5 @@
 @extends( 'master' )
 @section('header')
-<!-- <marquee direction="right">
-<img src="http://cdn.nyanit.com/nyan2.gif" alt="">
-</marquee> -->
 <h1 class="text-center">Welcome to Deck Citadel <br>
     <small class="text-muted text-center">
         The social media platform for card enthusiasts.

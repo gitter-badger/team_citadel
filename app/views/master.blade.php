@@ -81,6 +81,11 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
+<!-- NYAN -->
+<!-- <marquee direction="right">
+<img src="http://cdn.nyanit.com/nyan2.gif" alt="">
+</marquee> -->
+
 <div class="container-fluid">
     <div class="col-md-10 col-md-offset-1">
         <div class="row">
