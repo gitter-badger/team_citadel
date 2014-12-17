@@ -34,7 +34,7 @@
                     {{ Form::label('image', 'Upload Image')}}
                     <input name="image" type="file" id="image" accept="image/*">
                 </div>
-                    {{ Form::submit( 'Update', array( 'class' => 'btn btn-custom btn-lg btn-block', 'id' => 'btn-signup' )) }}
+                    {{ Form::submit( 'Update', array( 'class' => 'btn btn-primary btn-lg btn-block', 'id' => 'btn-signup' )) }}
                 {{ Form::close() }}
             </div>
         </div>

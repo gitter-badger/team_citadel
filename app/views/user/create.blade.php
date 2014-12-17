@@ -34,7 +34,7 @@
                     <input name="image" type="file" id="image" accept="image/*">
                 </div>
 
-                {{ Form::submit( 'Register', ['class' => 'btn btn-custom btn-lg btn-block', 'id' => 'btn-signup' ]) }}
+                {{ Form::submit( 'Register', ['class' => 'btn btn-primary btn-lg btn-block', 'id' => 'btn-signup' ]) }}
             {{ Form::close() }}
         </div>
     </div>
