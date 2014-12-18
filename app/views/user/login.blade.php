@@ -11,7 +11,7 @@
                     {{ Form::text( 'username', $value = null, array('class' => 'form-control username-input', 'placeholder' => 'Username', 'id' => 'signup-username' )) }}
                 </div>
                 <div class="form-group has-feedback">
-                    {{ Form::password('password',  array('class' => 'form-control', 'placeholder' => 'Password', 'id' => 'signup-password')) }}
+                    {{ Form::password('password',  array('class' => 'form-control', 'placeholder' => 'Password', 'id' => 'reg-password')) }}
                 </div>
                     {{ Form::submit('Login', array( 'class' => 'btn btn-primary btn-lg btn-block', 'id' => 'btn-login' )) }}
                     <!-- Find the url that the user came from and use in route to redirect back to where they came from -->

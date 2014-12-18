@@ -43,4 +43,5 @@
 @section('scripts')
     @parent
     {{ HTML::script('js/validation.js') }}
+
 @stop
