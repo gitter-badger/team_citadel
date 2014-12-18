@@ -79,13 +79,13 @@ $(document).ready(function(){
         },
     });
 
-    $('div.img-wrap-decks').on('click', function () {
+    $('div.img-wrap-decks > icon').on('click', function () {
         $.ajax({
                 url: '/decks/dropcard',
                 type: 'get',
-                data: 'card=' + $(this).data('card') + '&deck=' + $(this).data('deck'),
+                data: 'card=' + $(this).parent().data('card') + '&deck=' + $(this).parent().data('deck'),
                 succes:
                     window.location.reload()
-            });
+        });
     });
 });
