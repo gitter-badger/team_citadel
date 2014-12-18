@@ -33,7 +33,8 @@ Route::group(['before' => 'auth'], function () {
     // Has Auth Filter
     Route::get('logout', function () {
         Auth::logout();
-        return Redirect::to('/')
+
+        return Redirect::back()
             ->with('message', 'You have logged out');
     });
 });
