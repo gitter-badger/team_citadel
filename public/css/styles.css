@@ -98,6 +98,16 @@ html {
     margin-top: 5px;
 }
 
+.user-post-border {
+    margin: 5px;
+    border-bottom: 1px solid #dddddd;
+}
+
+.user-post-border img {
+    padding-bottom: 10px;
+}
+
+
 #welcome-jumbotron {
     background-color: #FFF;
 }
@@ -413,3 +423,11 @@ img.image-responsive.center-block {
     text-align: justify;
 }
 
+.user-deck-title {
+    text-decoration: none !important;
+}
+
+.profile-img {
+    max-height:  200px;
+    max-width: 200px;
+}

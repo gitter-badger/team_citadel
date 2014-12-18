@@ -61,4 +61,13 @@ class User extends Pichkrement\Messenger\Models\User  implements UserInterface, 
     {
         return $this->hasMany('Comment');
     }
+
+    public function getImageAttribute() 
+    {
+        if (file_exists(public_path() . '/images/users/' . $this->id .'.jpeg')) {
+            return '/images/users/' . $this->id .'.jpeg';
+        } else {
+            return 'http://www.pclodge.com/wp-content/uploads/2014/08/placeholder.png';        
+        }
+    }
 }
