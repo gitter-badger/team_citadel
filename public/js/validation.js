@@ -6,7 +6,7 @@
 			var target = $(e.target);
 			var str = target.val();
 			// If values in input does not match the regular expression highlight input box
-			if (!str.match(/^[A-Za-z0-9!@#$%^&*()_]{6,20}$/)) {
+			if (!str.match(/^[A-Za-z0-9!@#$%^&*()_]{2,20}$/)) {
 				target.parent().addClass("has-error");
 			} else {
 				target.parent().removeClass('has-error');
@@ -33,7 +33,7 @@
 			}
 		}, 1);
 	});
-	
+
 	// When login button is clicked
 	$('#btn-login').on('click', function(e) {
 		var $username = $('#signup-username');
@@ -60,7 +60,7 @@
 			e.preventDefault();
 		} else if (!$regLastName.val().match(/^[a-zA-Z0-9\-]+$/)) {
 			e.preventDefault();
-		} else if (!$regUsername.val().match(/^[a-zA-Z0-9\-]+$/)) { 
+		} else if (!$regUsername.val().match(/^[a-zA-Z0-9\-]+$/)) {
 			e.preventDefault();
 		} else if (!$regPassword.val().match(/^[A-Za-z0-9!@#$%^&*()_]{6,20}$/)) {
 			e.preventDefault();
@@ -69,5 +69,5 @@
 		}
 	});
 
-	
+
 });
