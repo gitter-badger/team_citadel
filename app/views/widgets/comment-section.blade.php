@@ -28,6 +28,8 @@
 <div class="row">
     <div class="col-md-12">
         <table class="table table-striped" id="comment-table">
+            <tbody>
+
             @foreach($comments as $comment)
                 <tr>
                     <td>
@@ -39,6 +41,7 @@
                     </td>
                 </tr>
             @endforeach
+            </tbody>
         </table>
     </div>
 </div>
