@@ -152,7 +152,9 @@
                                 <td>{{{ $user->location }}}</td>
                             </tr>
                         </table>
-                        <a href="{{ route('edit.user', Auth::user()->username) }}" class="btn btn-primary btn-lg btn-block"> Edit</a>
+                        @if(Auth::check() && Auth::user()->id == $user->id)
+                            <a href="{{ route('edit.user', Auth::user()->username) }}" class="btn btn-primary btn-lg btn-block"> Edit</a>
+                        @endif
                     </div>
                 </div>
             </div>
