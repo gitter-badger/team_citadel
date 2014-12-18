@@ -39,7 +39,6 @@
         </div>
     </div>
 @stop
-
 @section('scripts')
     @parent
     {{ HTML::script('js/validation.js') }}
