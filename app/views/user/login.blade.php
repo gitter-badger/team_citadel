@@ -14,6 +14,8 @@
                     {{ Form::password('password',  array('class' => 'form-control', 'placeholder' => 'Password', 'id' => 'signup-password')) }}
                 </div>
                     {{ Form::submit('Login', array( 'class' => 'btn btn-primary btn-lg btn-block', 'id' => 'btn-login' )) }}
+                    <!-- Find the url that the user came from and use in route to redirect back to where they came from -->
+                    {{ Form::hidden('redirectTo', URL::previous()) }}
                 {{ Form::close() }}
                 <a href="{{{ route('user.create') }}}" class="signup">Not registered? Sign up!</a>
                 <a href="{{ route('password.remind') }}" class="signup">Forgotten password? Password reminder!</a>
