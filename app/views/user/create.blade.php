@@ -39,8 +39,7 @@
         </div>
     </div>
 @stop
-@sect
-ion('scripts')
+@section('scripts')
     @parent
     {{ HTML::script('js/validation.js') }}
 @stop

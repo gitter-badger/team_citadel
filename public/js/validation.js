@@ -6,7 +6,7 @@
 			var target = $(e.target);
 			var str = target.val();
 			// If values in input does not match the regular expression highlight input box
-			if (!str.match(/^[A-Za-z0-9!@#$%^&*()_]{6,20}$/)) {
+			if (!str.match(/^[a-zA-Z0-9\-]+$/)) {
 				target.parent().addClass("has-error");
 			} else {
 				target.parent().removeClass('has-error');
@@ -17,6 +17,23 @@
 		}, 1);
 	});
 	// Check signup email input form on key change
+	$('#reg-password').on("propertychange keyup input paste", function(e) {
+		e.target;
+		setTimeout(function() {
+			var target = $(e.target);
+			var str = target.val();
+			// If values in email does not match the regular expression highlight input box
+			if (!str.match(/^[A-Za-z0-9!@#$%^&*()_]{6,20}$/)) {
+				target.parent().addClass("has-error");
+			} else {
+				target.parent().removeClass('has-error')
+			}
+			if (str == ''){
+				target.parent().removeClass('has-error');
+			}
+		}, 1);
+	});
+
 	$('#signup-email').on("propertychange keyup input paste", function(e) {
 		e.target;
 		setTimeout(function() {
@@ -33,7 +50,7 @@
 			}
 		}, 1);
 	});
-	
+
 	// When login button is clicked
 	$('#btn-login').on('click', function(e) {
 		var $username = $('#signup-username');
