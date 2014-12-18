@@ -33,7 +33,8 @@ Route::group(['before' => 'auth'], function () {
     // Has Auth Filter
     Route::get('logout', function () {
         Auth::logout();
-        return Redirect::to('/')
+
+        return Redirect::back()
             ->with('message', 'You have logged out');
     });
 });
@@ -219,7 +220,9 @@ Route::get('user/{username}/edit', [
 
 Route::post('login', function () {
     if (Auth::attempt(Input::only('username', 'password'))) {
-        return Redirect::to('/');
+        // get this from the input from the hidden field in user.login
+        $redirectTo = Input::get('redirectTo');
+        return Redirect::to($redirectTo);
     } else {
         return Redirect::route('login')
             ->withInput()

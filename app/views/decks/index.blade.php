@@ -2,7 +2,12 @@
 
 @section('header')
     <div class="text-center">
-        <h2>Recent Decks</h2>
+        <h2>
+            Recent Decks
+            @if(Auth::check())
+                {{ link_to_route('deck.create', 'Create your deck', null, ['class' => 'btn btn-primary btn-sm pull-right']) }}
+            @endif
+        </h2>
     </div>
 @stop
 

@@ -4,17 +4,16 @@
     <h2 class="text-center">
         {{{ ucwords($deck->title) }}}
         @if(Auth::check() && Auth::id() == $deck->user->id)
-            <small>
-                <icon class="glyphicon glyphicon-edit"></icon>
-                {{ link_to_route('deck.edit', 'edit', [$deck->id]) }}
-            </small>
+            {{ link_to_route('deck.edit', 'Edit', [$deck->id], ['class' => 'btn btn-default btn-sm']) }}
         @endif
     </h2>
+    <div class="text-center">
+        {{{ $deck->description }}}
+    </div>
 @stop
 
 @section('content')
     {{ Form::open(['route' => ['addCard', $deck->id]]) }}
-
         <div class="row">
             @foreach($deck->cards as $card)
                 <div class='col-sm-2 col-xs-12'>
@@ -98,7 +97,6 @@
 
                         $(newComment).prependTo('#comment-table > tbody');
                         $('#comment-form-comment').val('')
-
                     }
                 }
             });
