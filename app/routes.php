@@ -154,8 +154,6 @@ Route::get('username/reset', array(
     'uses' => 'PasswordController@usernameRemind'
 ));
 
-Route::resource('user', 'UsersController');
-
 Route::get('{gameName}/{seriesId}/{seriesName}/{id}/{cardName?}', [
     'as' => 'aCard.show',
     'uses' => 'CardController@show'
@@ -212,6 +210,7 @@ Route::resource('card', 'CardController');
 Route::resource('game', 'GameController');
 Route::resource('rating', 'RatingController');
 Route::resource('comment', 'CommentController');
+Route::resource('user', 'UsersController');
 
 Route::get('user/{username}/edit', [
     'as' => 'edit.user',
