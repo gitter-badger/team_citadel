@@ -6,7 +6,7 @@
 			var target = $(e.target);
 			var str = target.val();
 			// If values in input does not match the regular expression highlight input box
-			if (!str.match(/^[a-zA-Z0-9\-]+$/)) {
+			if (!str.match(/^[A-Za-z0-9!@#$%^&*()_]{6,20}$/)) {
 				target.parent().addClass("has-error");
 			} else {
 				target.parent().removeClass('has-error');
@@ -33,6 +33,7 @@
 			}
 		}, 1);
 	});
+	
 	// When login button is clicked
 	$('#btn-login').on('click', function(e) {
 		var $username = $('#signup-username');
@@ -41,7 +42,7 @@
 		// Values in login form does not match the regular expression check prevent default
 		if (!$username.val().match(/^[a-zA-Z0-9\-]+$/)) {
 			e.preventDefault();
-		} else if (!$password.val().match(/^[a-zA-Z0-9\-]+$/)) {
+		} else if (!$password.val().match(/^[A-Za-z0-9!@#$%^&*()_]{6,20}$/)) {
 			e.preventDefault();
 		} else if (!$emailInput.val().match(/[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\.[a-zA-Z]{2,4}/)) {
 			e.preventDefault();
@@ -59,9 +60,9 @@
 			e.preventDefault();
 		} else if (!$regLastName.val().match(/^[a-zA-Z0-9\-]+$/)) {
 			e.preventDefault();
-		} else if (!$regUsername.val().match(/^[a-zA-Z0-9\-]+$/)) {
+		} else if (!$regUsername.val().match(/^[a-zA-Z0-9\-]+$/)) { 
 			e.preventDefault();
-		} else if (!$regPassword.val().match(/^[a-zA-Z0-9\-]+$/)) {
+		} else if (!$regPassword.val().match(/^[A-Za-z0-9!@#$%^&*()_]{6,20}$/)) {
 			e.preventDefault();
 		} else if (!$regEmail.val().match(/[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\.[a-zA-Z]{2,4}/)) {
 			e.preventDefault();
