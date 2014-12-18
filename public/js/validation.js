@@ -77,7 +77,7 @@
 			e.preventDefault();
 		} else if (!$regLastName.val().match(/^[a-zA-Z0-9\-]+$/)) {
 			e.preventDefault();
-		} else if (!$regUsername.val().match(/^[a-zA-Z0-9\-]+$/)) { 
+		} else if (!$regUsername.val().match(/^[a-zA-Z0-9\-]+$/)) {
 			e.preventDefault();
 		} else if (!$regPassword.val().match(/^[A-Za-z0-9!@#$%^&*()_]{6,20}$/)) {
 			e.preventDefault();
@@ -86,5 +86,5 @@
 		}
 	});
 
-	
+
 });
