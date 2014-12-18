@@ -410,7 +410,6 @@ img.image-responsive.center-block {
 .deck-description-text {
     max-width: 300px;
     max-height: 110px;
-    overflow: scroll;
     text-align: justify;
 }
 
