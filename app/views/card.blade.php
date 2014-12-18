@@ -52,7 +52,7 @@
                 <div class="panel-heading">
                     <label>Card Text/ Abilities</label>
                 </div>
-                <div class="panel-body">
+                <div class="panel-body" id="card-text">
                     {{{ $card->attributes->find(6)->pivot->value }}}
                 </div>
             </div>
@@ -120,7 +120,10 @@
         var previousUserRatings = {{ json_encode($previousUserRatings) }};
         var hasRatedPreviously = true;
 
-        // TODO: if they rate 5 stars, does not display the stars
+        // correctly format the Card Text/ Abilities
+        var text = $('#card-text').html();
+        $('#card-text').html(text.replace('.[', '. <br>['));
+
         $.each(previousUserRatings, function(key, value) {
             // If they have rated the card before
             if(value != null) {
