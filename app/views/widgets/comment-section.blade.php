@@ -1,8 +1,5 @@
 @if(Auth::check())
     <div class="well">
-@else
-    <div class="well disabled">
-@endif
     <!-- Create new comment section -->
     <div class="row">
         <div class="col-md-12">
@@ -23,6 +20,9 @@
         </div>
     </div>
 </div>
+@else
+<h4>You must be logged in to comment</h4>
+@endif
 
 <!-- show all comments -->
 <div class="row">

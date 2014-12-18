@@ -97,7 +97,6 @@
 
                         $(newComment).prependTo('#comment-table > tbody');
                         $('#comment-form-comment').val('')
-
                     }
                 }
             });
